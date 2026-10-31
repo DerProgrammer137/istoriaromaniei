@@ -218,6 +218,26 @@ img{max-width:100%}
 .theme-btn:hover{border-color:var(--rosu)}
 .theme-btn:focus-visible{outline:2px solid var(--rosu);outline-offset:2px}
 .theme-btn svg{width:18px;height:18px;flex:none}
+
+/* harta pe perioade */
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:3px;overflow:hidden;width:fit-content;max-width:100%}
+.seg button{all:unset;cursor:pointer;padding:6px 12px;font-size:.9rem}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--card)}
+.seg button:focus-visible{outline:2px solid var(--rosu);outline-offset:-2px}
+.period{display:grid;gap:10px}
+.period-nav{display:flex;gap:6px;align-items:center}
+.period-nav select{flex:1;min-width:0}
+.step{all:unset;cursor:pointer;width:34px;height:38px;display:grid;place-items:center;border:1px solid var(--line);border-radius:3px;background:var(--card);font-size:1rem}
+.step:hover{border-color:var(--rosu)}
+.step:focus-visible{outline:2px solid var(--rosu)}
+.step:disabled{opacity:.35;cursor:default}
+.snap{font-family:var(--f-display);font-size:1.05rem;margin:0}
+.pol-legend{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.92rem}
+.pol-legend li{display:grid;grid-template-columns:14px 1fr;gap:2px 8px;align-items:start}
+.pol-legend i{width:14px;height:14px;border-radius:2px;margin-top:4px}
+.pol-legend small{grid-column:2;color:var(--ink-2);font-size:.82rem}
+.period-note{margin:0;font-size:.88rem;color:var(--ink-2)}
 </style>
 <script>
 (function(){
@@ -274,8 +294,20 @@ img{max-width:100%}
 <div class="wrap lib">
   <aside class="mapbox" aria-labelledby="map-h">
     <div class="brau" aria-hidden="true"><div class="mo mo-teeth"></div></div><div class="sec-head" style="margin:0"><h2 id="map-h">Harta regiunilor</h2></div>
+    <div class="seg" role="group" aria-label="Tipul hărții"><button type="button" id="mode-now" aria-pressed="true">Harta actuală</button><button type="button" id="mode-period" aria-pressed="false">Pe perioade</button></div>
     <svg id="map" viewBox="0 0 630 450" role="group" aria-label="Harta provinciilor istorice ale României"></svg>
-    <div class="legend"><span>puține</span><i></i><span>multe videoclipuri</span></div>
+    <div class="legend" id="count-legend"><span>puține</span><i></i><span>multe videoclipuri</span></div>
+    <div class="period" id="period" hidden>
+      <div class="period-nav">
+        <button class="step" type="button" id="per-prev" aria-label="Perioada anterioară">‹</button>
+        <select id="per-select" aria-label="Perioada afișată pe hartă"></select>
+        <button class="step" type="button" id="per-next" aria-label="Perioada următoare">›</button>
+      </div>
+      <p class="snap" id="per-snap"></p>
+      <ul class="pol-legend" id="pol-legend"></ul>
+      <p class="period-note" id="per-note"></p>
+      <p class="period-note">Hartă schematică: fiecare provincie actuală e colorată după statul care o stăpânea în cea mai mare parte.</p>
+    </div>
     <ul class="reg-list" id="reg-list"></ul>
   </aside>
 
@@ -429,7 +461,7 @@ ERAS.forEach(e => {
     d.addEventListener('pointerleave', hideTip); d.addEventListener('blur', hideTip);
     lanes.appendChild(d); dotEls.push({el:d, v});
   });
-  col.querySelector('.era-head').addEventListener('click', ()=>{ state.era = state.era===e.id ? null : e.id; render(); });
+  col.querySelector('.era-head').addEventListener('click', ()=>{ state.era = state.era===e.id ? null : e.id; if (state.era) mapEra = state.era; render(); });
   track.appendChild(col); eraEls[e.id] = col;
 });
 function showTip(d,v){
@@ -487,6 +519,75 @@ const regBtns = {};
   li.appendChild(b); regList.appendChild(li); regBtns[r.id]=b;
 });
 
+
+/* ---------- harta pe perioade ---------- */
+const POLITIES = {
+  getodaci:{name:'Triburi geto-dace', c:'#A2412F'},
+  greci:{name:'Geți și colonii grecești', c:'#3A7CA5'},
+  regatdac:{name:'Regatul dac al lui Decebal', c:'#B01E28'},
+  dacilib:{name:'Daci liberi și alte triburi', c:'#C98A6E'},
+  roman:{name:'Imperiul Roman', c:'#9A7430'},
+  ungaria:{name:'Regatul Ungariei', c:'#3E5C94'},
+  cnezate:{name:'Cnezate românești, sub dominație tătară', c:'#C46A50'},
+  bulgar:{name:'Țaratul Bulgar', c:'#6B4C8A'},
+  tararom:{name:'Țara Românească', c:'#B01E28'},
+  moldovast:{name:'Principatul Moldovei', c:'#7E3046'},
+  transprinc:{name:'Principatul Transilvaniei', c:'#C08A2A'},
+  otoman:{name:'Imperiul Otoman', c:'#2F7A6A'},
+  principate:{name:'Principatele Unite (România)', c:'#B01E28'},
+  habsburg:{name:'Imperiul Habsburgic', c:'#3E5C94'},
+  austroungaria:{name:'Austro-Ungaria', c:'#3E5C94'},
+  romania:{name:'România', c:'#B01E28'}
+};
+const ALL_RO = {maramures:'romania',crisana:'romania',banat:'romania',transilvania:'romania',bucovina:'romania',moldova:'romania',oltenia:'romania',muntenia:'romania',dobrogea:'romania'};
+const PERIODS = {
+  'antichitate':{snap:'În jurul anului 500 î.Hr.', map:{maramures:'getodaci',crisana:'getodaci',banat:'getodaci',transilvania:'getodaci',bucovina:'getodaci',moldova:'getodaci',oltenia:'getodaci',muntenia:'getodaci',dobrogea:'greci'}, note:'Pe țărmul Mării Negre, grecii au întemeiat Histria, Tomis și Callatis.'},
+  'regatul-dac':{snap:'În jurul anului 100, sub Decebal', map:{maramures:'dacilib',crisana:'dacilib',banat:'regatdac',transilvania:'regatdac',bucovina:'dacilib',moldova:'dacilib',oltenia:'regatdac',muntenia:'dacilib',dobrogea:'roman'}, note:'Sub Burebista (sec. I î.Hr.) regatul dac cuprindea aproape tot teritoriul. Dobrogea a intrat în Imperiul Roman în anul 46.'},
+  'dacia-romana':{snap:'În jurul anului 150', map:{maramures:'dacilib',crisana:'dacilib',banat:'roman',transilvania:'roman',bucovina:'dacilib',moldova:'dacilib',oltenia:'roman',muntenia:'dacilib',dobrogea:'roman'}, note:'Provincia Dacia cuprindea Transilvania, Banatul și Oltenia; Dobrogea făcea parte din Moesia Inferior.'},
+  'migratii':{snap:'În jurul anului 1250', map:{maramures:'ungaria',crisana:'ungaria',banat:'ungaria',transilvania:'ungaria',bucovina:'cnezate',moldova:'cnezate',oltenia:'cnezate',muntenia:'cnezate',dobrogea:'bulgar'}, note:'O perioadă lungă și schimbătoare: harta arată situația de după marea invazie tătară din 1241.'},
+  'intemeiere':{snap:'În jurul anului 1400, sub Mircea cel Bătrân', map:{maramures:'ungaria',crisana:'ungaria',banat:'ungaria',transilvania:'ungaria',bucovina:'moldovast',moldova:'moldovast',oltenia:'tararom',muntenia:'tararom',dobrogea:'tararom'}, note:'Transilvania era voievodat în Regatul Ungariei. Dobrogea a fost cucerită de otomani în 1417.'},
+  'intre-imperii':{snap:'În jurul anului 1650', map:{maramures:'transprinc',crisana:'transprinc',banat:'otoman',transilvania:'transprinc',bucovina:'moldovast',moldova:'moldovast',oltenia:'tararom',muntenia:'tararom',dobrogea:'otoman'}, note:'Cele trei principate plăteau tribut Imperiului Otoman. Ulterior trec la Habsburgi: Transilvania (1699), Banatul (1718), Bucovina (1775).'},
+  'renastere':{snap:'În jurul anului 1860, după Mica Unire', map:{maramures:'habsburg',crisana:'habsburg',banat:'habsburg',transilvania:'habsburg',bucovina:'habsburg',moldova:'principate',oltenia:'principate',muntenia:'principate',dobrogea:'otoman'}, note:'În 1859, Moldova și Țara Românească s-au unit sub Alexandru Ioan Cuza.'},
+  'vechiul-regat':{snap:'În jurul anului 1900', map:{maramures:'austroungaria',crisana:'austroungaria',banat:'austroungaria',transilvania:'austroungaria',bucovina:'austroungaria',moldova:'romania',oltenia:'romania',muntenia:'romania',dobrogea:'romania'}, note:'Dobrogea a intrat în componența României în 1878, după Războiul de Independență.'},
+  'romania-mare':{snap:'Între 1918 și 1940', map:ALL_RO, note:'România Mare cuprindea și Basarabia, toată Bucovina și Cadrilaterul, în afara acestei hărți. Între 1940 și 1944, nordul Transilvaniei a fost ocupat de Ungaria.'},
+  'comunism':{snap:'Între 1947 și 1989', map:ALL_RO, note:'Republica Populară Română din 1947, Republica Socialistă România din 1965.'},
+  'dupa-1989':{snap:'Din 1990 până azi', map:ALL_RO, note:'Membră NATO din 2004 și a Uniunii Europene din 2007.'}
+};
+let mapMode = 'now', mapEra = 'intemeiere';
+const polFill = pol => `color-mix(in oklab, ${pol.c} 72%, var(--linen-2))`;
+const polityOf = rid => POLITIES[(PERIODS[mapEra]||{map:{}}).map[rid]];
+const perSel = document.getElementById('per-select');
+ERAS.forEach(e => { const o = document.createElement('option'); o.value = e.id; o.textContent = `${e.name} (${fmtYear(e.start)} – ${e.end>2026 ? 'azi' : fmtYear(e.end)})`; perSel.appendChild(o); });
+function setMapEra(id){ mapEra = id; state.era = id; render(); }
+perSel.addEventListener('change', () => setMapEra(perSel.value));
+document.getElementById('per-prev').addEventListener('click', () => { const i = ERAS.findIndex(e=>e.id===mapEra); if (i>0) setMapEra(ERAS[i-1].id); });
+document.getElementById('per-next').addEventListener('click', () => { const i = ERAS.findIndex(e=>e.id===mapEra); if (i<ERAS.length-1) setMapEra(ERAS[i+1].id); });
+function setMode(m){
+  mapMode = m;
+  if (m==='period' && state.era) mapEra = state.era;
+  document.getElementById('mode-now').setAttribute('aria-pressed', m==='now');
+  document.getElementById('mode-period').setAttribute('aria-pressed', m==='period');
+  render();
+}
+document.getElementById('mode-now').addEventListener('click', () => setMode('now'));
+document.getElementById('mode-period').addEventListener('click', () => setMode('period'));
+function renderPeriod(){
+  const on = mapMode==='period';
+  document.getElementById('period').hidden = !on;
+  document.getElementById('count-legend').hidden = on;
+  if (!on) return;
+  const P = PERIODS[mapEra], i = ERAS.findIndex(e=>e.id===mapEra);
+  perSel.value = mapEra;
+  document.getElementById('per-prev').disabled = i<=0;
+  document.getElementById('per-next').disabled = i>=ERAS.length-1;
+  document.getElementById('per-snap').textContent = P.snap;
+  document.getElementById('per-note').textContent = P.note;
+  const groups = {};
+  REGIONS.forEach(r => { const k = P.map[r.id]; (groups[k] = groups[k] || []).push(r.name); });
+  document.getElementById('pol-legend').innerHTML = Object.entries(groups).map(([k, names]) =>
+    `<li><i style="background:${polFill(POLITIES[k])}"></i><span>${esc(POLITIES[k].name)}</span><small>${esc(names.join(', '))}</small></li>`).join('');
+}
+
 /* ---------- categories & controls ---------- */
 const catsEl = document.getElementById('cats');
 const catBtns = {};
@@ -527,12 +628,14 @@ function render(){
   REGIONS.forEach(r=>{
     const {p,t} = pathEls[r.id]; const n = counts[r.id];
     const pct = n ? Math.round(16 + 74*(n/max)) : 0;
-    p.style.fill = n ? `color-mix(in oklab, var(--rosu) ${pct}%, var(--linen-2))` : 'var(--linen-2)';
+    const pol = mapMode==='period' ? polityOf(r.id) : null;
+    p.style.fill = pol ? polFill(pol) : (n ? `color-mix(in oklab, var(--rosu) ${pct}%, var(--linen-2))` : 'var(--linen-2)');
     p.classList.toggle('sel', state.region===r.id);
     p.setAttribute('aria-pressed', state.region===r.id);
-    p.setAttribute('aria-label', `${r.name}: ${plural(n)}`);
-    t.textContent = `${r.name} · ${plural(n)}`;
+    p.setAttribute('aria-label', pol ? `${r.name}, ${pol.name}: ${plural(n)}` : `${r.name}: ${plural(n)}`);
+    t.textContent = pol ? `${r.name} · ${pol.name} · ${plural(n)}` : `${r.name} · ${plural(n)}`;
   });
+  renderPeriod();
   const selP = state.region && pathEls[state.region] ? pathEls[state.region].p : null;
   [selHalo, selLine].forEach(e=>{ if (selP){ e.setAttribute('d', selP.getAttribute('d')); e.style.display=''; } else e.style.display='none'; });
   Object.entries(regBtns).forEach(([id,b])=>{ b.lastChild.textContent = counts[id]; b.setAttribute('aria-pressed', state.region===id); });
