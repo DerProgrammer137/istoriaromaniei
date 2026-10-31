@@ -1,0 +1,61 @@
+name: Actualizează și publică site-ul
+
+on:
+  schedule:
+    - cron: "17 4 * * *"   # zilnic, în jur de 6–7 dimineața, ora României
+  workflow_dispatch:         # buton „Run workflow” în tab-ul Actions
+  push:
+    branches: [main]         # publică imediat orice modificare făcută de tine
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: actualizare-site
+  cancel-in-progress: false
+
+jobs:
+  actualizare:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Preia videoclipurile de pe YouTube
+        if: github.event_name != 'push'
+        run: node scripts/update.mjs
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CHANNEL: ${{ vars.CHANNEL }}
+          CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
+
+      - name: Salvează lista actualizată
+        if: github.event_name != 'push'
+        run: |
+          git add site/data/videos.json config/clasificari-ai.json
+          if git diff --cached --quiet; then
+            echo "Nicio schimbare de salvat."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Actualizare automată a videoclipurilor"
+          git push
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

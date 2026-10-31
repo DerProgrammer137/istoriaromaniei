@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Biblioteca Istoriei Românești">
+<meta property="og:description" content="Istoria României pe cronologie și pe hartă, în videoclipuri.">
+<title>Biblioteca Istoriei Românești</title>
+<meta name="description" content="Arhiva video a canalului: istoria României pe cronologie și pe hartă.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Alegreya+Sans+SC:wght@500;700&display=swap">
+<style>
+/* Layout: o pagină ca o ie. Brâu cusut sus, titlu pe pânză albă, cronologia ca un rând de altiță,
+   apoi „camera de lectură”: harta provinciilor (stânga) și raftul cu videoclipuri ca scoarțe țesute (dreapta). */
+:root{
+  --linen:#F4F3EF;      /* pânză de ie */
+  --linen-2:#E7E3DB;
+  --card:#FBFAF7;
+  --ink:#1C1816;        /* negru de broderie */
+  --ink-2:#5F574F;
+  --line:#D8D1C6;
+  --rosu:#AE1F28;       /* roșu de ie: singurul accent puternic */
+  --indigo:#2B3F6B;
+  --on-pig:#F5EEE3;
+  --f-display:"Marcellus","Trajan Pro","Palatino Linotype",Palatino,Georgia,serif;
+  --f-body:"Alegreya Sans","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-label:"Alegreya Sans SC","Alegreya Sans","Segoe UI",Arial,sans-serif;
+  /* culori de scoarță (vopsele naturale), la fel în ambele teme */
+  --e1:#4E3324; --e2:#7A2622; --e3:#86601F; --e4:#3F4A35; --e5:#26375E; --e6:#5A2840;
+  --e7:#2D5A4C; --e8:#6B3F1E; --e9:#8E1F24; --e10:#3A3839; --e11:#274E73;
+  --m-teeth:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath d='M0 0h3v3h-3zM3 0h3v3h-3zM6 0h3v3h-3zM9 0h3v3h-3zM12 0h3v3h-3zM15 0h3v3h-3zM18 0h3v3h-3zM3 3h3v3h-3zM6 3h3v3h-3zM9 3h3v3h-3zM12 3h3v3h-3zM15 3h3v3h-3zM6 6h3v3h-3zM9 6h3v3h-3zM12 6h3v3h-3zM9 9h3v3h-3z'/%3E%3C/svg%3E"); /* 24x12 */
+  --m-teethup:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath d='M0 9h3v3h-3zM3 9h3v3h-3zM6 9h3v3h-3zM9 9h3v3h-3zM12 9h3v3h-3zM15 9h3v3h-3zM18 9h3v3h-3zM3 6h3v3h-3zM6 6h3v3h-3zM9 6h3v3h-3zM12 6h3v3h-3zM15 6h3v3h-3zM6 3h3v3h-3zM9 3h3v3h-3zM12 3h3v3h-3zM9 0h3v3h-3z'/%3E%3C/svg%3E"); /* 24x12 */
+  --m-romb:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='33'%3E%3Cpath d='M0 15h3v3h-3zM6 12h3v3h-3zM6 15h3v3h-3zM9 12h3v3h-3zM9 18h3v3h-3zM12 9h3v3h-3zM12 21h3v3h-3zM15 6h3v3h-3zM15 15h3v3h-3zM15 24h3v3h-3zM18 0h3v3h-3zM18 3h3v3h-3zM18 12h3v3h-3zM18 18h3v3h-3zM18 27h3v3h-3zM21 0h3v3h-3zM21 9h3v3h-3zM21 15h3v3h-3zM21 21h3v3h-3zM21 30h3v3h-3zM24 3h3v3h-3zM24 12h3v3h-3zM24 18h3v3h-3zM24 27h3v3h-3zM24 30h3v3h-3zM27 6h3v3h-3zM27 15h3v3h-3zM27 24h3v3h-3zM30 9h3v3h-3zM30 21h3v3h-3zM33 12h3v3h-3zM33 18h3v3h-3zM36 15h3v3h-3zM36 18h3v3h-3zM39 15h3v3h-3z'/%3E%3C/svg%3E"); /* 42x33 */
+  --m-stea:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='39' height='39'%3E%3Cpath d='M6 6h3v3h-3zM6 18h3v3h-3zM6 30h3v3h-3zM9 9h3v3h-3zM9 18h3v3h-3zM9 27h3v3h-3zM12 12h3v3h-3zM12 18h3v3h-3zM12 24h3v3h-3zM15 18h3v3h-3zM18 6h3v3h-3zM18 9h3v3h-3zM18 12h3v3h-3zM18 15h3v3h-3zM18 18h3v3h-3zM18 21h3v3h-3zM18 24h3v3h-3zM18 27h3v3h-3zM18 30h3v3h-3zM21 18h3v3h-3zM24 12h3v3h-3zM24 18h3v3h-3zM24 24h3v3h-3zM27 9h3v3h-3zM27 18h3v3h-3zM27 27h3v3h-3zM30 6h3v3h-3zM30 18h3v3h-3zM30 30h3v3h-3z'/%3E%3C/svg%3E"); /* 39x39 */
+  --m-pom:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='39' height='36'%3E%3Cpath d='M18 3h3v3h-3zM15 6h3v3h-3zM18 6h3v3h-3zM21 6h3v3h-3zM12 9h3v3h-3zM18 9h3v3h-3zM24 9h3v3h-3zM9 12h3v3h-3zM15 12h3v3h-3zM18 12h3v3h-3zM21 12h3v3h-3zM27 12h3v3h-3zM18 15h3v3h-3zM12 18h3v3h-3zM15 18h3v3h-3zM18 18h3v3h-3zM21 18h3v3h-3zM24 18h3v3h-3zM9 21h3v3h-3zM18 21h3v3h-3zM27 21h3v3h-3zM18 24h3v3h-3zM15 27h3v3h-3zM18 27h3v3h-3zM21 27h3v3h-3zM12 30h3v3h-3zM15 30h3v3h-3zM18 30h3v3h-3zM21 30h3v3h-3zM24 30h3v3h-3z'/%3E%3C/svg%3E"); /* 39x36 */
+  --m-carlig:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='39' height='39'%3E%3Cpath d='M9 9h3v3h-3zM12 9h3v3h-3zM15 9h3v3h-3zM18 9h3v3h-3zM21 9h3v3h-3zM24 9h3v3h-3zM9 12h3v3h-3zM24 12h3v3h-3zM9 15h3v3h-3zM15 15h3v3h-3zM18 15h3v3h-3zM24 15h3v3h-3zM9 18h3v3h-3zM15 18h3v3h-3zM24 18h3v3h-3zM9 21h3v3h-3zM15 21h3v3h-3zM18 21h3v3h-3zM21 21h3v3h-3zM24 21h3v3h-3zM9 24h3v3h-3zM9 27h3v3h-3zM12 27h3v3h-3zM15 27h3v3h-3zM18 27h3v3h-3zM21 27h3v3h-3zM24 27h3v3h-3zM27 27h3v3h-3z'/%3E%3C/svg%3E"); /* 39x39 */
+  --m-rombmic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='39' height='39'%3E%3Cpath d='M9 18h3v3h-3zM12 15h3v3h-3zM12 21h3v3h-3zM15 12h3v3h-3zM15 24h3v3h-3zM18 9h3v3h-3zM18 18h3v3h-3zM18 27h3v3h-3zM21 12h3v3h-3zM21 24h3v3h-3zM24 15h3v3h-3zM24 21h3v3h-3zM27 18h3v3h-3z'/%3E%3C/svg%3E"); /* 39x39 */
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --linen:#16110F; --linen-2:#251E1A; --card:#1E1815; --ink:#EFE8DF; --ink-2:#B2A699;
+    --line:#3A302A; --rosu:#E5524A; --indigo:#8FA4D6; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --linen:#16110F; --linen-2:#251E1A; --card:#1E1815; --ink:#EFE8DF; --ink-2:#B2A699;
+  --line:#3A302A; --rosu:#E5524A; --indigo:#8FA4D6; color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{background:var(--linen);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:.01em}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--rosu);outline-offset:2px}
+.label{font-family:var(--f-label);font-weight:500;letter-spacing:.06em;font-size:.86rem;color:var(--ink-2)}
+
+/* motive cusute: culoarea vine din background, forma din mască */
+.mo{-webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;-webkit-mask-position:center;mask-position:center}
+.mo-teeth{height:12px;background:var(--ink);-webkit-mask-image:var(--m-teeth);mask-image:var(--m-teeth)}
+.mo-teethup{height:12px;background:var(--ink);-webkit-mask-image:var(--m-teethup);mask-image:var(--m-teethup)}
+.mo-romb{height:33px;background:var(--rosu);-webkit-mask-image:var(--m-romb);mask-image:var(--m-romb)}
+.brau{display:grid;gap:5px;padding-block:12px;overflow:hidden}
+.brau.small{gap:4px;padding-block:8px}
+.brau.small .mo-romb{height:33px}
+.brau-line{height:2px;background:var(--ink)}
+
+/* header */
+header{border-bottom:1px solid var(--line)}
+header .wrap{padding-block:30px 30px;display:grid;gap:14px}
+.eyebrow{display:flex;align-items:center;gap:10px}
+.rozeta{width:26px;height:26px;flex:none;background:var(--rosu);-webkit-mask:var(--m-stea) center/26px 26px no-repeat;mask:var(--m-stea) center/26px 26px no-repeat}
+h1{font-size:clamp(2.2rem,5.6vw,3.8rem);line-height:1.04;max-width:16ch}
+h1 em{font-style:normal;color:var(--rosu)}
+.lede{max-width:60ch;margin:0;color:var(--ink-2);font-size:1.08rem}
+.meta{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;font-variant-numeric:tabular-nums}
+.meta b{font-family:var(--f-display);font-weight:400;font-size:1.35rem;color:var(--ink)}
+.sample{display:inline-flex;gap:8px;align-items:center;border:1px dashed var(--rosu);color:var(--rosu);border-radius:3px;padding:3px 10px;font-size:.9rem;width:fit-content}
+
+/* titluri de secțiune */
+.sec-head{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.sec-head h2{font-size:1.55rem;display:flex;align-items:center;gap:10px}
+.sec-head h2::before{content:"";width:18px;height:18px;flex:none;background:var(--rosu);-webkit-mask:var(--m-rombmic) center/18px 18px no-repeat;mask:var(--m-rombmic) center/18px 18px no-repeat}
+
+/* cronologie */
+.timeline{position:relative;padding-block:28px 28px}
+.tl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--card);scrollbar-width:thin}
+.tl-track{display:grid;grid-template-columns:repeat(11,minmax(118px,1fr));min-width:1298px}
+.era{border-right:1px dashed var(--line);display:grid;grid-template-rows:auto 92px}
+.era:last-child{border-right:0}
+.era-head{all:unset;cursor:pointer;display:grid;gap:2px;padding:20px 10px 8px;min-height:92px;align-content:start;position:relative}
+.era-head::before{content:"";position:absolute;left:0;right:0;top:0;height:12px;background:var(--p);-webkit-mask:var(--m-teeth) repeat-x left top/24px 12px;mask:var(--m-teeth) repeat-x left top/24px 12px}
+.era-head:hover{background:var(--linen)}
+.era-head:focus-visible{outline:2px solid var(--rosu);outline-offset:-2px}
+.era-head[aria-pressed="true"]{background:color-mix(in oklab,var(--rosu) 12%,var(--card))}
+.era-name{font-family:var(--f-display);font-size:1rem;line-height:1.15}
+.era-range{font-size:.8rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.era-count{font-size:.78rem;color:var(--ink-2)}
+.era.off .era-head{opacity:.45}
+.lanes{position:relative;margin:0 6px;background:linear-gradient(var(--line),var(--line)) 0 6px/100% 1px no-repeat}
+.dot{position:absolute;width:13px;height:13px;margin-left:-6.5px;border:0;padding:0;cursor:pointer;background:var(--rosu);transform:rotate(45deg);transition:transform .15s,opacity .15s;outline-offset:3px}
+.dot::after{content:"";position:absolute;inset:4px;background:var(--card)}
+.dot:hover,.dot:focus-visible{transform:rotate(45deg) scale(1.45);z-index:2}
+.dot.dim{opacity:.18}
+.tip{position:absolute;z-index:5;pointer-events:none;background:var(--ink);color:var(--linen);padding:6px 10px;border-radius:3px;font-size:.88rem;max-width:260px;line-height:1.3;transform:translate(-50%,calc(-100% - 12px))}
+.tip small{display:block;opacity:.75;font-variant-numeric:tabular-nums}
+
+/* biblioteca: hartă + raft */
+.lib{display:grid;gap:28px;padding-block:8px 48px}
+@media (min-width:900px){.lib{grid-template-columns:minmax(280px,370px) 1fr;align-items:start}.mapbox{position:sticky;top:16px}}
+.mapbox{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:0 16px 16px;display:grid;gap:12px;min-width:0;overflow:hidden}
+.mapbox .brau{margin:0 -16px;padding-block:0 4px}
+.mapbox .mo-teeth{background:var(--rosu)}
+.mapbox h2{font-size:1.35rem}
+.mapbox svg{width:100%;height:auto;display:block}
+#map,#map *{-webkit-tap-highlight-color:transparent}
+.reg{stroke:var(--card);stroke-width:1.6;stroke-linejoin:round;cursor:pointer;transition:filter .15s;outline:none}
+.reg:focus,.reg:focus-visible{outline:none}
+.reg:hover{filter:brightness(1.1)}
+.reg-ring{fill:none;stroke-linejoin:round;pointer-events:none}
+.reg-ring.sel-halo{stroke:var(--card);stroke-width:6}
+.reg-ring.sel-line{stroke:var(--ink);stroke-width:2.6}
+.reg-ring.focus-line{stroke:var(--rosu);stroke-width:2;stroke-dasharray:5 3}
+.reg-lbl{font-family:var(--f-label);font-weight:700;font-size:12.5px;letter-spacing:.05em;fill:var(--ink);pointer-events:none;paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-opacity:.6}
+.city circle{fill:var(--ink)}
+.city text{font-family:var(--f-body);font-style:italic;font-size:11px;fill:var(--ink-2);pointer-events:none;paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-opacity:.6}
+.sea{font-family:var(--f-body);font-style:italic;font-size:12px;fill:var(--indigo)}
+.reg-list{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;margin:0;padding:0;list-style:none}
+.reg-btn{all:unset;cursor:pointer;display:flex;justify-content:space-between;gap:8px;padding:4px 8px;border-radius:3px;font-size:.93rem}
+.reg-btn:hover{background:var(--linen)}
+.reg-btn:focus-visible{outline:2px solid var(--rosu)}
+.reg-btn[aria-pressed="true"]{background:var(--rosu);color:var(--card)}
+.reg-btn span:last-child{font-variant-numeric:tabular-nums;opacity:.7}
+.reg-list li.wide{grid-column:1/-1}
+.legend{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-2)}
+.legend i{flex:1;height:8px;border-radius:1px;background:linear-gradient(90deg,color-mix(in oklab,var(--rosu) 14%,var(--linen-2)),var(--rosu));max-width:120px}
+
+.shelf{display:grid;gap:16px;min-width:0}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.search{flex:1 1 240px;display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:3px;padding:0 12px;min-width:0}
+.search:focus-within{border-color:var(--rosu)}
+.search input{all:unset;flex:1;min-width:0;padding:10px 0;font-size:1rem}
+.search input::placeholder{color:var(--ink-2)}
+select{font:inherit;font-size:.95rem;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:3px;padding:9px 10px}
+.cats{display:flex;flex-wrap:wrap;gap:6px}
+.chip{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-size:.9rem;padding:4px 12px 4px 9px;border-radius:2px;border:1px solid var(--line);background:var(--card)}
+.chip::before{content:"";width:14px;height:14px;background:currentColor;-webkit-mask:var(--m) center/14px 14px no-repeat;mask:var(--m) center/14px 14px no-repeat;color:var(--rosu)}
+.chip:hover{border-color:var(--rosu)}
+.chip:focus-visible{outline:2px solid var(--rosu)}
+.chip[aria-pressed="true"]{background:var(--rosu);border-color:var(--rosu);color:var(--card)}
+.chip[aria-pressed="true"]::before{color:var(--card)}
+.status{display:flex;flex-wrap:wrap;gap:8px;align-items:center;min-height:30px}
+.count{font-family:var(--f-display);font-size:1.15rem;margin-right:6px}
+.active{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;background:var(--linen-2);border-radius:2px;padding:3px 4px 3px 10px}
+.active button{all:unset;cursor:pointer;width:20px;height:20px;display:grid;place-items:center;border-radius:2px}
+.active button:hover,.active button:focus-visible{background:var(--line)}
+.reset{all:unset;cursor:pointer;font-size:.88rem;color:var(--rosu);text-decoration:underline;text-underline-offset:3px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:20px}
+.card{all:unset;cursor:pointer;display:grid;grid-template-rows:auto 1fr;background:var(--card);border:1px solid var(--line);border-radius:3px;overflow:hidden;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-2px);border-color:var(--rosu)}
+.card:focus-visible{outline:2px solid var(--rosu);outline-offset:2px}
+/* miniatura ca o bucată de scoarță: fond vopsit, motivul temei țesut, colți de lup la margini */
+.thumb{position:relative;aspect-ratio:16/9;max-width:100%;background:var(--p);color:var(--on-pig);overflow:hidden;display:grid;align-content:space-between;padding:20px 14px 22px}
+.thumb::before{content:"";position:absolute;inset:0;background:var(--on-pig);opacity:.13;-webkit-mask:var(--m) repeat center/30px 30px;mask:var(--m) repeat center/30px 30px}
+.thumb::after{content:"";position:absolute;inset:0;background:var(--on-pig);opacity:.55;
+  -webkit-mask:var(--m-teeth) repeat-x left top/16px 8px,var(--m-teethup) repeat-x left bottom/16px 8px;
+  mask:var(--m-teeth) repeat-x left top/16px 8px,var(--m-teethup) repeat-x left bottom/16px 8px}
+.th-era{position:relative;font-family:var(--f-label);font-weight:500;font-size:.78rem;letter-spacing:.07em;opacity:.9}
+.th-year{position:relative;font-family:var(--f-display);font-size:2.1rem;line-height:1;font-variant-numeric:tabular-nums;text-shadow:0 1px 0 rgba(0,0,0,.25)}
+.th-dur{position:absolute;right:10px;top:16px;font-size:.8rem;background:rgba(0,0,0,.45);padding:1px 7px;border-radius:2px;font-variant-numeric:tabular-nums}
+.card-body{padding:12px 14px 14px;display:grid;gap:6px;align-content:start}
+.card-title{font-weight:700;font-size:1.04rem;line-height:1.3}
+.card-meta{font-size:.86rem;color:var(--ink-2)}
+.empty{padding:40px 20px;text-align:center;border:1px dashed var(--line);border-radius:3px;color:var(--ink-2)}
+
+/* fișa videoclipului */
+.overlay{position:fixed;inset:0;z-index:20;background:rgba(14,10,8,.64);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.dlg{background:var(--card);color:var(--ink);border-radius:4px;max-width:640px;width:100%;max-height:100%;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.dlg .thumb{aspect-ratio:16/7;padding:24px 22px 28px}
+.dlg .th-year{font-size:3rem}
+.dlg-body{padding:20px 22px 22px;display:grid;gap:14px}
+.dlg h3{font-size:1.6rem;line-height:1.15}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0;font-size:.95rem}
+.facts dt{color:var(--ink-2)}
+.facts dd{margin:0;font-variant-numeric:tabular-nums}
+.dlg p{margin:0;max-width:62ch}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{all:unset;cursor:pointer;padding:9px 16px;border-radius:3px;border:1px solid var(--line);font-size:.95rem}
+.btn:hover{border-color:var(--rosu)}
+.btn:focus-visible{outline:2px solid var(--rosu)}
+.btn.primary{background:var(--rosu);border-color:var(--rosu);color:var(--card)}
+.btn[aria-disabled="true"]{cursor:not-allowed;opacity:.55}
+.close{position:absolute;right:10px;top:14px;z-index:2;background:rgba(0,0,0,.45);color:#fff;border:0;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.2rem;line-height:1}
+.nav{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed var(--line);padding-top:12px;font-size:.9rem}
+.nav button{all:unset;cursor:pointer;color:var(--rosu);max-width:48%}
+.nav button:disabled{visibility:hidden}
+.nav button:focus-visible{outline:2px solid var(--rosu)}
+
+footer .wrap{padding-block:8px 34px;font-size:.92rem;color:var(--ink-2);display:grid;gap:6px}
+footer p{margin:0;max-width:72ch}
+
+@media (max-width:520px){body{font-size:16px}.grid{grid-template-columns:1fr}.brau .mo-romb{height:28px;-webkit-mask-size:auto 28px;mask-size:auto 28px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* miniaturi reale de pe YouTube */
+.th-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thumb.has-img::before{background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,.05) 65%);opacity:1;-webkit-mask:none;mask:none}
+[hidden]{display:none!important}
+body{margin:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+</style>
+</head>
+<body>
+
+<div class="brau wrap" aria-hidden="true"><div class="mo mo-teeth"></div><div class="brau-line"></div><div class="mo mo-romb"></div><div class="brau-line"></div><div class="mo mo-teethup"></div></div>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow"><span class="rozeta" aria-hidden="true"></span><span class="label">Arhivă video · Istoria României</span></span>
+    <h1>Biblioteca Istoriei <em>Românești</em></h1>
+    <p class="lede">Toate videoclipurile canalului, așezate pe cronologie și pe harta provinciilor istorice. Alege o epocă, o regiune sau o temă și găsește episodul potrivit.</p>
+    <div class="meta" id="stats"></div>
+    <span class="sample" id="sample-badge" hidden>Date de exemplu: canalul va fi conectat în curând</span>
+  </div>
+</header>
+
+<section class="timeline wrap" aria-labelledby="tl-h">
+  <div class="sec-head">
+    <h2 id="tl-h">Cronologie</h2>
+    <span class="label">Apasă pe o epocă pentru a filtra · fiecare punct este un videoclip</span>
+  </div>
+  <div class="tl-scroll" id="tl-scroll"><div class="tl-track" id="tl-track"></div></div>
+  <div class="tip" id="tip" hidden></div>
+</section>
+
+<div class="wrap lib">
+  <aside class="mapbox" aria-labelledby="map-h">
+    <div class="brau" aria-hidden="true"><div class="mo mo-teeth"></div></div><div class="sec-head" style="margin:0"><h2 id="map-h">Harta regiunilor</h2></div>
+    <svg id="map" viewBox="0 0 630 450" role="group" aria-label="Harta provinciilor istorice ale României"></svg>
+    <div class="legend"><span>puține</span><i></i><span>multe videoclipuri</span></div>
+    <ul class="reg-list" id="reg-list"></ul>
+  </aside>
+
+  <main class="shelf" aria-label="Videoclipuri">
+    <div class="tools">
+      <label class="search" for="q">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <input id="q" type="search" placeholder="Caută: Ștefan, 1918, mănăstiri…" autocomplete="off">
+      </label>
+      <select id="sort" aria-label="Ordonează">
+        <option value="chrono">Cronologic</option>
+        <option value="new">Cele mai noi</option>
+        <option value="long">Cele mai lungi</option>
+      </select>
+    </div>
+    <div class="cats" id="cats" role="group" aria-label="Teme"></div>
+    <div class="status" id="status" aria-live="polite"></div>
+    <div class="grid" id="grid"></div>
+  </main>
+</div>
+
+<footer>
+  <div class="brau small wrap" aria-hidden="true"><div class="mo mo-teeth"></div><div class="brau-line"></div><div class="mo mo-romb"></div><div class="brau-line"></div><div class="mo mo-teethup"></div></div>
+  <div class="wrap">
+    <p id="sample-note" hidden><strong>Date de exemplu.</strong> Titlurile, duratele și datele de publicare sunt inventate. Evenimentele istorice sunt reale; videoclipurile vor fi înlocuite cu cele de pe canal.</p>
+    <p>Hartă schematică a provinciilor istorice, în granițele actuale ale României.</p>
+  </div>
+</footer>
+
+<div class="overlay" id="ov" hidden>
+  <div class="dlg" role="dialog" aria-modal="true" aria-labelledby="d-title" id="dlg" style="position:relative"></div>
+</div>
+
+
+<script>
+(async function(){
+const grid0 = document.getElementById('grid');
+grid0.innerHTML = '<div class="empty">Se încarcă biblioteca…</div>';
+let raw;
+try {
+  const r = await fetch('data/videos.json', {cache:'no-cache'});
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  raw = await r.json();
+} catch (e) {
+  grid0.innerHTML = '<div class="empty">Nu am putut încărca lista de videoclipuri. Reîncarcă pagina peste câteva momente.</div>';
+  return;
+}
+const VIDEOS = (Array.isArray(raw) ? raw : (raw.videos || [])).filter(v => v && v.title);
+VIDEOS.forEach(v => { v.id = String(v.id); v.regions = Array.isArray(v.regions) ? v.regions : []; if (typeof v.year !== 'number') v.year = null; });
+const IS_SAMPLE = !Array.isArray(raw) && !!raw.sample;
+document.getElementById('sample-badge').hidden = !IS_SAMPLE;
+document.getElementById('sample-note').hidden = !IS_SAMPLE;
+
+const ERAS = [
+  {id:'antichitate', name:'Preistorie și antichitate', start:-5000, end:-82, p:'--e1'},
+  {id:'regatul-dac', name:'Regatul dac', start:-82, end:106, p:'--e2'},
+  {id:'dacia-romana', name:'Dacia romană', start:106, end:271, p:'--e3'},
+  {id:'migratii', name:'Migrațiile', start:271, end:1300, p:'--e4'},
+  {id:'intemeiere', name:'Întemeierea țărilor', start:1300, end:1500, p:'--e5'},
+  {id:'intre-imperii', name:'Între imperii', start:1500, end:1821, p:'--e6'},
+  {id:'renastere', name:'Renașterea națională', start:1821, end:1878, p:'--e7'},
+  {id:'vechiul-regat', name:'Vechiul Regat', start:1878, end:1918, p:'--e8'},
+  {id:'romania-mare', name:'România Mare', start:1918, end:1947, p:'--e9'},
+  {id:'comunism', name:'Comunismul', start:1947, end:1990, p:'--e10'},
+  {id:'dupa-1989', name:'După 1989', start:1990, end:2030, p:'--e11'}
+];
+
+const REGIONS = [
+  {id:'maramures', name:'Maramureș', label:[23.75,47.7], pts:[[22.3,47.75],[22.9,47.95],[24.0,47.95],[24.9,47.73],[24.9,47.45],[23.8,47.4],[23.0,47.35],[22.6,47.5]]},
+  {id:'crisana', name:'Crișana', label:[21.65,46.8], pts:[[20.25,46.12],[21.2,46.4],[21.6,47.0],[22.0,47.5],[22.3,47.75],[22.6,47.5],[22.6,47.1],[22.6,46.5],[22.5,46.0],[21.3,46.15]]},
+  {id:'banat', name:'Banat', label:[21.55,45.4], pts:[[20.25,46.12],[21.3,46.15],[22.5,46.0],[22.75,45.6],[22.7,45.2],[22.4,44.75],[21.4,44.82],[20.8,45.2],[20.3,45.75]]},
+  {id:'transilvania', name:'Transilvania', label:[24.55,46.45], pts:[[22.6,47.5],[23.0,47.35],[23.8,47.4],[24.9,47.45],[25.3,47.25],[26.1,47.35],[25.8,47.1],[25.9,46.7],[26.3,46.2],[26.5,45.75],[26.0,45.6],[25.5,45.5],[25.0,45.45],[24.4,45.55],[23.5,45.4],[22.7,45.2],[22.75,45.6],[22.5,46.0],[22.6,46.5],[22.6,47.1]]},
+  {id:'bucovina', name:'Bucovina', label:[25.55,47.6], pts:[[24.9,47.73],[25.9,47.95],[26.6,48.26],[26.55,47.6],[26.1,47.35],[25.3,47.25],[24.9,47.45]]},
+  {id:'moldova', name:'Moldova', label:[27.15,46.55], pts:[[26.6,48.26],[27.4,47.8],[28.0,47.1],[28.2,46.5],[28.1,45.95],[28.2,45.45],[28.1,45.4],[27.5,45.5],[27.0,45.75],[26.5,45.75],[26.3,46.2],[25.9,46.7],[25.8,47.1],[26.1,47.35],[26.55,47.6]]},
+  {id:'oltenia', name:'Oltenia', label:[23.45,44.55], pts:[[24.45,43.75],[24.4,44.4],[24.3,45.0],[24.4,45.55],[23.5,45.4],[22.7,45.2],[22.4,44.75],[22.5,44.6],[22.7,44.2],[22.94,43.98],[23.6,43.8],[24.0,43.72]]},
+  {id:'muntenia', name:'Muntenia', label:[26.75,44.95], pts:[[24.45,43.75],[24.87,43.75],[25.37,43.65],[25.97,43.88],[26.6,44.05],[27.25,44.12],[28.0,44.35],[27.95,44.7],[27.95,45.2],[28.1,45.4],[27.5,45.5],[27.0,45.75],[26.5,45.75],[26.0,45.6],[25.5,45.5],[25.0,45.45],[24.4,45.55],[24.3,45.0],[24.4,44.4]]},
+  {id:'dobrogea', name:'Dobrogea', label:[28.75,44.75], pts:[[27.25,44.12],[27.9,43.98],[28.6,43.75],[28.6,44.0],[28.8,44.6],[29.6,44.85],[29.7,45.2],[29.0,45.35],[28.2,45.45],[28.1,45.4],[27.95,45.2],[27.95,44.7],[28.0,44.35]]}
+];
+const CITIES = [
+  {n:'Sarmizegetusa', c:[23.31,45.62], a:'start'},
+  {n:'Alba Iulia', c:[23.58,46.07], a:'start'},
+  {n:'Suceava', c:[26.25,47.65], a:'start'},
+  {n:'Iași', c:[27.6,47.16], a:'start'},
+  {n:'Târgoviște', c:[25.46,44.93], a:'end'},
+  {n:'București', c:[26.1,44.43], a:'start'},
+  {n:'Tomis', c:[28.65,44.17], a:'start'}
+];
+const CATS = ['Bătălii și războaie','Domnitori și oameni','Locuri și monumente','Societate și cultură','Momente politice'];
+const CAT_MOTIF = {'Bătălii și războaie':'--m-teeth','Domnitori și oameni':'--m-stea','Locuri și monumente':'--m-pom','Societate și cultură':'--m-carlig','Momente politice':'--m-rombmic'};
+
+const regName = id => (REGIONS.find(r=>r.id===id)||{}).name || id;
+const UNDATED = {id:'fara-data', name:'Fără dată', p:'--e10'};
+const eraOf = y => y==null ? UNDATED : (ERAS.find(e => y>=e.start && y<e.end) || ERAS[ERAS.length-1]);
+const fmtYear = y => y==null ? '—' : y<0 ? `${-y} î.Hr.` : (y<1000 ? `${y} d.Hr.` : String(y));
+const secs = d => { const p=d.split(':').map(Number); return p.length===3 ? p[0]*3600+p[1]*60+p[2] : p[0]*60+p[1]; };
+const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+const esc = s => String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const MONTHS=['ian.','feb.','mar.','apr.','mai','iun.','iul.','aug.','sept.','oct.','nov.','dec.'];
+const fmtDate = s => { const [y,m,d]=s.split('-').map(Number); return `${d} ${MONTHS[m-1]} ${y}`; };
+const plural = n => n===1 ? '1 videoclip' : (n%100>=20 || n===0 ? `${n} de videoclipuri` : `${n} videoclipuri`);
+const catText = v => v.category || 'Fără temă';
+const regionsText = v => v.regions.length ? v.regions.map(regName).join(', ') : 'Toată țara';
+
+VIDEOS.forEach(v => { v.era = eraOf(v.year); v.secs = secs(v.duration); v.hay = norm([v.title,v.description||'',catText(v),v.era.name,regionsText(v),fmtYear(v.year)].join(' ')); });
+const byYear = (a,b)=>(a.year??1e9)-(b.year??1e9) || a.title.localeCompare(b.title,'ro');
+const chrono = [...VIDEOS].sort(byYear);
+
+const state = {era:null, region:null, cat:null, q:'', sort:'chrono'};
+
+function matches(v, skip){
+  if (skip!=='era' && state.era && v.era.id!==state.era) return false;
+  if (skip!=='region' && state.region){
+    if (state.region==='national' ? v.regions.length : !v.regions.includes(state.region)) return false;
+  }
+  if (skip!=='cat' && state.cat && v.category!==state.cat) return false;
+  if (state.q){ const words = norm(state.q).split(/\s+/).filter(Boolean); if (!words.every(w=>v.hay.includes(w))) return false; }
+  return true;
+}
+
+/* ---------- stats ---------- */
+(function stats(){
+  const total = VIDEOS.reduce((s,v)=>s+v.secs,0);
+  const h = Math.round(total/3600);
+  const dated = chrono.filter(v=>v.year!=null);
+  if (!VIDEOS.length){ document.getElementById('stats').innerHTML = '<span>Primele videoclipuri apar în curând.</span>'; return; }
+  document.getElementById('stats').innerHTML =
+    `<span><b>${VIDEOS.length}</b> ${VIDEOS.length%100>=20?'de ':''}videoclipuri</span><span><b>${h}</b> ${h%100>=20?'de ':''}ore de istorie</span><span><b>${ERAS.length}</b> epoci</span><span>${dated.length ? `de la <b>${esc(fmtYear(dated[0].year))}</b> la <b>${esc(fmtYear(dated[dated.length-1].year))}</b>` : ''}</span>`;
+})();
+
+/* ---------- timeline ---------- */
+const track = document.getElementById('tl-track');
+const tip = document.getElementById('tip');
+const tlSec = document.querySelector('.timeline');
+const eraEls = {}; const dotEls = [];
+ERAS.forEach(e => {
+  const col = document.createElement('div'); col.className='era'; col.style.setProperty('--p', `var(${e.p})`);
+  const endLabel = e.end>2026 ? 'azi' : fmtYear(e.end);
+  col.innerHTML = `<button class="era-head" type="button" aria-pressed="false" data-era="${e.id}"><span class="era-name">${esc(e.name)}</span><span class="era-range">${esc(fmtYear(e.start))} – ${esc(endLabel)}</span><span class="era-count"></span></button><div class="lanes"></div>`;
+  const lanes = col.querySelector('.lanes');
+  const list = chrono.filter(v=>v.era===e);
+  const laneEnds = [];
+  list.forEach(v => {
+    let pos = (v.year - e.start)/(e.end - e.start); pos = Math.min(.94, Math.max(.06, pos));
+    let lane = laneEnds.findIndex(x => pos - x >= .13); if (lane<0){ lane = laneEnds.length; } if (lane>4) lane = 4;
+    laneEnds[lane] = pos;
+    const d = document.createElement('button'); d.type='button'; d.className='dot';
+    d.style.left = (pos*100)+'%'; d.style.top = (12 + lane*16)+'px';
+    d.setAttribute('aria-label', `${fmtYear(v.year)}: ${v.title}`); d.dataset.id = v.id;
+    d.addEventListener('click', ()=>openVideo(v.id));
+    d.addEventListener('pointerenter', ()=>showTip(d,v)); d.addEventListener('focus', ()=>showTip(d,v));
+    d.addEventListener('pointerleave', hideTip); d.addEventListener('blur', hideTip);
+    lanes.appendChild(d); dotEls.push({el:d, v});
+  });
+  col.querySelector('.era-head').addEventListener('click', ()=>{ state.era = state.era===e.id ? null : e.id; render(); });
+  track.appendChild(col); eraEls[e.id] = col;
+});
+function showTip(d,v){
+  const r = d.getBoundingClientRect(), s = tlSec.getBoundingClientRect();
+  tip.innerHTML = `<small>${esc(fmtYear(v.year))} · ${esc(v.duration)}</small>${esc(v.title)}`;
+  tip.hidden = false;
+  const w = tip.offsetWidth; let x = r.left + r.width/2 - s.left;
+  x = Math.max(w/2 + 4, Math.min(s.width - w/2 - 4, x));
+  tip.style.left = x+'px'; tip.style.top = (r.top - s.top)+'px';
+}
+function hideTip(){ tip.hidden = true; }
+document.getElementById('tl-scroll').addEventListener('scroll', hideTip, {passive:true});
+
+/* ---------- map ---------- */
+const svg = document.getElementById('map');
+const NS = 'http://www.w3.org/2000/svg';
+const P = ([lon,lat]) => [ +((lon-19.9)*62).toFixed(1), +((48.45-lat)*90).toFixed(1) ];
+const pathEls = {};
+const regG = document.createElementNS(NS,'g'); svg.appendChild(regG);
+REGIONS.forEach(r => {
+  const p = document.createElementNS(NS,'path');
+  p.setAttribute('d', 'M' + r.pts.map(pt=>P(pt).join(' ')).join('L') + 'Z');
+  p.setAttribute('class','reg'); p.setAttribute('tabindex','0'); p.setAttribute('role','button');
+  const t = document.createElementNS(NS,'title'); p.appendChild(t);
+  const act = ()=>{ state.region = state.region===r.id ? null : r.id; render(); };
+  p.addEventListener('click', act);
+  p.addEventListener('keydown', ev=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); act(); } });
+  p.addEventListener('focus', ()=>{ if (p.matches(':focus-visible')) { focusRing.setAttribute('d', p.getAttribute('d')); focusRing.style.display=''; } });
+  p.addEventListener('blur', ()=>{ focusRing.style.display='none'; });
+  regG.appendChild(p); pathEls[r.id] = {p, t};
+});
+/* contur desenat deasupra tuturor regiunilor, cu forma exactă a regiunii */
+const ring = cls => { const e = document.createElementNS(NS,'path'); e.setAttribute('class','reg-ring '+cls); e.setAttribute('d','M0 0'); e.style.display='none'; svg.appendChild(e); return e; };
+const selHalo = ring('sel-halo'), selLine = ring('sel-line'), focusRing = ring('focus-line');
+const sea = document.createElementNS(NS,'text'); const sp = P([29.35,43.95]);
+sea.setAttribute('x',sp[0]); sea.setAttribute('y',sp[1]); sea.setAttribute('text-anchor','middle'); sea.setAttribute('class','sea'); sea.textContent='Marea Neagră'; svg.appendChild(sea);
+REGIONS.forEach(r => {
+  const t = document.createElementNS(NS,'text'); const [x,y] = P(r.label);
+  t.setAttribute('x',x); t.setAttribute('y',y); t.setAttribute('text-anchor','middle'); t.setAttribute('class','reg-lbl');
+  t.textContent = r.name.toUpperCase(); svg.appendChild(t);
+});
+CITIES.forEach(c => {
+  const g = document.createElementNS(NS,'g'); g.setAttribute('class','city'); const [x,y] = P(c.c);
+  const ci = document.createElementNS(NS,'circle'); ci.setAttribute('cx',x); ci.setAttribute('cy',y); ci.setAttribute('r','2.6');
+  const tx = document.createElementNS(NS,'text'); tx.setAttribute('x', c.a==='end'? x-5 : x+5); tx.setAttribute('y', y+3.5); tx.setAttribute('text-anchor', c.a); tx.textContent = c.n;
+  g.append(ci,tx); svg.appendChild(g);
+});
+const regList = document.getElementById('reg-list');
+const regBtns = {};
+[...REGIONS.map(r=>({id:r.id,name:r.name})), {id:'national', name:'Toată țara (teme naționale)'}].forEach(r=>{
+  const li = document.createElement('li'); if (r.id==='national') li.className='wide';
+  const b = document.createElement('button'); b.type='button'; b.className='reg-btn'; b.setAttribute('aria-pressed','false');
+  b.innerHTML = `<span>${esc(r.name)}</span><span></span>`;
+  b.addEventListener('click', ()=>{ state.region = state.region===r.id ? null : r.id; render(); });
+  li.appendChild(b); regList.appendChild(li); regBtns[r.id]=b;
+});
+
+/* ---------- categories & controls ---------- */
+const catsEl = document.getElementById('cats');
+const catBtns = {};
+CATS.forEach(c=>{
+  const b = document.createElement('button'); b.type='button'; b.className='chip'; b.textContent=c; b.style.setProperty('--m', `var(${CAT_MOTIF[c]})`); b.setAttribute('aria-pressed','false');
+  b.addEventListener('click', ()=>{ state.cat = state.cat===c ? null : c; render(); });
+  catsEl.appendChild(b); catBtns[c]=b;
+});
+const qEl = document.getElementById('q');
+qEl.addEventListener('input', ()=>{ state.q = qEl.value.trim(); render(); });
+const sortEl = document.getElementById('sort');
+sortEl.addEventListener('change', ()=>{ state.sort = sortEl.value; render(); });
+
+/* ---------- render ---------- */
+const grid = document.getElementById('grid');
+const statusEl = document.getElementById('status');
+let shown = [];
+
+function thumbHTML(v){
+  const img = v.thumbnail ? `<img class="th-img" src="${esc(v.thumbnail)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : '';
+  return `<div class="thumb${img?' has-img':''}" style="--p:var(${v.era.p});--m:var(${CAT_MOTIF[v.category]||'--m-rombmic'})">${img}<span class="th-era">${esc(v.era.name)}</span><span class="th-year">${esc(fmtYear(v.year))}</span><span class="th-dur">${esc(v.duration)}</span></div>`;
+}
+
+function render(){
+  // timeline
+  ERAS.forEach(e=>{
+    const col = eraEls[e.id]; const n = VIDEOS.filter(v=>v.era===e && matches(v,'era')).length;
+    col.querySelector('.era-count').textContent = plural(n);
+    col.querySelector('.era-head').setAttribute('aria-pressed', state.era===e.id);
+    col.classList.toggle('off', !!state.era && state.era!==e.id);
+  });
+  dotEls.forEach(({el,v})=> el.classList.toggle('dim', !matches(v)));
+
+  // map
+  const counts = {}; let max = 1;
+  REGIONS.forEach(r=>{ counts[r.id] = VIDEOS.filter(v=>matches(v,'region') && v.regions.includes(r.id)).length; max = Math.max(max, counts[r.id]); });
+  counts.national = VIDEOS.filter(v=>matches(v,'region') && !v.regions.length).length;
+  REGIONS.forEach(r=>{
+    const {p,t} = pathEls[r.id]; const n = counts[r.id];
+    const pct = n ? Math.round(16 + 74*(n/max)) : 0;
+    p.style.fill = n ? `color-mix(in oklab, var(--rosu) ${pct}%, var(--linen-2))` : 'var(--linen-2)';
+    p.classList.toggle('sel', state.region===r.id);
+    p.setAttribute('aria-pressed', state.region===r.id);
+    p.setAttribute('aria-label', `${r.name}: ${plural(n)}`);
+    t.textContent = `${r.name} · ${plural(n)}`;
+  });
+  const selP = state.region && pathEls[state.region] ? pathEls[state.region].p : null;
+  [selHalo, selLine].forEach(e=>{ if (selP){ e.setAttribute('d', selP.getAttribute('d')); e.style.display=''; } else e.style.display='none'; });
+  Object.entries(regBtns).forEach(([id,b])=>{ b.lastChild.textContent = counts[id]; b.setAttribute('aria-pressed', state.region===id); });
+
+  // categories
+  Object.entries(catBtns).forEach(([c,b])=> b.setAttribute('aria-pressed', state.cat===c));
+
+  // results
+  shown = VIDEOS.filter(v=>matches(v));
+  if (state.sort==='chrono') shown.sort(byYear);
+  else if (state.sort==='new') shown.sort((a,b)=>b.published.localeCompare(a.published));
+  else shown.sort((a,b)=>b.secs-a.secs);
+
+  grid.innerHTML = shown.length ? shown.map(v=>`
+    <button class="card" type="button" data-id="${esc(v.id)}">
+      ${thumbHTML(v)}
+      <span class="card-body">
+        <span class="card-title">${esc(v.title)}</span>
+        <span class="card-meta">${esc(catText(v))} · ${esc(regionsText(v))}</span>
+      </span>
+    </button>`).join('') :
+    `<div class="empty">Niciun videoclip nu se potrivește cu filtrele alese.<br><button class="reset" type="button" data-reset>Arată toate videoclipurile</button></div>`;
+
+  // status chips
+  const chips = [];
+  if (state.era) chips.push(['era', ERAS.find(e=>e.id===state.era).name]);
+  if (state.region) chips.push(['region', state.region==='national' ? 'Toată țara' : regName(state.region)]);
+  if (state.cat) chips.push(['cat', state.cat]);
+  if (state.q) chips.push(['q', `„${state.q}”`]);
+  statusEl.innerHTML = `<span class="count">${plural(shown.length)}</span>` +
+    chips.map(([k,l])=>`<span class="active">${esc(l)}<button type="button" data-clear="${k}" aria-label="Elimină filtrul ${esc(l)}">×</button></span>`).join('') +
+    (chips.length>1 ? `<button class="reset" type="button" data-reset>Resetează tot</button>` : '');
+}
+
+grid.addEventListener('click', e=>{
+  const c = e.target.closest('.card'); if (c) return openVideo(c.dataset.id);
+  if (e.target.closest('[data-reset]')) resetAll();
+});
+statusEl.addEventListener('click', e=>{
+  const b = e.target.closest('[data-clear]');
+  if (b){ const k=b.dataset.clear; if(k==='q'){ state.q=''; qEl.value=''; } else state[k]=null; render(); return; }
+  if (e.target.closest('[data-reset]')) resetAll();
+});
+function resetAll(){ state.era=state.region=state.cat=null; state.q=''; qEl.value=''; render(); }
+
+/* ---------- detail dialog ---------- */
+const ov = document.getElementById('ov'); const dlg = document.getElementById('dlg');
+let lastFocus = null, openId = null;
+function openVideo(id, fromHash){
+  id = String(id); const v = VIDEOS.find(x=>x.id===id); if (!v) return;
+  if (!openId) lastFocus = document.activeElement;
+  openId = id;
+  const i = chrono.indexOf(v), prev = chrono[i-1], next = chrono[i+1];
+  const link = v.url
+    ? `<a class="btn primary" href="${esc(v.url)}" target="_blank" rel="noopener">Vezi pe YouTube ↗</a>`
+    : `<span class="btn primary" aria-disabled="true">Vezi pe YouTube</span><span class="label">Link-ul apare după conectarea canalului</span>`;
+  dlg.innerHTML = `
+    <button class="close" type="button" aria-label="Închide" data-close>×</button>
+    ${thumbHTML(v)}
+    <div class="dlg-body">
+      <h3 id="d-title">${esc(v.title)}</h3>
+      ${v.description ? `<p>${esc(v.description)}</p>` : ''}
+      <dl class="facts">
+        <dt>Anul</dt><dd>${esc(fmtYear(v.year))}</dd>
+        <dt>Epoca</dt><dd>${esc(v.era.name)}</dd>
+        <dt>Regiuni</dt><dd>${esc(regionsText(v))}</dd>
+        <dt>Temă</dt><dd>${esc(catText(v))}</dd>
+        <dt>Durată</dt><dd>${esc(v.duration)}</dd>
+        <dt>Publicat</dt><dd>${v.published ? esc(fmtDate(v.published)) : '—'}</dd>
+      </dl>
+      <div class="actions">${link}</div>
+      <div class="nav">
+        <button type="button" ${prev?`data-go="${esc(prev.id)}"`:'disabled'}>← ${prev?esc(fmtYear(prev.year)+' · '+prev.title):''}</button>
+        <button type="button" style="text-align:right" ${next?`data-go="${esc(next.id)}"`:'disabled'}>${next?esc(fmtYear(next.year)+' · '+next.title):''} →</button>
+      </div>
+    </div>`;
+  ov.hidden = false; document.body.style.overflow='hidden';
+  dlg.scrollTop = 0;
+  dlg.querySelector('[data-close]').focus();
+  if (!fromHash && location.hash !== '#v-'+id) location.hash = 'v-'+id;
+}
+function closeVideo(){
+  if (!openId) return;
+  openId = null; ov.hidden = true; document.body.style.overflow='';
+  if (location.hash) { try { history.replaceState(null,'',location.pathname+location.search); } catch(e){ location.hash=''; } }
+  if (lastFocus && lastFocus.focus) lastFocus.focus();
+}
+ov.addEventListener('click', e=>{
+  if (e.target===ov || e.target.closest('[data-close]')) return closeVideo();
+  const g = e.target.closest('[data-go]'); if (g) openVideo(g.dataset.go);
+});
+document.addEventListener('keydown', e=>{
+  if (ov.hidden) return;
+  if (e.key==='Escape') closeVideo();
+  if (e.key==='Tab'){
+    const f = [...dlg.querySelectorAll('button:not([disabled]),a[href]')]; if(!f.length) return;
+    if (e.shiftKey && document.activeElement===f[0]){ e.preventDefault(); f[f.length-1].focus(); }
+    else if (!e.shiftKey && document.activeElement===f[f.length-1]){ e.preventDefault(); f[0].focus(); }
+  }
+});
+function fromHash(){
+  const m = /^#v-(.+)$/.exec(location.hash);
+  if (m) openVideo(decodeURIComponent(m[1]), true); else if (openId){ openId=null; ov.hidden=true; document.body.style.overflow=''; }
+}
+window.addEventListener('hashchange', fromHash);
+
+render();
+fromHash();
+})();
+</script>
+
+</body>
+</html>

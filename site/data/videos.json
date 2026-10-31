@@ -1,0 +1,628 @@
+{
+ "generated": "2026-10-31T00:00:00Z",
+ "sample": true,
+ "videos": [
+  {
+   "id": "exemplu-1",
+   "year": -4500,
+   "title": "Cultura Cucuteni: oamenii care pictau ceramica",
+   "category": "Societate și cultură",
+   "regions": [
+    "moldova"
+   ],
+   "duration": "18:42",
+   "published": "2024-03-14",
+   "description": "Cum trăiau comunitățile Cucuteni și de ce ceramica lor pictată este printre cele mai rafinate din Europa preistorică.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-2",
+   "year": -550,
+   "title": "Histria, Tomis, Callatis: coloniile grecești de la Pontul Euxin",
+   "category": "Locuri și monumente",
+   "regions": [
+    "dobrogea"
+   ],
+   "duration": "21:05",
+   "published": "2024-04-02",
+   "description": "Negustori greci, comerț cu geții și primele orașe de pe țărmul românesc al Mării Negre.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-3",
+   "year": -60,
+   "title": "Burebista și primul regat dac unificat",
+   "category": "Domnitori și oameni",
+   "regions": [
+    "transilvania"
+   ],
+   "duration": "24:30",
+   "published": "2024-04-20",
+   "description": "Regele care a unit triburile geto-dace și a îngrijorat Roma lui Caesar.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-4",
+   "year": 85,
+   "title": "Sarmizegetusa Regia: capitala din Munții Orăștiei",
+   "category": "Locuri și monumente",
+   "regions": [
+    "transilvania"
+   ],
+   "duration": "27:12",
+   "published": "2024-05-11",
+   "description": "O plimbare prin capitala dacică: ziduri de piatră, sanctuare și marele sanctuar rotund.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-5",
+   "year": 101,
+   "title": "Decebal contra Romei: războaiele din 101–106",
+   "category": "Bătălii și războaie",
+   "regions": [
+    "transilvania",
+    "banat",
+    "oltenia"
+   ],
+   "duration": "38:47",
+   "published": "2024-06-01",
+   "description": "Cele două războaie daco-romane, de la Tapae până la căderea Sarmizegetusei în 106.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-6",
+   "year": 109,
+   "title": "Tropaeum Traiani, monumentul de la Adamclisi",
+   "category": "Locuri și monumente",
+   "regions": [
+    "dobrogea"
+   ],
+   "duration": "15:20",
+   "published": "2024-06-22",
+   "description": "Monumentul triumfal ridicat de Traian și ce ne spun metopele despre luptele din Dobrogea.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-7",
+   "year": 113,
+   "title": "Columna lui Traian citită scenă cu scenă",
+   "category": "Locuri și monumente",
+   "regions": [],
+   "duration": "31:05",
+   "published": "2024-07-13",
+   "description": "Povestea războaielor dacice spusă în zeci de scene sculptate, citită de jos în sus.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-8",
+   "year": 150,
+   "title": "Viața în Dacia romană: orașe, drumuri, mine de aur",
+   "category": "Societate și cultură",
+   "regions": [
+    "transilvania"
+   ],
+   "duration": "22:40",
+   "published": "2024-08-03",
+   "description": "Ulpia Traiana, drumurile imperiale și minele de aur de la Alburnus Maior.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-9",
+   "year": 271,
+   "title": "Retragerea aureliană: ce s-a întâmplat în 271?",
+   "category": "Momente politice",
+   "regions": [],
+   "duration": "16:55",
+   "published": "2024-08-24",
+   "description": "De ce a abandonat Roma provincia de la nord de Dunăre și ce s-a întâmplat cu populația rămasă.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-10",
+   "year": 400,
+   "title": "Goți, huni, avari: secolele migrațiilor",
+   "category": "Societate și cultură",
+   "regions": [],
+   "duration": "26:18",
+   "published": "2024-09-14",
+   "description": "Cum au trecut valurile de popoare migratoare prin spațiul carpato-dunărean.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-11",
+   "year": 900,
+   "title": "Voievodatele lui Gelu, Glad și Menumorut",
+   "category": "Domnitori și oameni",
+   "regions": [
+    "crisana",
+    "banat",
+    "transilvania"
+   ],
+   "duration": "19:33",
+   "published": "2024-10-05",
+   "description": "Primele formațiuni politice din vestul și centrul țării și ce spun, de fapt, cronicile medievale.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-12",
+   "year": 1150,
+   "title": "Sașii și bisericile fortificate din Transilvania",
+   "category": "Locuri și monumente",
+   "regions": [
+    "transilvania"
+   ],
+   "duration": "23:47",
+   "published": "2024-10-26",
+   "description": "Coloniștii germani, cetățile țărănești și orașele care au dat numele Siebenbürgen.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-13",
+   "year": 1330,
+   "title": "Basarab I și bătălia de la Posada",
+   "category": "Bătălii și războaie",
+   "regions": [
+    "muntenia",
+    "oltenia"
+   ],
+   "duration": "20:12",
+   "published": "2024-11-16",
+   "description": "Cum și-a câștigat Țara Românească independența față de regatul maghiar într-un defileu din Carpați.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-14",
+   "year": 1359,
+   "title": "Descălecatul Moldovei: de la Dragoș la Bogdan",
+   "category": "Momente politice",
+   "regions": [
+    "maramures",
+    "moldova",
+    "bucovina"
+   ],
+   "duration": "18:09",
+   "published": "2024-12-07",
+   "description": "Legenda zimbrului, voievozii din Maramureș și nașterea unui stat independent la est de Carpați.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-15",
+   "year": 1395,
+   "title": "Mircea cel Bătrân la Rovine",
+   "category": "Bătălii și războaie",
+   "regions": [
+    "muntenia",
+    "dobrogea"
+   ],
+   "duration": "22:58",
+   "published": "2025-01-04",
+   "description": "Domnitorul care a ținut piept sultanului Baiazid și a stăpânit până la Marea Neagră.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-16",
+   "year": 1456,
+   "title": "Iancu de Hunedoara și asediul Belgradului",
+   "category": "Domnitori și oameni",
+   "regions": [
+    "transilvania"
+   ],
+   "duration": "25:36",
+   "published": "2025-01-25",
+   "description": "Cavalerul de la Hunedoara și victoria care a oprit înaintarea otomană pentru decenii.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-17",
+   "year": 1462,
+   "title": "Vlad Țepeș dincolo de legenda lui Dracula",
+   "category": "Domnitori și oameni",
+   "regions": [
+    "muntenia"
+   ],
+   "duration": "29:44",
+   "published": "2025-02-15",
+   "description": "Atacul de noapte din 1462 și cum s-a născut legenda care a ajuns până la Bram Stoker.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-18",
+   "year": 1475,
+   "title": "Ștefan cel Mare la Vaslui",
+   "category": "Bătălii și războaie",
+   "regions": [
+    "moldova"
+   ],
+   "duration": "33:21",
+   "published": "2025-03-08",
+   "description": "Bătălia de la Podul Înalt, ceața din valea Bârladului și cea mai mare victorie a lui Ștefan.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-19",
+   "year": 1517,
+   "title": "Neagoe Basarab și biserica de la Curtea de Argeș",
+   "category": "Locuri și monumente",
+   "regions": [
+    "muntenia"
+   ],
+   "duration": "17:26",
+   "published": "2025-03-29",
+   "description": "Biserica episcopală, legenda Meșterului Manole și învățăturile unui domn cărturar.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-20",
+   "year": 1547,
+   "title": "Mănăstirile pictate din Bucovina",
+   "category": "Locuri și monumente",
+   "regions": [
+    "bucovina"
+   ],
+   "duration": "24:03",
+   "published": "2025-04-19",
+   "description": "Voroneț, Humor, Moldovița: frescele exterioare și albastrul care a dat numele unei culori.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-21",
+   "year": 1600,
+   "title": "Mihai Viteazul și unirea din 1600",
+   "category": "Momente politice",
+   "regions": [
+    "muntenia",
+    "transilvania",
+    "moldova"
+   ],
+   "duration": "36:15",
+   "published": "2025-05-10",
+   "description": "Călugăreni, Șelimbăr și lunile în care cele trei țări au avut același domn.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-22",
+   "year": 1711,
+   "title": "Dimitrie Cantemir, prinț și savant",
+   "category": "Domnitori și oameni",
+   "regions": [
+    "moldova"
+   ],
+   "duration": "21:50",
+   "published": "2025-05-31",
+   "description": "Descriptio Moldaviae, alianța cu Petru cel Mare și exilul unui prinț enciclopedist.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-23",
+   "year": 1714,
+   "title": "Constantin Brâncoveanu: aurul și martiriul",
+   "category": "Domnitori și oameni",
+   "regions": [
+    "muntenia"
+   ],
+   "duration": "23:14",
+   "published": "2025-06-21",
+   "description": "Stilul brâncovenesc, bogăția legendară și execuția de la Istanbul.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-24",
+   "year": 1750,
+   "title": "Domniile fanariote: un secol sub Constantinopol",
+   "category": "Momente politice",
+   "regions": [
+    "muntenia",
+    "moldova"
+   ],
+   "duration": "27:33",
+   "published": "2025-07-12",
+   "description": "Domni numiți de la Poartă, reforme, taxe și o elită nouă la București și Iași.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-25",
+   "year": 1784,
+   "title": "Răscoala lui Horea, Cloșca și Crișan",
+   "category": "Societate și cultură",
+   "regions": [
+    "transilvania"
+   ],
+   "duration": "19:57",
+   "published": "2025-08-02",
+   "description": "Răscoala iobagilor din Munții Apuseni și procesul de la Alba Iulia.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-26",
+   "year": 1821,
+   "title": "Tudor Vladimirescu și revoluția de la 1821",
+   "category": "Momente politice",
+   "regions": [
+    "oltenia",
+    "muntenia"
+   ],
+   "duration": "22:31",
+   "published": "2025-08-23",
+   "description": "Pandurii din Oltenia, Eteria și sfârșitul domniilor fanariote.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-27",
+   "year": 1848,
+   "title": "Pașoptiștii: revoluția în trei provincii",
+   "category": "Momente politice",
+   "regions": [
+    "muntenia",
+    "moldova",
+    "transilvania"
+   ],
+   "duration": "30:08",
+   "published": "2025-09-13",
+   "description": "Proclamația de la Islaz, Câmpia Libertății de la Blaj și generația care a gândit România modernă.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-28",
+   "year": 1859,
+   "title": "Mica Unire: dubla alegere a lui Cuza",
+   "category": "Momente politice",
+   "regions": [
+    "moldova",
+    "muntenia"
+   ],
+   "duration": "25:45",
+   "published": "2025-10-04",
+   "description": "Alexandru Ioan Cuza, alegerile din ianuarie 1859 și reformele care au construit statul.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-29",
+   "year": 1877,
+   "title": "Războiul de Independență: Plevna și Grivița",
+   "category": "Bătălii și războaie",
+   "regions": [],
+   "duration": "34:02",
+   "published": "2025-10-25",
+   "description": "Trecerea Dunării, asaltul redutei Grivița și recunoașterea independenței la Berlin.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-30",
+   "year": 1881,
+   "title": "Carol I și construirea regatului",
+   "category": "Domnitori și oameni",
+   "regions": [],
+   "duration": "28:16",
+   "published": "2025-11-15",
+   "description": "Căi ferate, Peleșul, armata modernă și drumul de la principat la regat.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-31",
+   "year": 1907,
+   "title": "Răscoala țărănească din 1907",
+   "category": "Societate și cultură",
+   "regions": [
+    "moldova",
+    "muntenia",
+    "oltenia"
+   ],
+   "duration": "20:39",
+   "published": "2025-12-06",
+   "description": "De la Flămânzi la Oltenia: cauzele răscoalei și reprimarea ei.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-32",
+   "year": 1917,
+   "title": "Mărășești, 1917: frontul care a rezistat",
+   "category": "Bătălii și războaie",
+   "regions": [
+    "moldova"
+   ],
+   "duration": "31:28",
+   "published": "2025-12-27",
+   "description": "Vara anului 1917, când armata română a oprit ofensiva germană în Moldova.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-33",
+   "year": 1918,
+   "title": "1 Decembrie 1918 la Alba Iulia",
+   "category": "Momente politice",
+   "regions": [
+    "transilvania"
+   ],
+   "duration": "29:00",
+   "published": "2026-01-17",
+   "description": "Marea Adunare Națională și unirea Transilvaniei cu România.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-34",
+   "year": 1921,
+   "title": "Regele Ferdinand și reforma agrară",
+   "category": "Societate și cultură",
+   "regions": [],
+   "duration": "18:52",
+   "published": "2026-02-07",
+   "description": "Împroprietărirea țăranilor, votul universal și Constituția din 1923.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-35",
+   "year": 1930,
+   "title": "Bucureștiul interbelic, „micul Paris”",
+   "category": "Societate și cultură",
+   "regions": [
+    "muntenia"
+   ],
+   "duration": "26:24",
+   "published": "2026-02-28",
+   "description": "Bulevarde, cafenele, avangardă și celălalt chip al anilor '30.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-36",
+   "year": 1940,
+   "title": "1940: vara pierderilor teritoriale",
+   "category": "Momente politice",
+   "regions": [
+    "maramures",
+    "crisana",
+    "transilvania",
+    "bucovina",
+    "dobrogea"
+   ],
+   "duration": "32:11",
+   "published": "2026-03-21",
+   "description": "Basarabia, nordul Bucovinei, nordul Ardealului și Cadrilaterul: cum s-a destrămat România Mare într-o singură vară.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-37",
+   "year": 1944,
+   "title": "23 August 1944",
+   "category": "Momente politice",
+   "regions": [
+    "muntenia"
+   ],
+   "duration": "24:48",
+   "published": "2026-04-11",
+   "description": "Arestarea lui Antonescu și ieșirea României din alianța cu Germania.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-38",
+   "year": 1947,
+   "title": "Abdicarea regelui Mihai",
+   "category": "Domnitori și oameni",
+   "regions": [],
+   "duration": "21:07",
+   "published": "2026-05-02",
+   "description": "30 decembrie 1947: sfârșitul monarhiei și proclamarea Republicii Populare.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-39",
+   "year": 1950,
+   "title": "Canalul Dunăre–Marea Neagră, primul șantier",
+   "category": "Locuri și monumente",
+   "regions": [
+    "dobrogea"
+   ],
+   "duration": "23:35",
+   "published": "2026-05-23",
+   "description": "Șantierul din anii '50 pe care au muncit zeci de mii de deținuți politici.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-40",
+   "year": 1955,
+   "title": "Colectivizarea și rezistența din munți",
+   "category": "Societate și cultură",
+   "regions": [
+    "transilvania",
+    "banat",
+    "bucovina"
+   ],
+   "duration": "27:59",
+   "published": "2026-06-13",
+   "description": "Colectivizarea forțată și grupurile de partizani care au rezistat ani la rând în Carpați.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-41",
+   "year": 1985,
+   "title": "Anii '80 sub Ceaușescu",
+   "category": "Societate și cultură",
+   "regions": [],
+   "duration": "30:42",
+   "published": "2026-07-04",
+   "description": "Rații, apartamente reci și propaganda „epocii de aur”.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-42",
+   "year": 1989,
+   "title": "Decembrie 1989: de la Timișoara la București",
+   "category": "Momente politice",
+   "regions": [
+    "banat",
+    "muntenia"
+   ],
+   "duration": "41:16",
+   "published": "2026-07-25",
+   "description": "De la protestele din 16 decembrie până la fuga lui Ceaușescu de pe clădirea Comitetului Central.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-43",
+   "year": 1990,
+   "title": "Piața Universității și mineriadele",
+   "category": "Momente politice",
+   "regions": [
+    "muntenia"
+   ],
+   "duration": "25:30",
+   "published": "2026-08-15",
+   "description": "Golaniada, iunie 1990 și primii ani ai tranziției.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-44",
+   "year": 2007,
+   "title": "Drumul spre NATO și Uniunea Europeană",
+   "category": "Momente politice",
+   "regions": [],
+   "duration": "22:22",
+   "published": "2026-09-05",
+   "description": "De la candidatură la aderarea la NATO în 2004 și la Uniunea Europeană în 2007.",
+   "url": "",
+   "thumbnail": ""
+  }
+ ]
+}
