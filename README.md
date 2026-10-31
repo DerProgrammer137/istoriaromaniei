@@ -65,7 +65,7 @@ Adaugă oriunde în descrierea de pe YouTube:
 
 - `#an:` anul evenimentului. Pentru î.Hr.: `#an:-60` sau `#an:60ihr`.
 - `#regiune:` una sau mai multe, separate prin virgulă, fără spații: `#regiune:muntenia,transilvania`. Pentru subiecte naționale: `#regiune:national`.
-  Regiuni: `maramures`, `crisana`, `banat`, `transilvania`, `bucovina`, `moldova`, `oltenia`, `muntenia`, `dobrogea`.
+  Regiuni: `maramures`, `crisana`, `banat`, `transilvania`, `bucovina`, `moldova`, `oltenia`, `muntenia`, `dobrogea`, plus teritoriile istorice aflate azi în alte state: `basarabia` (Republica Moldova și sudul Ucrainei), `bucovina-nord`, `cadrilater`.
 - `#tema:` una dintre `batalii`, `domnitori`, `locuri`, `societate`, `politica`.
 
 Dacă toate trei sunt prezente, videoclipul nu mai e trimis la AI.

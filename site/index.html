@@ -108,7 +108,7 @@ h1 em{font-style:normal;color:var(--rosu)}
 
 /* biblioteca: hartă + raft */
 .lib{display:grid;gap:28px;padding-block:8px 48px}
-@media (min-width:900px){.lib{grid-template-columns:minmax(280px,370px) 1fr;align-items:start}.mapbox{position:sticky;top:16px}}
+
 .mapbox{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:0 16px 16px;display:grid;gap:12px;min-width:0;overflow:hidden}
 .mapbox .brau{margin:0 -16px;padding-block:0 4px}
 .mapbox .mo-teeth{background:var(--rosu)}
@@ -238,6 +238,33 @@ img{max-width:100%}
 .pol-legend i{width:14px;height:14px;border-radius:2px;margin-top:4px}
 .pol-legend small{grid-column:2;color:var(--ink-2);font-size:.82rem}
 .period-note{margin:0;font-size:.88rem;color:var(--ink-2)}
+
+/* atlas */
+:root{--ctx:color-mix(in oklab,var(--ink) 7%,var(--linen));--sea:color-mix(in oklab,var(--indigo) 15%,var(--card));--river:color-mix(in oklab,var(--indigo) 55%,var(--card))}
+.atlas{padding-block:8px 36px}
+.atlas .sec-head{align-items:center}
+.atlas-grid{display:grid;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:3px;padding:16px;min-width:0}
+@media (min-width:920px){.atlas-grid{grid-template-columns:minmax(0,1.75fr) minmax(260px,1fr);align-items:start}}
+.atlas-map{min-width:0}
+.atlas-map svg{width:100%;height:auto;display:block;border-radius:2px}
+.atlas-side{display:grid;gap:20px;align-content:start;min-width:0}
+.side-block{display:grid;gap:10px;min-width:0}
+.side-block>*,.period>*{min-width:0}
+.period-nav select{width:100%}
+.side-h{font-family:var(--f-label);font-weight:500;letter-spacing:.06em;font-size:.86rem;color:var(--ink-2);margin:0}
+.sea-fill{fill:var(--sea)}
+.unit{stroke:none;transition:filter .15s}
+.unit.reg{stroke:none;cursor:pointer}
+.unit.reg:hover{filter:brightness(1.08)}
+.rivers path{fill:none;stroke:var(--river);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.b-state{fill:none;stroke:var(--ink);stroke-width:1.9;stroke-linejoin:round;stroke-linecap:round;pointer-events:none}
+.b-prov{fill:none;stroke:var(--ink);stroke-opacity:.4;stroke-width:.9;stroke-dasharray:3 3;pointer-events:none}
+.b-coast{fill:none;stroke:var(--river);stroke-width:1;pointer-events:none}
+.reg-ring.sel-line{stroke:var(--rosu);stroke-width:3}
+.ctx-lbl{font-family:var(--f-body);font-style:italic;font-size:12px;fill:var(--ink-2);pointer-events:none;paint-order:stroke;stroke:var(--card);stroke-width:3px;stroke-opacity:.55}
+.reg-lbl.sm{font-size:9.5px}
+.reg-sub{font-family:var(--f-label);font-size:.8rem;letter-spacing:.05em;color:var(--ink-2);padding:8px 8px 0}
+@media (max-width:600px){.city text{display:none}.ctx-lbl{font-size:15px}.reg-lbl{font-size:16px}.reg-lbl.sm{display:none}}
 </style>
 <script>
 (function(){
@@ -291,25 +318,38 @@ img{max-width:100%}
   <div class="tip" id="tip" hidden></div>
 </section>
 
-<div class="wrap lib">
-  <aside class="mapbox" aria-labelledby="map-h">
-    <div class="brau" aria-hidden="true"><div class="mo mo-teeth"></div></div><div class="sec-head" style="margin:0"><h2 id="map-h">Harta regiunilor</h2></div>
+<section class="wrap atlas" aria-labelledby="map-h">
+  <div class="sec-head">
+    <h2 id="map-h">Harta</h2>
     <div class="seg" role="group" aria-label="Tipul hărții"><button type="button" id="mode-now" aria-pressed="true">Harta actuală</button><button type="button" id="mode-period" aria-pressed="false">Pe perioade</button></div>
-    <svg id="map" viewBox="0 0 630 450" role="group" aria-label="Harta provinciilor istorice ale României"></svg>
-    <div class="legend" id="count-legend"><span>puține</span><i></i><span>multe videoclipuri</span></div>
-    <div class="period" id="period" hidden>
-      <div class="period-nav">
-        <button class="step" type="button" id="per-prev" aria-label="Perioada anterioară">‹</button>
-        <select id="per-select" aria-label="Perioada afișată pe hartă"></select>
-        <button class="step" type="button" id="per-next" aria-label="Perioada următoare">›</button>
+  </div>
+  <div class="atlas-grid">
+    <div class="atlas-map"><svg id="map" viewBox="0 0 660 526" role="group" aria-label="Harta provinciilor istorice ale României și a teritoriilor vecine"></svg></div>
+    <div class="atlas-side">
+      <div class="side-block" id="now-side">
+        <div class="legend"><span>puține</span><i></i><span>multe videoclipuri</span></div>
+        <p class="period-note">Culoarea arată câte videoclipuri sunt despre fiecare regiune. Liniile groase sunt granițele de azi.</p>
       </div>
-      <p class="snap" id="per-snap"></p>
-      <ul class="pol-legend" id="pol-legend"></ul>
-      <p class="period-note" id="per-note"></p>
-      <p class="period-note">Hartă schematică: fiecare provincie actuală e colorată după statul care o stăpânea în cea mai mare parte.</p>
+      <div class="period side-block" id="period" hidden>
+        <div class="period-nav">
+          <button class="step" type="button" id="per-prev" aria-label="Momentul anterior">‹</button>
+          <select id="per-select" aria-label="Momentul istoric afișat pe hartă"></select>
+          <button class="step" type="button" id="per-next" aria-label="Momentul următor">›</button>
+        </div>
+        <p class="snap" id="per-snap"></p>
+        <p class="period-note" id="per-note"></p>
+        <ul class="pol-legend" id="pol-legend"></ul>
+        <p class="period-note">Hartă simplificată: granițele urmează aproximativ limitele provinciilor istorice. Liniile groase sunt granițe de stat, cele punctate limite de provincii.</p>
+      </div>
+      <div class="side-block">
+        <h3 class="side-h">Filtrează după regiune</h3>
+        <ul class="reg-list" id="reg-list"></ul>
+      </div>
     </div>
-    <ul class="reg-list" id="reg-list"></ul>
-  </aside>
+  </div>
+</section>
+
+<div class="wrap lib">
 
   <main class="shelf" aria-label="Videoclipuri">
     <div class="tools">
@@ -376,24 +416,18 @@ const ERAS = [
 ];
 
 const REGIONS = [
-  {id:'maramures', name:'Maramureș', label:[23.75,47.7], pts:[[22.3,47.75],[22.9,47.95],[24.0,47.95],[24.9,47.73],[24.9,47.45],[23.8,47.4],[23.0,47.35],[22.6,47.5]]},
-  {id:'crisana', name:'Crișana', label:[21.65,46.8], pts:[[20.25,46.12],[21.2,46.4],[21.6,47.0],[22.0,47.5],[22.3,47.75],[22.6,47.5],[22.6,47.1],[22.6,46.5],[22.5,46.0],[21.3,46.15]]},
-  {id:'banat', name:'Banat', label:[21.55,45.4], pts:[[20.25,46.12],[21.3,46.15],[22.5,46.0],[22.75,45.6],[22.7,45.2],[22.4,44.75],[21.4,44.82],[20.8,45.2],[20.3,45.75]]},
-  {id:'transilvania', name:'Transilvania', label:[24.55,46.45], pts:[[22.6,47.5],[23.0,47.35],[23.8,47.4],[24.9,47.45],[25.3,47.25],[26.1,47.35],[25.8,47.1],[25.9,46.7],[26.3,46.2],[26.5,45.75],[26.0,45.6],[25.5,45.5],[25.0,45.45],[24.4,45.55],[23.5,45.4],[22.7,45.2],[22.75,45.6],[22.5,46.0],[22.6,46.5],[22.6,47.1]]},
-  {id:'bucovina', name:'Bucovina', label:[25.55,47.6], pts:[[24.9,47.73],[25.9,47.95],[26.6,48.26],[26.55,47.6],[26.1,47.35],[25.3,47.25],[24.9,47.45]]},
-  {id:'moldova', name:'Moldova', label:[27.15,46.55], pts:[[26.6,48.26],[27.4,47.8],[28.0,47.1],[28.2,46.5],[28.1,45.95],[28.2,45.45],[28.1,45.4],[27.5,45.5],[27.0,45.75],[26.5,45.75],[26.3,46.2],[25.9,46.7],[25.8,47.1],[26.1,47.35],[26.55,47.6]]},
-  {id:'oltenia', name:'Oltenia', label:[23.45,44.55], pts:[[24.45,43.75],[24.4,44.4],[24.3,45.0],[24.4,45.55],[23.5,45.4],[22.7,45.2],[22.4,44.75],[22.5,44.6],[22.7,44.2],[22.94,43.98],[23.6,43.8],[24.0,43.72]]},
-  {id:'muntenia', name:'Muntenia', label:[26.75,44.95], pts:[[24.45,43.75],[24.87,43.75],[25.37,43.65],[25.97,43.88],[26.6,44.05],[27.25,44.12],[28.0,44.35],[27.95,44.7],[27.95,45.2],[28.1,45.4],[27.5,45.5],[27.0,45.75],[26.5,45.75],[26.0,45.6],[25.5,45.5],[25.0,45.45],[24.4,45.55],[24.3,45.0],[24.4,44.4]]},
-  {id:'dobrogea', name:'Dobrogea', label:[28.75,44.75], pts:[[27.25,44.12],[27.9,43.98],[28.6,43.75],[28.6,44.0],[28.8,44.6],[29.6,44.85],[29.7,45.2],[29.0,45.35],[28.2,45.45],[28.1,45.4],[27.95,45.2],[27.95,44.7],[28.0,44.35]]}
-];
-const CITIES = [
-  {n:'Sarmizegetusa', c:[23.31,45.62], a:'start'},
-  {n:'Alba Iulia', c:[23.58,46.07], a:'start'},
-  {n:'Suceava', c:[26.25,47.65], a:'start'},
-  {n:'Iași', c:[27.6,47.16], a:'start'},
-  {n:'Târgoviște', c:[25.46,44.93], a:'end'},
-  {n:'București', c:[26.1,44.43], a:'start'},
-  {n:'Tomis', c:[28.65,44.17], a:'start'}
+  {id:'maramures', name:'Maramureș', units:['maramures']},
+  {id:'crisana', name:'Crișana', units:['crisana-n','crisana-s']},
+  {id:'banat', name:'Banat', units:['banat']},
+  {id:'transilvania', name:'Transilvania', units:['transilvania-n','transilvania-s']},
+  {id:'bucovina', name:'Bucovina', units:['bucovina']},
+  {id:'moldova', name:'Moldova', units:['moldova']},
+  {id:'oltenia', name:'Oltenia', units:['oltenia']},
+  {id:'muntenia', name:'Muntenia', units:['muntenia']},
+  {id:'dobrogea', name:'Dobrogea', units:['dobrogea']},
+  {id:'basarabia', name:'Basarabia', units:['basarabia','hotin','bugeac'], ist:true},
+  {id:'cadrilater', name:'Cadrilater', units:['cadrilater'], ist:true},
+  {id:'bucovina-nord', name:'Bucovina de Nord', units:['bucovina-nord'], ist:true}
 ];
 const CATS = ['Bătălii și războaie','Domnitori și oameni','Locuri și monumente','Societate și cultură','Momente politice'];
 const CAT_MOTIF = {'Bătălii și războaie':'--m-teeth','Domnitori și oameni':'--m-stea','Locuri și monumente':'--m-pom','Societate și cultură':'--m-carlig','Momente politice':'--m-rombmic'};
@@ -461,7 +495,7 @@ ERAS.forEach(e => {
     d.addEventListener('pointerleave', hideTip); d.addEventListener('blur', hideTip);
     lanes.appendChild(d); dotEls.push({el:d, v});
   });
-  col.querySelector('.era-head').addEventListener('click', ()=>{ state.era = state.era===e.id ? null : e.id; if (state.era) mapEra = state.era; render(); });
+  col.querySelector('.era-head').addEventListener('click', ()=>{ state.era = state.era===e.id ? null : e.id; render(); });
   track.appendChild(col); eraEls[e.id] = col;
 });
 function showTip(d,v){
@@ -475,117 +509,340 @@ function showTip(d,v){
 function hideTip(){ tip.hidden = true; }
 document.getElementById('tl-scroll').addEventListener('scroll', hideTip, {passive:true});
 
-/* ---------- map ---------- */
-const svg = document.getElementById('map');
+/* ---------- harta ---------- */
+/* Puncte (longitudine, latitudine). Poligoanele vecine folosesc aceleași puncte,
+   astfel încât granițele dintre ele se pot calcula exact pentru fiecare perioadă. */
+const PT = {
+  NW:[19,49.2], NE:[31,49.2], SE:[31,42.6], SW:[19,42.6],
+  ung_s_w:[19,46.1], tc_top:[22.55,49.2], gal_top:[26.1,49.2], sea_ne:[31,46.6], bg_sw:[22.5,42.6], bg_se:[27.9,42.6],
+  hu1:[20.25,46.12], hu2:[21.2,46.4], hu3:[21.6,47.0], hu4:[22.0,47.5], hu5:[22.3,47.75], tri_ua:[22.9,47.95],
+  ua1:[24.0,47.95], ua2:[24.6,47.9], ua3:[24.9,47.73], ua4:[25.9,47.95], prutN:[26.6,48.26],
+  prut1:[27.4,47.8], prut2:[28.0,47.1], prut3:[28.2,46.5], prut4:[28.1,45.95], giurg:[28.2,45.45],
+  dan_ua1:[29.0,45.35], chilia:[29.7,45.2], coast1:[29.6,44.85], coast2:[28.8,44.6], coast3:[28.6,44.0], vama:[28.6,43.75],
+  bg1:[27.9,43.98], silistra:[27.25,44.12], dan1:[26.6,44.05], giurgiu:[25.97,43.88], dan2:[25.37,43.65], dan3:[24.87,43.75],
+  olt_m:[24.45,43.75], dan4:[24.0,43.72], dan5:[23.6,43.8], calafat:[22.94,43.98], timok:[22.7,44.2], dan6:[22.5,44.6],
+  orsova:[22.4,44.75], bazias:[21.4,44.82], rs1:[20.8,45.2], rs2:[20.3,45.75],
+  m1:[24.9,47.45], m2:[23.8,47.4], m3:[23.0,47.35], m4:[22.6,47.5],
+  c1:[22.6,47.1], v1:[22.6,46.85], c2:[22.6,46.5], c3:[22.5,46.0], c4:[21.3,46.15], vc:[22.1,46.95],
+  b1:[22.75,45.6], b2:[22.7,45.2],
+  t1:[25.3,47.25], t2:[26.1,47.35], t3:[25.8,47.1], t4:[25.9,46.7], t5:[26.3,46.2], t6:[26.5,45.75], t7:[26.0,45.6],
+  t8:[25.5,45.5], t9:[25.0,45.45], t10:[24.4,45.55], t11:[23.5,45.4],
+  v2:[23.0,46.62], v3:[23.6,46.62], v4:[24.2,46.45], v5:[24.75,46.33], v6:[25.2,46.05], v7:[25.65,45.78],
+  bu1:[26.55,47.6], mo1:[28.1,45.4], mo2:[27.5,45.5], mo3:[27.0,45.75],
+  ol1:[24.4,44.4], ol2:[24.3,45.0], do1:[28.0,44.35], do2:[27.95,44.7], do3:[27.95,45.2],
+  srb_t1:[20.1,46.15], tisa1:[20.15,45.6], titel:[20.3,45.15], belgrad:[20.45,44.82],
+  bg_w1:[22.45,43.75], bg_w2:[22.85,43.1], cad_w1:[26.8,43.85], cad_w2:[27.3,43.55], ecrene:[27.95,43.25],
+  kaliakra:[28.47,43.36], balcic:[28.16,43.41],
+  chop:[22.2,48.42], tc1:[24.35,48.35], tc2:[23.2,48.95],
+  nb_w:[25.15,48.2], dw:[25.9,48.62], dz:[26.25,48.58], nsul:[26.25,48.33],
+  d1:[26.5,48.53], d2:[27.55,48.47], d3:[28.3,48.15], d3b:[28.7,47.95], d4:[28.95,47.7], d5:[29.15,47.25],
+  d6:[29.5,46.85], d7:[30.1,46.42], d8:[30.3,46.3],
+  b2s:[28.6,45.6], b3s:[28.95,46.1], b4s:[29.6,46.4],
+  tn1:[29.1,48.05], tn2:[29.45,47.55], tn3:[29.65,47.05], tn4:[30.05,46.65],
+  cst1:[29.9,45.6], cst2:[30.25,46.05], odesa:[30.73,46.48]
+};
+const UNITS = [
+  {id:'maramures', name:'Maramureș', reg:'maramures', pts:'hu5 tri_ua ua1 ua2 ua3 m1 m2 m3 m4'},
+  {id:'crisana-n', name:'Crișana (nord)', base:'Crișana', reg:'crisana', prov:'crisana', pts:'hu3 hu4 hu5 m4 c1 v1 vc'},
+  {id:'crisana-s', name:'Crișana (sud)', base:'Crișana', reg:'crisana', prov:'crisana', pts:'hu1 hu2 hu3 vc v1 c2 c3 c4'},
+  {id:'banat', name:'Banat', reg:'banat', pts:'hu1 c4 c3 b1 b2 orsova bazias rs1 rs2'},
+  {id:'transilvania-n', name:'Transilvania (nord)', base:'Transilvania', reg:'transilvania', prov:'transilvania', pts:'m4 m3 m2 m1 t1 t2 t3 t4 t5 t6 v7 v6 v5 v4 v3 v2 v1 c1'},
+  {id:'transilvania-s', name:'Transilvania (sud)', base:'Transilvania', reg:'transilvania', prov:'transilvania', pts:'v1 v2 v3 v4 v5 v6 v7 t6 t7 t8 t9 t10 t11 b2 b1 c3 c2'},
+  {id:'bucovina', name:'Bucovina (sud)', base:'Bucovina', reg:'bucovina', prov:'bucovina', pts:'ua3 ua4 prutN bu1 t2 t1 m1'},
+  {id:'moldova', name:'Moldova', reg:'moldova', pts:'prutN prut1 prut2 prut3 prut4 giurg mo1 mo2 mo3 t6 t5 t4 t3 t2 bu1'},
+  {id:'oltenia', name:'Oltenia', reg:'oltenia', pts:'olt_m ol1 ol2 t10 t11 b2 orsova dan6 timok calafat dan5 dan4'},
+  {id:'muntenia', name:'Muntenia', reg:'muntenia', pts:'olt_m dan3 dan2 giurgiu dan1 silistra do1 do2 do3 mo1 mo2 mo3 t6 t7 t8 t9 t10 ol2 ol1'},
+  {id:'dobrogea', name:'Dobrogea', reg:'dobrogea', pts:'silistra bg1 vama coast3 coast2 coast1 chilia dan_ua1 giurg mo1 do3 do2 do1'},
+  {id:'basarabia', name:'Basarabia (centru)', base:'Basarabia', reg:'basarabia', prov:'basarabia', pts:'prutN prut1 prut2 prut3 prut4 giurg b2s b3s b4s d7 d6 d5 d4 d3b d3 d2'},
+  {id:'hotin', name:'Ținutul Hotinului', base:'Basarabia', reg:'basarabia', prov:'basarabia', pts:'prutN d2 d1 nsul'},
+  {id:'bugeac', name:'Bugeac (sudul Basarabiei)', base:'Basarabia', reg:'basarabia', prov:'basarabia', pts:'giurg dan_ua1 chilia cst1 cst2 d8 d7 b4s b3s b2s'},
+  {id:'bucovina-nord', name:'Bucovina de Nord', base:'Bucovina', reg:'bucovina-nord', prov:'bucovina', pts:'ua3 ua4 prutN nsul d1 dz dw nb_w'},
+  {id:'cadrilater', name:'Cadrilater', reg:'cadrilater', pts:'dan1 silistra bg1 vama kaliakra balcic ecrene cad_w2 cad_w1'},
+  {id:'transnistria', name:'Transnistria', pts:'d3b tn1 tn2 tn3 tn4 d7 d6 d5 d4'},
+  {id:'maramures-nord', name:'Maramureșul de Nord', prov:'maramures', pts:'tri_ua ua1 ua2 tc1 tc2 tc_top chop'},
+  {id:'banat-sarb', name:'Banatul sârbesc', prov:'banat', pts:'hu1 rs2 rs1 bazias belgrad titel tisa1 srb_t1'},
+  {id:'ungaria', name:'Ungaria (est)', pts:'NW tc_top chop tri_ua hu5 hu4 hu3 hu2 hu1 srb_t1 ung_s_w'},
+  {id:'serbia', name:'Serbia', pts:'srb_t1 tisa1 titel belgrad bazias orsova dan6 timok bg_w1 bg_w2 bg_sw SW ung_s_w'},
+  {id:'bulgaria', name:'Bulgaria (nord)', pts:'timok calafat dan5 dan4 olt_m dan3 dan2 giurgiu dan1 cad_w1 cad_w2 ecrene bg_se bg_sw bg_w2 bg_w1'},
+  {id:'galitia', name:'Galiția', pts:'tc_top tc2 tc1 ua2 ua3 nb_w dw dz gal_top'},
+  {id:'ucraina', name:'Podolia și sudul Ucrainei', pts:'gal_top dz d1 d2 d3 d3b tn1 tn2 tn3 tn4 d7 d8 odesa sea_ne NE'}
+];
+const SEA_PTS = 'sea_ne odesa d8 cst2 cst1 chilia coast1 coast2 coast3 vama kaliakra balcic ecrene bg_se SE';
+const RIVERS = [
+  [[19.0,45.85],[19.4,45.45],[19.85,45.25],'titel','belgrad','bazias','orsova','dan6','timok','calafat','dan5','dan4','olt_m','dan3','dan2','giurgiu','dan1','silistra','do1','do2','do3','mo1','giurg','dan_ua1','chilia'],
+  [[25.5,48.42],[25.94,48.3],'nsul','prutN','prut1','prut2','prut3','prut4','giurg'],
+  [[24.6,49.2],[25.3,48.85],'dw','dz','d1','d2','d3','d3b','d4','d5','d6','d7','d8'],
+  [[24.4,48.0],'ua1','tri_ua',[22.4,48.25],'chop',[21.4,48.12],[20.9,47.6],[20.25,47.1],[20.15,46.5],'srb_t1','tisa1','titel'],
+  [[25.9,48.05],[26.25,47.7],[26.75,46.95],[27.15,46.2],[27.55,45.6],'mo1'],
+  [[25.85,46.5],[25.6,45.95],[25.0,45.85],[24.3,45.7],'t10','ol2','ol1','olt_m'],
+  [[25.0,46.9],[24.5,46.6],[23.9,46.35],[23.55,46.05],[23.0,45.95],'c3','c4',[20.7,46.17],'srb_t1']
+];
+const LABELS = [
+  ['MARAMUREȘ',[23.75,47.66]], ['CRIȘANA',[21.75,46.6]], ['BANAT',[21.6,45.38]], ['TRANSILVANIA',[25.0,46.6]],
+  ['BUCOVINA',[25.55,47.62]], ['MOLDOVA',[27.1,46.5]], ['OLTENIA',[23.45,44.55]], ['MUNTENIA',[26.55,44.95]],
+  ['DOBROGEA',[28.8,44.72]], ['BASARABIA',[28.45,47.55]], ['BUGEAC',[29.3,45.86],'sm'], ['HOTIN',[27.05,48.42],'sm'],
+  ['BUCOVINA\nDE NORD',[25.5,48.13],'sm'], ['CADRILATER',[27.6,43.72],'sm'], ['MARAMUREȘ (N)',[23.35,48.42],'sm'],
+  ['TRANSNISTRIA',[29.45,47.35],'sm',-60]
+];
+const CTX_LABELS = [['ungaria',[20.35,47.75]], ['serbia',[20.55,43.55]], ['bulgaria',[25.1,43.05]], ['galitia',[24.85,48.85]], ['ucraina',[29.75,48.55]]];
+const CITIES = [
+  {n:'Sarmizegetusa', c:[23.31,45.62], a:'start'}, {n:'Alba Iulia', c:[23.58,46.07], a:'start'},
+  {n:'Cluj', c:[23.6,46.77], a:'start'}, {n:'Oradea', c:[21.92,47.05], a:'start'}, {n:'Timișoara', c:[21.23,45.75], a:'start'},
+  {n:'Suceava', c:[26.25,47.65], a:'start'}, {n:'Iași', c:[27.6,47.16], a:'start'}, {n:'Chișinău', c:[28.83,47.0], a:'end'},
+  {n:'Cernăuți', c:[25.94,48.29], a:'start'}, {n:'Cetatea Albă', c:[30.35,46.2], a:'end'},
+  {n:'Târgoviște', c:[25.46,44.93], a:'end'}, {n:'București', c:[26.1,44.43], a:'start'}, {n:'Constanța', c:[28.65,44.17], a:'start'}
+];
+
+const POLITIES = {
+  getodaci:['Triburi geto-dace','#A2412F'], greci:['Colonii grecești și geți','#3A7CA5'], sciti:['Sciți','#8C7A55'],
+  traci:['Triburi trace','#8E6E8E'], alte:['Alte populații (celți, iliri, triburi nordice)','#A3A7A6'],
+  burebista:['Regatul lui Burebista','#B01E28'], regatdac:['Regatul dac al lui Decebal','#B01E28'], dacilib:['Daci liberi','#C98A6E'],
+  roman:['Imperiul Roman','#9A7430'], iazigi:['Iazigi (sarmați)','#7C8B5E'], sarmati:['Sarmați','#8C7A55'],
+  huni:['Imperiul hunic (goți, gepizi și alte neamuri supuse)','#6E5F52'], bizant:['Imperiul Roman de Răsărit','#6B4C8A'],
+  voievodate:['Voievodatele lui Menumorut, Glad și Gelu','#C46A50'], maghiari:['Ungurii, abia așezați în Panonia','#3E5C94'],
+  bulgar1:['Primul Țarat Bulgar','#7A6AA8'], pecenegi:['Pecenegi','#9C8C6E'], slavi:['Triburi slave','#8FA07A'],
+  ungaria:['Regatul Ungariei','#3E5C94'], cnezate:['Cnezate și voievodate românești, sub dominație tătară','#C46A50'],
+  tatari:['Hoarda de Aur','#8C8C6E'], halici:['Cnezatul Haliciului','#A3897A'], bulgar:['Al Doilea Țarat Bulgar','#7A6AA8'],
+  serbia_r:['Regatul Serbiei','#9B6B3F'], serbia_d:['Despotatul Serbiei','#9B6B3F'], serbia_p:['Principatul Serbiei','#9B6B3F'],
+  tararom:['Țara Românească','#B01E28'], moldovast:['Moldova','#7E3046'], otoman:['Imperiul Otoman','#2F7A6A'],
+  polonia:['Regatul Poloniei','#B88AA0'], polonia_l:['Uniunea polono-lituaniană','#B88AA0'], lituania:['Marele Ducat al Lituaniei','#7D9C8F'],
+  mihai:['Țările unite sub Mihai Viteazul','#B01E28'], transprinc:['Principatul Transilvaniei','#C08A2A'],
+  habsburg:['Imperiul Habsburgic','#55609E'], rusia:['Imperiul Rus','#6F8A3A'], principate:['Principatele Unite (România)','#B01E28'],
+  austroungaria:['Austro-Ungaria','#55609E'], romania:['România','#B01E28'], bulgaria:['Bulgaria','#8A6BB0'],
+  urss:['URSS','#6A6F4E'], urss_ua:['URSS (RSS Ucraineană)','#6A6F4E'], rssm:['URSS (RSS Moldovenească)','#8E8A55'],
+  polonia2:['Polonia','#B88AA0'], cehoslovacia:['Cehoslovacia','#5D8AA8'], ungaria2:['Ungaria','#3E5C94'],
+  iugoslavia:['Regatul Iugoslaviei','#9B6B3F'], iugoslavia2:['Iugoslavia','#9B6B3F'], serbia2:['Serbia','#9B6B3F'],
+  transn41:['Transnistria, sub administrație românească','#D9908A'], germania:['Ocupație germană','#5A5F66'],
+  rmoldova:['Republica Moldova','#D07A3A'], ucraina2:['Ucraina','#C9A93A']
+};
+const RO9 = ['maramures','crisana-n','crisana-s','banat','transilvania-n','transilvania-s','bucovina','moldova','oltenia','muntenia','dobrogea'];
+const HAB = ['bucovina','bucovina-nord','galitia','transilvania-n','transilvania-s','crisana-n','crisana-s','maramures','maramures-nord','banat','banat-sarb','ungaria'];
+const HU_KINGDOM = ['ungaria','crisana-n','crisana-s','banat','banat-sarb','transilvania-n','transilvania-s','maramures','maramures-nord'];
+const SNAPS = [
+  {year:-500, when:'c. 500 î.Hr.', title:'Geți, daci și colonii grecești',
+   groups:{getodaci:[...RO9.filter(u=>u!=='dobrogea'),'basarabia','hotin','bucovina-nord','maramures-nord'], greci:['dobrogea','cadrilater'], sciti:['bugeac','transnistria','ucraina'], traci:['bulgaria'], alte:['ungaria','serbia','galitia','banat-sarb']},
+   note:'Grecii întemeiază pe țărm Histria, Tomis, Callatis și Tyras (Cetatea Albă). Herodot îi descrie pe geți în campania lui Darius din 514 î.Hr.'},
+  {year:-50, when:'c. 50 î.Hr.', title:'Regatul lui Burebista',
+   groups:{burebista:[...RO9,'basarabia','hotin','bugeac','transnistria','bucovina-nord','maramures-nord','cadrilater','banat-sarb','ungaria','bulgaria'], sciti:['ucraina'], alte:['serbia','galitia']},
+   note:'Regatul se întindea de la Dunărea mijlocie până la Bug și Munții Balcani. S-a destrămat după moartea lui Burebista, în jurul anului 44 î.Hr.'},
+  {year:100, when:'c. anul 100', title:'Dacia lui Decebal',
+   groups:{regatdac:['transilvania-n','transilvania-s','banat','oltenia','crisana-s'], dacilib:['maramures','crisana-n','bucovina','moldova','muntenia','basarabia','hotin','bucovina-nord','maramures-nord'], roman:['dobrogea','cadrilater','bulgaria','serbia'], iazigi:['ungaria','banat-sarb'], sarmati:['bugeac','transnistria','ucraina'], alte:['galitia']},
+   note:'Sudul Dunării și Dobrogea aparțineau deja Imperiului Roman (provincia Moesia). Războaiele din 101–102 și 105–106 duc la cucerirea regatului.'},
+  {year:150, when:'c. anul 150', title:'Dacia romană',
+   groups:{roman:['transilvania-n','transilvania-s','banat','oltenia','dobrogea','cadrilater','bulgaria','serbia'], dacilib:['maramures','crisana-n','crisana-s','bucovina','moldova','muntenia','basarabia','hotin','bucovina-nord','maramures-nord'], iazigi:['ungaria','banat-sarb'], sarmati:['bugeac','transnistria','ucraina'], alte:['galitia']},
+   note:'Provincia Dacia (106–271) cuprindea Transilvania, Banatul și Oltenia. Muntenia și sudul Moldovei au fost sub control roman doar până în 117.'},
+  {year:440, when:'secolul V', title:'Dominația hunilor',
+   groups:{huni:[...RO9.filter(u=>u!=='dobrogea'),'basarabia','hotin','bugeac','transnistria','bucovina-nord','maramures-nord','banat-sarb','ungaria','galitia','ucraina'], bizant:['dobrogea','cadrilater','bulgaria','serbia']},
+   note:'Dobrogea (provincia Scythia Minor) rămâne romană, apoi bizantină. La nord de Dunăre se succed goții, hunii, gepizii, avarii și slavii.'},
+  {year:900, when:'c. anul 900', title:'Voievodatele românești și Țaratul Bulgar',
+   groups:{voievodate:['crisana-n','crisana-s','banat','banat-sarb','transilvania-n','transilvania-s','maramures'], bulgar1:['oltenia','muntenia','dobrogea','cadrilater','bulgaria','serbia'], pecenegi:['moldova','basarabia','hotin','bugeac','transnistria','ucraina'], slavi:['bucovina','bucovina-nord','maramures-nord','galitia'], maghiari:['ungaria']},
+   note:'Cronica Gesta Hungarorum pomenește voievodatele lui Menumorut, Glad și Gelu, cucerite de unguri în secolul X. Câmpia Dunării aparținea Primului Țarat Bulgar.'},
+  {year:1250, when:'c. 1250', title:'După marea invazie tătară',
+   groups:{cnezate:['oltenia','muntenia','moldova','bucovina','basarabia','hotin','bucovina-nord'], ungaria:HU_KINGDOM, tatari:['bugeac','transnistria','ucraina'], halici:['galitia'], bulgar:['dobrogea','cadrilater','bulgaria'], serbia_r:['serbia']},
+   note:'Diploma Ioaniților (1247) pomenește cnezatele lui Ioan și Farcaș și voievodatele lui Litovoi și Seneslau. Transilvania era voievodat al Regatului Ungariei.'},
+  {year:1400, when:'c. 1400', title:'Mircea cel Bătrân și Alexandru cel Bun',
+   groups:{tararom:['muntenia','oltenia','dobrogea','cadrilater'], moldovast:['moldova','bucovina','bucovina-nord','basarabia','hotin','bugeac'], ungaria:HU_KINGDOM, otoman:['bulgaria'], serbia_d:['serbia'], polonia:['galitia'], lituania:['transnistria','ucraina']},
+   note:'Mircea stăpânește Dobrogea până în 1417. Moldova ajunge la Marea Neagră prin Chilia și Cetatea Albă.'},
+  {year:1490, when:'c. 1490', title:'După Ștefan cel Mare: Chilia și Cetatea Albă pierdute',
+   groups:{tararom:['muntenia','oltenia'], moldovast:['moldova','bucovina','bucovina-nord','basarabia','hotin'], ungaria:HU_KINGDOM, otoman:['bugeac','dobrogea','cadrilater','bulgaria','serbia'], polonia:['galitia'], lituania:['transnistria','ucraina']},
+   note:'Otomanii cuceresc Chilia și Cetatea Albă în 1484. Țara Românească și Moldova plătesc tribut, dar își păstrează domnii și instituțiile.'},
+  {year:1600, when:'1600', title:'Unirea lui Mihai Viteazul',
+   groups:{mihai:['muntenia','oltenia','moldova','bucovina','bucovina-nord','basarabia','hotin','transilvania-n','transilvania-s','crisana-n','crisana-s','maramures','maramures-nord'], otoman:['banat','banat-sarb','ungaria','bugeac','dobrogea','cadrilater','bulgaria','serbia'], polonia_l:['galitia','transnistria','ucraina']},
+   note:'Între mai și septembrie 1600, Mihai Viteazul conduce Țara Românească, Transilvania și Moldova. Banatul era provincie otomană din 1552.'},
+  {year:1650, when:'c. 1650', title:'Trei principate sub suzeranitate otomană',
+   groups:{tararom:['muntenia','oltenia'], moldovast:['moldova','bucovina','bucovina-nord','basarabia','hotin'], transprinc:['transilvania-n','transilvania-s','crisana-n','crisana-s','maramures','maramures-nord'], otoman:['banat','banat-sarb','ungaria','bugeac','dobrogea','cadrilater','bulgaria','serbia'], polonia_l:['galitia','transnistria','ucraina']},
+   note:'Banatul și centrul Ungariei sunt provincii otomane. Bugeacul e locuit de tătari nogai, sub autoritatea Imperiului Otoman.'},
+  {year:1780, when:'c. 1780', title:'Habsburgii ajung la Carpați',
+   groups:{tararom:['muntenia','oltenia'], moldovast:['moldova','basarabia'], habsburg:HAB, otoman:['hotin','bugeac','transnistria','dobrogea','cadrilater','bulgaria','serbia'], polonia_l:['ucraina']},
+   note:'Habsburgii iau Transilvania (1699), Banatul (1718) și Bucovina (1775). Hotinul și Bugeacul sunt raiale otomane.'},
+  {year:1815, when:'1815', title:'Basarabia anexată de Rusia',
+   groups:{tararom:['muntenia','oltenia'], moldovast:['moldova'], rusia:['basarabia','hotin','bugeac','transnistria','ucraina'], habsburg:HAB, otoman:['dobrogea','cadrilater','bulgaria','serbia']},
+   note:'Prin pacea de la București (1812), Imperiul Rus anexează partea de est a Moldovei, dintre Prut și Nistru, numită de atunci Basarabia.'},
+  {year:1860, when:'1860', title:'Mica Unire',
+   groups:{principate:['muntenia','oltenia','moldova','bugeac'], rusia:['basarabia','hotin','transnistria','ucraina'], habsburg:HAB, otoman:['dobrogea','cadrilater','bulgaria'], serbia_p:['serbia']},
+   note:'În 1859, Moldova și Țara Românească se unesc sub Alexandru Ioan Cuza. Sudul Basarabiei (Cahul, Bolgrad, Ismail) revenise Moldovei în 1856.'},
+  {year:1900, when:'1900', title:'Regatul României',
+   groups:{romania:['muntenia','oltenia','moldova','dobrogea'], rusia:['basarabia','hotin','bugeac','transnistria','ucraina'], austroungaria:HAB, bulgaria:['cadrilater','bulgaria'], serbia_r:['serbia']},
+   note:'După Războiul de Independență (1877–1878), România primește Dobrogea, dar pierde sudul Basarabiei în favoarea Rusiei. Din 1881 este regat.'},
+  {year:1914, when:'1914', title:'Cadrilaterul alipit României',
+   groups:{romania:['muntenia','oltenia','moldova','dobrogea','cadrilater'], rusia:['basarabia','hotin','bugeac','transnistria','ucraina'], austroungaria:HAB, bulgaria:['bulgaria'], serbia_r:['serbia']},
+   note:'După al Doilea Război Balcanic, prin pacea de la București din 1913, Bulgaria cedează României sudul Dobrogei (Cadrilaterul).'},
+  {year:1930, when:'1918–1940', title:'România Mare',
+   groups:{romania:[...RO9,'basarabia','hotin','bugeac','bucovina-nord','cadrilater'], urss:['transnistria','ucraina'], polonia2:['galitia'], cehoslovacia:['maramures-nord'], ungaria2:['ungaria'], iugoslavia:['serbia','banat-sarb'], bulgaria:['bulgaria']},
+   note:'În 1918 se unesc cu România Basarabia (27 martie), Bucovina (28 noiembrie) și Transilvania, Banatul, Crișana și Maramureșul (1 decembrie).'},
+  {year:1940, when:'1940', title:'Vara pierderilor teritoriale',
+   groups:{romania:['crisana-s','banat','transilvania-s','bucovina','moldova','oltenia','muntenia','dobrogea'], rssm:['basarabia','transnistria'], urss_ua:['hotin','bugeac','bucovina-nord','ucraina','galitia'], ungaria2:['ungaria','maramures','maramures-nord','crisana-n','transilvania-n'], bulgaria:['cadrilater','bulgaria'], iugoslavia:['serbia','banat-sarb']},
+   note:'URSS ocupă Basarabia, nordul Bucovinei și ținutul Herța (iunie). Prin Dictatul de la Viena, nordul Transilvaniei trece la Ungaria (august). Cadrilaterul revine Bulgariei (septembrie).'},
+  {year:1942, when:'1941–1944', title:'Al Doilea Război Mondial',
+   groups:{romania:['crisana-s','banat','transilvania-s','bucovina','moldova','oltenia','muntenia','dobrogea','basarabia','hotin','bugeac','bucovina-nord'], transn41:['transnistria','ucraina'], ungaria2:['ungaria','maramures','maramures-nord','crisana-n','transilvania-n'], germania:['galitia','serbia','banat-sarb'], bulgaria:['cadrilater','bulgaria']},
+   note:'România recuperează Basarabia și nordul Bucovinei și administrează teritoriul dintre Nistru și Bug. Pe hartă zona e simplificată: nordul Ucrainei era sub ocupație germană.'},
+  {year:1970, when:'1947–1989', title:'România comunistă',
+   groups:{romania:RO9, rssm:['basarabia','transnistria'], urss_ua:['hotin','bugeac','bucovina-nord','maramures-nord','galitia','ucraina'], ungaria2:['ungaria'], iugoslavia2:['serbia','banat-sarb'], bulgaria:['cadrilater','bulgaria']},
+   note:'Tratatul de pace de la Paris (1947) confirmă granițele: nordul Transilvaniei revine României, Basarabia și nordul Bucovinei rămân URSS, Cadrilaterul rămâne Bulgariei.'},
+  {year:2000, when:'azi', title:'Granițele de azi',
+   groups:{romania:RO9, rmoldova:['basarabia','transnistria'], ucraina2:['hotin','bugeac','bucovina-nord','maramures-nord','galitia','ucraina'], ungaria2:['ungaria'], serbia2:['serbia','banat-sarb'], bulgaria:['cadrilater','bulgaria']},
+   note:'Republica Moldova își proclamă independența în 1991; Transnistria e controlată de o administrație separatistă nerecunoscută. România intră în NATO în 2004 și în UE în 2007.'}
+];
+
 const NS = 'http://www.w3.org/2000/svg';
-const P = ([lon,lat]) => [ +((lon-19.9)*62).toFixed(1), +((48.45-lat)*90).toFixed(1) ];
-const pathEls = {};
-const regG = document.createElementNS(NS,'g'); svg.appendChild(regG);
-REGIONS.forEach(r => {
-  const p = document.createElementNS(NS,'path');
-  p.setAttribute('d', 'M' + r.pts.map(pt=>P(pt).join(' ')).join('L') + 'Z');
-  p.setAttribute('class','reg'); p.setAttribute('tabindex','0'); p.setAttribute('role','button');
-  const t = document.createElementNS(NS,'title'); p.appendChild(t);
-  const act = ()=>{ state.region = state.region===r.id ? null : r.id; render(); };
-  p.addEventListener('click', act);
-  p.addEventListener('keydown', ev=>{ if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); act(); } });
-  p.addEventListener('focus', ()=>{ if (p.matches(':focus-visible')) { focusRing.setAttribute('d', p.getAttribute('d')); focusRing.style.display=''; } });
-  p.addEventListener('blur', ()=>{ focusRing.style.display='none'; });
-  regG.appendChild(p); pathEls[r.id] = {p, t};
+const proj = ([lon,lat]) => [ +((lon-19)*55).toFixed(1), +((49.2-lat)*79.7).toFixed(1) ];
+const xy = p => proj(typeof p === 'string' ? PT[p] : p).join(' ');
+const UNIT = Object.fromEntries(UNITS.map(u => [u.id, u]));
+UNITS.forEach(u => { u.list = u.pts.split(' '); u.prov = u.prov || u.id; });
+SNAPS.forEach(s => { s.era = eraOf(s.year).id; s.pm = {}; Object.entries(s.groups).forEach(([pol, us]) => us.forEach(u => { s.pm[u] = pol; })); });
+const NOW_PM = SNAPS[SNAPS.length-1].pm;
+const REG_BY_ID = Object.fromEntries(REGIONS.map(r => [r.id, r]));
+
+/* muchii comune între poligoane */
+const EDGES = new Map();
+function addEdges(owner, list){
+  list.forEach((a, i) => { const b = list[(i+1) % list.length]; const k = a < b ? a+'|'+b : b+'|'+a;
+    const e = EDGES.get(k) || {a, b, o:[]}; e.o.push(owner); EDGES.set(k, e); });
+}
+UNITS.forEach(u => addEdges(u.id, u.list));
+addEdges('sea', SEA_PTS.split(' '));
+const seg = e => `M${xy(e.a)}L${xy(e.b)}`;
+function outline(unitIds){
+  const set = new Set(unitIds); let d = '';
+  EDGES.forEach(e => { const inside = e.o.filter(o => set.has(o)).length; if (inside === 1) d += seg(e); });
+  return d || 'M0 0';
+}
+
+const svg = document.getElementById('map');
+const mk = (tag, attrs, parent) => { const el = document.createElementNS(NS, tag); Object.entries(attrs||{}).forEach(([k,v]) => el.setAttribute(k, v)); (parent||svg).appendChild(el); return el; };
+mk('path', {d:'M' + SEA_PTS.split(' ').map(xy).join('L') + 'Z', class:'sea-fill'});
+const unitG = mk('g', {});
+const unitEls = {};
+UNITS.forEach(u => {
+  const p = mk('path', {d:'M' + u.list.map(xy).join('L') + 'Z', class: u.reg ? 'unit reg' : 'unit'}, unitG);
+  const t = mk('title', {}, p);
+  if (u.reg){
+    p.setAttribute('tabindex','0'); p.setAttribute('role','button');
+    const act = () => { state.region = state.region===u.reg ? null : u.reg; render(); };
+    p.addEventListener('click', act);
+    p.addEventListener('keydown', ev => { if (ev.key==='Enter' || ev.key===' '){ ev.preventDefault(); act(); } });
+    p.addEventListener('focus', () => { if (p.matches(':focus-visible')) { focusRing.setAttribute('d', outline(REG_BY_ID[u.reg].units)); focusRing.style.display=''; } });
+    p.addEventListener('blur', () => { focusRing.style.display='none'; });
+  }
+  unitEls[u.id] = {p, t};
 });
-/* contur desenat deasupra tuturor regiunilor, cu forma exactă a regiunii */
-const ring = cls => { const e = document.createElementNS(NS,'path'); e.setAttribute('class','reg-ring '+cls); e.setAttribute('d','M0 0'); e.style.display='none'; svg.appendChild(e); return e; };
+const riverG = mk('g', {class:'rivers'});
+RIVERS.forEach(r => mk('path', {d:'M' + r.map(xy).join('L')}, riverG));
+const provPath = mk('path', {class:'b-prov'});
+const coastPath = mk('path', {class:'b-coast'});
+const statePath = mk('path', {class:'b-state'});
+const ring = cls => { const e = mk('path', {class:'reg-ring '+cls, d:'M0 0'}); e.style.display='none'; return e; };
 const selHalo = ring('sel-halo'), selLine = ring('sel-line'), focusRing = ring('focus-line');
-const sea = document.createElementNS(NS,'text'); const sp = P([29.35,43.95]);
-sea.setAttribute('x',sp[0]); sea.setAttribute('y',sp[1]); sea.setAttribute('text-anchor','middle'); sea.setAttribute('class','sea'); sea.textContent='Marea Neagră'; svg.appendChild(sea);
-REGIONS.forEach(r => {
-  const t = document.createElementNS(NS,'text'); const [x,y] = P(r.label);
-  t.setAttribute('x',x); t.setAttribute('y',y); t.setAttribute('text-anchor','middle'); t.setAttribute('class','reg-lbl');
-  t.textContent = r.name.toUpperCase(); svg.appendChild(t);
+const sp = proj([29.9,43.65]); mk('text', {x:sp[0], y:sp[1], 'text-anchor':'middle', class:'sea'}).textContent = 'Marea Neagră';
+LABELS.forEach(([txt, at, size, rot]) => {
+  const [x,y] = proj(at);
+  const t = mk('text', {x, y, 'text-anchor':'middle', class:'reg-lbl' + (size ? ' sm' : '')});
+  if (rot) t.setAttribute('transform', `rotate(${rot} ${x} ${y})`);
+  txt.split('\n').forEach((line, i, all) => { const ts = document.createElementNS(NS, 'tspan'); ts.setAttribute('x', x); ts.setAttribute('y', y + (i - (all.length-1)/2) * 11); ts.textContent = line; t.appendChild(ts); });
 });
+const ctxEls = CTX_LABELS.map(([unit, at]) => { const [x,y] = proj(at); return {unit, x, y, el: mk('text', {x, y, 'text-anchor':'middle', class:'ctx-lbl'})}; });
 CITIES.forEach(c => {
-  const g = document.createElementNS(NS,'g'); g.setAttribute('class','city'); const [x,y] = P(c.c);
-  const ci = document.createElementNS(NS,'circle'); ci.setAttribute('cx',x); ci.setAttribute('cy',y); ci.setAttribute('r','2.6');
-  const tx = document.createElementNS(NS,'text'); tx.setAttribute('x', c.a==='end'? x-5 : x+5); tx.setAttribute('y', y+3.5); tx.setAttribute('text-anchor', c.a); tx.textContent = c.n;
-  g.append(ci,tx); svg.appendChild(g);
+  const g = mk('g', {class:'city'}); const [x,y] = proj(c.c);
+  mk('circle', {cx:x, cy:y, r:'2.4'}, g);
+  mk('text', {x: c.a==='end' ? x-5 : x+5, y: y+3.5, 'text-anchor': c.a}, g).textContent = c.n;
 });
+function setWrapped(el, text, x, y){
+  const words = text.split(' '), lines = []; let cur = '';
+  words.forEach(w => { if ((cur + ' ' + w).trim().length > 18 && cur) { lines.push(cur); cur = w; } else cur = (cur + ' ' + w).trim(); });
+  if (cur) lines.push(cur);
+  el.textContent = '';
+  lines.forEach((l, i) => { const ts = document.createElementNS(NS, 'tspan'); ts.setAttribute('x', x); ts.setAttribute('y', y + (i - (lines.length-1)/2) * 13); ts.textContent = l; el.appendChild(ts); });
+}
+
+/* lista de regiuni pentru filtrare */
 const regList = document.getElementById('reg-list');
 const regBtns = {};
-[...REGIONS.map(r=>({id:r.id,name:r.name})), {id:'national', name:'Toată țara (teme naționale)'}].forEach(r=>{
-  const li = document.createElement('li'); if (r.id==='national') li.className='wide';
+const addRegBtn = (id, name, wide) => {
+  const li = document.createElement('li'); if (wide) li.className = 'wide';
   const b = document.createElement('button'); b.type='button'; b.className='reg-btn'; b.setAttribute('aria-pressed','false');
-  b.innerHTML = `<span>${esc(r.name)}</span><span></span>`;
-  b.addEventListener('click', ()=>{ state.region = state.region===r.id ? null : r.id; render(); });
-  li.appendChild(b); regList.appendChild(li); regBtns[r.id]=b;
-});
-
-
-/* ---------- harta pe perioade ---------- */
-const POLITIES = {
-  getodaci:{name:'Triburi geto-dace', c:'#A2412F'},
-  greci:{name:'Geți și colonii grecești', c:'#3A7CA5'},
-  regatdac:{name:'Regatul dac al lui Decebal', c:'#B01E28'},
-  dacilib:{name:'Daci liberi și alte triburi', c:'#C98A6E'},
-  roman:{name:'Imperiul Roman', c:'#9A7430'},
-  ungaria:{name:'Regatul Ungariei', c:'#3E5C94'},
-  cnezate:{name:'Cnezate românești, sub dominație tătară', c:'#C46A50'},
-  bulgar:{name:'Țaratul Bulgar', c:'#6B4C8A'},
-  tararom:{name:'Țara Românească', c:'#B01E28'},
-  moldovast:{name:'Principatul Moldovei', c:'#7E3046'},
-  transprinc:{name:'Principatul Transilvaniei', c:'#C08A2A'},
-  otoman:{name:'Imperiul Otoman', c:'#2F7A6A'},
-  principate:{name:'Principatele Unite (România)', c:'#B01E28'},
-  habsburg:{name:'Imperiul Habsburgic', c:'#3E5C94'},
-  austroungaria:{name:'Austro-Ungaria', c:'#3E5C94'},
-  romania:{name:'România', c:'#B01E28'}
+  b.innerHTML = `<span>${esc(name)}</span><span></span>`;
+  b.addEventListener('click', () => { state.region = state.region===id ? null : id; render(); });
+  li.appendChild(b); regList.appendChild(li); regBtns[id] = b;
 };
-const ALL_RO = {maramures:'romania',crisana:'romania',banat:'romania',transilvania:'romania',bucovina:'romania',moldova:'romania',oltenia:'romania',muntenia:'romania',dobrogea:'romania'};
-const PERIODS = {
-  'antichitate':{snap:'În jurul anului 500 î.Hr.', map:{maramures:'getodaci',crisana:'getodaci',banat:'getodaci',transilvania:'getodaci',bucovina:'getodaci',moldova:'getodaci',oltenia:'getodaci',muntenia:'getodaci',dobrogea:'greci'}, note:'Pe țărmul Mării Negre, grecii au întemeiat Histria, Tomis și Callatis.'},
-  'regatul-dac':{snap:'În jurul anului 100, sub Decebal', map:{maramures:'dacilib',crisana:'dacilib',banat:'regatdac',transilvania:'regatdac',bucovina:'dacilib',moldova:'dacilib',oltenia:'regatdac',muntenia:'dacilib',dobrogea:'roman'}, note:'Sub Burebista (sec. I î.Hr.) regatul dac cuprindea aproape tot teritoriul. Dobrogea a intrat în Imperiul Roman în anul 46.'},
-  'dacia-romana':{snap:'În jurul anului 150', map:{maramures:'dacilib',crisana:'dacilib',banat:'roman',transilvania:'roman',bucovina:'dacilib',moldova:'dacilib',oltenia:'roman',muntenia:'dacilib',dobrogea:'roman'}, note:'Provincia Dacia cuprindea Transilvania, Banatul și Oltenia; Dobrogea făcea parte din Moesia Inferior.'},
-  'migratii':{snap:'În jurul anului 1250', map:{maramures:'ungaria',crisana:'ungaria',banat:'ungaria',transilvania:'ungaria',bucovina:'cnezate',moldova:'cnezate',oltenia:'cnezate',muntenia:'cnezate',dobrogea:'bulgar'}, note:'O perioadă lungă și schimbătoare: harta arată situația de după marea invazie tătară din 1241.'},
-  'intemeiere':{snap:'În jurul anului 1400, sub Mircea cel Bătrân', map:{maramures:'ungaria',crisana:'ungaria',banat:'ungaria',transilvania:'ungaria',bucovina:'moldovast',moldova:'moldovast',oltenia:'tararom',muntenia:'tararom',dobrogea:'tararom'}, note:'Transilvania era voievodat în Regatul Ungariei. Dobrogea a fost cucerită de otomani în 1417.'},
-  'intre-imperii':{snap:'În jurul anului 1650', map:{maramures:'transprinc',crisana:'transprinc',banat:'otoman',transilvania:'transprinc',bucovina:'moldovast',moldova:'moldovast',oltenia:'tararom',muntenia:'tararom',dobrogea:'otoman'}, note:'Cele trei principate plăteau tribut Imperiului Otoman. Ulterior trec la Habsburgi: Transilvania (1699), Banatul (1718), Bucovina (1775).'},
-  'renastere':{snap:'În jurul anului 1860, după Mica Unire', map:{maramures:'habsburg',crisana:'habsburg',banat:'habsburg',transilvania:'habsburg',bucovina:'habsburg',moldova:'principate',oltenia:'principate',muntenia:'principate',dobrogea:'otoman'}, note:'În 1859, Moldova și Țara Românească s-au unit sub Alexandru Ioan Cuza.'},
-  'vechiul-regat':{snap:'În jurul anului 1900', map:{maramures:'austroungaria',crisana:'austroungaria',banat:'austroungaria',transilvania:'austroungaria',bucovina:'austroungaria',moldova:'romania',oltenia:'romania',muntenia:'romania',dobrogea:'romania'}, note:'Dobrogea a intrat în componența României în 1878, după Războiul de Independență.'},
-  'romania-mare':{snap:'Între 1918 și 1940', map:ALL_RO, note:'România Mare cuprindea și Basarabia, toată Bucovina și Cadrilaterul, în afara acestei hărți. Între 1940 și 1944, nordul Transilvaniei a fost ocupat de Ungaria.'},
-  'comunism':{snap:'Între 1947 și 1989', map:ALL_RO, note:'Republica Populară Română din 1947, Republica Socialistă România din 1965.'},
-  'dupa-1989':{snap:'Din 1990 până azi', map:ALL_RO, note:'Membră NATO din 2004 și a Uniunii Europene din 2007.'}
-};
-let mapMode = 'now', mapEra = 'intemeiere';
-const polFill = pol => `color-mix(in oklab, ${pol.c} 72%, var(--linen-2))`;
-const polityOf = rid => POLITIES[(PERIODS[mapEra]||{map:{}}).map[rid]];
+REGIONS.filter(r => !r.ist).forEach(r => addRegBtn(r.id, r.name));
+{ const li = document.createElement('li'); li.className = 'wide reg-sub'; li.textContent = 'Teritorii istorice, azi în alte state'; regList.appendChild(li); }
+REGIONS.filter(r => r.ist).forEach(r => addRegBtn(r.id, r.name, r.id==='bucovina-nord'));
+addRegBtn('national', 'Toată țara (teme naționale)', true);
+
+/* modul hărții și perioada */
+let mapMode = 'now', snapIdx = SNAPS.length - 1;
+const polFill = id => `color-mix(in oklab, ${POLITIES[id][1]} 70%, var(--linen-2))`;
 const perSel = document.getElementById('per-select');
-ERAS.forEach(e => { const o = document.createElement('option'); o.value = e.id; o.textContent = `${e.name} (${fmtYear(e.start)} – ${e.end>2026 ? 'azi' : fmtYear(e.end)})`; perSel.appendChild(o); });
-function setMapEra(id){ mapEra = id; state.era = id; render(); }
-perSel.addEventListener('change', () => setMapEra(perSel.value));
-document.getElementById('per-prev').addEventListener('click', () => { const i = ERAS.findIndex(e=>e.id===mapEra); if (i>0) setMapEra(ERAS[i-1].id); });
-document.getElementById('per-next').addEventListener('click', () => { const i = ERAS.findIndex(e=>e.id===mapEra); if (i<ERAS.length-1) setMapEra(ERAS[i+1].id); });
+ERAS.forEach(e => {
+  const og = document.createElement('optgroup'); og.label = e.name;
+  SNAPS.forEach((s, i) => { if (s.era === e.id) { const o = document.createElement('option'); o.value = i; o.textContent = `${s.when} · ${s.title}`; og.appendChild(o); } });
+  if (og.children.length) perSel.appendChild(og);
+});
+function setSnap(i){ snapIdx = i; state.era = SNAPS[i].era; render(); }
+function syncSnapToEra(){ if (state.era && SNAPS[snapIdx].era !== state.era){ const i = SNAPS.findIndex(s => s.era === state.era); if (i >= 0) snapIdx = i; } }
+perSel.addEventListener('change', () => setSnap(+perSel.value));
+document.getElementById('per-prev').addEventListener('click', () => { if (snapIdx > 0) setSnap(snapIdx - 1); });
+document.getElementById('per-next').addEventListener('click', () => { if (snapIdx < SNAPS.length - 1) setSnap(snapIdx + 1); });
 function setMode(m){
   mapMode = m;
-  if (m==='period' && state.era) mapEra = state.era;
+  if (m === 'period') syncSnapToEra();
   document.getElementById('mode-now').setAttribute('aria-pressed', m==='now');
   document.getElementById('mode-period').setAttribute('aria-pressed', m==='period');
   render();
 }
 document.getElementById('mode-now').addEventListener('click', () => setMode('now'));
 document.getElementById('mode-period').addEventListener('click', () => setMode('period'));
-function renderPeriod(){
-  const on = mapMode==='period';
-  document.getElementById('period').hidden = !on;
-  document.getElementById('count-legend').hidden = on;
-  if (!on) return;
-  const P = PERIODS[mapEra], i = ERAS.findIndex(e=>e.id===mapEra);
-  perSel.value = mapEra;
-  document.getElementById('per-prev').disabled = i<=0;
-  document.getElementById('per-next').disabled = i>=ERAS.length-1;
-  document.getElementById('per-snap').textContent = P.snap;
-  document.getElementById('per-note').textContent = P.note;
-  const groups = {};
-  REGIONS.forEach(r => { const k = P.map[r.id]; (groups[k] = groups[k] || []).push(r.name); });
-  document.getElementById('pol-legend').innerHTML = Object.entries(groups).map(([k, names]) =>
-    `<li><i style="background:${polFill(POLITIES[k])}"></i><span>${esc(POLITIES[k].name)}</span><small>${esc(names.join(', '))}</small></li>`).join('');
+
+function renderMap(){
+  if (mapMode === 'period') syncSnapToEra();
+  const period = mapMode === 'period';
+  const snap = SNAPS[snapIdx], pm = period ? snap.pm : NOW_PM;
+  const counts = {}; let max = 1;
+  REGIONS.forEach(r => { counts[r.id] = VIDEOS.filter(v => matches(v,'region') && v.regions.includes(r.id)).length; max = Math.max(max, counts[r.id]); });
+  counts.national = VIDEOS.filter(v => matches(v,'region') && !v.regions.length).length;
+
+  UNITS.forEach(u => {
+    const {p, t} = unitEls[u.id]; const r = u.reg ? REG_BY_ID[u.reg] : null; const n = r ? counts[r.id] : 0;
+    const polName = POLITIES[pm[u.id]][0];
+    if (period) p.style.fill = polFill(pm[u.id]);
+    else if (r) p.style.fill = n ? `color-mix(in oklab, var(--rosu) ${Math.round(16 + 74*n/max)}%, var(--linen-2))` : 'var(--linen-2)';
+    else p.style.fill = 'var(--ctx)';
+    t.textContent = [u.name, polName, r ? plural(n) : ''].filter(Boolean).join(' · ');
+    if (r){ p.setAttribute('aria-label', `${u.name}, ${polName}: ${plural(n)}`); p.setAttribute('aria-pressed', state.region===r.id); }
+  });
+
+  let dState = '', dProv = '', dCoast = '';
+  EDGES.forEach(e => {
+    if (e.o.length < 2) return;
+    const [a, b] = e.o;
+    if (a === 'sea' || b === 'sea') { dCoast += seg(e); return; }
+    if (pm[a] !== pm[b]) dState += seg(e);
+    else if (UNIT[a].prov !== UNIT[b].prov) dProv += seg(e);
+  });
+  statePath.setAttribute('d', dState || 'M0 0'); provPath.setAttribute('d', dProv || 'M0 0'); coastPath.setAttribute('d', dCoast || 'M0 0');
+  ctxEls.forEach(c => setWrapped(c.el, POLITIES[pm[c.unit]][0], c.x, c.y));
+
+  const selR = state.region && REG_BY_ID[state.region];
+  [selHalo, selLine].forEach(e => { if (selR) { e.setAttribute('d', outline(selR.units)); e.style.display=''; } else e.style.display='none'; });
+  Object.entries(regBtns).forEach(([id, b]) => { b.lastChild.textContent = counts[id]; b.setAttribute('aria-pressed', state.region===id); });
+
+  document.getElementById('period').hidden = !period;
+  document.getElementById('now-side').hidden = period;
+  if (!period) return;
+  perSel.value = snapIdx;
+  document.getElementById('per-prev').disabled = snapIdx <= 0;
+  document.getElementById('per-next').disabled = snapIdx >= SNAPS.length - 1;
+  document.getElementById('per-snap').textContent = `${snap.when[0].toUpperCase() + snap.when.slice(1)} · ${snap.title}`;
+  document.getElementById('per-note').textContent = snap.note;
+  const byBase = {};
+  UNITS.forEach(u => { if (u.base) (byBase[u.base] = byBase[u.base] || []).push(u.id); });
+  document.getElementById('pol-legend').innerHTML = Object.entries(snap.groups).map(([pol, us]) => {
+    const names = [];
+    us.forEach(id => { const u = UNIT[id];
+      const nm = u.base && byBase[u.base].every(x => snap.pm[x] === pol) ? u.base : u.name;
+      if (!names.includes(nm)) names.push(nm); });
+    return `<li><i style="background:${polFill(pol)}"></i><span>${esc(POLITIES[pol][0])}</span><small>${esc(names.join(', '))}</small></li>`;
+  }).join('');
 }
 
 /* ---------- categories & controls ---------- */
@@ -621,24 +878,7 @@ function render(){
   });
   dotEls.forEach(({el,v})=> el.classList.toggle('dim', !matches(v)));
 
-  // map
-  const counts = {}; let max = 1;
-  REGIONS.forEach(r=>{ counts[r.id] = VIDEOS.filter(v=>matches(v,'region') && v.regions.includes(r.id)).length; max = Math.max(max, counts[r.id]); });
-  counts.national = VIDEOS.filter(v=>matches(v,'region') && !v.regions.length).length;
-  REGIONS.forEach(r=>{
-    const {p,t} = pathEls[r.id]; const n = counts[r.id];
-    const pct = n ? Math.round(16 + 74*(n/max)) : 0;
-    const pol = mapMode==='period' ? polityOf(r.id) : null;
-    p.style.fill = pol ? polFill(pol) : (n ? `color-mix(in oklab, var(--rosu) ${pct}%, var(--linen-2))` : 'var(--linen-2)');
-    p.classList.toggle('sel', state.region===r.id);
-    p.setAttribute('aria-pressed', state.region===r.id);
-    p.setAttribute('aria-label', pol ? `${r.name}, ${pol.name}: ${plural(n)}` : `${r.name}: ${plural(n)}`);
-    t.textContent = pol ? `${r.name} · ${pol.name} · ${plural(n)}` : `${r.name} · ${plural(n)}`;
-  });
-  renderPeriod();
-  const selP = state.region && pathEls[state.region] ? pathEls[state.region].p : null;
-  [selHalo, selLine].forEach(e=>{ if (selP){ e.setAttribute('d', selP.getAttribute('d')); e.style.display=''; } else e.style.display='none'; });
-  Object.entries(regBtns).forEach(([id,b])=>{ b.lastChild.textContent = counts[id]; b.setAttribute('aria-pressed', state.region===id); });
+  renderMap();
 
   // categories
   Object.entries(catBtns).forEach(([c,b])=> b.setAttribute('aria-pressed', state.cat===c));

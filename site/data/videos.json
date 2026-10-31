@@ -191,7 +191,8 @@
    "regions": [
     "maramures",
     "moldova",
-    "bucovina"
+    "bucovina",
+    "basarabia"
    ],
    "duration": "18:09",
    "published": "2024-12-07",
@@ -206,7 +207,8 @@
    "category": "Bătălii și războaie",
    "regions": [
     "muntenia",
-    "dobrogea"
+    "dobrogea",
+    "cadrilater"
    ],
    "duration": "22:58",
    "published": "2025-01-04",
@@ -306,7 +308,8 @@
    "title": "Dimitrie Cantemir, prinț și savant",
    "category": "Domnitori și oameni",
    "regions": [
-    "moldova"
+    "moldova",
+    "basarabia"
    ],
    "duration": "21:50",
    "published": "2025-05-31",
@@ -507,7 +510,10 @@
     "crisana",
     "transilvania",
     "bucovina",
-    "dobrogea"
+    "dobrogea",
+    "basarabia",
+    "bucovina-nord",
+    "cadrilater"
    ],
    "duration": "32:11",
    "published": "2026-03-21",
@@ -621,6 +627,49 @@
    "duration": "22:22",
    "published": "2026-09-05",
    "description": "De la candidatură la aderarea la NATO în 2004 și la Uniunea Europeană în 2007.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-45",
+   "year": 1918,
+   "title": "Unirea Basarabiei cu România",
+   "category": "Momente politice",
+   "regions": [
+    "basarabia"
+   ],
+   "duration": "23:40",
+   "published": "2026-09-26",
+   "description": "Sfatul Țării votează unirea cu România la 27 martie 1918, la Chișinău.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-46",
+   "year": 1484,
+   "title": "Chilia și Cetatea Albă, porțile Moldovei la mare",
+   "category": "Bătălii și războaie",
+   "regions": [
+    "basarabia"
+   ],
+   "duration": "19:12",
+   "published": "2026-10-03",
+   "description": "Cetățile de la gurile Dunării și ale Nistrului și cucerirea lor de către otomani în 1484.",
+   "url": "",
+   "thumbnail": ""
+  },
+  {
+   "id": "exemplu-47",
+   "year": 1775,
+   "title": "Bucovina sub Habsburgi",
+   "category": "Momente politice",
+   "regions": [
+    "bucovina",
+    "bucovina-nord"
+   ],
+   "duration": "21:28",
+   "published": "2026-10-10",
+   "description": "Cum a devenit nordul Moldovei provincie austriacă și ce a însemnat pentru Suceava și Cernăuți.",
    "url": "",
    "thumbnail": ""
   }

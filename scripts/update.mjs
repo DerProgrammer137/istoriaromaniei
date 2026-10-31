@@ -22,7 +22,10 @@ const MIN_SECONDS = Number(process.env.MIN_SECONDS || 61); // videoclipurile mai
 const YT_BASE = process.env.YOUTUBE_API_BASE || 'https://www.googleapis.com/youtube/v3';
 const AI_BASE = process.env.ANTHROPIC_API_BASE || 'https://api.anthropic.com';
 
-const REGIONS = ['maramures', 'crisana', 'banat', 'transilvania', 'bucovina', 'moldova', 'oltenia', 'muntenia', 'dobrogea'];
+const REGIONS = ['maramures', 'crisana', 'banat', 'transilvania', 'bucovina', 'moldova', 'oltenia', 'muntenia', 'dobrogea',
+  'basarabia', 'bucovina-nord', 'cadrilater']; // ultimele trei: teritorii istorice aflate azi în alte state
+const REGION_KEYS = Object.fromEntries(REGIONS.map(r => [r.replace(/-/g, ''), r]));
+const REGION_ALIASES = { rmoldova: 'basarabia', republicamoldova: 'basarabia', bucovinadenord: 'bucovina-nord', nordulbucovinei: 'bucovina-nord', dobrogeadesud: 'cadrilater' };
 const CATEGORIES = {
   batalii: 'Bătălii și războaie',
   domnitori: 'Domnitori și oameni',
@@ -56,9 +59,9 @@ function toCategory(value) {
 
 function toRegions(list) {
   if (!Array.isArray(list)) return null;
-  const ids = list.map(x => norm(x).replace(/[^a-z]/g, ''));
-  if (ids.some(x => x === 'national' || x === 'toatatara')) return [];
-  return [...new Set(ids.filter(x => REGIONS.includes(x)))];
+  const keys = list.map(x => norm(x).replace(/[^a-z]/g, ''));
+  if (keys.some(x => x === 'national' || x === 'toatatara')) return [];
+  return [...new Set(keys.map(k => REGION_KEYS[k] || REGION_ALIASES[k]).filter(Boolean))];
 }
 
 /* ---------- etichete din descriere ---------- */
@@ -147,7 +150,7 @@ const AI_TOOL = {
     type: 'object',
     properties: {
       an: { type: 'integer', description: 'Anul principal al evenimentului sau perioadei prezentate. Negativ pentru î.Hr. (ex. -60). Pentru o perioadă lungă, anul ei de început sau momentul central.' },
-      regiuni: { type: 'array', items: { type: 'string', enum: REGIONS }, description: 'Provinciile istorice (în granițele actuale ale României) unde se petrece subiectul. Listă goală dacă privește toată țara sau nu ține de o regiune anume.' },
+      regiuni: { type: 'array', items: { type: 'string', enum: REGIONS }, description: 'Provinciile istorice unde se petrece subiectul: cele nouă din România de azi, plus basarabia (azi Republica Moldova și sudul Ucrainei), bucovina-nord (azi Ucraina) și cadrilater (sudul Dobrogei, azi Bulgaria). Listă goală dacă privește toată țara sau nu ține de o regiune anume.' },
       tema: { type: 'string', enum: Object.keys(CATEGORIES), description: 'batalii = bătălii și războaie; domnitori = domnitori și oameni; locuri = locuri și monumente; societate = societate și cultură; politica = momente politice.' },
       rezumat: { type: 'string', description: 'O singură propoziție în limba română, de cel mult 200 de caractere, care spune ce prezintă videoclipul. Ton neutru, fără formule de marketing.' },
     },
