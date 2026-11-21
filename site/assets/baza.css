@@ -1,0 +1,225 @@
+/* Biblioteca Istoriei Românești — stiluri comune (bibliotecă și cronică).
+   O pagină ca o ie: brâu cusut sus, titlu pe pânză albă, accente de roșu de ie. */
+:root{
+  --linen:#F4F3EF;      /* pânză de ie */
+  --linen-2:#E7E3DB;
+  --card:#FBFAF7;
+  --ink:#1C1816;        /* negru de broderie */
+  --ink-2:#5F574F;
+  --line:#D8D1C6;
+  --rosu:#AE1F28;       /* roșu de ie: singurul accent puternic */
+  --indigo:#2B3F6B;
+  --voronet:#2A5490;    /* albastru de Voroneț */
+  --aur:#A9792B;        /* aur de icoană */
+  --tri-a:#2B4A8B; --tri-g:#D4A52C; --tri-r:#B3252C;   /* tricolorul, în tonuri de pânză vopsită */
+  --on-pig:#F5EEE3;
+  --f-display:"Marcellus","Trajan Pro","Palatino Linotype",Palatino,Georgia,serif;
+  --f-body:"Alegreya Sans","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-label:"Alegreya Sans SC","Alegreya Sans","Segoe UI",Arial,sans-serif;
+  --f-serif:"Alegreya",Georgia,"Times New Roman",serif;
+  /* culori de scoarță (vopsele naturale), la fel în ambele teme */
+  --e1:#4E3324; --e2:#7A2622; --e3:#86601F; --e4:#3F4A35; --e5:#26375E; --e6:#5A2840;
+  --e7:#2D5A4C; --e8:#6B3F1E; --e9:#8E1F24; --e10:#3A3839; --e11:#274E73;
+  --m-teeth:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath d='M0 0h3v3h-3zM3 0h3v3h-3zM6 0h3v3h-3zM9 0h3v3h-3zM12 0h3v3h-3zM15 0h3v3h-3zM18 0h3v3h-3zM3 3h3v3h-3zM6 3h3v3h-3zM9 3h3v3h-3zM12 3h3v3h-3zM15 3h3v3h-3zM6 6h3v3h-3zM9 6h3v3h-3zM12 6h3v3h-3zM9 9h3v3h-3z'/%3E%3C/svg%3E"); /* 24x12 */
+  --m-teethup:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12'%3E%3Cpath d='M0 9h3v3h-3zM3 9h3v3h-3zM6 9h3v3h-3zM9 9h3v3h-3zM12 9h3v3h-3zM15 9h3v3h-3zM18 9h3v3h-3zM3 6h3v3h-3zM6 6h3v3h-3zM9 6h3v3h-3zM12 6h3v3h-3zM15 6h3v3h-3zM6 3h3v3h-3zM9 3h3v3h-3zM12 3h3v3h-3zM9 0h3v3h-3z'/%3E%3C/svg%3E"); /* 24x12 */
+  --m-romb:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='42' height='33'%3E%3Cpath d='M0 15h3v3h-3zM6 12h3v3h-3zM6 15h3v3h-3zM9 12h3v3h-3zM9 18h3v3h-3zM12 9h3v3h-3zM12 21h3v3h-3zM15 6h3v3h-3zM15 15h3v3h-3zM15 24h3v3h-3zM18 0h3v3h-3zM18 3h3v3h-3zM18 12h3v3h-3zM18 18h3v3h-3zM18 27h3v3h-3zM21 0h3v3h-3zM21 9h3v3h-3zM21 15h3v3h-3zM21 21h3v3h-3zM21 30h3v3h-3zM24 3h3v3h-3zM24 12h3v3h-3zM24 18h3v3h-3zM24 27h3v3h-3zM24 30h3v3h-3zM27 6h3v3h-3zM27 15h3v3h-3zM27 24h3v3h-3zM30 9h3v3h-3zM30 21h3v3h-3zM33 12h3v3h-3zM33 18h3v3h-3zM36 15h3v3h-3zM36 18h3v3h-3zM39 15h3v3h-3z'/%3E%3C/svg%3E"); /* 42x33 */
+  --m-stea:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='39' height='39'%3E%3Cpath d='M6 6h3v3h-3zM6 18h3v3h-3zM6 30h3v3h-3zM9 9h3v3h-3zM9 18h3v3h-3zM9 27h3v3h-3zM12 12h3v3h-3zM12 18h3v3h-3zM12 24h3v3h-3zM15 18h3v3h-3zM18 6h3v3h-3zM18 9h3v3h-3zM18 12h3v3h-3zM18 15h3v3h-3zM18 18h3v3h-3zM18 21h3v3h-3zM18 24h3v3h-3zM18 27h3v3h-3zM18 30h3v3h-3zM21 18h3v3h-3zM24 12h3v3h-3zM24 18h3v3h-3zM24 24h3v3h-3zM27 9h3v3h-3zM27 18h3v3h-3zM27 27h3v3h-3zM30 6h3v3h-3zM30 18h3v3h-3zM30 30h3v3h-3z'/%3E%3C/svg%3E"); /* 39x39 */
+  --m-pom:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='39' height='36'%3E%3Cpath d='M18 3h3v3h-3zM15 6h3v3h-3zM18 6h3v3h-3zM21 6h3v3h-3zM12 9h3v3h-3zM18 9h3v3h-3zM24 9h3v3h-3zM9 12h3v3h-3zM15 12h3v3h-3zM18 12h3v3h-3zM21 12h3v3h-3zM27 12h3v3h-3zM18 15h3v3h-3zM12 18h3v3h-3zM15 18h3v3h-3zM18 18h3v3h-3zM21 18h3v3h-3zM24 18h3v3h-3zM9 21h3v3h-3zM18 21h3v3h-3zM27 21h3v3h-3zM18 24h3v3h-3zM15 27h3v3h-3zM18 27h3v3h-3zM21 27h3v3h-3zM12 30h3v3h-3zM15 30h3v3h-3zM18 30h3v3h-3zM21 30h3v3h-3zM24 30h3v3h-3z'/%3E%3C/svg%3E"); /* 39x36 */
+  --m-carlig:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='39' height='39'%3E%3Cpath d='M9 9h3v3h-3zM12 9h3v3h-3zM15 9h3v3h-3zM18 9h3v3h-3zM21 9h3v3h-3zM24 9h3v3h-3zM9 12h3v3h-3zM24 12h3v3h-3zM9 15h3v3h-3zM15 15h3v3h-3zM18 15h3v3h-3zM24 15h3v3h-3zM9 18h3v3h-3zM15 18h3v3h-3zM24 18h3v3h-3zM9 21h3v3h-3zM15 21h3v3h-3zM18 21h3v3h-3zM21 21h3v3h-3zM24 21h3v3h-3zM9 24h3v3h-3zM9 27h3v3h-3zM12 27h3v3h-3zM15 27h3v3h-3zM18 27h3v3h-3zM21 27h3v3h-3zM24 27h3v3h-3zM27 27h3v3h-3z'/%3E%3C/svg%3E"); /* 39x39 */
+  --m-rombmic:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='39' height='39'%3E%3Cpath d='M9 18h3v3h-3zM12 15h3v3h-3zM12 21h3v3h-3zM15 12h3v3h-3zM15 24h3v3h-3zM18 9h3v3h-3zM18 18h3v3h-3zM18 27h3v3h-3zM21 12h3v3h-3zM21 24h3v3h-3zM24 15h3v3h-3zM24 21h3v3h-3zM27 18h3v3h-3z'/%3E%3C/svg%3E"); /* 39x39 */
+}
+/* tema întunecată: noaptea albastră de pe zidurile Voronețului, cu aur de icoană */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --linen:#0E1727; --linen-2:#1A2740; --card:#13203A; --ink:#EEE7D8; --ink-2:#B9B2A2;
+    --line:#2C3C5A; --rosu:#E0675C; --indigo:#A3BDE8; --voronet:#86AAE0; --aur:#D8B062; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --linen:#0E1727; --linen-2:#1A2740; --card:#13203A; --ink:#EEE7D8; --ink-2:#B9B2A2;
+  --line:#2C3C5A; --rosu:#E0675C; --indigo:#A3BDE8; --voronet:#86AAE0; --aur:#D8B062; color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{background:var(--linen);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:.01em}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--rosu);outline-offset:2px}
+.label{font-family:var(--f-body);font-weight:400;font-size:.95rem;color:var(--ink-2)}
+
+/* motive cusute: culoarea vine din background, forma din mască */
+.mo{-webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;-webkit-mask-position:center;mask-position:center}
+.mo-teeth{height:12px;background:var(--ink);-webkit-mask-image:var(--m-teeth);mask-image:var(--m-teeth)}
+.mo-teethup{height:12px;background:var(--ink);-webkit-mask-image:var(--m-teethup);mask-image:var(--m-teethup)}
+.mo-romb{height:33px;background:var(--rosu);-webkit-mask-image:var(--m-romb);mask-image:var(--m-romb)}
+.brau{display:grid;gap:5px;padding-block:12px;overflow:hidden}
+.brau.small{gap:4px;padding-block:8px}
+.brau.small .mo-romb{height:33px}
+.brau-line{height:2px;background:var(--ink)}
+
+/* header */
+header{border-bottom:1px solid var(--line)}
+header .wrap{padding-block:30px 30px;display:grid;gap:14px}
+.eyebrow{display:flex;align-items:center;gap:10px}
+.rozeta{width:26px;height:26px;flex:none;background:var(--rosu);-webkit-mask:var(--m-stea) center/26px 26px no-repeat;mask:var(--m-stea) center/26px 26px no-repeat}
+h1{font-size:clamp(2.2rem,5.6vw,3.8rem);line-height:1.04;max-width:16ch}
+h1.rubric::first-letter{color:var(--rosu)}
+.lede{max-width:60ch;margin:0;color:var(--ink-2);font-size:1.08rem}
+.meta{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;font-variant-numeric:tabular-nums}
+.meta b{font-family:var(--f-display);font-weight:400;font-size:1.35rem;color:var(--ink)}
+.sample{display:inline-flex;gap:8px;align-items:center;border:1px dashed var(--rosu);color:var(--rosu);border-radius:3px;padding:3px 10px;font-size:.9rem;width:fit-content}
+
+/* titluri de secțiune */
+.sec-head{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.sec-head h2{font-size:1.55rem;display:flex;align-items:center;gap:10px}
+.sec-head h2::before{content:"";width:18px;height:18px;flex:none;background:var(--rosu);-webkit-mask:var(--m-rombmic) center/18px 18px no-repeat;mask:var(--m-rombmic) center/18px 18px no-repeat}
+
+
+select{font:inherit;font-size:.95rem;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:3px;padding:9px 10px}
+/* fișa videoclipului */
+.overlay{position:fixed;inset:0;z-index:20;background:rgba(14,10,8,.64);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.dlg{background:var(--card);color:var(--ink);border-radius:4px;max-width:640px;width:100%;max-height:100%;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.dlg-body{padding:20px 22px 22px;display:grid;gap:14px}
+.dlg h3{font-size:1.6rem;line-height:1.15}
+.dlg p{margin:0;max-width:62ch}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{all:unset;cursor:pointer;padding:9px 16px;border-radius:3px;border:1px solid var(--line);font-size:.95rem}
+.btn:hover{border-color:var(--rosu)}
+.btn:focus-visible{outline:2px solid var(--rosu)}
+.btn.primary{background:var(--rosu);border-color:var(--rosu);color:var(--card)}
+.btn[aria-disabled="true"]{cursor:not-allowed;opacity:.55}
+.close{position:absolute;right:10px;top:14px;z-index:2;background:rgba(0,0,0,.45);color:#fff;border:0;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.2rem;line-height:1}
+.nav{display:flex;justify-content:space-between;gap:10px;border-top:1px dashed var(--line);padding-top:12px;font-size:.9rem}
+.nav button{all:unset;cursor:pointer;color:var(--rosu);max-width:48%}
+.nav button:disabled{visibility:hidden}
+.nav button:focus-visible{outline:2px solid var(--rosu)}
+footer .wrap{padding-block:8px 34px;font-size:.92rem;color:var(--ink-2);display:grid;gap:6px}
+footer p{margin:0;max-width:72ch}
+
+@media (max-width:520px){body{font-size:16px}.grid{grid-template-columns:1fr}.brau .mo-romb{height:28px;-webkit-mask-size:auto 28px;mask-size:auto 28px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* miniaturi reale de pe YouTube */
+.th-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.thumb.has-img::before{background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,.05) 65%);opacity:1;-webkit-mask:none;mask:none}
+[hidden]{display:none!important}
+body{margin:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%}
+/* buton temă */
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.theme-btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 10px;border:1px solid var(--line);border-radius:999px;font-size:.9rem;background:var(--card);color:var(--ink)}
+.theme-btn:hover{border-color:var(--rosu)}
+.theme-btn:focus-visible{outline:2px solid var(--rosu);outline-offset:2px}
+.theme-btn svg{width:18px;height:18px;flex:none}
+
+/* harta pe perioade */
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:3px;overflow:hidden;width:fit-content;max-width:100%}
+.seg button{all:unset;cursor:pointer;padding:6px 12px;font-size:.9rem}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--card)}
+.seg button:focus-visible{outline:2px solid var(--rosu);outline-offset:-2px}
+.period{display:grid;gap:10px}
+.period-nav{display:flex;gap:6px;align-items:center}
+.period-nav select{flex:1;min-width:0}
+.step{all:unset;cursor:pointer;width:34px;height:38px;display:grid;place-items:center;border:1px solid var(--line);border-radius:3px;background:var(--card);font-size:1rem}
+.step:hover{border-color:var(--rosu)}
+.step:focus-visible{outline:2px solid var(--rosu)}
+.step:disabled{opacity:.35;cursor:default}
+.snap{font-family:var(--f-display);font-size:1.05rem;margin:0}
+.pol-legend{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.92rem}
+.pol-legend li{display:grid;grid-template-columns:14px 1fr;gap:2px 8px;align-items:start}
+.pol-legend i{width:14px;height:14px;border-radius:2px;margin-top:4px}
+.pol-legend small{grid-column:2;color:var(--ink-2);font-size:.82rem}
+.period-note{margin:0;font-size:.88rem;color:var(--ink-2)}
+
+/* atlas */
+:root{--ctx:color-mix(in oklab,var(--ink) 7%,var(--linen));--sea:color-mix(in oklab,var(--indigo) 15%,var(--card));--river:color-mix(in oklab,var(--indigo) 55%,var(--card))}
+.atlas{padding-block:8px 36px}
+.atlas .sec-head{align-items:center}
+.atlas-grid{display:grid;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:3px;padding:16px;min-width:0}
+@media (min-width:920px){.atlas-grid{grid-template-columns:minmax(0,1.75fr) minmax(260px,1fr);align-items:start}}
+.atlas-map{min-width:0}
+.atlas-map svg{width:100%;height:auto;display:block;border-radius:2px}
+.atlas-side{display:grid;gap:20px;align-content:start;min-width:0}
+.side-block{display:grid;gap:10px;min-width:0}
+.side-block>*,.period>*{min-width:0}
+.period-nav select{width:100%}
+.side-h{font-family:var(--f-body);font-weight:700;font-size:.98rem;color:var(--ink);margin:0}
+/* navigație între pagini */
+.top-right{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.site-nav{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.site-nav a{color:var(--ink);text-decoration:none;font-family:var(--f-body);font-weight:500;font-size:.98rem;padding:6px 12px;border-radius:999px;border:1px solid transparent}
+.site-nav a:hover{border-color:var(--line)}
+.site-nav a[aria-current="page"]{background:var(--ink);color:var(--card)}
+.site-nav a:focus-visible{outline:2px solid var(--rosu);outline-offset:2px}
+
+/* harta istorică (assets/harta.js) */
+.hmap-box{position:relative;min-width:0}
+.hmap{width:100%;height:auto;display:block;border-radius:2px;--k:1;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.hmap.zoomed{touch-action:none;cursor:grab}
+.hmap.zoomed:active{cursor:grabbing}
+.h-sea{fill:var(--sea)}
+.h-atom{stroke:none;transition:fill .35s ease,opacity .35s ease}
+.h-reg{outline:none}
+.hmap .h-reg[role="button"]{cursor:pointer}
+.hmap .h-reg[role="button"]:hover .h-atom{filter:brightness(1.08)}
+.h-lake{fill:var(--sea);stroke:var(--river);stroke-width:.6;vector-effect:non-scaling-stroke}
+.h-rivers path{fill:none;stroke:var(--river);stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.h-state,.h-prov,.h-coast,.h-sel,.h-sel-halo,.h-focus,.h-hi,.h-hi-halo{fill:none;stroke-linejoin:round;stroke-linecap:round;pointer-events:none;vector-effect:non-scaling-stroke}
+.h-state{stroke:var(--ink);stroke-width:1.6}
+.hmap.zona .h-state{stroke-dasharray:7 4;stroke-opacity:.75}
+.h-prov{stroke:var(--ink);stroke-opacity:.45;stroke-width:.9;stroke-dasharray:3 3}
+.h-coast{stroke:var(--river);stroke-width:1}
+.h-sel-halo{stroke:var(--card);stroke-width:6}
+.h-sel{stroke:var(--rosu);stroke-width:2.8}
+.h-focus{stroke:var(--rosu);stroke-width:2;stroke-dasharray:5 3}
+.h-hi-halo{stroke:var(--card);stroke-width:5}
+.h-hi{stroke:var(--rosu);stroke-width:2.4}
+.hmap.focus .h-atom:not(.hi){opacity:.55}
+.h-labels text{pointer-events:none;paint-order:stroke;stroke:var(--card);stroke-opacity:.65;stroke-linejoin:round}
+.h-reg-lbl{font-family:var(--f-label);font-weight:700;letter-spacing:.05em;fill:var(--ink);font-size:calc(var(--k) * 17px);stroke-width:calc(var(--k) * 3.5px)}
+.h-reg-lbl.sm{font-size:calc(var(--k) * 12.5px);font-weight:500}
+.h-ctx-lbl{font-family:var(--f-body);font-style:italic;fill:var(--ink-2);font-size:calc(var(--k) * 15px);stroke-width:calc(var(--k) * 3.5px)}
+.h-labels .h-sea-lbl{font-family:var(--f-body);font-style:italic;fill:var(--indigo);font-size:calc(var(--k) * 17px);stroke:none}
+.h-city circle{fill:var(--ink);r:calc(var(--k) * 2.7px)}
+.h-city text{font-family:var(--f-body);font-style:italic;fill:var(--ink-2);font-size:calc(var(--k) * 13px);stroke-width:calc(var(--k) * 3px)}
+.h-city.off{display:none}
+.hmap-zoom{position:absolute;right:8px;top:8px;display:grid;gap:4px}
+.hmap-zoom button{all:unset;cursor:pointer;width:30px;height:30px;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);border-radius:3px;font-size:1.05rem;line-height:1;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.hmap-zoom button:hover{border-color:var(--rosu)}
+.hmap-zoom button:focus-visible{outline:2px solid var(--rosu)}
+.hmap-zoom button:disabled{opacity:.4;cursor:default}
+.approx{display:inline-block;font-size:.8rem;border:1px dashed var(--ink-2);color:var(--ink-2);border-radius:2px;padding:0 6px;margin-left:6px;vertical-align:2px;font-family:var(--f-body)}
+@media (max-width:600px){
+  .h-reg-lbl{font-size:calc(var(--k) * 30px)}
+  .hmap:not(.zoomed) .h-reg-lbl.sm,.hmap:not(.zoomed) .h-city,.hmap:not(.zoomed) .h-ctx-lbl{display:none}
+  .h-ctx-lbl{font-size:calc(var(--k) * 24px)}
+  .h-city text{font-size:calc(var(--k) * 24px)}
+  .h-city circle{r:calc(var(--k) * 4px)}
+  .h-labels .h-sea-lbl{font-size:calc(var(--k) * 26px)}
+}
+
+/* marca site-ului, în antet */
+.wordmark{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-family:var(--f-display);font-size:1.12rem;letter-spacing:.01em}
+.wordmark:hover{color:var(--rosu)}
+.wordmark:focus-visible{outline:2px solid var(--rosu);outline-offset:3px}
+.tricolor{display:flex;width:72px;height:4px;border-radius:1px;overflow:hidden}
+.tricolor i{flex:1;background:var(--tri-a)}
+.tricolor i+i{background:var(--tri-g)}
+.tricolor i+i+i{background:var(--tri-r)}
+
+/* căutare, etichete de filtrare, mesaje goale (folosite pe ambele pagini) */
+.search{flex:1 1 240px;display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:3px;padding:0 12px;min-width:0}
+.search:focus-within{border-color:var(--rosu)}
+.search input{all:unset;flex:1;min-width:0;padding:10px 0;font-size:1rem}
+.search input::placeholder{color:var(--ink-2)}
+.cats{display:flex;flex-wrap:wrap;gap:6px}
+.chip{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-size:.9rem;padding:4px 12px 4px 9px;border-radius:2px;border:1px solid var(--line);background:var(--card)}
+.chip::before{content:"";width:14px;height:14px;background:currentColor;-webkit-mask:var(--m) center/14px 14px no-repeat;mask:var(--m) center/14px 14px no-repeat;color:var(--rosu)}
+.chip:hover{border-color:var(--rosu)}
+.chip:focus-visible{outline:2px solid var(--rosu)}
+.chip[aria-pressed="true"]{background:var(--rosu);border-color:var(--rosu);color:var(--card)}
+.chip[aria-pressed="true"]::before{color:var(--card)}
+.empty{padding:40px 20px;text-align:center;border:1px dashed var(--line);border-radius:3px;color:var(--ink-2)}
+.reset{all:unset;cursor:pointer;font-size:.88rem;color:var(--rosu);text-decoration:underline;text-underline-offset:3px}

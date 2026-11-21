@@ -1,0 +1,147 @@
+{
+ "id": "razboaiele-daco-romane",
+ "titlu": "Războaiele daco-romane (101–106)",
+ "rezumat": "Cum a ajuns regatul lui Decebal provincie romană: două războaie, un pod peste Dunăre și o columnă care le povestește în piatră.",
+ "an": 101,
+ "cand": "101–106",
+ "regiuni": [
+  "transilvania",
+  "banat",
+  "oltenia"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-21",
+ "exemplu": true,
+ "harta": {
+  "an": 100
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/019%20Conrad%20Cichorius%2C%20Die%20Reliefs%20der%20Traianss%C3%A4ule%2C%20Tafel%20XIX.jpg?width=1280",
+  "alt": "Soldați romani și daci în prima bătălie a războiului, relief de pe Columna lui Traian",
+  "sursa": "Prima bătălie (scena XXIV de pe Columna lui Traian), desen de Conrad Cichorius, 1896. Domeniu public, prin Wikimedia Commons.",
+  "forma": "peisaj"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "La începutul secolului al II-lea, Dacia era cel mai puternic regat de la nordul Dunării de Jos. Regele **Decebal** conducea din cetățile din Munții Orăștiei, cu centrul la **Sarmizegetusa Regia**, și ținuse piept Romei încă din vremea împăratului Domițian, care încheiase cu el pace în anul 89. Pacea îi aducea dacilor bani și meșteri romani, dar la Roma era privită ca o umilință.\n\nÎmpăratul **Traian** a hotărât să încheie socotelile. Între 101 și 106, două războaie au transformat cea mai mare parte a regatului dac în provincia romană **Dacia**."
+  },
+  {
+   "t": "titlu",
+   "text": "Primul război (101–102)"
+  },
+  {
+   "t": "text",
+   "md": "În primăvara anului 101, armata romană a trecut Dunărea pe poduri de vase și a înaintat prin Banat spre Munții Orăștiei. Prima mare bătălie s-a dat la **Tapae**, la intrarea în Transilvania, cu pierderi grele de ambele părți. În iarna 101–102, Decebal și aliații lui au atacat provincia Moesia, la sud de Dunăre, și au fost înfrânți în Dobrogea, acolo unde Traian avea să ridice monumentul de la Adamclisi.\n\nÎn 102, cu romanii aproape de capitala sa, Decebal a cerut pace. A rămas rege, dar a trebuit să predea armele și mașinile de război, să dărâme o parte din cetăți și să primească o garnizoană romană la Sarmizegetusa."
+  },
+  {
+   "t": "harta",
+   "an": 100,
+   "an2": 150,
+   "regiuni": [
+    "transilvania",
+    "banat",
+    "oltenia"
+   ],
+   "text": "Înainte și după: regatul lui Decebal (c. 100) și provincia romană Dacia (c. 150)."
+  },
+  {
+   "t": "titlu",
+   "text": "Al doilea război (105–106)"
+  },
+  {
+   "t": "text",
+   "md": "Pacea nu a ținut. Decebal și-a refăcut cetățile și a căutat noi aliați, iar în 105 războiul a reînceput. Între timp, arhitectul **Apolodor din Damasc** construise peste Dunăre, la Drobeta, un pod lung de peste un kilometru, cu pile de piatră și arce de lemn, pe care armata romană putea trece oricând.\n\nÎn vara anului 106, romanii au cucerit Sarmizegetusa Regia. Decebal a fugit spre nord și, ajuns din urmă de călăreții romani, și-a luat viața ca să nu fie prins. Capul lui a fost dus la Roma, iar tezaurul regal, ascuns în albia unui râu, a fost găsit după trădarea unui apropiat al regelui."
+  },
+  {
+   "t": "imagine",
+   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/106%20Conrad%20Cichorius%2C%20Die%20Reliefs%20der%20Traianss%C3%A4ule%2C%20Tafel%20CVI.jpg?width=960",
+   "alt": "Decebal, încercuit de călăreți romani, își ia viața sub un copac; relief de pe Columna lui Traian",
+   "legenda": "Moartea lui Decebal, așa cum apare pe Columna lui Traian.",
+   "sursa": "Scena CXLV, desen de Conrad Cichorius, 1900. Domeniu public, prin Wikimedia Commons."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "An cu an",
+   "ev": [
+    {
+     "an": "89",
+     "text": "Pacea cu Domițian: Decebal primește bani și meșteri de la Roma."
+    },
+    {
+     "an": "101",
+     "text": "Traian trece Dunărea; bătălia de la Tapae."
+    },
+    {
+     "an": "101–102",
+     "text": "Contraatacul dacilor în Moesia, oprit în Dobrogea."
+    },
+    {
+     "an": "102",
+     "text": "Pacea: Decebal rămâne rege, sub controlul Romei."
+    },
+    {
+     "an": "103–105",
+     "text": "Apolodor din Damasc construiește podul de la Drobeta."
+    },
+    {
+     "an": "106",
+     "text": "Cade Sarmizegetusa Regia; moartea lui Decebal; ia naștere provincia Dacia."
+    },
+    {
+     "an": "109",
+     "text": "Este inaugurat monumentul triumfal de la Adamclisi (Tropaeum Traiani)."
+    },
+    {
+     "an": "113",
+     "text": "La Roma este inaugurată Columna lui Traian."
+    }
+   ]
+  },
+  {
+   "t": "imagine",
+   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/072%20Conrad%20Cichorius%2C%20Die%20Reliefs%20der%20Traianss%C3%A4ule%2C%20Tafel%20LXXII%20%28Ausschnitt%2001%29.jpg?width=960",
+   "alt": "Podul de peste Dunăre, cu pile de piatră și arce de lemn, în relieful Columnei lui Traian",
+   "legenda": "Podul lui Apolodor peste Dunăre, la Drobeta, în relieful Columnei.",
+   "sursa": "Detaliu din planșa LXXII, desen de Conrad Cichorius. Domeniu public, prin Wikimedia Commons."
+  },
+  {
+   "t": "fapte",
+   "titlu": "Pe scurt",
+   "randuri": [
+    {
+     "k": "Regele dacilor",
+     "v": "Decebal (c. 87–106)"
+    },
+    {
+     "k": "Împăratul roman",
+     "v": "Traian (98–117)"
+    },
+    {
+     "k": "Capitala dacilor",
+     "v": "Sarmizegetusa Regia, în Munții Orăștiei"
+    },
+    {
+     "k": "Rezultatul",
+     "v": "provincia Dacia (106–271)"
+    },
+    {
+     "k": "Mărturia în piatră",
+     "v": "Columna lui Traian, Roma, 113"
+    }
+   ]
+  },
+  {
+   "t": "text",
+   "md": "Columna lui Traian, înaltă de aproape 30 de metri, povestește cele două războaie într-o friză care se rotește de 23 de ori în jurul ei. Datorită ei știm cum arătau armele, hainele și cetățile dacilor. Din războaie s-a născut provincia Dacia, iar latina vorbită aici și la sud de Dunăre stă la originea limbii române."
+  },
+  {
+   "t": "video",
+   "video": "exemplu-5"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-7"
+  }
+ ]
+}

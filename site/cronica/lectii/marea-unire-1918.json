@@ -1,0 +1,134 @@
+{
+ "id": "marea-unire-1918",
+ "titlu": "Marea Unire din 1918",
+ "rezumat": "Într-un singur an, Basarabia, Bucovina și Transilvania, cu Banatul, Crișana și Maramureșul, s-au unit cu România. Suprafața țării s-a dublat.",
+ "an": 1918,
+ "cand": "1918",
+ "regiuni": [
+  "transilvania",
+  "banat",
+  "crisana",
+  "maramures",
+  "bucovina",
+  "basarabia",
+  "bucovina-nord"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-21",
+ "exemplu": true,
+ "harta": {
+  "an": 1930
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "Primul Război Mondial a destrămat cele două imperii care stăpâneau teritorii locuite de români: **Rusia**, după revoluțiile din 1917, și **Austro-Ungaria**, învinsă în toamna lui 1918. În golul de putere care a urmat, adunări alese în fiecare provincie au votat, una după alta, unirea cu Regatul României."
+  },
+  {
+   "t": "harta",
+   "an": 1914,
+   "an2": 1930,
+   "regiuni": [
+    "transilvania",
+    "banat",
+    "crisana",
+    "maramures",
+    "bucovina",
+    "basarabia",
+    "bucovina-nord"
+   ],
+   "text": "Înainte și după: România în 1913–1916 și România Mare (1918–1940)."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Un an, trei uniri",
+   "ev": [
+    {
+     "an": "27 martie 1918",
+     "text": "Sfatul Țării de la Chișinău votează unirea Basarabiei cu România."
+    },
+    {
+     "an": "28 noiembrie 1918",
+     "text": "Congresul General al Bucovinei, la Cernăuți, votează unirea cu România."
+    },
+    {
+     "an": "1 decembrie 1918",
+     "text": "Adunarea Națională de la Alba Iulia votează unirea Transilvaniei, Banatului, Crișanei și Maramureșului."
+    },
+    {
+     "an": "24 decembrie 1918",
+     "text": "Regele Ferdinand semnează decretul-lege care confirmă unirea."
+    },
+    {
+     "an": "1919–1920",
+     "text": "Tratatele de pace de la Saint-Germain, Neuilly, Trianon și Paris recunosc noile granițe."
+    },
+    {
+     "an": "15 octombrie 1922",
+     "text": "Ferdinand și Maria sunt încoronați la Alba Iulia rege și regină ai României Mari."
+    }
+   ]
+  },
+  {
+   "t": "citat",
+   "text": "Adunarea Națională a tuturor românilor din Transilvania, Banat și Țara Ungurească, adunați prin reprezentanții lor îndreptățiți la Alba Iulia în ziua de 18 noiembrie/1 decembrie 1918, decretează unirea acelor români și a tuturor teritoriilor locuite de dânșii cu România.",
+   "autor": "Rezoluția Adunării Naționale de la Alba Iulia",
+   "sursa": "articolul I, 1 decembrie 1918"
+  },
+  {
+   "t": "text",
+   "md": "La Alba Iulia au venit peste o sută de mii de oameni din toate colțurile Transilvaniei. Hotărârea a fost luată de cei **1.228 de delegați** aleși, într-o sală a cetății care poartă de atunci numele de Sala Unirii, și a fost citită mulțimii de episcopul Iuliu Hossu.\n\nPentru stat, unirea a însemnat mai mult decât o hartă nouă: peste 18 milioane de locuitori la recensământul din 1930, un parlament comun, reforma agrară din 1921 și o nouă Constituție, în 1923."
+  },
+  {
+   "t": "grafic",
+   "tip": "bare",
+   "titlu": "Suprafața României înainte și după Unire",
+   "unitate": "km²",
+   "date": [
+    {
+     "e": "1915: Vechiul Regat, cu Cadrilaterul",
+     "v": 137903
+    },
+    {
+     "e": "1920: România Mare",
+     "v": 295049
+    }
+   ],
+   "sursa": "suprafețele oficiale citate pentru Regatul României în 1915 și în perioada interbelică"
+  },
+  {
+   "t": "fapte",
+   "titlu": "Pe scurt",
+   "randuri": [
+    {
+     "k": "Suprafața",
+     "v": "295.049 km² (de la 137.903 km²)"
+    },
+    {
+     "k": "Populația în 1930",
+     "v": "18.057.028 de locuitori"
+    },
+    {
+     "k": "Regele",
+     "v": "Ferdinand I (1914–1927)"
+    },
+    {
+     "k": "Ziua națională",
+     "v": "1 Decembrie, din 1990"
+    }
+   ]
+  },
+  {
+   "t": "text",
+   "md": "Granițele din 1918 au rezistat până în 1940, când România a pierdut, în doar câteva luni, Basarabia, nordul Bucovinei, ținutul Herța, nordul Transilvaniei și Cadrilaterul. După război, nordul Transilvaniei a revenit României; Basarabia și nordul Bucovinei au rămas în URSS, iar azi sunt împărțite între Republica Moldova și Ucraina."
+  },
+  {
+   "t": "video",
+   "video": "exemplu-33"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-45"
+  }
+ ]
+}

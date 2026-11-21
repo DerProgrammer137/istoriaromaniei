@@ -1,0 +1,135 @@
+{
+ "id": "unirea-lui-mihai-viteazul",
+ "titlu": "Mihai Viteazul și unirea din 1600",
+ "rezumat": "Pentru câteva luni, în 1600, Țara Românească, Transilvania și Moldova au avut același domn. Cum s-a ajuns aici și de ce n-a durat.",
+ "an": 1600,
+ "cand": "1593–1601",
+ "regiuni": [
+  "muntenia",
+  "oltenia",
+  "transilvania",
+  "moldova"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-21",
+ "exemplu": true,
+ "harta": {
+  "an": 1600
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/074%20-%20Mihai%20Viteazul.jpg?width=500",
+  "alt": "Mihai Viteazul, gravură de Aegidius Sadeler, Praga, 1601",
+  "sursa": "Gravură de Aegidius Sadeler, Praga, 1601. Domeniu public, prin Wikimedia Commons.",
+  "forma": "portret"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "**Mihai** a devenit domn al Țării Românești în 1593, într-o vreme în care toate cele trei țări românești erau vasale Imperiului Otoman. În 1594 s-a alăturat alianței creștine din jurul împăratului Rudolf al II-lea și s-a ridicat împotriva otomanilor.\n\nÎn august 1595, la **Călugăreni**, pe un teren mlăștinos străbătut de un singur pod, oastea lui Mihai a oprit marea armată a lui Sinan Pașa. Cu ajutorul principelui Transilvaniei, Sigismund Báthory, otomanii au fost alungați din țară în toamna aceluiași an."
+  },
+  {
+   "t": "imagine",
+   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Solii%20turci%20aduc%20daruri%20lui%20Mihai%20Viteazul.jpg?width=960",
+   "alt": "Mihai Viteazul pe tron, primind o solie otomană care îi aduce daruri",
+   "legenda": "Solii turci aduc daruri lui Mihai Viteazul, pictură de Theodor Aman.",
+   "sursa": "Theodor Aman (1831–1891). Domeniu public, prin Wikimedia Commons."
+  },
+  {
+   "t": "titlu",
+   "text": "Transilvania și Moldova"
+  },
+  {
+   "t": "text",
+   "md": "În 1599, noul principe al Transilvaniei, cardinalul Andrei Báthory, s-a apropiat de polonezi și de otomani. Mihai a trecut munții și l-a învins la **Șelimbăr**, lângă Sibiu, pe 28 octombrie 1599. Pe **1 noiembrie** a intrat triumfal în Alba Iulia.\n\nÎn mai 1600 l-a alungat din Moldova pe Ieremia Movilă, aliatul Poloniei. Pentru prima dată, cele trei țări aveau același conducător. Într-un document din vara anului 1600, Mihai se intitula astfel:"
+  },
+  {
+   "t": "citat",
+   "text": "Io Mihai Voievod, din mila lui Dumnezeu, Domn al Țării Românești și al Ardealului și a toată Țara Moldovei",
+   "autor": "titlul lui Mihai Viteazul",
+   "sursa": "document emis la Alba Iulia, 6 iulie 1600"
+  },
+  {
+   "t": "harta",
+   "an": 1600,
+   "an2": 1650,
+   "regiuni": [
+    "muntenia",
+    "oltenia",
+    "transilvania",
+    "moldova",
+    "crisana",
+    "maramures",
+    "bucovina"
+   ],
+   "text": "Țările conduse de Mihai Viteazul în vara anului 1600 și, pentru comparație, cele trei principate o jumătate de secol mai târziu."
+  },
+  {
+   "t": "titlu",
+   "text": "Sfârșitul"
+  },
+  {
+   "t": "text",
+   "md": "Unirea a durat doar câteva luni. Nobilimea din Transilvania s-a răsculat, sprijinită de generalul imperial **Giorgio Basta**, și l-a învins pe Mihai la **Mirăslău**, pe 18 septembrie 1600. În aceeași toamnă, polonezii l-au readus pe tron pe Ieremia Movilă în Moldova și au intrat și în Țara Românească.\n\nMihai a cerut sprijinul împăratului Rudolf al II-lea și, pe 3 august 1601, împreună cu Basta, l-a învins pe Sigismund Báthory la **Gorăslău**. Câteva zile mai târziu, pe **9 august 1601**, a fost ucis din ordinul lui Basta, la Câmpia Turzii. Capul lui a fost îngropat la mănăstirea Dealu, lângă Târgoviște."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Pe scurt",
+   "ev": [
+    {
+     "an": "1593",
+     "text": "Mihai devine domn al Țării Românești."
+    },
+    {
+     "an": "1595",
+     "text": "Victoria de la Călugăreni (23 august)."
+    },
+    {
+     "an": "1599",
+     "text": "Victoria de la Șelimbăr; intrarea în Alba Iulia (1 noiembrie)."
+    },
+    {
+     "an": "1600",
+     "text": "Ia Moldova (mai); este învins la Mirăslău (18 septembrie)."
+    },
+    {
+     "an": "1601",
+     "text": "Victoria de la Gorăslău (3 august); este ucis la Câmpia Turzii (9 august)."
+    }
+   ]
+  },
+  {
+   "t": "fapte",
+   "titlu": "Pe scurt",
+   "randuri": [
+    {
+     "k": "Țara Românească",
+     "v": "1593–1601"
+    },
+    {
+     "k": "Transilvania",
+     "v": "noiembrie 1599 – septembrie 1600"
+    },
+    {
+     "k": "Moldova",
+     "v": "mai – septembrie 1600"
+    },
+    {
+     "k": "Moartea",
+     "v": "Câmpia Turzii, 9 august 1601"
+    },
+    {
+     "k": "Mormântul capului",
+     "v": "mănăstirea Dealu, lângă Târgoviște"
+    }
+   ]
+  },
+  {
+   "t": "text",
+   "md": "Unirea din 1600 nu a fost un stat unitar: fiecare țară și-a păstrat instituțiile. Peste două secole, revoluționarii de la 1848 și oamenii Unirii din 1859 și din 1918 au făcut din Mihai simbolul unității românilor."
+  },
+  {
+   "t": "video",
+   "video": "exemplu-21"
+  }
+ ]
+}

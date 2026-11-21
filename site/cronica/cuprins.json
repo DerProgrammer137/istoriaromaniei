@@ -1,0 +1,82 @@
+{
+ "actualizat": "2026-11-21",
+ "lectii": [
+  {
+   "id": "razboaiele-daco-romane",
+   "titlu": "Războaiele daco-romane (101–106)",
+   "rezumat": "Cum a ajuns regatul lui Decebal provincie romană: două războaie, un pod peste Dunăre și o columnă care le povestește în piatră.",
+   "an": 101,
+   "cand": "101–106",
+   "regiuni": [
+    "transilvania",
+    "banat",
+    "oltenia"
+   ],
+   "actualizat": "2026-11-21",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/019%20Conrad%20Cichorius%2C%20Die%20Reliefs%20der%20Traianss%C3%A4ule%2C%20Tafel%20XIX.jpg?width=1280",
+    "alt": "Soldați romani și daci în prima bătălie a războiului, relief de pe Columna lui Traian",
+    "forma": "peisaj"
+   }
+  },
+  {
+   "id": "stefan-cel-mare",
+   "titlu": "Ștefan cel Mare (1457–1504)",
+   "rezumat": "Patruzeci și șapte de ani de domnie: bătălii cu otomanii, ungurii și polonezii, cetăți întărite și mănăstiri care stau și azi în picioare.",
+   "an": 1457,
+   "cand": "1457–1504",
+   "regiuni": [
+    "moldova",
+    "bucovina",
+    "basarabia",
+    "bucovina-nord"
+   ],
+   "actualizat": "2026-11-21",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Humorstefan.jpg",
+    "alt": "Ștefan cel Mare, miniatură din Tetraevanghelul de la Humor, 1473",
+    "forma": "portret"
+   }
+  },
+  {
+   "id": "unirea-lui-mihai-viteazul",
+   "titlu": "Mihai Viteazul și unirea din 1600",
+   "rezumat": "Pentru câteva luni, în 1600, Țara Românească, Transilvania și Moldova au avut același domn. Cum s-a ajuns aici și de ce n-a durat.",
+   "an": 1600,
+   "cand": "1593–1601",
+   "regiuni": [
+    "muntenia",
+    "oltenia",
+    "transilvania",
+    "moldova"
+   ],
+   "actualizat": "2026-11-21",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/074%20-%20Mihai%20Viteazul.jpg?width=500",
+    "alt": "Mihai Viteazul, gravură de Aegidius Sadeler, Praga, 1601",
+    "forma": "portret"
+   }
+  },
+  {
+   "id": "marea-unire-1918",
+   "titlu": "Marea Unire din 1918",
+   "rezumat": "Într-un singur an, Basarabia, Bucovina și Transilvania, cu Banatul, Crișana și Maramureșul, s-au unit cu România. Suprafața țării s-a dublat.",
+   "an": 1918,
+   "cand": "1918",
+   "regiuni": [
+    "transilvania",
+    "banat",
+    "crisana",
+    "maramures",
+    "bucovina",
+    "basarabia",
+    "bucovina-nord"
+   ],
+   "actualizat": "2026-11-21",
+   "exemplu": true
+  }
+ ]
+}

@@ -1,0 +1,170 @@
+{
+ "id": "stefan-cel-mare",
+ "titlu": "Ștefan cel Mare (1457–1504)",
+ "rezumat": "Patruzeci și șapte de ani de domnie: bătălii cu otomanii, ungurii și polonezii, cetăți întărite și mănăstiri care stau și azi în picioare.",
+ "an": 1457,
+ "cand": "1457–1504",
+ "regiuni": [
+  "moldova",
+  "bucovina",
+  "basarabia",
+  "bucovina-nord"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-21",
+ "exemplu": true,
+ "harta": {
+  "an": 1490
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Humorstefan.jpg",
+  "alt": "Ștefan cel Mare, miniatură din Tetraevanghelul de la Humor, 1473",
+  "sursa": "Tetraevanghelul de la Humor, 1473. Wikimedia Commons, licență CC BY-SA 3.0.",
+  "forma": "portret"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "**Ștefan al III-lea**, numit de urmași **cel Mare**, a domnit în Moldova între 1457 și 1504, mai mult decât oricare alt domn al țării. A urcat pe tron cu ajutorul vărului său, Vlad Țepeș, și a moștenit o țară slăbită de luptele pentru putere de după moartea lui Alexandru cel Bun.\n\nÎn primii ani a refăcut armata și cetățile, a recucerit **Chilia** (1465) și s-a apărat de regele Ungariei, Matei Corvin, pe care l-a înfrânt la **Baia**, în decembrie 1467."
+  },
+  {
+   "t": "titlu",
+   "text": "Vaslui, 1475"
+  },
+  {
+   "t": "text",
+   "md": "Când Ștefan a încetat să mai plătească tribut, sultanul Mahomed al II-lea a trimis împotriva Moldovei o armată condusă de Soliman Pașa. Pe **10 ianuarie 1475**, lângă Vaslui, la Podul Înalt, oastea moldovenească, mult mai mică, a atras-o într-o vale mlăștinoasă, acoperită de ceață, și a pus-o pe fugă. A fost una dintre cele mai grele înfrângeri ale otomanilor din acel secol.\n\nDupă bătălie, Ștefan a trimis principilor creștini o scrisoare în care le cerea ajutor, avertizând că o nouă campanie a sultanului îi privește pe toți."
+  },
+  {
+   "t": "citat",
+   "text": "…am luat sabia în mână și, cu ajutorul Domnului Dumnezeului nostru atotputernic, am mers împotriva dușmanilor creștinătății…",
+   "autor": "Ștefan cel Mare",
+   "sursa": "scrisoarea către principii creștini, 25 ianuarie 1475"
+  },
+  {
+   "t": "harta",
+   "an": 1400,
+   "an2": 1490,
+   "regiuni": [
+    "moldova",
+    "bucovina",
+    "bucovina-nord",
+    "basarabia"
+   ],
+   "text": "Moldova înainte de 1484 și după ce otomanii au luat Chilia și Cetatea Albă."
+  },
+  {
+   "t": "titlu",
+   "text": "Războieni și pierderea țărmului"
+  },
+  {
+   "t": "text",
+   "md": "În vara lui 1476, sultanul a venit el însuși în Moldova. La **Războieni** (Valea Albă), pe 26 iulie, Ștefan a fost învins, dar cetățile Sucevei și Neamțului au rezistat, iar armata otomană, lovită de foamete și boli, s-a retras.\n\nÎn 1484, Baiazid al II-lea a cucerit **Chilia** și **Cetatea Albă**, cele două porturi prin care Moldova făcea comerț pe mare. Ștefan nu le-a mai putut recupera. În 1497 i-a învins în **Codrii Cosminului** pe polonezii regelui Ioan Albert, care pătrunseseră în țară."
+  },
+  {
+   "t": "grafic",
+   "tip": "bare",
+   "titlu": "Cât au domnit câțiva dintre domnii Moldovei",
+   "unitate": "ani",
+   "date": [
+    {
+     "e": "Ștefan cel Mare",
+     "v": 47
+    },
+    {
+     "e": "Alexandru cel Bun",
+     "v": 32
+    },
+    {
+     "e": "Vasile Lupu",
+     "v": 19
+    },
+    {
+     "e": "Petru Rareș",
+     "v": 16
+    },
+    {
+     "e": "Ieremia Movilă",
+     "v": 11
+    },
+    {
+     "e": "Dimitrie Cantemir",
+     "v": 1
+    }
+   ],
+   "sursa": "ani rotunjiți; la domniile întrerupte s-au adunat toate perioadele"
+  },
+  {
+   "t": "fapte",
+   "titlu": "Pe scurt",
+   "randuri": [
+    {
+     "k": "Domnie",
+     "v": "1457–1504 (47 de ani)"
+    },
+    {
+     "k": "Capitala",
+     "v": "Suceava"
+    },
+    {
+     "k": "Bătălii",
+     "v": "Baia (1467), Vaslui (1475), Războieni (1476), Codrii Cosminului (1497)"
+    },
+    {
+     "k": "Ctitorii",
+     "v": "mănăstirea Putna (1466–1469) și zeci de biserici"
+    },
+    {
+     "k": "Canonizat",
+     "v": "în 1992, de Biserica Ortodoxă Română"
+    }
+   ]
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Domnia, pe scurt",
+   "ev": [
+    {
+     "an": "1457",
+     "text": "Urcă pe tron, cu sprijinul lui Vlad Țepeș."
+    },
+    {
+     "an": "1465",
+     "text": "Recucerește Chilia."
+    },
+    {
+     "an": "1467",
+     "text": "Îl învinge pe Matei Corvin la Baia."
+    },
+    {
+     "an": "1475",
+     "text": "Victoria de la Vaslui."
+    },
+    {
+     "an": "1476",
+     "text": "Înfrângerea de la Războieni; cetățile rezistă."
+    },
+    {
+     "an": "1484",
+     "text": "Otomanii cuceresc Chilia și Cetatea Albă."
+    },
+    {
+     "an": "1497",
+     "text": "Victoria din Codrii Cosminului."
+    },
+    {
+     "an": "1504",
+     "text": "Moare la 2 iulie și este înmormântat la Putna."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-18"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-46"
+  }
+ ]
+}
