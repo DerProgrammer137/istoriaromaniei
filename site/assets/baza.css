@@ -223,3 +223,11 @@ img{max-width:100%}
 .chip[aria-pressed="true"]::before{color:var(--card)}
 .empty{padding:40px 20px;text-align:center;border:1px dashed var(--line);border-radius:3px;color:var(--ink-2)}
 .reset{all:unset;cursor:pointer;font-size:.88rem;color:var(--rosu);text-decoration:underline;text-underline-offset:3px}
+@media (max-width:560px){
+  header .wrap{padding-block:14px}
+  .brau{padding-block:8px}
+  .topline{gap:10px}
+  .top-right{width:100%;justify-content:space-between;flex-wrap:nowrap}
+  .theme-btn{padding:7px}
+  .theme-btn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}

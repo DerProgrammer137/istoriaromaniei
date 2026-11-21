@@ -367,7 +367,7 @@ function monteazaPagina(root, l, ctx) {
   }
   panouHarta(root.querySelector('.lesson-map'), l, body);
 }
-async function panouHarta(aside, l, body) {
+async function panouHarta(aside, l, body, ctl) {
   let g;
   try { g = await geo(); } catch (_) { aside.innerHTML = '<p class="empty">Harta nu s-a putut încărca.</p>'; return; }
   const anBaza = l.harta && l.harta.an != null && !isNaN(Number(l.harta.an)) ? Number(l.harta.an) : (l.an != null && l.an !== '' && !isNaN(Number(l.an)) ? Number(l.an) : 2000);
@@ -384,7 +384,7 @@ async function panouHarta(aside, l, body) {
   aside.innerHTML = `<div class="lm-in"><p class="lm-snap"></p>
     ${momente.length > 1 ? `<div class="seg lm-seg" role="group" aria-label="Momentele din lecție">${momente.map((m, k) => `<button type="button" data-mom="${k}">${esc(H.SNAPS[m.snap].cand)}</button>`).join('')}</div>` : ''}
     <div class="lm-map"></div><p class="lm-note"></p>
-    <details class="lm-leg-d"${LAT.matches ? ' open' : ''}><summary>Cine stăpânea teritoriile</summary><ul class="pol-legend lm-leg"></ul></details></div>`;
+    <details class="lm-leg-d"${LAT.matches && !ctl ? ' open' : ''}><summary>Cine stăpânea teritoriile</summary><ul class="pol-legend lm-leg"></ul></details></div>`;
   const m = H.creeaza(aside.querySelector('.lm-map'), g, {eticheta: 'Harta lecției: ' + (l.titlu || '')});
   let activ = null;
   const arata = mm => {
@@ -409,6 +409,12 @@ async function panouHarta(aside, l, body) {
     el.addEventListener('click', e => { const bt = e.target.closest('[data-cue]'); if (bt) arata(el._m[+bt.dataset.cue]); });
     if (!LAT.matches) monteazaHarta(el.querySelector('.cue-map'), b);
   });
+  if (ctl && ctl.dubla) {
+    ctl.laPagina = k => { let mm = baza; cues.forEach(c => { if (ctl.paginaLui(c) <= k) mm = c._m[0]; }); arata(mm); };
+    ctl.laPagina(ctl.k);
+    return;
+  }
+  if (ctl) return;
   if (LAT.matches && cues.length && 'IntersectionObserver' in window) {
     const sentinel = document.createElement('div'); sentinel.className = 'cue-sentinel'; body.prepend(sentinel); sentinel._m = [baza];
     const io = new IntersectionObserver(ents => ents.forEach(en => { if (en.isIntersecting) arata(en.target._m[0]); }), {rootMargin: '-38% 0px -52% 0px'});
@@ -562,72 +568,254 @@ async function monteazaVideo(el, b) {
   const v = (await videos()).find(x => String(x.id) === String(b.video));
   if (!v) { el.innerHTML = '<p class="bv-missing">Videoclipul ales nu mai este în bibliotecă.</p>'; return; }
   const e = epoca(v.year);
-  el.innerHTML = `<a class="bv-card" href="./#v-${encodeURIComponent(v.id)}"><span class="bv-th" style="--p:var(${e ? e.p : '--e10'})"><span class="bv-play" aria-hidden="true"></span><span class="bv-year">${esc(fmtAn(v.year))}</span></span>
+  el.innerHTML = `<a class="bv-card" href="biblioteca.html#v-${encodeURIComponent(v.id)}"><span class="bv-th" style="--p:var(${e ? e.p : '--e10'})"><span class="bv-play" aria-hidden="true"></span><span class="bv-year">${esc(fmtAn(v.year))}</span></span>
     <span class="bv-body"><span class="label">Videoclip din bibliotecă</span><span class="bv-title">${esc(v.title)}</span><span class="bv-meta">${esc(v.duration || '')}</span></span></a>`;
+}
+
+/* ================= cartea ================= */
+/* Paginile se fac cu coloane CSS: textul curge într-o singură coloană lată cât pagina, iar „pagina k”
+   e coloana k, adusă în fereastră cu translateX. Pe ecrane late, pagina din stânga e planșa cu harta. */
+const FARA_MISCARE = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : {matches: false};
+let carteActiva = null;
+
+/* ================= ecran complet =================
+   Clasa „ecran-complet” pe <html> ascunde antetul și subsolul și mărește cartea.
+   Unde browserul permite, pagina trece și în modul ecran complet al sistemului
+   (pe iPhone, Safari nu permite asta, așa că rămâne doar modul de citire). */
+const radacina = document.documentElement;
+const FS_API = !!(document.fullscreenEnabled || document.webkitFullscreenEnabled);
+const inFs = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
+const peEcranComplet = () => radacina.classList.contains('ecran-complet');
+const ICON_FS = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ICON_FS_IESI = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+let fsReal = false;
+const continutFs = on => (on ? ICON_FS_IESI : ICON_FS) + `<span>${on ? 'Ieși din ecran complet' : 'Ecran complet'}</span>`;
+const btnEcran = () => { const on = peEcranComplet(); return `<button class="btn btn-fs" type="button" data-fs aria-pressed="${on}" title="${on ? 'Ieși din ecran complet' : 'Citește pe tot ecranul'} (tasta F)">${continutFs(on)}</button>`; };
+function picteazaEcran() {
+  const on = peEcranComplet();
+  document.querySelectorAll('[data-fs]').forEach(b => {
+    b.innerHTML = continutFs(on); b.setAttribute('aria-pressed', String(on));
+    b.title = (on ? 'Ieși din ecran complet' : 'Citește pe tot ecranul') + ' (tasta F)';
+  });
+}
+function intraEcran() {
+  radacina.classList.add('ecran-complet'); picteazaEcran();
+  if (!FS_API || inFs()) return;
+  try {
+    const r = radacina.requestFullscreen ? radacina.requestFullscreen({navigationUI: 'hide'}) : radacina.webkitRequestFullscreen();
+    if (r && r.catch) r.catch(() => {});
+  } catch (_) {}
+}
+function iesiEcran() {
+  radacina.classList.remove('ecran-complet'); picteazaEcran();
+  if (!inFs()) return;
+  try { const r = (document.exitFullscreen || document.webkitExitFullscreen).call(document); if (r && r.catch) r.catch(() => {}); } catch (_) {}
+}
+const comutaEcran = () => (peEcranComplet() ? iesiEcran() : intraEcran());
+['fullscreenchange', 'webkitfullscreenchange'].forEach(ev => document.addEventListener(ev, () => {
+  if (inFs()) { fsReal = true; return; }
+  // Esc în modul sistem iese din ecran complet fără să treacă prin pagină: ieșim și din modul de citire
+  if (fsReal) { fsReal = false; if (peEcranComplet()) { radacina.classList.remove('ecran-complet'); picteazaEcran(); } }
+}));
+document.addEventListener('click', e => { if (e.target.closest && e.target.closest('[data-fs]')) comutaEcran(); });
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey || e.metaKey || e.altKey || (e.target.closest && e.target.closest('input,textarea,select,[contenteditable]'))) return;
+  if (!document.getElementById('modal').hidden) return;
+  if ((e.key === 'f' || e.key === 'F') && app.querySelector('.carte, .coperta')) { e.preventDefault(); comutaEcran(); }
+  else if (e.key === 'Escape' && peEcranComplet()) iesiEcran();
+});
+document.addEventListener('keydown', e => {
+  const c = carteActiva; if (!c || !document.body.contains(c.el)) return;
+  if (e.target.closest('input,textarea,select,[contenteditable]') || !document.getElementById('modal').hidden) return;
+  if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); c.mergi(1); }
+  if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); c.mergi(-1); }
+});
+function carte(o) {
+  const dubla = LAT.matches;
+  app.classList.add('larg');
+  app.innerHTML = `<div class="masa"><div class="carte ${dubla ? 'dubla' : 'simpla'}" role="region" aria-roledescription="carte" aria-label="${esc(o.eticheta)}">
+      <div class="carte-corp">
+        ${dubla ? '<div class="pag pag-st"><div class="pag-st-in"></div></div>' : ''}
+        <div class="pag pag-dr"><div class="pag-vp"><div class="flux">${o.flux}</div></div><span class="pag-nr"></span></div>
+        <div class="foaie" aria-hidden="true" hidden><div class="fata"></div><div class="dos"></div></div>
+        ${o.semn ? '<a class="semn" href="#cuprins" title="Înapoi la cuprins" aria-label="Înapoi la cuprins"></a>' : ''}
+      </div></div>
+    <div class="carte-nav"><button class="step" type="button" data-pg="-1" aria-label="Pagina anterioară">‹</button>
+      <span class="carte-loc" aria-live="polite"></span><button class="step" type="button" data-pg="1" aria-label="Pagina următoare">›</button>
+      ${btnEcran()}${o.unelte ? `<span class="carte-unelte">${o.unelte}</span>` : ''}</div></div>`;
+  const el = app.querySelector('.carte'), vp = el.querySelector('.pag-vp'), flux = el.querySelector('.flux');
+  const ctl = {el, flux, st: el.querySelector('.pag-st-in'), dubla, k: 0, n: 1, W: 1, G: 60, anim: false};
+  ctl.paginaLui = node => Math.max(0, Math.floor((node.getBoundingClientRect().left - flux.getBoundingClientRect().left + 2) / (ctl.W + ctl.G)));
+  ctl.pune = () => {
+    flux.style.transform = `translateX(${-ctl.k * (ctl.W + ctl.G)}px)`; vp.scrollLeft = 0;
+    el.querySelector('.pag-dr .pag-nr').textContent = ctl.k + 1;
+    app.querySelector('.carte-loc').textContent = `Pagina ${ctl.k + 1} din ${ctl.n}`;
+    app.querySelector('[data-pg="-1"]').disabled = ctl.k === 0 && !o.inainte;
+    app.querySelector('[data-pg="1"]').disabled = ctl.k >= ctl.n - 1 && !o.dupa;
+    if (ctl.laPagina) ctl.laPagina(ctl.k);
+  };
+  ctl.masoara = () => {
+    const W = vp.clientWidth, Hh = vp.clientHeight; if (!W || !Hh) return;
+    ctl.W = W;
+    Object.assign(flux.style, {width: W + 'px', height: Hh + 'px', columnWidth: W + 'px', columnGap: ctl.G + 'px'});
+    flux.style.transform = 'none';
+    ctl.n = Math.max(1, Math.round((flux.scrollWidth + ctl.G) / (W + ctl.G)));
+    ctl.k = Math.min(ctl.k, ctl.n - 1);
+    ctl.pune();
+  };
+  ctl.mergi = dir => {
+    if (ctl.anim) return;
+    const nou = ctl.k + dir;
+    if (nou < 0) { if (o.inainte) o.inainte(); return; }
+    if (nou >= ctl.n) { if (o.dupa) o.dupa(); return; }
+    if (FARA_MISCARE.matches || !el.animate) { ctl.k = nou; ctl.pune(); return; }
+    const foaie = el.querySelector('.foaie'), fata = foaie.firstElementChild, dos = foaie.lastElementChild;
+    const dr = el.querySelector('.pag-dr'), stg = el.querySelector('.pag-st');
+    const clona = n => { const c = n.cloneNode(true); c.querySelectorAll('[id]').forEach(x => x.removeAttribute('id')); c.setAttribute('aria-hidden', 'true'); return c; };
+    foaie.className = 'foaie ' + (dubla ? (dir > 0 ? 'spre-st' : 'spre-dr') : 'singura');
+    fata.replaceChildren(clona(dir > 0 || !dubla ? dr : stg));
+    ctl.k = nou; ctl.pune();
+    dos.replaceChildren(dubla ? clona(dir > 0 ? stg : dr) : '');
+    foaie.hidden = false; ctl.anim = true;
+    const kf = dubla ? [{transform: 'rotateY(0deg)'}, {transform: `rotateY(${dir > 0 ? -180 : 180}deg)`}]
+      : (dir > 0 ? [{transform: 'rotateY(0deg)', opacity: 1}, {transform: 'rotateY(-100deg)', opacity: .6}] : [{transform: 'translateX(0)', opacity: 1}, {transform: 'translateX(40px)', opacity: 0}]);
+    const anim = foaie.animate(kf, {duration: dubla ? 820 : 520, easing: 'cubic-bezier(.45,.05,.25,1)'});
+    const gata = () => { foaie.hidden = true; fata.replaceChildren(); dos.replaceChildren(); ctl.anim = false; };
+    anim.onfinish = gata; anim.oncancel = gata;
+  };
+  app.querySelector('.carte-nav').addEventListener('click', e => { const b = e.target.closest('[data-pg]'); if (b) ctl.mergi(+b.dataset.pg); });
+  let x0 = null, y0 = 0;
+  el.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' && !e.target.closest('.hmap')) { x0 = e.clientX; y0 = e.clientY; } });
+  el.addEventListener('pointerup', e => { if (x0 == null) return; const dx = e.clientX - x0, dy = e.clientY - y0; x0 = null; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) ctl.mergi(dx < 0 ? 1 : -1); });
+  el.addEventListener('pointercancel', () => { x0 = null; });
+  flux.addEventListener('focusin', e => { vp.scrollLeft = 0; const k = ctl.paginaLui(e.target); if (k !== ctl.k && k < ctl.n) { ctl.k = k; ctl.pune(); } });
+  let t = null; const din_nou = () => { clearTimeout(t); t = setTimeout(ctl.masoara, 80); };
+  if (window.ResizeObserver) new ResizeObserver(din_nou).observe(vp);
+  if (window.MutationObserver) new MutationObserver(din_nou).observe(flux, {childList: true, subtree: true});
+  flux.addEventListener('load', din_nou, true); flux.addEventListener('toggle', din_nou, true);
+  carteActiva = ctl;
+  return ctl;
+}
+
+/* ================= coperta ================= */
+function viewCoperta() {
+  app.classList.add('larg');
+  document.title = 'Cronica · Biblioteca Istoriei Românești';
+  carteActiva = null;
+  app.innerHTML = `<div class="masa masa-coperta">
+    <button class="coperta" type="button" aria-label="Deschide cronica">
+      <span class="cop-cotor" aria-hidden="true"></span>
+      <span class="cop-chenar">
+        <span class="cop-colt c1" aria-hidden="true"></span><span class="cop-colt c2" aria-hidden="true"></span><span class="cop-colt c3" aria-hidden="true"></span><span class="cop-colt c4" aria-hidden="true"></span>
+        <span class="cop-banda" aria-hidden="true"></span>
+        <span class="cop-sus">Biblioteca Istoriei Românești</span>
+        <span class="cop-titlu">Cronica</span>
+        <span class="cop-med" aria-hidden="true"><span></span></span>
+        <span class="cop-sub">Istoria românilor, lecție cu lecție, cu harta fiecărei epoci</span>
+        <span class="cop-banda" aria-hidden="true"></span>
+      </span>
+      <span class="cop-inc i1" aria-hidden="true"></span><span class="cop-inc i2" aria-hidden="true"></span>
+    </button>
+    <div class="cop-jos"><p class="cop-indemn">Apasă pe copertă ca să deschizi cartea</p>${btnEcran()}</div></div>`;
+  const b = app.querySelector('.coperta');
+  b.addEventListener('click', () => {
+    if (FARA_MISCARE.matches || !b.animate) { location.hash = 'cuprins'; return; }
+    b.disabled = true;
+    const a = b.animate([{transform: 'perspective(2200px) rotateY(0deg)'}, {transform: 'perspective(2200px) rotateY(-115deg)', opacity: .15}], {duration: 900, easing: 'cubic-bezier(.5,0,.3,1)', fill: 'forwards'});
+    a.onfinish = () => { location.hash = 'cuprins'; };
+  });
 }
 
 /* ================= cuprinsul ================= */
 let filtru = {q: '', epoca: null};
 async function viewCuprins() {
-  document.title = 'Cronica · Biblioteca Istoriei Românești';
-  app.innerHTML = `<section class="cr-hero">
-      <h1 class="cr-title">Cronica</h1>
-      <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
-      <p class="lede">Istoria românilor, lecție cu lecție: ce s-a întâmplat, cine a condus și cum arăta harta în fiecare epocă.</p>
-      <div class="cr-hero-actions"><button class="btn primary" type="button" data-act="nou">Scrie o lecție nouă</button><span class="label" id="cr-count"></span>${TOKEN ? '<button class="linkbtn" type="button" data-act="lock">Blochează editarea</button>' : ''}</div>
-    </section>
-    <div class="cr-tools"><label class="search" for="cr-q">${ICON_SEARCH}<input id="cr-q" type="search" placeholder="Caută: Ștefan, 1918, Dobrogea…" autocomplete="off"></label></div>
-    <div class="cr-eras" id="cr-eras" role="group" aria-label="Filtrează după epocă"></div>
-    <div class="cr-list" id="cr-list"><p class="cr-loading">Se încarcă lecțiile…</p></div>`;
-  const q = app.querySelector('#cr-q'); q.value = filtru.q;
-  app.querySelector('[data-act="nou"]').addEventListener('click', () => { location.hash = 'nou'; });
-  const lockBtn = app.querySelector('[data-act="lock"]'); if (lockBtn) lockBtn.addEventListener('click', () => { setToken(null); S.cuprins = null; toast('Editarea a fost blocată în acest tab.'); viewCuprins(); });
+  document.title = 'Cuprins · Cronica';
   let cup;
-  try { cup = await incarcaCuprins(); } catch (_) { app.querySelector('#cr-list').innerHTML = '<div class="empty">Nu am putut încărca lecțiile. Reîncarcă pagina peste câteva momente.</div>'; return; }
+  try { cup = await incarcaCuprins(); } catch (_) { app.innerHTML = '<div class="empty">Nu am putut încărca lecțiile. Reîncarcă pagina peste câteva momente.</div>'; return; }
   const all = sortate(cup.lectii);
   all.forEach(l => { l._e = epoca(l.an); l._hay = norm([l.titlu, l.rezumat, l.cand, fmtAn(l.an), (l.regiuni || []).map(regNume).join(' '), l._e ? l._e.name : ''].join(' ')); });
   const eras = H.EPOCI.filter(e => all.some(l => l._e === e));
-  const erasEl = app.querySelector('#cr-eras');
-  erasEl.innerHTML = eras.map(e => `<button type="button" class="era-chip" data-era="${e.id}" style="--p:var(${e.p})" aria-pressed="false">${esc(e.name)}</button>`).join('');
-  const render = () => {
+  const titlu = `<div class="pag-titlu">
+      <div class="frontispiciu" aria-hidden="true"><span class="mo-teeth"></span></div>
+      <p class="pt-sus">Biblioteca Istoriei Românești</p>
+      <h1 class="cr-title">Cronica</h1>
+      <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="lede">Istoria românilor, lecție cu lecție: ce s-a întâmplat, cine a condus și cum arăta harta în fiecare epocă.</p>
+      <p class="pt-nr">${all.length === 1 ? 'O lecție' : `${all.length}${all.length % 100 >= 20 ? ' de' : ''} lecții`} până acum</p>
+      <div class="pt-act"><button class="btn primary" type="button" data-act="nou">Scrie o lecție nouă</button>${TOKEN ? '<button class="linkbtn" type="button" data-act="lock">Blochează editarea</button>' : ''}</div>
+      <label class="search" for="cr-q">${ICON_SEARCH}<input id="cr-q" type="search" placeholder="Caută: Ștefan, 1918, Dobrogea…" autocomplete="off"></label>
+      <div class="cr-eras" role="group" aria-label="Filtrează după epocă">${eras.map(e => `<button type="button" class="era-chip" data-era="${e.id}" style="--p:var(${e.p})" aria-pressed="false">${esc(e.name)}</button>`).join('')}</div>
+    </div>`;
+  const lista = () => {
     const words = norm(filtru.q).split(/\s+/).filter(Boolean);
     const shown = all.filter(l => (!filtru.epoca || (l._e && l._e.id === filtru.epoca)) && words.every(w => l._hay.includes(w)));
-    app.querySelector('#cr-count').textContent = all.length === 1 ? 'O lecție până acum' : `${all.length}${all.length % 100 >= 20 || all.length === 0 ? ' de' : ''} lecții până acum`;
-    erasEl.querySelectorAll('[data-era]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.era === filtru.epoca)));
-    const list = app.querySelector('#cr-list');
-    if (!all.length) { list.innerHTML = '<div class="empty">Cronica nu are încă nicio lecție. Apasă „Scrie o lecție nouă” ca s-o începi.</div>'; return; }
-    if (!shown.length) { list.innerHTML = '<div class="empty">Nicio lecție nu se potrivește căutării. <button class="reset" type="button" data-reset>Arată toate lecțiile</button></div>'; return; }
-    const groups = [...H.EPOCI, null].map(e => ({e, items: shown.filter(l => l._e === e)})).filter(g => g.items.length);
-    list.innerHTML = groups.map(g => `<section class="cr-era" style="--p:var(${g.e ? g.e.p : '--e10'})"><h2 class="cr-era-h">${esc(g.e ? g.e.name : 'Fără dată')}${g.e ? `<small>${esc(fmtAn(g.e.start))}–${g.e.end > 2026 ? 'azi' : esc(fmtAn(g.e.end))}</small>` : ''}</h2>
+    if (!all.length) return '<p class="empty">Cronica nu are încă nicio lecție. Apasă „Scrie o lecție nouă” ca s-o începi.</p>';
+    if (!shown.length) return '<p class="empty">Nicio lecție nu se potrivește căutării. <button class="reset" type="button" data-reset>Arată toate lecțiile</button></p>';
+    return `<h2 class="cup-h">Cuprins</h2>` + [...H.EPOCI, null].map(e => ({e, items: shown.filter(l => l._e === e)})).filter(g => g.items.length).map(g =>
+      `<section class="cr-era" style="--p:var(${g.e ? g.e.p : '--e10'})"><h3 class="cr-era-h">${esc(g.e ? g.e.name : 'Fără dată')}${g.e ? `<small>${esc(fmtAn(g.e.start))}–${g.e.end > 2026 ? 'azi' : esc(fmtAn(g.e.end))}</small>` : ''}</h3>
       <ol class="cr-rows">${g.items.map(l => { const img = l.coperta && srcImagine(l.coperta.src); return `<li><a class="cr-row" href="#l-${l.id}">
         <span class="cr-row-year">${esc(l.cand || fmtAn(l.an))}</span>
         <span class="cr-row-text"><span class="cr-row-title">${esc(l.titlu)}</span>${l.rezumat ? `<span class="cr-row-sum">${esc(l.rezumat)}</span>` : ''}
         <span class="cr-row-meta">${esc((l.regiuni || []).map(regNume).join(', ') || 'Toată țara')}${l.exemplu ? ' <span class="mini-sample">(lecție de exemplu)</span>' : ''}</span></span>
         <span class="cr-row-img">${img ? `<img src="${esc(img)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">` : ''}</span></a></li>`; }).join('')}</ol></section>`).join('');
-    imaginiFragile(list);
   };
-  q.addEventListener('input', () => { filtru.q = q.value; render(); });
-  erasEl.addEventListener('click', e => { const b = e.target.closest('[data-era]'); if (!b) return; filtru.epoca = filtru.epoca === b.dataset.era ? null : b.dataset.era; render(); });
-  app.querySelector('#cr-list').addEventListener('click', e => { if (e.target.closest('[data-reset]')) { filtru = {q: '', epoca: null}; q.value = ''; render(); } });
-  render();
+  const ctl = carte({eticheta: 'Cronica: cuprins', flux: (LAT.matches ? '' : titlu) + `<div class="cup-lista">${lista()}</div>`, inainte: () => { location.hash = ''; }});
+  if (ctl.st) ctl.st.innerHTML = titlu;
+  const legare = root => {
+    const q = root.querySelector('#cr-q'); if (!q) return;
+    q.value = filtru.q;
+    q.addEventListener('input', () => { filtru.q = q.value; refa(); });
+    root.querySelectorAll('[data-era]').forEach(b => { b.setAttribute('aria-pressed', String(b.dataset.era === filtru.epoca)); b.addEventListener('click', () => { filtru.epoca = filtru.epoca === b.dataset.era ? null : b.dataset.era; root.querySelectorAll('[data-era]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.era === filtru.epoca))); refa(); }); });
+    root.querySelector('[data-act="nou"]').addEventListener('click', () => { location.hash = 'nou'; });
+    const lk = root.querySelector('[data-act="lock"]'); if (lk) lk.addEventListener('click', () => { setToken(null); S.cuprins = null; toast('Editarea a fost blocată în acest tab.'); viewCuprins(); });
+  };
+  const refa = () => { const box = app.querySelector('.cup-lista'); box.innerHTML = lista(); imaginiFragile(box); ctl.k = LAT.matches ? 0 : ctl.paginaLui(box); ctl.masoara(); };
+  legare(ctl.st || ctl.flux);
+  app.querySelector('.cup-lista').addEventListener('click', e => { if (e.target.closest('[data-reset]')) { filtru = {q: '', epoca: null}; const q = app.querySelector('#cr-q'); if (q) q.value = ''; app.querySelectorAll('[data-era]').forEach(x => x.setAttribute('aria-pressed', 'false')); refa(); } });
+  imaginiFragile(app);
+  ctl.masoara();
 }
 
-/* ================= o lecție ================= */
-async function viewLectie(id) {
-  app.innerHTML = '<p class="cr-loading">Se încarcă lecția…</p>';
+/* ================= o lecție, ca un capitol ================= */
+async function viewLectie(id, laSfarsit) {
+  app.innerHTML = '<p class="cr-loading">Se deschide capitolul…</p>';
   let l, cup;
   try { [l, cup] = await Promise.all([incarcaLectie(id), incarcaCuprins().catch(() => null)]); } catch (_) { l = null; }
-  if (!l) { app.innerHTML = '<div class="empty">Lecția nu a fost găsită. Poate a fost ștearsă sau încă nu a apărut pe site.<br><a class="reset" href="#">Înapoi la cuprins</a></div>'; return; }
+  if (!l) { app.innerHTML = '<div class="empty">Lecția nu a fost găsită. Poate a fost ștearsă sau încă nu a apărut pe site.<br><a class="reset" href="#cuprins">Înapoi la cuprins</a></div>'; return; }
   document.title = `${l.titlu} · Cronica`;
-  const e = epoca(l.an);
+  const e = epoca(l.an), regs = (l.regiuni || []).map(regNume), ctx = {img: srcImagine};
   const list = cup ? sortate(cup.lectii) : [], k = list.findIndex(x => x.id === id), prev = k > 0 ? list[k - 1] : null, next = k >= 0 ? list[k + 1] : null;
-  app.innerHTML = paginaLectie(l, {img: srcImagine}, {
-    crumbs: true,
-    tools: `<div class="lesson-tools"><button class="btn" type="button" data-act="edit">Editează lecția</button>${e ? `<a class="btn" href="./?epoca=${encodeURIComponent(e.id)}">Videoclipuri din această epocă</a>` : ''}</div>`,
-    nav: `<nav class="lesson-nav" aria-label="Alte lecții">${prev ? `<a href="#l-${prev.id}"><small>Lecția anterioară</small><span>${esc(prev.titlu)}</span></a>` : '<span></span>'}${next ? `<a class="next" href="#l-${next.id}"><small>Lecția următoare</small><span>${esc(next.titlu)}</span></a>` : '<span></span>'}</nav>`
-  });
-  monteazaPagina(app.querySelector('.lesson'), l, {img: srcImagine});
+  const lata = l.coperta && l.coperta.forma === 'peisaj';
+  const flux = `<article class="capitol" style="--p:var(${e ? e.p : '--e10'})">
+    <header class="cap-cap">
+      <div class="frontispiciu" aria-hidden="true"><span class="mo-teeth"></span></div>
+      <p class="lesson-when">${esc([e ? e.name : '', l.cand || fmtAn(l.an)].filter(Boolean).join(', '))}</p>
+      ${lata ? '' : htmlCoperta(l.coperta, ctx)}
+      <h1 class="cap-titlu">${esc(l.titlu)}</h1>
+      ${l.rezumat ? `<p class="lede">${esc(l.rezumat)}</p>` : ''}
+      ${lata ? htmlCoperta(l.coperta, ctx) : ''}
+      <p class="lesson-meta">${regs.length ? `<span>${esc(regs.join(', '))}</span>` : ''}${l.autor ? `<span>Scrisă de ${esc(l.autor)}</span>` : ''}${l.exemplu ? '<span class="sample">Lecție de exemplu</span>' : ''}</p>
+    </header>
+    ${LAT.matches ? '' : '<aside class="plansa-in" aria-label="Harta lecției"></aside>'}
+    <div class="lesson-body"></div>
+    <footer class="cap-sfarsit"><span class="cap-orn" aria-hidden="true"></span>
+      ${next ? `<a class="cap-urm" href="#l-${next.id}"><small>Capitolul următor</small>${esc(next.titlu)}</a>` : '<p class="cap-fin">Aici se termină, deocamdată, cronica.</p>'}
+      ${l.actualizat ? `<p class="cap-data">Actualizată la ${esc(fmtData(l.actualizat))}</p>` : ''}</footer>
+  </article>`;
+  const ctl = carte({eticheta: 'Cronica: ' + l.titlu, flux, semn: true,
+    inainte: () => { location.hash = prev ? 'l-' + prev.id : 'cuprins'; },
+    dupa: () => { location.hash = next ? 'l-' + next.id : 'cuprins'; },
+    unelte: `<a class="btn" href="#cuprins">Cuprins</a><button class="btn" type="button" data-act="edit">Editează lecția</button>${e ? `<a class="btn" href="biblioteca.html?epoca=${encodeURIComponent(e.id)}">Videoclipuri din această epocă</a>` : ''}`});
+  const body = ctl.flux.querySelector('.lesson-body');
+  randeazaLectie(body, l, ctx);
+  imaginiFragile(ctl.flux.querySelector('.cap-cap'));
+  const cov = ctl.flux.querySelector('.lesson-cover.auto img');
+  if (cov) { const fix = () => { if (cov.naturalWidth > cov.naturalHeight * 1.15) cov.closest('figure').className = 'lesson-cover-wide'; }; if (cov.complete && cov.naturalWidth) fix(); else cov.addEventListener('load', fix, {once: true}); }
   app.querySelector('[data-act="edit"]').addEventListener('click', () => { location.hash = 'edit-' + id; });
+  ctl.masoara();
+  await panouHarta(ctl.st || ctl.flux.querySelector('.plansa-in'), l, body, ctl);
+  ctl.masoara();
+  if (laSfarsit) { ctl.k = ctl.n - 1; ctl.pune(); }
 }
 
 /* ================= editorul ================= */
@@ -827,12 +1015,12 @@ function curata(d, id) {
 const imaginiDin = l => [...(l && l.blocuri || []).filter(b => b.t === 'imagine').map(b => b.src), l && l.coperta && l.coperta.src].filter(x => /^imagini\//.test(x || ''));
 
 async function viewEditor(id) {
-  if (!await asiguraDeblocare()) { if (/^#(edit-|nou)/.test(location.hash)) history.replaceState(null, '', id ? '#l-' + id : '#'); route(); return; }
+  if (!await asiguraDeblocare()) { if (/^#(edit-|nou)/.test(location.hash)) history.replaceState(null, '', id ? '#l-' + id : '#cuprins'); route(); return; }
   app.innerHTML = '<p class="cr-loading">Se deschide editorul…</p>';
   let orig = null;
   if (id) {
     try { orig = await incarcaLectie(id, true); } catch (e) { app.innerHTML = `<div class="empty">${esc(mesajEroare(e))}</div>`; return; }
-    if (!orig) { app.innerHTML = '<div class="empty">Lecția nu există în depozit (poate a fost ștearsă).<br><a class="reset" href="#">Înapoi la cuprins</a></div>'; return; }
+    if (!orig) { app.innerHTML = '<div class="empty">Lecția nu există în depozit (poate a fost ștearsă).<br><a class="reset" href="#cuprins">Înapoi la cuprins</a></div>'; return; }
   }
   E.id = id; E.orig = orig; E.sha = id ? (S.sha.get(id) || null) : null; E.pending = new Map(); E.dirty = false;
   E.draft = orig ? JSON.parse(JSON.stringify(orig)) : {titlu: '', rezumat: '', an: '', cand: '', regiuni: [], autor: '', blocuri: [BLOC_NOU.text()]};
@@ -847,7 +1035,7 @@ async function viewEditor(id) {
   }
   document.title = (id ? 'Editezi: ' + E.draft.titlu : 'Lecție nouă') + ' · Cronica';
   app.innerHTML = `<div class="ed">
-    <div class="ed-bar"><a class="ed-back" href="${id ? '#l-' + id : '#'}">← Înapoi</a><span class="ed-state" id="ed-state">${E.dirty ? 'Ciornă nesalvată' : 'Nicio modificare'}</span><span class="sp"></span>
+    <div class="ed-bar"><a class="ed-back" href="${id ? '#l-' + id : '#cuprins'}">Înapoi</a><span class="ed-state" id="ed-state">${E.dirty ? 'Ciornă nesalvată' : 'Nicio modificare'}</span><span class="sp"></span>
       <button class="btn" type="button" data-act="preview" aria-pressed="false">Previzualizare</button><button class="btn primary" type="button" data-act="save">Salvează</button></div>
     <div class="ed-errors" id="ed-errors" role="alert" hidden></div>
     <h1 class="ed-h">${id ? 'Editezi lecția' : 'Lecție nouă'}</h1>
@@ -980,7 +1168,7 @@ async function laClic(e) {
   if (act === 'preview') return comutaPrevizualizare(t);
   if (act === 'save') return salveaza(false);
   if (act === 'delete') return stergeLectia();
-  if (act === 'lock') { if (E.dirty && !await confirma('Blochezi editarea?', 'Modificările nesalvate rămân în ciorna de pe acest dispozitiv.', 'Blochează')) return; setToken(null); E.dirty = false; S.cuprins = null; location.hash = E.id ? 'l-' + E.id : ''; toast('Editarea a fost blocată în acest tab.'); }
+  if (act === 'lock') { if (E.dirty && !await confirma('Blochezi editarea?', 'Modificările nesalvate rămân în ciorna de pe acest dispozitiv.', 'Blochează')) return; setToken(null); E.dirty = false; S.cuprins = null; location.hash = E.id ? 'l-' + E.id : 'cuprins'; toast('Editarea a fost blocată în acest tab.'); }
 }
 function comutaPrevizualizare(btn) {
   const pv = document.getElementById('ed-preview'), form = document.getElementById('ed-form'), on = pv.hidden;
@@ -1068,7 +1256,7 @@ async function stergeLectia() {
     }, `Cronica: lecție ștearsă: ${E.draft.titlu.trim().slice(0, 80)}`);
   } catch (err) { arataErori([mesajEroare(err)]); return; }
   stergeCiorna(id); S.lectii.delete(id); E.dirty = false;
-  location.hash = '';
+  location.hash = 'cuprins';
   toast('Lecția a fost ștearsă. Dispare de pe site în 1–2 minute.', 'ok');
 }
 
@@ -1076,7 +1264,7 @@ async function stergeLectia() {
 function viewConfigurare() {
   document.title = 'Configurarea editării · Cronica';
   app.innerHTML = `<section class="cfg">
-    <nav class="crumbs"><a href="#">← Cuprinsul cronicii</a></nav>
+    <nav class="crumbs"><a href="#cuprins">Înapoi la cuprins</a></nav>
     <h1>Configurarea editării</h1>
     <p class="lede">Pagina aceasta e pentru administratorul site-ului. Aici legi cronica de depozitul GitHub <b>${esc(REPO.owner)}/${esc(REPO.repo)}</b> și alegi parola pe care o vor folosi cei care scriu lecții.</p>
     <p class="cfg-status" id="cfg-status">Se verifică starea…</p>
@@ -1156,11 +1344,14 @@ function route() {
   let h = '';
   try { h = decodeURIComponent(location.hash.slice(1)); } catch (_) {}
   window.scrollTo(0, 0);
+  carteActiva = null; app.classList.remove('larg');
+  if (peEcranComplet() && (h.startsWith('edit-') || h === 'nou' || h === 'configurare')) iesiEcran();
   if (h.startsWith('l-')) return viewLectie(h.slice(2));
   if (h.startsWith('edit-')) return viewEditor(h.slice(5));
   if (h === 'nou') return viewEditor(null);
   if (h === 'configurare') return viewConfigurare();
-  return viewCuprins();
+  if (h === 'cuprins') return viewCuprins();
+  return viewCoperta();
 }
 window.addEventListener('hashchange', route);
 route();

@@ -3,7 +3,7 @@
 Site static despre istoria României, în două părți:
 
 - **Biblioteca video**: videoclipurile canalului de YouTube, pe o cronologie interactivă, pe hartă și pe teme. Se actualizează singură în fiecare zi, prin GitHub Actions.
-- **Cronica**: lecții scrise, cu harta perioadei alături de text, grafice, cronologii, citate și imagini. Lecțiile se scriu și se corectează direct pe site, de oricine are parola de editare.
+- **Cronica** (prima pagină a site-ului): o carte veche, cu copertă de piele și pagini care se întorc. Fiecare lecție are harta perioadei pe pagina din stânga, plus grafice, cronologii, citate și imagini. Lecțiile se scriu și se corectează direct pe site, de oricine are parola de editare.
 
 Totul se publică pe GitHub Pages.
 
@@ -13,8 +13,9 @@ Până la conectarea canalului, site-ul afișează **date de exemplu** (marcate 
 
 ```
 site/                     ← tot ce se publică pe GitHub Pages
-  index.html              ← biblioteca video (cronologie, hartă, căutare, fișa videoclipului)
-  cronica.html            ← cronica: cuprins, lecții, editor, configurarea editării
+  index.html              ← cronica (prima pagină): coperta, cuprinsul, lecțiile, editorul, configurarea editării
+  biblioteca.html         ← biblioteca video (cronologie, hartă, căutare, fișa videoclipului)
+  cronica.html            ← adresa veche a cronicii; trimite la prima pagină
   assets/harta.js         ← harta istorică: 22 de momente, de la c. 500 î.Hr. până azi
   assets/harta-geo.json   ← contururile hărții (Natural Earth 10m + granițe istorice reconstituite)
   assets/cronica.js       ← cititorul și editorul lecțiilor
@@ -116,7 +117,7 @@ Scriptul nu are dependențe; are nevoie doar de Node 20 sau mai nou.
 
 ## Cronica: lecții editabile pe site
 
-Lecțiile se citesc la `/cronica.html`. Butonul „Scrie o lecție nouă” și „Editează lecția” cer parola de editare. O lecție e făcută din blocuri: text, subtitlu, hartă istorică (un moment sau două, comparate), grafic (bare sau linie), cronologie, citat, fișă pe scurt, imagine și videoclip (din bibliotecă sau de pe YouTube). Fiecare lecție are harta perioadei alături de text; pe ecranele late harta rămâne fixă și se schimbă singură când cititorul ajunge la o hartă din text.
+Cronica se deschide direct pe prima pagină a site-ului, ca o carte: coperta, apoi cuprinsul, apoi lecțiile, pagină cu pagină. Paginile se întorc cu săgețile de sub carte, cu tastele ← → sau trăgând cu degetul pe telefon. Butonul „Ecran complet” (sau tasta F) ascunde restul site-ului și mărește cartea; pe calculator și pe Android trece și browserul pe tot ecranul. Butonul „Scrie o lecție nouă” și „Editează lecția” cer parola de editare. O lecție e făcută din blocuri: text, subtitlu, hartă istorică (un moment sau două, comparate), grafic (bare sau linie), cronologie, citat, fișă pe scurt, imagine și videoclip (din bibliotecă sau de pe YouTube). Pe ecranele late harta perioadei stă pe pagina din stânga și se schimbă singură când pagina din dreapta ajunge la o hartă din text; pe telefon, harta apare în text.
 
 ### Cum funcționează salvarea
 
@@ -125,7 +126,7 @@ Site-ul e static, deci editorul salvează direct în acest depozit, prin API-ul 
 ### Configurarea (o singură dată, de administrator)
 
 1. Pe GitHub: **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**. Repository access: **Only select repositories** → `istoriaromaniei`. Permissions → **Contents: Read and write**. Alege o dată de expirare (de exemplu un an).
-2. Deschide `https://<utilizator>.github.io/istoriaromaniei/cronica.html#configurare`, lipește tokenul, alege parola editorilor și apasă „Salvează configurarea”.
+2. Deschide `https://<utilizator>.github.io/istoriaromaniei/#configurare`, lipește tokenul, alege parola editorilor și apasă „Salvează configurarea”.
 3. Dă parola celor care scriu lecții. Parola se poate schimba din aceeași pagină; când tokenul expiră, se refac pașii 1–2.
 
 Securitate: parola e singura protecție a cheii criptate, care e publică în depozit. Alege o parolă lungă (o propoziție scurtă e ideală). Dacă bănuiești că parola a ajuns la cine nu trebuie, șterge tokenul pe GitHub și refă configurarea; orice modificare nedorită se poate anula din istoricul depozitului.

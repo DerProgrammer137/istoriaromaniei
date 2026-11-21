@@ -1,5 +1,6 @@
 /* Cronica: pagini de letopiseț. Inițiale roșii, text cu serife, harta perioadei mereu alături. */
 .cr-main{padding-block:8px 56px;min-height:60vh;outline:none}
+.cr-main.larg{max-width:none}
 .cr-loading{color:var(--ink-2);padding:40px 0}
 .cr-header .wrap{padding-block:18px 18px}
 .quiet-link{color:var(--ink-2)}
@@ -266,3 +267,144 @@
 .cr-toast{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:40;background:var(--ink);color:var(--linen);padding:10px 16px;border-radius:3px;max-width:min(560px,calc(100vw - 32px));box-shadow:0 8px 30px rgba(0,0,0,.25);font-size:.98rem}
 .cr-toast.err{background:var(--rosu);color:#fff}
 .cr-toast.ok{border-left:4px solid var(--tri-g)}
+
+/* ================= cartea ================= */
+/* hârtie și piele: texturi desenate (feTurbulence), fără imagini externe */
+.masa{display:grid;justify-items:center;gap:16px;padding:18px 0 36px}
+.carte{--linen:#EFE2C3;--linen-2:#E3D2A8;--card:#F4EAD2;--ink:#2B1F14;--ink-2:#5C4934;--line:#CDB68A;--rosu:#9B2A21;--indigo:#2C466F;--voronet:#2D5486;--aur:#9A7330;
+  --sea:color-mix(in oklab,#2D5486 16%,#F4EAD2);--river:color-mix(in oklab,#2D5486 55%,#F4EAD2);--ctx:#E4D6B4;color-scheme:light;color:var(--ink)}
+.carte-corp{position:relative;perspective:2600px}
+.carte.dubla .carte-corp{width:min(1240px,96vw);height:clamp(560px,calc(100vh - 215px),860px);display:grid;grid-template-columns:1fr 1fr}
+.carte.simpla .carte-corp{width:min(600px,100%);height:clamp(500px,calc(100svh - 200px),860px)}
+.carte-corp::before{content:"";position:absolute;inset:6px -7px -9px -7px;border-radius:8px;z-index:-1;
+  background:repeating-linear-gradient(90deg,#d9c79f 0 1px,#efe2c3 1px 3px);box-shadow:0 26px 50px rgba(40,20,5,.38),0 6px 14px rgba(40,20,5,.25)}
+.carte.simpla .carte-corp::before{inset:4px -6px -8px 0}
+.pag{position:relative;overflow:hidden;padding:44px 50px 56px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .33  0 0 0 0 .18  0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(130% 100% at 50% 45%,#F5EBD3 0%,#EEDFBC 62%,#E2CC9C 100%)}
+.pag-st{border-radius:6px 0 0 6px;box-shadow:inset -34px 0 42px -30px rgba(70,45,10,.55)}
+.pag-dr{border-radius:0 6px 6px 0;box-shadow:inset 34px 0 42px -30px rgba(70,45,10,.55)}
+.carte.simpla .pag-dr{border-radius:3px 6px 6px 3px;box-shadow:inset 14px 0 22px -16px rgba(70,45,10,.5)}
+.pag{height:100%;box-sizing:border-box}
+.pag-st-in{height:100%;overflow:auto;scrollbar-width:thin}
+.pag-vp{width:100%;height:100%;overflow:hidden}
+.flux{column-fill:auto;font-family:var(--f-serif);font-size:1.08rem;line-height:1.66;will-change:transform}
+.flux figure,.flux .b-fapte,.flux .b-cron li,.flux .b-citat,.flux .bv-card,.flux .cue-in,.flux .cr-row,.flux .lm-in,.flux .ed-img{break-inside:avoid}
+.flux h1,.flux h2,.flux h3,.flux .b-titlu{break-after:avoid}
+.flux img{max-height:46vh}
+.pag-nr{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-family:var(--f-display);color:var(--rosu);font-size:1rem}
+.foaie{position:absolute;top:0;bottom:0;z-index:5;transform-style:preserve-3d;pointer-events:none}
+.foaie.spre-st{left:50%;width:50%;transform-origin:left center}
+.foaie.spre-dr{left:0;width:50%;transform-origin:right center}
+.foaie.singura{left:0;width:100%;transform-origin:left center}
+.foaie .fata,.foaie .dos{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.foaie .dos{transform:rotateY(180deg)}
+.foaie .pag{position:absolute;inset:0;width:100%;height:100%}
+.foaie .fata .pag{box-shadow:inset 34px 0 42px -30px rgba(70,45,10,.55),-8px 0 30px rgba(40,20,5,.25)}
+.semn{position:absolute;top:-16px;right:9%;z-index:6;width:28px;height:56px;background:linear-gradient(90deg,#7e1d18,#a8322d 45%,#7e1d18);
+  clip-path:polygon(0 0,100% 0,100% 100%,50% 78%,0 100%);box-shadow:0 2px 4px rgba(0,0,0,.3)}
+.semn:hover{filter:brightness(1.12)}
+.semn:focus-visible{outline:2px solid var(--tri-g);outline-offset:2px}
+@media (max-width:640px){.semn{height:42px;width:24px;right:7%}}
+.carte-nav{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+.carte-loc{min-width:130px;text-align:center;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.carte-unelte{display:flex;flex-wrap:wrap;gap:8px;margin-left:8px}
+.carte-unelte .btn{text-decoration:none;color:inherit}
+@media (max-width:640px){.pag{padding:30px 24px 48px}.carte-unelte{margin-left:0;justify-content:center}}
+
+/* pagina de titlu și cuprinsul */
+.pag-titlu{display:grid;gap:14px;align-content:start;justify-items:center;text-align:center;padding-top:6px}
+.pag-titlu .frontispiciu{width:100%}
+.pt-sus{margin:0;font-family:var(--f-display);color:var(--ink-2);font-size:1rem}
+.pag-titlu .cr-title{font-size:clamp(3.2rem,7vw,5rem)}
+.pag-titlu .lede{font-family:var(--f-serif);font-size:1.15rem;line-height:1.55;color:var(--ink-2);margin:0;max-width:34ch}
+.pt-nr{margin:0;color:var(--ink-2)}
+.pt-act{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center}
+.pag-titlu .search{width:100%;max-width:380px;background:var(--card)}
+.pag-titlu .cr-eras{justify-content:center;margin:0}
+.carte .era-chip{background:var(--card)}
+.carte.simpla .pag-titlu{margin-bottom:26px}
+.cup-h{font-size:1.7rem;text-align:center;margin-bottom:14px}
+.cup-h::after{content:"";display:block;width:120px;height:9px;margin:10px auto 0;background:var(--rosu);-webkit-mask:var(--m-teeth) repeat-x center/18px 9px;mask:var(--m-teeth) repeat-x center/18px 9px}
+.flux .cr-era{margin-bottom:18px}
+.flux .cr-era-h{font-size:1.2rem;padding-bottom:12px}
+.flux .cr-row{grid-template-columns:86px minmax(0,1fr) auto;gap:4px 14px;padding:12px 2px}
+.flux .cr-row-title{font-size:1.18rem}
+.flux .cr-row-sum{font-size:.98rem}
+.flux .cr-row-year{font-size:1rem}
+.flux .cr-row-img,.flux .cr-row-img img{width:60px}
+.flux .cr-row-img img{height:74px}
+
+/* capitolul */
+.cap-cap{display:block;margin-bottom:18px}
+.cap-cap .frontispiciu{margin-bottom:16px}
+.cap-titlu{font-size:clamp(2rem,3.4vw,2.7rem);line-height:1.08;margin:6px 0 12px}
+.cap-titlu::first-letter{color:var(--rosu)}
+.cap-cap .lede{font-family:var(--f-serif);font-style:italic;font-size:1.1rem;line-height:1.55;color:var(--ink-2);margin:0}
+.cap-cap .lesson-cover.portret,.cap-cap .lesson-cover.auto{float:right;width:132px;margin:0 0 10px 18px}
+.cap-cap .lesson-cover.portret img,.cap-cap .lesson-cover.auto img{width:132px;height:166px;border-radius:66px 66px 4px 4px}
+.cap-cap .lesson-cover-wide{margin:14px 0 0}
+.cap-cap .lesson-cover-wide img{max-height:220px}
+.cap-cap .lesson-meta{clear:both;font-size:.9rem;margin-top:12px}
+.flux .lesson-body{max-width:none;font-size:inherit;line-height:inherit}
+.flux .b-titlu{font-size:1.4rem}
+.flux .b-citat blockquote{font-size:1.12rem}
+.plansa-in{margin:6px 0 22px}
+.carte .lm-in{background:transparent;border:0;padding:0}
+.carte .pag-st .lm-snap{font-size:1.15rem}
+.cap-sfarsit{text-align:center;padding-top:16px;display:grid;gap:10px;justify-items:center}
+.cap-orn{width:39px;height:39px;background:var(--rosu);-webkit-mask:var(--m-stea) center/39px 39px no-repeat;mask:var(--m-stea) center/39px 39px no-repeat}
+.cap-urm{display:grid;gap:2px;text-decoration:none;color:var(--voronet);font-family:var(--f-display);font-size:1.2rem}
+.cap-urm small{font-family:var(--f-body);color:var(--ink-2);font-size:.88rem}
+.cap-fin,.cap-data{margin:0;color:var(--ink-2);font-size:.92rem}
+
+/* coperta: piele, chenar aurit, colțare și închizători de alamă */
+.masa-coperta{padding-top:26px}
+.coperta{all:unset;cursor:pointer;position:relative;width:max(280px,min(500px,86vw,calc((100svh - 270px) * .7)));aspect-ratio:.7;container-type:inline-size;border-radius:5px 14px 14px 5px;transform-origin:left center;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .12  0 0 0 0 .04  0 0 0 0 .02  0 0 0 .38 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"),
+    radial-gradient(120% 90% at 35% 25%,#7a2a22 0%,#58201a 48%,#3a130f 100%);
+  box-shadow:inset 0 0 0 2px rgba(0,0,0,.35),inset 0 0 60px rgba(0,0,0,.55),10px 18px 40px rgba(30,10,5,.45),2px 4px 8px rgba(30,10,5,.4)}
+.coperta:focus-visible{outline:3px solid var(--tri-g);outline-offset:6px}
+.coperta:hover .cop-titlu{text-shadow:0 2px 0 #2a0b08,0 -1px 0 rgba(255,235,170,.45),0 0 18px rgba(230,190,100,.25)}
+.cop-cotor{position:absolute;left:0;top:0;bottom:0;width:34px;border-radius:5px 0 0 5px;
+  background:linear-gradient(90deg,#2a0d0a,#4d1a15 55%,#2e0f0c),repeating-linear-gradient(180deg,transparent 0 14%,rgba(0,0,0,.35) 14% 15.5%,rgba(255,220,160,.08) 15.5% 16.5%,transparent 16.5% 20%);
+  background-blend-mode:normal;box-shadow:inset -3px 0 6px rgba(0,0,0,.5)}
+.cop-chenar{position:absolute;inset:24px 24px 24px 54px;border:2px solid #b9924a;outline:1px solid rgba(185,146,74,.7);outline-offset:7px;border-radius:3px;
+  display:grid;align-content:space-between;justify-items:center;text-align:center;padding:26px 22px}
+.cop-banda{width:100%;height:33px;background:linear-gradient(90deg,#9c7838,#e2c27a 50%,#9c7838);-webkit-mask:var(--m-romb) repeat-x center/auto 33px;mask:var(--m-romb) repeat-x center/auto 33px;opacity:.9}
+.cop-sus{font-family:var(--f-display);color:#d8b866;font-size:clamp(.8rem,2.4vw,1rem);letter-spacing:.06em}
+.cop-titlu{font-family:var(--f-display);font-size:clamp(1.8rem,calc(18cqi - 22px),4.5rem);line-height:1;letter-spacing:.14em;text-transform:uppercase;
+  background:linear-gradient(180deg,#f0d896 0%,#c99d48 55%,#a37a33 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 2px 0 #250906) drop-shadow(0 -1px 0 rgba(255,236,180,.3))}
+.cop-med{width:clamp(96px,26vw,128px);aspect-ratio:1;border-radius:50%;border:2px solid #b9924a;box-shadow:inset 0 0 0 6px rgba(0,0,0,.18),0 0 0 5px rgba(185,146,74,.35);display:grid;place-items:center}
+.cop-med span{width:62%;aspect-ratio:1;background:linear-gradient(180deg,#ecd08a,#a97f36);-webkit-mask:var(--m-stea) center/contain no-repeat;mask:var(--m-stea) center/contain no-repeat}
+.cop-sub{font-family:var(--f-serif);font-style:italic;color:#e2c983;font-size:clamp(.95rem,2.8vw,1.12rem);max-width:24ch;line-height:1.4}
+.cop-colt{position:absolute;width:34px;height:34px;background:linear-gradient(135deg,#e6c983,#8d6a2c);-webkit-mask:var(--m-pom) center/contain no-repeat;mask:var(--m-pom) center/contain no-repeat}
+.cop-colt.c1{top:-17px;left:-17px}.cop-colt.c2{top:-17px;right:-17px}.cop-colt.c3{bottom:-17px;left:-17px}.cop-colt.c4{bottom:-17px;right:-17px}
+.cop-inc{position:absolute;right:-9px;width:30px;height:54px;border-radius:4px;background:linear-gradient(90deg,#6e5222,#d9b866 45%,#8a6a2c);box-shadow:1px 2px 4px rgba(0,0,0,.5),inset 0 0 0 1px rgba(60,40,10,.5)}
+.cop-inc::after{content:"";position:absolute;left:9px;top:21px;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f6e2a6,#7d5d24)}
+.cop-inc.i1{top:21%}.cop-inc.i2{bottom:21%}
+.cop-jos{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:center}
+.cop-indemn{margin:0;color:var(--ink-2);font-size:.95rem}
+@media (prefers-reduced-motion:reduce){.foaie{display:none}}
+
+@media (max-width:480px){.cap-cap .lesson-cover.portret,.cap-cap .lesson-cover.auto{width:104px;margin-left:14px}.cap-cap .lesson-cover.portret img,.cap-cap .lesson-cover.auto img{width:104px;height:130px;border-radius:52px 52px 4px 4px}}
+@media (max-width:560px){.cr-header .wrap{padding-block:12px}}
+
+/* ecran complet: doar cartea, pe noaptea albastră a Voronețului */
+.btn-fs{display:inline-flex;align-items:center;gap:8px}
+.btn-fs svg{width:18px;height:18px;flex:none}
+html.ecran-complet{--linen:#0E1727;--linen-2:#1A2740;--card:#13203A;--ink:#EEE7D8;--ink-2:#B9B2A2;--line:#2C3C5A;--rosu:#E0675C;--indigo:#A3BDE8;--voronet:#86AAE0;--aur:#D8B062;color-scheme:dark}
+html.ecran-complet body>.brau,html.ecran-complet body>header,html.ecran-complet body>footer{display:none}
+html.ecran-complet .cr-main{padding-block:0;min-height:0}
+html.ecran-complet .masa{min-height:100vh;min-height:100svh;align-content:center;padding:14px 0 12px;gap:12px}
+html.ecran-complet .carte.dubla .carte-corp{width:min(1680px,96vw,calc((100vh - 96px) * 1.9));height:calc(100vh - 96px)}
+html.ecran-complet .carte.simpla .carte-corp{width:min(720px,100%);height:calc(100svh - 104px)}
+html.ecran-complet .carte.dubla .flux{font-size:clamp(1.08rem,.55vw + .6rem,1.28rem)}
+@media (max-width:1079px){html.ecran-complet .carte-unelte{display:none}}
+html.ecran-complet .coperta{width:max(280px,min(640px,86vw,calc((100svh - 120px) * .7)))}
+@media (max-width:640px){
+  .carte-nav .btn-fs span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .carte-nav .btn-fs{padding:9px}
+  html.ecran-complet .masa{padding-top:8px}
+}
