@@ -9,7 +9,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1970
+  "an": 1970,
+  "contur": [
+   "stat:romania"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/King%20Michael%20I%20in%20Air%20Force%20Marshal%20uniform%2C%20post-war.jpg?width=900",

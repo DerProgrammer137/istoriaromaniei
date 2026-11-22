@@ -282,6 +282,17 @@ const LIT = 'abcdefgh';
 const ICON_LUPA = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15 15l5 5M10.5 7.5v6M7.5 10.5h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
 const plural = (n, unu, multe) => n === 1 ? `o ${unu}` : `${n}${n % 100 >= 20 || (n % 100 === 0 && n) ? ' de' : ''} ${multe}`;
 const anBaza = l => (l.harta && l.harta.an != null && l.harta.an !== '' && !isNaN(Number(l.harta.an))) ? Number(l.harta.an) : (l.an != null && l.an !== '' && !isNaN(Number(l.an)) ? Number(l.an) : 2000);
+/* conturul roșu de pe harta lecției; lecțiile mai vechi, fără „contur”, folosesc regiunile lecției */
+const conturLectie = l => Array.isArray(l.harta && l.harta.contur) ? l.harta.contur : (l.regiuni || []);
+/* ce poate fi conturat: un stat (apare doar pe hărțile din vremea lui), o regiune de azi sau o bucată de hartă */
+const STATE_CONTUR = ['getodaci', 'burebista', 'regatdac', 'dacia', 'voievodate', 'cnezate', 'tararom', 'moldovast', 'transprinc', 'mihai', 'principate', 'romania', 'rssm', 'rmoldova'];
+const conturValid = x => typeof x === 'string' && (x.startsWith('stat:') ? !!H.POL[x.slice(5)] : (H.REGIUNI.some(r => r.id === x) || !!H.ATOMI[x]));
+const curataContur = a => [...new Set((Array.isArray(a) ? a : []).filter(conturValid))].slice(0, 40);
+function schimbaContur(lista, v, pus) {
+  const s = new Set(lista || []); pus ? s.add(v) : s.delete(v);
+  const ord = [...STATE_CONTUR.map(k => 'stat:' + k), ...H.REGIUNI.map(r => r.id)];
+  return [...ord.filter(x => s.has(x)), ...[...s].filter(x => !ord.includes(x))];
+}
 const momente = b => { const idx = [b.an, b.an2].filter(v => v !== '' && v != null && !isNaN(Number(v))).map(v => H.snapIndex(Number(v))); return idx.length ? [...new Set(idx)] : [H.AZI]; };
 const randuriGrafic = b => (b.date || []).map(r => ({e: String(r.e ?? '').trim(), v: numar(r.v)})).filter(r => r.e && !isNaN(r.v));
 const inaltimeGrafic = (b, cw) => b.tip === 'linie' ? Math.round(Math.min(340, Math.max(220, Math.max(260, Math.round(cw)) * 0.46))) : 12 + randuriGrafic(b).length * 36;
@@ -305,7 +316,7 @@ function htmlFigHarta(snaps, regiuni, text, plansa) {
 }
 function htmlPlansa(l) {
   const s = H.snapIndex(anBaza(l)), snap = H.SNAPS[s];
-  return `<div class="plansa" data-snaps="${s}" data-reg="${esc((l.regiuni || []).join(','))}">
+  return `<div class="plansa" data-snaps="${s}" data-reg="${esc(conturLectie(l).join(','))}">
     <h3 class="pl-t"><span class="snap-when">${esc(snap.cand)}</span> ${esc(snap.titlu)}</h3>
     <div class="hm"><button type="button" class="hm-lupa" aria-label="Mărește harta">${ICON_LUPA}</button></div>
     <p class="pl-nota">${esc(snap.nota)}${snap.zona ? ' Granițele sunt aproximative.' : ''}</p>
@@ -931,7 +942,7 @@ function pregatesteDate() {
 const htmlGarda = () => '<div class="garda" aria-hidden="true"></div>';
 function htmlTitlu(d) {
   return `<div class="pag-titlu"><p class="ptl-sus">Biblioteca Istoriei Românești</p>
-    <div class="ptl-mij"><h2 class="ptl-titlu">Cronica</h2><p class="ptl-sub">Istoria românilor<br>de la geto-daci până azi</p><span class="ptl-orn" aria-hidden="true"></span></div>
+    <div class="ptl-mij"><h2 class="ptl-titlu">Cronica</h2><p class="ptl-sub">Istoria românilor<br>de la <span class="nobr">geto-daci</span> până azi</p><span class="ptl-orn" aria-hidden="true"></span></div>
     <p class="ptl-jos">${esc(cap(plural(d.lectii.length, 'lecție', 'lecții')))}, cu harta fiecărei epoci</p></div>`;
 }
 function htmlCuprins(d, pag) {
@@ -963,7 +974,7 @@ function htmlCapitol(l, nr, mod, ctx) {
       ${l.rezumat ? `<p class="cap-lede">${esc(l.rezumat)}</p>` : ''}
       ${portret ? '' : fig}
     </header>
-    <div class="corp">${htmlCorp(l, ctx, mod === 'simpla' ? htmlFigHarta([H.snapIndex(anBaza(l))], l.regiuni, '', true) : '')}</div>
+    <div class="corp">${htmlCorp(l, ctx, mod === 'simpla' ? htmlFigHarta([H.snapIndex(anBaza(l))], conturLectie(l), '', true) : '')}</div>
     <footer class="cap-fin"><span class="cap-orn" aria-hidden="true"></span>${l.exemplu ? '<p>Lecție de exemplu, scrisă ca punct de plecare pentru echipa canalului.</p>' : ''}${l.autor ? `<p>Scrisă de ${esc(l.autor)}</p>` : ''}</footer>
   </article>`;
 }
@@ -1010,7 +1021,7 @@ function viewCoperta() {
         <span class="cop-sus">Biblioteca Istoriei Românești</span>
         <span class="cop-titlu">Cronica</span>
         <span class="cop-med" aria-hidden="true"><span></span></span>
-        <span class="cop-sub">Istoria românilor de la geto-daci până azi</span>
+        <span class="cop-sub">Istoria românilor de la <span class="nobr">geto-daci</span> până azi</span>
         <span class="cop-banda" aria-hidden="true"></span>
       </span>
       <span class="cop-inc i1" aria-hidden="true"></span><span class="cop-inc i2" aria-hidden="true"></span>
@@ -1018,12 +1029,72 @@ function viewCoperta() {
     <p class="cop-indemn">Apasă pe copertă ca să deschizi cartea</p></div>`;
   pregatesteDate().catch(() => {});
   const b = app.querySelector('.coperta');
-  b.addEventListener('click', () => {
-    if (FARA_MISCARE.matches || !b.animate) { location.hash = 'inceput'; return; }
-    b.disabled = true;
-    const a = b.animate([{transform: 'perspective(2200px) rotateY(0deg)'}, {transform: 'perspective(2200px) rotateY(-115deg)', opacity: .15}], {duration: 850, easing: 'cubic-bezier(.5,0,.3,1)', fill: 'forwards'});
-    a.onfinish = () => { location.hash = 'inceput'; };
-  });
+  b.addEventListener('click', () => deschideCoperta(b));
+}
+/* Coperta se deschide ca la o carte adevărată: cartea e construită dedesubt, coperta alunecă peste pagina din dreapta,
+   apoi se rotește pe cotor și se așază în stânga, cu foaia de gardă în sus. Fără animații: cartea se deschide direct. */
+let OPRESTE_ZBOR = null;
+async function deschideCoperta(b) {
+  if (b.disabled) return;
+  if (FARA_MISCARE.matches || !b.animate) { location.hash = 'inceput'; return; }
+  b.disabled = true;
+  const indemn = app.querySelector('.cop-indemn');
+  if (!DATE) {
+    const t = setTimeout(() => { if (indemn) indemn.textContent = 'Se deschide cartea…'; }, 250);
+    try { await pregatesteDate(); } catch (_) {
+      clearTimeout(t); b.disabled = false;
+      if (indemn) indemn.textContent = 'Cartea nu s-a putut deschide. Verifică legătura la internet și apasă din nou.';
+      return;
+    }
+    clearTimeout(t);
+  }
+  if (!b.isConnected) return;
+  const r0 = b.getBoundingClientRect();
+  const zbor = document.createElement('div');
+  zbor.className = 'cop-zbor'; zbor.setAttribute('aria-hidden', 'true');
+  Object.assign(zbor.style, {left: r0.left + 'px', top: r0.top + 'px', width: r0.width + 'px', height: r0.height + 'px'});
+  zbor.innerHTML = `<div class="cz-foaie"><div class="coperta cz-fata">${b.innerHTML}</div><div class="cz-dos"></div></div>`;
+  document.body.appendChild(zbor);
+  let carte, bara, terminat = false;
+  const gata = () => {
+    if (terminat) return; terminat = true; OPRESTE_ZBOR = null;
+    zbor.remove();
+    if (carte) { carte.getAnimations().forEach(a => a.cancel()); carte.style.clipPath = ''; carte.style.opacity = ''; }
+    if (bara) { bara.style.opacity = ''; bara.animate([{opacity: 0}, {opacity: 1}], {duration: 220}); }
+  };
+  OPRESTE_ZBOR = gata;
+  try {
+    history.pushState(null, '', '#inceput');
+    viewCarte('inceput');   // datele sunt gata, deci cartea se construiește pe loc, sub copertă
+    carte = app.querySelector('.carte'); bara = app.querySelector('.bara');
+    const pag = carte && carte.querySelector('.pag-dr');
+    if (!pag) { gata(); return; }
+    carte.style.opacity = '0'; if (bara) bara.style.opacity = '0';
+    const r1 = pag.getBoundingClientRect(), dubla = carte.classList.contains('dubla');
+    const sx = r1.width / r0.width, sy = r1.height / r0.height;
+    zbor.style.setProperty('--gw', (56 / sx).toFixed(3) + 'px'); zbor.style.setProperty('--gh', (56 / sy).toFixed(3) + 'px');
+    const muta = zbor.animate([{transform: 'none'}, {transform: `translate(${r1.left - r0.left}px, ${r1.top - r0.top}px) scale(${sx}, ${sy})`}],
+      {duration: 300, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards'});
+    await muta.finished;
+    if (terminat) return;   // între timp s-a mers în altă parte
+    if (dubla) carte.style.clipPath = `inset(-140px -140px -140px ${r1.width}px)`;   // jumătatea stângă apare abia sub copertă
+    carte.style.opacity = '';
+    carte.animate([{opacity: 0}, {opacity: 1}], {duration: 160});
+    /* rotirea pe cotor; în cartea dublă, marginea stângă a cărții se descoperă odată cu marginea copertei */
+    const N = 30, P = 3000, w0 = r0.width, rot = [], clip = [];
+    for (let i = 0; i <= N; i++) {
+      const t = i / N, th = dubla ? 180 * (1 - Math.cos(Math.PI * t)) / 2 : 92 * t * t, rad = th * Math.PI / 180;
+      rot.push({transform: `rotateY(${-th}deg)`});
+      if (dubla) {
+        const x = th <= 90 ? 0 : w0 * Math.cos(rad) * P / (P - w0 * Math.sin(rad)) * sx;
+        clip.push({clipPath: `inset(-140px -140px -140px ${i === N ? -140 : Math.max(0, r1.width + x + 1).toFixed(1)}px)`});
+      }
+    }
+    const dur = dubla ? 980 : 520, intoarce = zbor.firstElementChild.animate(rot, {duration: dur, fill: 'forwards'});
+    if (dubla) carte.animate(clip, {duration: dur, fill: 'forwards'});
+    await intoarce.finished;
+  } catch (_) { /* dacă ceva nu merge, cartea rămâne deschisă, fără animație */ }
+  gata();
 }
 
 /* ================= cartea deschisă ================= */
@@ -1108,6 +1179,14 @@ function campuriRanduri(b) {
     <button type="button" class="ed-ico" data-rmrow="${ri}" aria-label="Șterge rândul">✕</button></div>`).join('')}
     <button type="button" class="linkbtn" data-addrow>+ ${esc(add)}</button></div>`;
 }
+function bifeContur(attr, alese) {
+  const alte = (alese || []).filter(x => conturValid(x) && !(x.startsWith('stat:') && STATE_CONTUR.includes(x.slice(5))) && !H.REGIUNI.some(r => r.id === x));
+  const extraStat = alte.filter(x => x.startsWith('stat:')).map(x => x.slice(5)), extra = alte.filter(x => !x.startsWith('stat:'));
+  const bifa = (v, n) => `<label><input type="checkbox" ${attr} value="${esc(v)}"> ${esc(n)}</label>`;
+  return `<p class="ed-checks-h">Statele vremii</p><div class="ed-checks">${[...STATE_CONTUR, ...extraStat].map(k => bifa('stat:' + k, H.POL[k][0])).join('')}</div>
+    <p class="ed-checks-h">Regiuni de azi</p><div class="ed-checks">${H.REGIUNI.map(r => bifa(r.id, r.n)).join('')}${extra.map(a => bifa(a, H.ATOMI[a].n.charAt(0).toUpperCase() + H.ATOMI[a].n.slice(1))).join('')}</div>
+    <p class="hint">Un stat apare conturat doar pe hărțile din vremea lui. Dacă nu bifezi nimic, harta rămâne fără contur.</p>`;
+}
 function corpBloc(b) {
   const f = (k, label, extra) => `<label class="fld"><span>${esc(label)}</span><input data-k="${k}"${extra || ''}></label>`;
   const ta = (k, label, rows, extra) => `<label class="fld"><span>${esc(label)}</span><textarea data-k="${k}" rows="${rows}"${extra || ''}></textarea></label>`;
@@ -1118,7 +1197,7 @@ function corpBloc(b) {
     case 'titlu': return f('text', 'Subtitlul secțiunii', ' maxlength="120"');
     case 'harta': return `<div class="fld-row"><label class="fld"><span>Momentul afișat</span><select data-k="an">${optiuniSnap(b.an)}</select></label>
       <label class="fld"><span>Comparație cu (opțional)</span><select data-k="an2">${optiuniSnap(b.an2, '— fără comparație —')}</select></label></div>
-      <fieldset class="fld"><legend>Evidențiază pe hartă</legend><div class="ed-checks">${H.REGIUNI.map(r => `<label><input type="checkbox" data-k="regiuni" data-multi value="${r.id}"> ${esc(r.n)}</label>`).join('')}</div></fieldset>
+      <fieldset class="fld"><legend>Contur roșu pe hartă (opțional)</legend>${bifeContur('data-k="regiuni" data-multi', b.regiuni)}</fieldset>
       ${f('text', 'Text sub hartă (opțional)', ' maxlength="300"')}<div class="ed-mini-map" aria-hidden="true"></div>`;
     case 'grafic': return `<div class="fld-row"><label class="fld"><span>Tipul graficului</span><select data-k="tip"><option value="bare">Bare: compară mărimi</option><option value="linie">Linie: evoluție în timp</option></select></label>
       ${f('unitate', 'Unitatea (ex. ani, km², locuitori)', ' maxlength="20"')}</div>${f('titlu', 'Titlul graficului', ' maxlength="140"')}
@@ -1174,6 +1253,12 @@ function completeazaBloc(card, b) {
   }
 }
 let edUid = 0;
+async function miniHartaLectie() {
+  const host = document.getElementById('ed-plansa-map'); if (!host) return;
+  const g = await geo().catch(() => null); if (!g || !host.isConnected) return;
+  if (!host._m) host._m = H.creeaza(host, g, {});
+  host._m.randeaza({mod: 'perioada', snap: H.snapIndex(anBaza(E.draft)), evidentiere: E.draft.harta.contur || []});
+}
 async function miniHarta(card, b) {
   const host = card.querySelector('.ed-mini-map'); if (!host) return;
   const g = await geo().catch(() => null); if (!g) return;
@@ -1258,6 +1343,7 @@ function curata(d, id) {
     regiuni: (d.regiuni || []).filter(r => H.REGIUNI.some(x => x.id === r)), autor: t(d.autor, 80), actualizat: azi(), blocuri: []};
   const ha = d.harta && d.harta.an !== '' && d.harta.an != null ? Number(d.harta.an) : NaN;
   if (!isNaN(ha)) out.harta = {an: ha};
+  if (d.harta && Array.isArray(d.harta.contur)) out.harta = Object.assign(out.harta || {}, {contur: curataContur(d.harta.contur)});
   if (d.coperta && t(d.coperta.src, 500)) out.coperta = {src: t(d.coperta.src, 500), alt: t(d.coperta.alt, 300), sursa: t(d.coperta.sursa, 300), forma: ['portret', 'peisaj'].includes(d.coperta.forma) ? d.coperta.forma : ''};
   (d.blocuri || []).forEach(b => {
     let o = null;
@@ -1265,7 +1351,7 @@ function curata(d, id) {
       case 'text': if (t(b.md, 20000)) o = {t: 'text', md: t(b.md, 20000)}; break;
       case 'titlu': if (t(b.text, 120)) o = {t: 'titlu', text: t(b.text, 120)}; break;
       case 'harta': o = {t: 'harta', an: Number(b.an), an2: b.an2 === '' || b.an2 == null || isNaN(Number(b.an2)) ? null : Number(b.an2),
-        regiuni: (b.regiuni || []).filter(r => H.REGIUNI.some(x => x.id === r)), text: t(b.text, 300)}; break;
+        regiuni: curataContur(b.regiuni), text: t(b.text, 300)}; break;
       case 'grafic': o = {t: 'grafic', tip: b.tip === 'linie' ? 'linie' : 'bare', titlu: t(b.titlu, 140), unitate: t(b.unitate, 20),
         date: (b.date || []).filter(r => t(r.e, 80) && !isNaN(numar(r.v))).slice(0, 60).map(r => ({e: t(r.e, 80), v: numar(r.v)})), sursa: t(b.sursa, 200)}; break;
       case 'cronologie': o = {t: 'cronologie', titlu: t(b.titlu, 140), ev: (b.ev || []).filter(r => t(r.an, 40) || t(r.text, 500)).slice(0, 80).map(r => ({an: t(r.an, 40), text: t(r.text, 500)}))}; if (!o.ev.length) o = null; break;
@@ -1304,15 +1390,12 @@ async function viewEditor(id) {
     if (!orig) { app.innerHTML = '<div class="empty">Lecția nu există în depozit (poate a fost ștearsă).<br><a class="reset" href="#cuprins">Înapoi la cuprins</a></div>'; return; }
   }
   E.id = id; E.orig = orig; E.sha = id ? (S.sha.get(id) || null) : null; E.pending = new Map(); E.dirty = false;
-  E.draft = orig ? JSON.parse(JSON.stringify(orig)) : {titlu: '', rezumat: '', an: '', cand: '', regiuni: [], autor: '', blocuri: [BLOC_NOU.text()]};
-  if (E.draft.an == null) E.draft.an = '';
-  E.draft.harta = Object.assign({an: ''}, E.draft.harta || {});
-  E.draft.coperta = Object.assign({src: '', alt: '', sursa: '', forma: ''}, E.draft.coperta || {});
+  E.draft = pregatesteCiorna(orig ? JSON.parse(JSON.stringify(orig)) : {titlu: '', rezumat: '', an: '', cand: '', regiuni: [], autor: '', harta: {an: '', contur: []}, blocuri: [BLOC_NOU.text()]});
   const saved = citesteCiorna(id);
   if (saved && saved.d && JSON.stringify(saved.d) !== JSON.stringify(E.draft)) {
     const ok = await modal({titlu: 'Ai o ciornă nesalvată', corp: `<p>Pe acest dispozitiv există o ciornă a acestei lecții, din ${esc(new Date(saved.t).toLocaleString('ro-RO'))}. Vrei s-o continui?</p>`,
       butoane: [{l: 'Continuă ciorna', v: true, primary: true}, {l: id ? 'Pornește de la versiunea publicată' : 'Începe de la zero', v: false}]});
-    if (ok) { E.draft = saved.d; E.dirty = true; } else stergeCiorna(id);
+    if (ok) { E.draft = pregatesteCiorna(saved.d); E.dirty = true; } else stergeCiorna(id);
   }
   document.title = (id ? 'Editezi: ' + E.draft.titlu : 'Lecție nouă') + ' · Cronica';
   app.innerHTML = `<div class="ed">
@@ -1328,7 +1411,8 @@ async function viewEditor(id) {
           <label class="fld"><span>Perioada afișată (opțional)</span><input data-m="cand" maxlength="40" placeholder="ex. 1457–1504"></label></div>
         <fieldset class="fld"><legend>Regiunile despre care e lecția</legend><div class="ed-checks">${H.REGIUNI.map(r => `<label><input type="checkbox" data-m="regiuni" value="${r.id}"> ${esc(r.n)}</label>`).join('')}</div></fieldset>
         <div class="fld-row"><label class="fld"><span>Harta de lângă lecție</span><select data-m="hartaAn">${optiuniSnap(E.draft.harta.an, '— după anul lecției —')}</select></label>
-          <p class="hint" style="align-self:end">Harta stă pe pagina din stânga, în fața începutului lecției. Regiunile bifate sunt evidențiate.</p></div>
+          <p class="hint" style="align-self:end">Harta stă pe pagina din stânga, în fața începutului lecției.</p></div>
+        <fieldset class="fld"><legend>Contur roșu pe harta lecției (opțional)</legend>${bifeContur('data-m="contur"', E.draft.harta.contur)}<div class="ed-mini-map" id="ed-plansa-map" aria-hidden="true"></div></fieldset>
         <fieldset class="fld"><legend>Imaginea de copertă (opțional): portretul domnitorului sau o pictură a evenimentului</legend>
           <div id="ed-cover"></div>
           <div class="fld-row"><label class="fld"><span>Descrierea imaginii</span><input data-m="copertaAlt" maxlength="300" placeholder="ex. Ștefan cel Mare, miniatură din 1473"></label>
@@ -1345,16 +1429,24 @@ async function viewEditor(id) {
   const form = document.getElementById('ed-form');
   form.querySelectorAll('[data-m]').forEach(el => {
     const k = el.dataset.m;
-    if (el.type === 'checkbox') el.checked = (E.draft.regiuni || []).includes(el.value);
+    if (el.type === 'checkbox') el.checked = ((k === 'contur' ? E.draft.harta.contur : E.draft.regiuni) || []).includes(el.value);
     else { const v = valoareMeta(k); el.value = v == null ? '' : String(v); }
   });
   randeazaCoperta();
   randeazaBlocuri();
+  miniHartaLectie();
   form.addEventListener('input', laModificare);
   form.addEventListener('change', laModificare);
   form.addEventListener('click', laClic);
   app.querySelector('.ed-bar').addEventListener('click', laClic);
   app.querySelector('.ed-foot').addEventListener('click', laClic);
+}
+function pregatesteCiorna(d) {
+  if (d.an == null) d.an = '';
+  d.harta = Object.assign({an: ''}, d.harta || {});
+  if (!Array.isArray(d.harta.contur)) d.harta.contur = [...(d.regiuni || [])];
+  d.coperta = Object.assign({src: '', alt: '', sursa: '', forma: ''}, d.coperta || {});
+  return d;
 }
 function valoareMeta(k) {
   if (k === 'hartaAn') return E.draft.harta.an;
@@ -1389,12 +1481,14 @@ async function laModificare(e) {
   }
   if (el.dataset.m) {
     const k = el.dataset.m;
-    if (el.type === 'checkbox') { const s = new Set(E.draft.regiuni || []); el.checked ? s.add(el.value) : s.delete(el.value); E.draft.regiuni = H.REGIUNI.map(r => r.id).filter(r => s.has(r)); }
+    if (el.type === 'checkbox' && k === 'contur') E.draft.harta.contur = schimbaContur(E.draft.harta.contur, el.value, el.checked);
+    else if (el.type === 'checkbox') { const s = new Set(E.draft.regiuni || []); el.checked ? s.add(el.value) : s.delete(el.value); E.draft.regiuni = H.REGIUNI.map(r => r.id).filter(r => s.has(r)); }
     else if (k === 'hartaAn') E.draft.harta.an = el.value;
     else if (k === 'copertaSrc') { E.draft.coperta.src = el.value.trim(); E.draft.coperta.forma = ''; if (e.type === 'change') randeazaCoperta(); }
     else if (k === 'copertaAlt') E.draft.coperta.alt = el.value;
     else if (k === 'copertaSursa') E.draft.coperta.sursa = el.value;
     else E.draft[k] = el.value;
+    if (k === 'contur' || k === 'hartaAn' || k === 'an') miniHartaLectie();
     marcheazaModificat();
     return;
   }
@@ -1421,7 +1515,7 @@ async function laModificare(e) {
   }
   if (el.dataset.k) {
     const k = el.dataset.k;
-    if (el.dataset.multi != null) { const s = new Set(x.b[k] || []); el.checked ? s.add(el.value) : s.delete(el.value); x.b[k] = H.REGIUNI.map(r => r.id).filter(r => s.has(r)); }
+    if (el.dataset.multi != null) x.b[k] = schimbaContur(x.b[k], el.value, el.checked);
     else x.b[k] = el.value;
     if (x.b.t === 'harta') miniHarta(x.card, x.b);
     if (x.b.t === 'imagine' && k === 'src' && e.type === 'change') reranduiesteBloc(x.i);
@@ -1636,6 +1730,7 @@ function viewConfigurare() {
 
 /* ================= navigare ================= */
 function route() {
+  if (OPRESTE_ZBOR) OPRESTE_ZBOR();   // s-a schimbat pagina în timp ce coperta încă se deschidea
   let h = '';
   try { h = decodeURIComponent(location.hash.slice(1)); } catch (_) {}
   if (h.startsWith('edit-') || h === 'nou' || h === 'configurare') {

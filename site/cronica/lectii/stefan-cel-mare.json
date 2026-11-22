@@ -14,7 +14,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1490
+  "an": 1490,
+  "contur": [
+   "stat:moldovast"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Humorstefan.jpg",
@@ -68,10 +71,7 @@
    "an": 1400,
    "an2": 1490,
    "regiuni": [
-    "moldova",
-    "bucovina",
-    "bucovina-nord",
-    "basarabia"
+    "stat:moldovast"
    ],
    "text": "Moldova înainte de 1484 și după ce otomanii au luat Chilia și Cetatea Albă."
   },

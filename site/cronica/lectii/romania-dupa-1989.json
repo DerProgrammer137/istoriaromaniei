@@ -9,7 +9,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 2000
+  "an": 2000,
+  "contur": [
+   "stat:romania"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/NATO%20March%2029%202004.jpg?width=1280",

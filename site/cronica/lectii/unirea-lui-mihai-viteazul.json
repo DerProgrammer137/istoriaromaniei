@@ -14,7 +14,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1600
+  "an": 1600,
+  "contur": [
+   "stat:mihai"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/074%20-%20Mihai%20Viteazul.jpg?width=500",
@@ -75,13 +78,10 @@
    "an": 1600,
    "an2": 1650,
    "regiuni": [
-    "muntenia",
-    "oltenia",
-    "transilvania",
-    "moldova",
-    "crisana",
-    "maramures",
-    "bucovina"
+    "stat:mihai",
+    "stat:tararom",
+    "stat:moldovast",
+    "stat:transprinc"
    ],
    "text": "Țările conduse de Mihai Viteazul în vara anului 1600 și, pentru comparație, cele trei principate o jumătate de secol mai târziu."
   },

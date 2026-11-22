@@ -14,7 +14,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 900
+  "an": 900,
+  "contur": [
+   "stat:voievodate"
+  ]
  },
  "blocuri": [
   {
@@ -54,11 +57,8 @@
    "t": "harta",
    "an": 900,
    "regiuni": [
-    "crisana",
-    "banat",
-    "transilvania",
-    "oltenia",
-    "muntenia"
+    "stat:voievodate",
+    "stat:cnezate"
    ],
    "text": "Voievodatele pomenite de Gesta Hungarorum (c. 900) și formațiunile românești de la sud de Carpați după marea invazie tătară (c. 1250).",
    "an2": 1250

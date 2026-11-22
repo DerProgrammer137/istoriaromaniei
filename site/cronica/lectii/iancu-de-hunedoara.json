@@ -13,7 +13,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1456
+  "an": 1456,
+  "contur": [
+   "transilvania"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Tucrcoczy%20Janos%20Iancu%20de%20Hunedoara%20Brunnner%20Ausgabe.jpg?width=800",

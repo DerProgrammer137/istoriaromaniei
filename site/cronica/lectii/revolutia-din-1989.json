@@ -12,7 +12,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1970
+  "an": 1970,
+  "contur": [
+   "stat:romania"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Romanian%20Revolution%201989%20Demonstrators.jpg?width=1280",

@@ -14,7 +14,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1880
+  "an": 1880,
+  "contur": [
+   "stat:romania"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Crowning%20of%20Carol%20I%2C%2010%20May%201881.jpg?width=1280",
@@ -80,8 +83,7 @@
    "t": "harta",
    "an": 1880,
    "regiuni": [
-    "dobrogea",
-    "cadrilater"
+    "stat:romania"
    ],
    "text": "România după Congresul de la Berlin și după pacea de la București din 1913, când i s-a alipit Cadrilaterul.",
    "an2": 1914

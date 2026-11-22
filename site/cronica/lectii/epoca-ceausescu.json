@@ -9,7 +9,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1970
+  "an": 1970,
+  "contur": [
+   "stat:romania"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Reception%20for%20President%20Ceausescu%20of%20Romania%20hosted%20by%20the%20Romanian%20Embassy%20-%20NARA%20-%20194561.jpg?width=1280",

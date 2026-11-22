@@ -14,7 +14,8 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 440
+  "an": 440,
+  "contur": []
  },
  "blocuri": [
   {
@@ -61,11 +62,7 @@
    "t": "harta",
    "an": 150,
    "regiuni": [
-    "transilvania",
-    "banat",
-    "oltenia",
-    "muntenia",
-    "moldova"
+    "stat:dacia"
    ],
    "text": "Provincia romană Dacia (c. 150) și ținuturile de la nord de Dunăre sub dominația hunilor (c. 440).",
    "an2": 440

@@ -14,7 +14,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 150
+  "an": 150,
+  "contur": [
+   "stat:dacia"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Part%20of%20Tabula%20Peutingeriana%20showing%20Western%20Moesia%20Inferior%2C%20Western%20Dacia%20and%20Macedonia.png?width=1280",

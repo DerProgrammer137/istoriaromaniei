@@ -14,7 +14,12 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1560
+  "an": 1560,
+  "contur": [
+   "stat:tararom",
+   "stat:moldovast",
+   "stat:transprinc"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Voronet%20Intrare.JPG?width=1280",
@@ -60,11 +65,10 @@
    "t": "harta",
    "an": 1490,
    "regiuni": [
-    "transilvania",
-    "banat",
-    "crisana",
-    "moldova",
-    "basarabia"
+    "stat:tararom",
+    "stat:moldovast",
+    "stat:transprinc",
+    "transilvania"
    ],
    "text": "Înainte și după Mohács: țările române în jurul anului 1490 și în jurul anului 1560, după ce Transilvania devenise principat, iar Banatul, pașalâc.",
    "an2": 1560

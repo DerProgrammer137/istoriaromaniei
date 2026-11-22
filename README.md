@@ -139,6 +139,8 @@ Securitate: parola e singura protecție a cheii criptate, care e publică în de
 
 Contururile vin din Natural Earth 10m (domeniu public): unitățile administrative de azi sunt grupate și tăiate cu linii istorice reconstituite (Dictatul de la Viena, granița Bucovinei din 1775, Tratatul de la Paris din 1856, limita Bugeacului, Herța, Orșova, Transnistria din 1941 etc.). Pentru Antichitate și migrații, granițele sunt aproximative și sunt marcate ca atare. Geometria se reconstruiește cu `scripts/harta/construieste_harta.py` (Python + shapely; instrucțiunile sunt în capul fișierului). Momentele istorice, stăpânirile și culorile se modifică în `site/assets/harta.js`.
 
+Conturul roșu de pe o hartă se alege în editor, la „Contur roșu”: un stat al vremii (Țara Românească, Moldova, Principatul Transilvaniei, Principatele Unite, România etc.) sau o regiune de azi. Un stat e conturat cu granițele din momentul afișat și doar pe hărțile din vremea lui: pe o comparație 1815–1859, „Țara Românească” și „Moldova” apar în 1815, iar „Principatele Unite” în 1859. În fișierele lecțiilor, statele se scriu `stat:<cheie>` (cheile sunt în `POL`, în `harta.js`); conturul hărții de lângă lecție stă în `harta.contur`, iar al hărților din lecție, în `regiuni`.
+
 ### Imaginile din lecțiile de exemplu
 
 Portretele, picturile, fotografiile și reliefurile sunt preluate de pe Wikimedia Commons; licența fiecăreia (domeniu public sau licență liberă, de exemplu CC BY-SA) e scrisă sub imagine. Cele 28 de lecții sunt scrise ca punct de plecare pentru echipa canalului: sunt marcate pe site ca lecții de exemplu și pot fi corectate, completate sau șterse. Generatorul lor nu face parte din site; lecțiile se corectează direct din editor.

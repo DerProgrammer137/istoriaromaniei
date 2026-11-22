@@ -9,7 +9,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1930
+  "an": 1930,
+  "contur": [
+   "stat:romania"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Bucarest%20pavois%C3%A9e%20en%20l%27honneur%20du%20couronnement%201922%2C%20Meurisse.jpg?width=1280",

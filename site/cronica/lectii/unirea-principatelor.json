@@ -13,7 +13,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1859
+  "an": 1859,
+  "contur": [
+   "stat:principate"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Carol%20Popp%20de%20Szathmary%20-%20Alexandru%20Ioan%20Cuza.jpg",
@@ -66,10 +69,9 @@
    "t": "harta",
    "an": 1815,
    "regiuni": [
-    "moldova",
-    "muntenia",
-    "oltenia",
-    "basarabia"
+    "stat:tararom",
+    "stat:moldovast",
+    "stat:principate"
    ],
    "text": "Principatele înainte de Războiul Crimeii și în 1859, după ce sudul Basarabiei revenise Moldovei.",
    "an2": 1859

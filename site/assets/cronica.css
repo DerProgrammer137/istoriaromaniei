@@ -78,8 +78,8 @@ body.cr:has(> main.lucru){background:var(--linen)}
 @media (prefers-reduced-motion:reduce){.foaie{display:none}}
 
 /* ---------- foaia de gardă și pagina de titlu ---------- */
-.garda{position:absolute;top:calc(-1 * var(--padT));bottom:calc(-1 * var(--padB));left:calc(-1 * var(--padO));right:calc(-1 * var(--padI));
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cg fill='none'%3E%3Cpath d='M28 6l22 22-22 22L6 28z' stroke='%239B2A21' stroke-opacity='.32'/%3E%3Cpath d='M28 17l11 11-11 11-11-11z' stroke='%232D5486' stroke-opacity='.3'/%3E%3Ccircle cx='28' cy='28' r='2' fill='%239A7330' fill-opacity='.45'/%3E%3C/g%3E%3C/svg%3E") center/56px 56px,#EBDDBD}
+.garda{position:absolute;top:calc(-1 * var(--padT));bottom:calc(-1 * var(--padB));left:calc(-1 * var(--padO));right:calc(-1 * var(--padI))}
+.garda,.cz-dos{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cg fill='none'%3E%3Cpath d='M28 6l22 22-22 22L6 28z' stroke='%239B2A21' stroke-opacity='.32'/%3E%3Cpath d='M28 17l11 11-11 11-11-11z' stroke='%232D5486' stroke-opacity='.3'/%3E%3Ccircle cx='28' cy='28' r='2' fill='%239A7330' fill-opacity='.45'/%3E%3C/g%3E%3C/svg%3E") center/56px 56px,#EBDDBD}
 .pag-titlu{height:var(--ch);display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;break-after:column;hyphens:manual}
 .ptl-sus{margin:0;font-family:var(--f-display);color:var(--ink-2);letter-spacing:.04em}
 .ptl-titlu{font-family:var(--f-display);font-weight:400;font-size:3.7em;line-height:1;margin:0}
@@ -353,7 +353,8 @@ body.cr:has(> main.lucru){background:var(--linen)}
     radial-gradient(120% 90% at 35% 25%,#7a2a22 0%,#58201a 48%,#3a130f 100%);
   box-shadow:inset 0 0 0 2px rgba(0,0,0,.35),inset 0 0 60px rgba(0,0,0,.55),10px 18px 40px rgba(30,10,5,.45),2px 4px 8px rgba(30,10,5,.4)}
 .coperta:focus-visible{outline:3px solid var(--tri-g);outline-offset:6px}
-.coperta:hover .cop-titlu{text-shadow:0 2px 0 #2a0b08,0 -1px 0 rgba(255,235,170,.45),0 0 18px rgba(230,190,100,.25)}
+/* la trecerea mouse-ului, aurul titlului prinde lumină (fără text-shadow: ar acoperi aurul decupat din text) */
+.coperta:hover .cop-titlu,.coperta:focus-visible .cop-titlu{filter:drop-shadow(0 2px 0 #250906) drop-shadow(0 -1px 0 rgba(255,236,180,.3)) drop-shadow(0 0 14px rgba(236,196,104,.3)) brightness(1.13)}
 .cop-cotor{position:absolute;left:0;top:0;bottom:0;width:34px;border-radius:5px 0 0 5px;
   background:linear-gradient(90deg,#2a0d0a,#4d1a15 55%,#2e0f0c),repeating-linear-gradient(180deg,transparent 0 14%,rgba(0,0,0,.35) 14% 15.5%,rgba(255,220,160,.08) 15.5% 16.5%,transparent 16.5% 20%);
   background-blend-mode:normal;box-shadow:inset -3px 0 6px rgba(0,0,0,.5)}
@@ -363,7 +364,7 @@ body.cr:has(> main.lucru){background:var(--linen)}
 .cop-sus{font-family:var(--f-display);color:#d8b866;font-size:clamp(.8rem,2.4vw,1rem);letter-spacing:.06em}
 .cop-titlu{font-family:var(--f-display);font-size:clamp(1.8rem,calc(18cqi - 22px),4.5rem);line-height:1;letter-spacing:.14em;text-transform:uppercase;
   background:linear-gradient(180deg,#f0d896 0%,#c99d48 55%,#a37a33 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 2px 0 #250906) drop-shadow(0 -1px 0 rgba(255,236,180,.3))}
+  filter:drop-shadow(0 2px 0 #250906) drop-shadow(0 -1px 0 rgba(255,236,180,.3));transition:filter .3s}
 .cop-med{width:clamp(96px,26vw,128px);aspect-ratio:1;border-radius:50%;border:2px solid #b9924a;box-shadow:inset 0 0 0 6px rgba(0,0,0,.18),0 0 0 5px rgba(185,146,74,.35);display:grid;place-items:center}
 .cop-med span{width:62%;aspect-ratio:1;background:linear-gradient(180deg,#ecd08a,#a97f36);-webkit-mask:var(--m-stea) center/contain no-repeat;mask:var(--m-stea) center/contain no-repeat}
 .cop-sub{font-family:var(--f-serif);font-style:italic;color:#e2c983;font-size:clamp(.95rem,2.8vw,1.12rem);max-width:24ch;line-height:1.4}
@@ -372,8 +373,12 @@ body.cr:has(> main.lucru){background:var(--linen)}
 .cop-inc{position:absolute;right:-9px;width:30px;height:54px;border-radius:4px;background:linear-gradient(90deg,#6e5222,#d9b866 45%,#8a6a2c);box-shadow:1px 2px 4px rgba(0,0,0,.5),inset 0 0 0 1px rgba(60,40,10,.5)}
 .cop-inc::after{content:"";position:absolute;left:9px;top:21px;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f6e2a6,#7d5d24)}
 .cop-inc.i1{top:21%}.cop-inc.i2{bottom:21%}
-.cop-jos{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:center}
-.cop-indemn{margin:0;color:var(--ink-2);font-size:.95rem}
+.nobr{white-space:nowrap}
+/* coperta în zbor, peste cartea deschisă dedesubt */
+.cop-zbor{position:fixed;z-index:60;pointer-events:none;transform-origin:0 0;perspective:3000px;perspective-origin:0 50%}
+.cz-foaie{position:absolute;inset:0;transform-origin:left center;transform-style:preserve-3d}
+.cop-zbor .cz-fata,.cz-dos{position:absolute;inset:0;width:auto;height:auto;aspect-ratio:auto;cursor:default;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.cz-dos{transform:rotateY(180deg);border-radius:5px 0 0 5px;background-size:var(--gw,56px) var(--gh,56px),auto}
 
 /* ---------- editorul ---------- */
 .ed{display:grid;gap:18px}
@@ -402,8 +407,12 @@ body.cr:has(> main.lucru){background:var(--linen)}
 .fld input:focus,.fld textarea:focus,.fld select:focus,.ed-row input:focus,.ed-block-body>textarea:focus{outline:2px solid var(--voronet);outline-offset:0;border-color:var(--voronet)}
 .fld-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media (max-width:640px){.fld-row{grid-template-columns:1fr}}
-.ed-checks{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.98rem}
-.ed-checks label{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+.ed-checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:6px 18px;font-size:.98rem}
+.ed-checks label{display:flex;gap:8px;align-items:flex-start;cursor:pointer;line-height:1.35}
+.fld .ed-checks input{flex:none;width:auto;margin:.15em 0 0;padding:0;border:0;accent-color:var(--rosu)}
+.ed-checks-h{margin:8px 0 4px;font-size:.9rem;font-weight:600;color:var(--ink-2)}
+.ed-checks-h:first-of-type{margin-top:2px}
+fieldset.fld>.hint{margin-top:8px}
 .ed-rows{display:grid;gap:6px}
 .ed-row{display:grid;grid-template-columns:1fr 1fr auto;gap:6px;align-items:center}
 .ed-row input.short{max-width:none}

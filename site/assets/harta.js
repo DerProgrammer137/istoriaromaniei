@@ -95,6 +95,8 @@ const POL = {
   sciti: ['Sciți', '#8C7A55'], traci: ['Triburi trace', '#8E6E8E'], alte: ['Alte populații (celți, iliri, germanici)', '#A3A7A6'],
   burebista: ['Regatul lui Burebista', '#A8322D'], regatdac: ['Regatul dac al lui Decebal', '#A8322D'],
   dacilib: ['Daci liberi (carpi, costoboci)', '#C98A6E'], roman: ['Imperiul Roman', '#9A7430'],
+  /* al treilea câmp: statul din care face parte (între ele se trage o graniță de provincie, nu de stat) */
+  dacia: ['Provincia Dacia, parte a Imperiului Roman', '#BE9A4C', 'roman'],
   iazigi: ['Iazigi (sarmați)', '#7C8B5E'], sarmati: ['Sarmați (roxolani)', '#8E8AA0'],
   huni: ['Imperiul hunic (cu goți, gepizi și alte neamuri supuse)', '#6E5F52'], bizant: ['Imperiul Roman de Răsărit', '#6B4C8A'],
   voievodate: ['Voievodatele lui Menumorut, Glad și Gelu', '#C46A50'], maghiari: ['Ungurii, abia așezați în Câmpia Panonică', '#435B89'],
@@ -179,7 +181,8 @@ const SNAPS = [
     sarmati: [...BUGEAC, ...TN, 'yedisan', 'podolia-s', 'est-bug'], alte: ['galitia', 'polonia', 'podolia-n', 'slovacia']},
    nota: 'Centrul regatului era în Munții Orăștiei, la Sarmizegetusa Regia. Dobrogea și sudul Dunării aparțineau Imperiului Roman (provincia Moesia). Războaiele din 101–102 și 105–106 se încheie cu cucerirea regatului de către Traian. Întinderea exactă a regatului e discutată de istorici.'},
   {an: 150, cand: 'c. anul 150', titlu: 'Dacia romană', zona: true, g: {
-    roman: [...TR, 'banat', 'orsova', 'oltenia', 'dobrogea', 'cadrilater', 'bulgaria', 'serbia', 'srem', 'margine-xk', 'margine-me'],
+    dacia: [...TR, 'banat', 'orsova', 'oltenia'],
+    roman: ['dobrogea', 'cadrilater', 'bulgaria', 'serbia', 'srem', 'margine-xk', 'margine-me'],
     dacilib: [...PARTIUM, 'bucovina', 'moldova', 'muntenia', ...BAS_C, ...HOTIN, 'herta', 'bucovina-nord', 'maramures-ua', 'transcarpatia'],
     iazigi: ['ungaria', 'banat-sarb', 'backa', 'arad-s'], sarmati: [...BUGEAC, ...TN, 'yedisan', 'podolia-s', 'est-bug'],
     alte: ['galitia', 'polonia', 'podolia-n', 'slovacia']},
@@ -374,6 +377,7 @@ function legenda(i) {
   return Object.entries(s.g).map(([pol, atoms]) => ({pol, nume: POL[pol][0], culoare: POL[pol][1], membri: numeMembri(atoms)}));
 }
 const cap = x => x.charAt(0).toUpperCase() + x.slice(1);
+const statDe = pol => (POL[pol] && POL[pol][2]) || pol;
 const culoare = pol => `color-mix(in oklab, ${POL[pol][1]} 70%, var(--linen-2))`;
 
 /* ---------------- desenare ---------------- */
@@ -510,8 +514,9 @@ function creeaza(gazda, geo, opt) {
     let ds = '', dp = '', dc = '';
     geo.arce.forEach(a => {
       if (a.b === 'mare') { dc += a.d; return; }
-      if (pm[a.a] !== pm[a.b]) ds += a.d;
-      else if (ATOMI[a.a].prov !== ATOMI[a.b].prov && (ATOM_REG[a.a] || ATOM_REG[a.b])) dp += a.d;
+      const ka = pm[a.a], kb = pm[a.b];
+      if (ka !== kb && statDe(ka) !== statDe(kb)) ds += a.d;
+      else if (ka !== kb || (ATOMI[a.a].prov !== ATOMI[a.b].prov && (ATOM_REG[a.a] || ATOM_REG[a.b]))) dp += a.d;
     });
     pState.setAttribute('d', ds || 'M0 0'); pProv.setAttribute('d', dp || 'M0 0'); pCoast.setAttribute('d', dc || 'M0 0');
     const seen = new Set();
@@ -520,7 +525,13 @@ function creeaza(gazda, geo, opt) {
     cityEls.forEach(({c, g}) => g.classList.toggle('off', !((c.de == null || year >= c.de) && (c.pana == null || year < c.pana))));
     const sel = v.selectat && v.selectat !== 'national' ? outline(regSet(v.selectat)) : '';
     [pSelHalo, pSel].forEach(e => { e.setAttribute('d', sel || 'M0 0'); e.style.display = sel ? '' : 'none'; });
-    const hiSet = new Set(); (v.evidentiere || []).forEach(x => (REGIUNI.find(r => r.id === x) || {a: ATOMI[x] ? [x] : []}).a.forEach(a => hiSet.add(a)));
+    /* conturul roșu: o regiune de azi, o bucată de hartă sau „stat:cheie” = statul din momentul afișat (dacă există atunci) */
+    const hiSet = new Set();
+    (v.evidentiere || []).forEach(x => {
+      x = String(x || '').trim();
+      if (x.startsWith('stat:')) { const k = x.slice(5); Object.keys(pm).forEach(a => { if (pm[a] === k && atEl[a]) hiSet.add(a); }); return; }
+      (REGIUNI.find(r => r.id === x) || {a: ATOMI[x] ? [x] : []}).a.forEach(a => hiSet.add(a));
+    });
     const hi = hiSet.size ? outline(hiSet) : '';
     [pHiHalo, pHi].forEach(e => { e.setAttribute('d', hi || 'M0 0'); e.style.display = hi ? '' : 'none'; });
     svg.classList.toggle('focus', !!hi);

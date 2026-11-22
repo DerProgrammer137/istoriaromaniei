@@ -13,7 +13,11 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1700
+  "an": 1700,
+  "contur": [
+   "stat:tararom",
+   "stat:moldovast"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Constantin%20Brancoveanu.jpg?width=800",

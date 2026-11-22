@@ -14,7 +14,11 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1400
+  "an": 1400,
+  "contur": [
+   "stat:tararom",
+   "stat:moldovast"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Viennese%20Illuminated%20Chronicle%20Posada.jpg?width=1280",
@@ -60,10 +64,9 @@
    "t": "harta",
    "an": 1250,
    "regiuni": [
-    "muntenia",
-    "oltenia",
-    "moldova",
-    "maramures"
+    "stat:cnezate",
+    "stat:tararom",
+    "stat:moldovast"
    ],
    "text": "Înainte și după: formațiunile românești în jurul anului 1250 și cele două țări, Țara Românească și Moldova, în jurul anului 1400.",
    "an2": 1400

@@ -17,7 +17,16 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1930
+  "an": 1930,
+  "contur": [
+   "transilvania",
+   "banat",
+   "crisana",
+   "maramures",
+   "bucovina",
+   "bucovina-nord",
+   "basarabia"
+  ]
  },
  "blocuri": [
   {
@@ -50,13 +59,7 @@
    "an": 1914,
    "an2": 1930,
    "regiuni": [
-    "transilvania",
-    "banat",
-    "crisana",
-    "maramures",
-    "bucovina",
-    "basarabia",
-    "bucovina-nord"
+    "stat:romania"
    ],
    "text": "Înainte și după: România în 1913–1916 și România Mare (1918–1940)."
   },

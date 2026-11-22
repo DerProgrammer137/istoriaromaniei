@@ -14,7 +14,16 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1940
+  "an": 1940,
+  "contur": [
+   "basarabia",
+   "bucovina-nord",
+   "transilvania-n",
+   "maramures",
+   "satmar",
+   "bihor-n",
+   "cadrilater"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/B-24%20Liberators%20at%20low%20altitude.jpg?width=1280",
@@ -68,10 +77,7 @@
    "t": "harta",
    "an": 1942,
    "regiuni": [
-    "basarabia",
-    "bucovina-nord",
-    "transilvania",
-    "cadrilater"
+    "stat:romania"
    ],
    "text": "Granițele din timpul războiului (1941–1944) și cele stabilite după război, valabile până în 1989.",
    "an2": 1970

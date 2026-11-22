@@ -12,7 +12,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1456
+  "an": 1456,
+  "contur": [
+   "stat:tararom"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Vlad%20Tepes%20002.jpg?width=1280",

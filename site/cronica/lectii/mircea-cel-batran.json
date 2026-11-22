@@ -13,7 +13,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1400
+  "an": 1400,
+  "contur": [
+   "stat:tararom"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/MirceatheElder.jpg?width=880",

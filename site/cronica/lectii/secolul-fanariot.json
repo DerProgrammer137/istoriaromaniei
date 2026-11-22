@@ -14,7 +14,11 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1780
+  "an": 1780,
+  "contur": [
+   "stat:tararom",
+   "stat:moldovast"
+  ]
  },
  "blocuri": [
   {
@@ -62,10 +66,8 @@
    "t": "harta",
    "an": 1720,
    "regiuni": [
-    "oltenia",
-    "bucovina",
-    "basarabia",
-    "moldova"
+    "stat:tararom",
+    "stat:moldovast"
    ],
    "text": "Pierderile din secolul fanariot: Oltenia sub Habsburgi (c. 1720) și Moldova după anexarea Bucovinei (1775) și a Basarabiei (1812).",
    "an2": 1815

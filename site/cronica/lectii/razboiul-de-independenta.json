@@ -14,7 +14,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1880
+  "an": 1880,
+  "contur": [
+   "stat:romania"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Zahvat%20grivickogo%20reduta.jpg?width=1280",
@@ -91,10 +94,8 @@
    "t": "harta",
    "an": 1859,
    "regiuni": [
-    "dobrogea",
-    "basarabia",
-    "moldova",
-    "muntenia"
+    "stat:principate",
+    "stat:romania"
    ],
    "text": "România înainte de război și după Congresul de la Berlin, când a primit Dobrogea și a pierdut sudul Basarabiei.",
    "an2": 1880

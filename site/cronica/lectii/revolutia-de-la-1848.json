@@ -14,7 +14,12 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 1815
+  "an": 1815,
+  "contur": [
+   "stat:tararom",
+   "stat:moldovast",
+   "transilvania"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Nicolae%20B%C4%83lcescu%2C%201851.jpg",

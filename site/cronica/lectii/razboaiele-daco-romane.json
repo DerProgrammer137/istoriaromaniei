@@ -13,7 +13,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": 100
+  "an": 100,
+  "contur": [
+   "stat:regatdac"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/019%20Conrad%20Cichorius%2C%20Die%20Reliefs%20der%20Traianss%C3%A4ule%2C%20Tafel%20XIX.jpg?width=1280",
@@ -67,9 +70,8 @@
    "an": 100,
    "an2": 150,
    "regiuni": [
-    "transilvania",
-    "banat",
-    "oltenia"
+    "stat:regatdac",
+    "stat:dacia"
    ],
    "text": "Înainte și după: regatul lui Decebal (c. 100) și provincia romană Dacia (c. 150)."
   },

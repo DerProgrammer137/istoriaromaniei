@@ -14,7 +14,10 @@
  "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
-  "an": -50
+  "an": -50,
+  "contur": [
+   "stat:burebista"
+  ]
  },
  "coperta": {
   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Helmet%20of%20Co%C8%9Bofene%C8%99ti%2003.jpg?width=1280",
@@ -60,12 +63,8 @@
    "t": "harta",
    "an": -500,
    "regiuni": [
-    "transilvania",
-    "muntenia",
-    "moldova",
-    "dobrogea",
-    "oltenia",
-    "banat"
+    "stat:getodaci",
+    "stat:burebista"
    ],
    "text": "Lumea geto-dacilor în jurul anului 500 î.Hr. și regatul lui Burebista, cu patru secole și jumătate mai târziu.",
    "an2": -50
