@@ -1,9 +1,29 @@
 {
- "actualizat": "2026-11-21",
+ "actualizat": "2026-11-22",
  "lectii": [
   {
+   "id": "geto-dacii-si-burebista",
+   "titlu": "Geto-dacii și regatul lui Burebista",
+   "rezumat": "Cine erau geto-dacii, cum trăiau și cum i-a unit Burebista într-un regat care s-a întins, pentru câțiva ani, de la Dunărea mijlocie până la Marea Neagră.",
+   "an": -82,
+   "cand": "c. 82–44 î.Hr.",
+   "regiuni": [
+    "transilvania",
+    "muntenia",
+    "moldova",
+    "dobrogea"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Helmet%20of%20Co%C8%9Bofene%C8%99ti%2003.jpg?width=1280",
+    "alt": "Coiful de aur de la Coțofenești, cu doi ochi mari pe frunte și scene cu animale pe laterale",
+    "forma": "peisaj"
+   }
+  },
+  {
    "id": "razboaiele-daco-romane",
-   "titlu": "Războaiele daco-romane (101–106)",
+   "titlu": "Războaiele daco-romane",
    "rezumat": "Cum a ajuns regatul lui Decebal provincie romană: două războaie, un pod peste Dunăre și o columnă care le povestește în piatră.",
    "an": 101,
    "cand": "101–106",
@@ -12,7 +32,7 @@
     "banat",
     "oltenia"
    ],
-   "actualizat": "2026-11-21",
+   "actualizat": "2026-11-22",
    "exemplu": true,
    "coperta": {
     "src": "https://commons.wikimedia.org/wiki/Special:FilePath/019%20Conrad%20Cichorius%2C%20Die%20Reliefs%20der%20Traianss%C3%A4ule%2C%20Tafel%20XIX.jpg?width=1280",
@@ -21,8 +41,134 @@
    }
   },
   {
+   "id": "dacia-romana",
+   "titlu": "Dacia romană",
+   "rezumat": "Cum au schimbat romanii regatul cucerit: orașe noi, drumuri, mine de aur și o limbă care a rămas, latina din care s-a născut româna.",
+   "an": 106,
+   "cand": "106–271",
+   "regiuni": [
+    "transilvania",
+    "banat",
+    "oltenia",
+    "dobrogea"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Part%20of%20Tabula%20Peutingeriana%20showing%20Western%20Moesia%20Inferior%2C%20Western%20Dacia%20and%20Macedonia.png?width=1280",
+    "alt": "Porțiune din Tabula Peutingeriana, harta romană a drumurilor, cu Dacia și Moesia",
+    "forma": "peisaj"
+   }
+  },
+  {
+   "id": "nasterea-poporului-roman",
+   "titlu": "Retragerea romană și nașterea poporului român",
+   "rezumat": "Ce s-a întâmplat după plecarea legiunilor: populația daco-romană a rămas, a trecut prin valurile migrațiilor și a devenit, în câteva secole, poporul român.",
+   "an": 271,
+   "cand": "271 – secolul al IX-lea",
+   "regiuni": [
+    "transilvania",
+    "oltenia",
+    "muntenia",
+    "moldova"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true
+  },
+  {
+   "id": "primele-formatiuni-politice",
+   "titlu": "Primele formațiuni politice românești",
+   "rezumat": "Obștile sătești, cnezatele și voievodatele: cum s-au organizat românii înainte de întemeierea țărilor și ce spun despre ele cronicile și documentele vremii.",
+   "an": 900,
+   "cand": "secolele IX–XIII",
+   "regiuni": [
+    "crisana",
+    "banat",
+    "transilvania",
+    "oltenia"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true
+  },
+  {
+   "id": "intemeierea-tarilor-romane",
+   "titlu": "Întemeierea Țării Românești și a Moldovei",
+   "rezumat": "Cum s-au născut cele două state românești de la sud și de la est de Carpați: Basarab I și bătălia de la Posada, Dragoș, Bogdan și „descălecatul” Moldovei.",
+   "an": 1310,
+   "cand": "c. 1310–1359",
+   "regiuni": [
+    "muntenia",
+    "oltenia",
+    "moldova",
+    "maramures"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Viennese%20Illuminated%20Chronicle%20Posada.jpg?width=1280",
+    "alt": "Miniatură medievală cu bătălia de la Posada: oastea regelui, prinsă într-un defileu, atacată de pe înălțimi",
+    "forma": "peisaj"
+   }
+  },
+  {
+   "id": "mircea-cel-batran",
+   "titlu": "Mircea cel Bătrân",
+   "rezumat": "Domnul care a stăpânit de la Carpați până la Marea Neagră și a ținut piept primilor sultani otomani ajunși la Dunăre.",
+   "an": 1386,
+   "cand": "1386–1418",
+   "regiuni": [
+    "muntenia",
+    "oltenia",
+    "dobrogea"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/MirceatheElder.jpg?width=880",
+    "alt": "Mircea cel Bătrân, în haine domnești, cu coroană pe cap",
+    "forma": "portret"
+   }
+  },
+  {
+   "id": "iancu-de-hunedoara",
+   "titlu": "Iancu de Hunedoara",
+   "rezumat": "Un nobil de origine română din Transilvania care a ajuns să conducă Ungaria și a oprit, la Belgrad, armata cuceritorului Constantinopolului.",
+   "an": 1441,
+   "cand": "1441–1456",
+   "regiuni": [
+    "transilvania",
+    "banat",
+    "crisana"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Tucrcoczy%20Janos%20Iancu%20de%20Hunedoara%20Brunnner%20Ausgabe.jpg?width=800",
+    "alt": "Iancu de Hunedoara, gravură în lemn dintr-o cronică tipărită în 1488",
+    "forma": "portret"
+   }
+  },
+  {
+   "id": "vlad-tepes",
+   "titlu": "Vlad Țepeș",
+   "rezumat": "Domnul aspru al Țării Românești, care a atacat noaptea tabăra lui Mahomed al II-lea și al cărui nume a ajuns, peste secole, în legenda lui Dracula.",
+   "an": 1456,
+   "cand": "1448, 1456–1462, 1476",
+   "regiuni": [
+    "muntenia",
+    "oltenia"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Vlad%20Tepes%20002.jpg?width=1280",
+    "alt": "Portretul lui Vlad Țepeș, cu o căciulă împodobită cu perle",
+    "forma": "portret"
+   }
+  },
+  {
    "id": "stefan-cel-mare",
-   "titlu": "Ștefan cel Mare (1457–1504)",
+   "titlu": "Ștefan cel Mare",
    "rezumat": "Patruzeci și șapte de ani de domnie: bătălii cu otomanii, ungurii și polonezii, cetăți întărite și mănăstiri care stau și azi în picioare.",
    "an": 1457,
    "cand": "1457–1504",
@@ -32,12 +178,32 @@
     "basarabia",
     "bucovina-nord"
    ],
-   "actualizat": "2026-11-21",
+   "actualizat": "2026-11-22",
    "exemplu": true,
    "coperta": {
     "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Humorstefan.jpg",
     "alt": "Ștefan cel Mare, miniatură din Tetraevanghelul de la Humor, 1473",
     "forma": "portret"
+   }
+  },
+  {
+   "id": "tarile-romane-in-secolul-xvi",
+   "titlu": "Țările române în secolul al XVI-lea",
+   "rezumat": "Un secol între Ștefan cel Mare și Mihai Viteazul: Ungaria se prăbușește la Mohács, Transilvania devine principat, iar Moldova și Țara Românească își păstrează domnii, plătind tribut Porții.",
+   "an": 1512,
+   "cand": "1504–1593",
+   "regiuni": [
+    "muntenia",
+    "moldova",
+    "transilvania",
+    "banat"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Voronet%20Intrare.JPG?width=1280",
+    "alt": "Intrarea în mănăstirea Voroneț",
+    "forma": "peisaj"
    }
   },
   {
@@ -52,11 +218,182 @@
     "transilvania",
     "moldova"
    ],
-   "actualizat": "2026-11-21",
+   "actualizat": "2026-11-22",
    "exemplu": true,
    "coperta": {
     "src": "https://commons.wikimedia.org/wiki/Special:FilePath/074%20-%20Mihai%20Viteazul.jpg?width=500",
     "alt": "Mihai Viteazul, gravură de Aegidius Sadeler, Praga, 1601",
+    "forma": "portret"
+   }
+  },
+  {
+   "id": "brancoveanu-si-cantemir",
+   "titlu": "Constantin Brâncoveanu și Dimitrie Cantemir",
+   "rezumat": "Doi domni ai culturii, prinși între Imperiul Otoman, Habsburgi și Rusia: bogăția și sfârșitul tragic al lui Brâncoveanu, savantul Cantemir și războiul pierdut de la Stănilești.",
+   "an": 1688,
+   "cand": "1688–1714",
+   "regiuni": [
+    "muntenia",
+    "oltenia",
+    "moldova"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Constantin%20Brancoveanu.jpg?width=800",
+    "alt": "Portretul domnitorului Constantin Brâncoveanu",
+    "forma": "portret"
+   }
+  },
+  {
+   "id": "secolul-fanariot",
+   "titlu": "Secolul fanariot",
+   "rezumat": "Un secol în care domnii erau numiți direct de la Constantinopol: reforme, războaie ruso-turce și pierderea Bucovinei și a Basarabiei.",
+   "an": 1711,
+   "cand": "1711–1821",
+   "regiuni": [
+    "muntenia",
+    "moldova",
+    "bucovina",
+    "basarabia"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true
+  },
+  {
+   "id": "romanii-din-transilvania",
+   "titlu": "Românii din Transilvania în secolul al XVIII-lea",
+   "rezumat": "Lupta românilor transilvăneni pentru drepturi: unirea cu Biserica Romei, Inochentie Micu, Școala Ardeleană, răscoala lui Horea și Supplex Libellus Valachorum.",
+   "an": 1784,
+   "cand": "1699–1791",
+   "regiuni": [
+    "transilvania",
+    "crisana",
+    "maramures",
+    "banat"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Chc%20horea.jpg?width=800",
+    "alt": "Portretul lui Horea, conducătorul răscoalei din 1784",
+    "forma": "portret"
+   }
+  },
+  {
+   "id": "tudor-vladimirescu",
+   "titlu": "Tudor Vladimirescu și mișcarea de la 1821",
+   "rezumat": "Un conducător de panduri din Oltenia ridică poporul împotriva abuzurilor și pune capăt, fără să apuce s-o vadă, epocii domnilor fanarioți.",
+   "an": 1821,
+   "cand": "1821",
+   "regiuni": [
+    "oltenia",
+    "muntenia"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Tudor%20Vladimirescu.jpg?width=800",
+    "alt": "Portretul lui Tudor Vladimirescu",
+    "forma": "portret"
+   }
+  },
+  {
+   "id": "revolutia-de-la-1848",
+   "titlu": "Revoluția de la 1848",
+   "rezumat": "În același an, românii din Moldova, Țara Românească și Transilvania cer drepturi, libertăți și unire: un program care va fi împlinit abia peste decenii.",
+   "an": 1848,
+   "cand": "1848–1849",
+   "regiuni": [
+    "moldova",
+    "muntenia",
+    "transilvania",
+    "banat"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Nicolae%20B%C4%83lcescu%2C%201851.jpg",
+    "alt": "Portretul lui Nicolae Bălcescu",
+    "forma": "portret"
+   }
+  },
+  {
+   "id": "unirea-principatelor",
+   "titlu": "Unirea Principatelor și domnia lui Cuza",
+   "rezumat": "Dubla alegere a lui Alexandru Ioan Cuza, în ianuarie 1859, unește Moldova și Țara Românească; reformele lui pun temeliile României moderne.",
+   "an": 1859,
+   "cand": "1859–1866",
+   "regiuni": [
+    "moldova",
+    "muntenia",
+    "oltenia"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Carol%20Popp%20de%20Szathmary%20-%20Alexandru%20Ioan%20Cuza.jpg",
+    "alt": "Portretul domnitorului Alexandru Ioan Cuza",
+    "forma": "portret"
+   }
+  },
+  {
+   "id": "razboiul-de-independenta",
+   "titlu": "Războiul de Independență",
+   "rezumat": "Un prinț străin, o constituție nouă și un război: în 1877, România își proclamă independența și o câștigă pe câmpul de luptă, la Plevna.",
+   "an": 1877,
+   "cand": "1866–1878",
+   "regiuni": [
+    "muntenia",
+    "oltenia",
+    "moldova",
+    "dobrogea"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Zahvat%20grivickogo%20reduta.jpg?width=1280",
+    "alt": "Pictură: soldați care atacă reduta Grivița, prin fumul tunurilor",
+    "forma": "peisaj"
+   }
+  },
+  {
+   "id": "regatul-lui-carol-i",
+   "titlu": "Regatul României în vremea lui Carol I",
+   "rezumat": "Căi ferate, porturi, petrol, școli și o capitală care se modernizează; dar și țăranii fără pământ, care se ridică în 1907.",
+   "an": 1881,
+   "cand": "1881–1914",
+   "regiuni": [
+    "muntenia",
+    "moldova",
+    "oltenia",
+    "dobrogea"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Crowning%20of%20Carol%20I%2C%2010%20May%201881.jpg?width=1280",
+    "alt": "Încoronarea regelui Carol I, într-o imagine de epocă",
+    "forma": "peisaj"
+   }
+  },
+  {
+   "id": "primul-razboi-mondial",
+   "titlu": "România în Primul Război Mondial",
+   "rezumat": "Doi ani de neutralitate, intrarea în război pentru Transilvania, înfrângerile din 1916 și rezistența de la Mărăști, Mărășești și Oituz.",
+   "an": 1916,
+   "cand": "1914–1918",
+   "regiuni": [
+    "transilvania",
+    "muntenia",
+    "moldova",
+    "dobrogea"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/King%20Ferdinand%20of%20Romania.jpg",
+    "alt": "Portretul regelui Ferdinand I, în uniformă",
     "forma": "portret"
    }
   },
@@ -75,8 +412,106 @@
     "basarabia",
     "bucovina-nord"
    ],
-   "actualizat": "2026-11-21",
+   "actualizat": "2026-11-22",
    "exemplu": true
+  },
+  {
+   "id": "romania-interbelica",
+   "titlu": "România interbelică",
+   "rezumat": "România Mare își construiește instituțiile: vot universal, reformă agrară, Constituția din 1923 și o cultură înfloritoare, dar și criza economică și extremismul care duc la dictatură.",
+   "an": 1923,
+   "cand": "1918–1940",
+   "regiuni": [],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Bucarest%20pavois%C3%A9e%20en%20l%27honneur%20du%20couronnement%201922%2C%20Meurisse.jpg?width=1280",
+    "alt": "Bulevard din București împodobit cu steaguri, în 1922",
+    "forma": "peisaj"
+   }
+  },
+  {
+   "id": "al-doilea-razboi-mondial",
+   "titlu": "România în al Doilea Război Mondial",
+   "rezumat": "Vara lui 1940 aduce pierderea unei treimi din țară; urmează dictatura lui Antonescu, războiul alături de Germania, Holocaustul și întoarcerea armelor din 23 august 1944.",
+   "an": 1940,
+   "cand": "1940–1945",
+   "regiuni": [
+    "basarabia",
+    "bucovina-nord",
+    "transilvania",
+    "cadrilater"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/B-24%20Liberators%20at%20low%20altitude.jpg?width=1280",
+    "alt": "Bombardiere americane B-24 zburând la joasă înălțime, deasupra rafinăriilor de la Ploiești",
+    "forma": "peisaj"
+   }
+  },
+  {
+   "id": "instaurarea-comunismului",
+   "titlu": "Instaurarea comunismului",
+   "rezumat": "Cu sprijinul armatei sovietice, comuniștii preiau puterea: alegeri falsificate, abdicarea regelui, naționalizare, colectivizare, închisori politice și rezistența din munți.",
+   "an": 1945,
+   "cand": "1945–1965",
+   "regiuni": [],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/King%20Michael%20I%20in%20Air%20Force%20Marshal%20uniform%2C%20post-war.jpg?width=900",
+    "alt": "Regele Mihai I, în uniformă militară",
+    "forma": "portret"
+   }
+  },
+  {
+   "id": "epoca-ceausescu",
+   "titlu": "Epoca Ceaușescu",
+   "rezumat": "De la deschiderea de la sfârșitul anilor '60 și refuzul invadării Cehoslovaciei la cultul personalității, foamea, frigul și frica din anii '80.",
+   "an": 1965,
+   "cand": "1965–1989",
+   "regiuni": [],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Reception%20for%20President%20Ceausescu%20of%20Romania%20hosted%20by%20the%20Romanian%20Embassy%20-%20NARA%20-%20194561.jpg?width=1280",
+    "alt": "Nicolae Ceaușescu la o recepție oficială în Statele Unite",
+    "forma": "peisaj"
+   }
+  },
+  {
+   "id": "revolutia-din-1989",
+   "titlu": "Revoluția din decembrie 1989",
+   "rezumat": "În zece zile, de la Timișoara la București, regimul comunist se prăbușește. Prețul libertății: peste o mie o sută de morți.",
+   "an": 1989,
+   "cand": "16–25 decembrie 1989",
+   "regiuni": [
+    "banat",
+    "muntenia"
+   ],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Romanian%20Revolution%201989%20Demonstrators.jpg?width=1280",
+    "alt": "Demonstranți pe stradă, în decembrie 1989",
+    "forma": "peisaj"
+   }
+  },
+  {
+   "id": "romania-dupa-1989",
+   "titlu": "România după 1989",
+   "rezumat": "O democrație construită greu: mineriade, o nouă constituție, schimbarea pașnică a puterii, apoi NATO, Uniunea Europeană și spațiul Schengen.",
+   "an": 1990,
+   "cand": "1990 – azi",
+   "regiuni": [],
+   "actualizat": "2026-11-22",
+   "exemplu": true,
+   "coperta": {
+    "src": "https://commons.wikimedia.org/wiki/Special:FilePath/NATO%20March%2029%202004.jpg?width=1280",
+    "alt": "Ceremonia de aderare a noilor state membre la NATO, 29 martie 2004",
+    "forma": "peisaj"
+   }
   }
  ]
 }

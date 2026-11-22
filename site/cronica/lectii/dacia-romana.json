@@ -1,0 +1,195 @@
+{
+ "id": "dacia-romana",
+ "titlu": "Dacia romană",
+ "rezumat": "Cum au schimbat romanii regatul cucerit: orașe noi, drumuri, mine de aur și o limbă care a rămas, latina din care s-a născut româna.",
+ "an": 106,
+ "cand": "106–271",
+ "regiuni": [
+  "transilvania",
+  "banat",
+  "oltenia",
+  "dobrogea"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 150
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Part%20of%20Tabula%20Peutingeriana%20showing%20Western%20Moesia%20Inferior%2C%20Western%20Dacia%20and%20Macedonia.png?width=1280",
+  "alt": "Porțiune din Tabula Peutingeriana, harta romană a drumurilor, cu Dacia și Moesia",
+  "sursa": "Tabula Peutingeriana, copie din secolul al XIII-lea a unei hărți romane a drumurilor. Domeniu public, prin Wikimedia Commons.",
+  "forma": "peisaj"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "După cucerirea din 106, cea mai mare parte a regatului lui Decebal a devenit **provincia Dacia**. Ea cuprindea Transilvania, Banatul și Oltenia, iar Dobrogea, la sud-est, făcea parte de mai multă vreme din provincia **Moesia Inferior**. Timp de 165 de ani, aceste ținuturi au trăit după legile, obiceiurile și limba Romei."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "colonist",
+     "def": "om adus să se așeze și să lucreze pământul într-un ținut nou."
+    },
+    {
+     "termen": "castru",
+     "def": "tabără militară romană întărită; lângă multe castre au crescut orașe."
+    },
+    {
+     "termen": "legiune",
+     "def": "unitate a armatei romane, de aproximativ 5.000 de soldați."
+    },
+    {
+     "termen": "romanizare",
+     "def": "procesul prin care populația unei provincii preia limba latină și felul de viață roman."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Coloniști din toată lumea romană"
+  },
+  {
+   "t": "text",
+   "md": "Războaiele lăsaseră provincia pustiită. Ca s-o populeze din nou, împăratul **Traian** a adus coloniști din toate colțurile imperiului: din Asia Mică și Siria, din Italia, din provinciile de la Dunărea de mijloc. Limba pe care o foloseau cu toții, la piață, în armată și în fața judecătorului, era **latina**.\n\nCapitala a fost un oraș nou, întemeiat la câțiva ani după cucerire, pe care romanii l-au numit **Colonia Ulpia Traiana Augusta Dacica Sarmizegetusa**. Alte orașe au crescut lângă castrele legiunilor: **Apulum** (Alba Iulia), **Napoca** (Cluj-Napoca), **Potaissa** (Turda), **Porolissum**, **Drobeta** (Drobeta-Turnu Severin) și **Romula**, în Oltenia."
+  },
+  {
+   "t": "citat",
+   "text": "Traian, după ce a învins Dacia, a adus acolo din toată lumea romană o mulțime nesfârșită de oameni, ca să lucreze ogoarele și să locuiască orașele.",
+   "autor": "Eutropius",
+   "sursa": "Breviarul istoriei romane, cartea a VIII-a (traducere liberă)",
+   "intrebare": "De ce au fost aduși coloniști în Dacia, după Eutropius? Ce limbă credeți că vorbeau între ei oameni veniți din locuri atât de diferite?"
+  },
+  {
+   "t": "titlu",
+   "text": "Aur, drumuri și orașe"
+  },
+  {
+   "t": "text",
+   "md": "Romanii au redeschis minele de aur din Munții Apuseni. La **Alburnus Maior** (azi Roșia Montană) au săpat kilometri de galerii și au adus mineri din Dalmația. Tăblițele cerate găsite acolo, contracte de muncă, de vânzare și de împrumut scrise în latină între anii 131 și 167, arată cum se trăia în provincie.\n\nDrumurile pavate legau castrele și orașele între ele și de Dunăre. Ele apar pe **Tabula Peutingeriana**, o hartă romană a drumurilor păstrată într-o copie medievală, cu stațiile și distanțele dintre ele. Orașele aveau apeducte, băi publice, temple și amfiteatre: amfiteatrul de la Sarmizegetusa avea locuri pentru câteva mii de spectatori."
+  },
+  {
+   "t": "stiati",
+   "md": "Peisajul minier de la Roșia Montană, cu galeriile romane săpate în munte, face parte din patrimoniul mondial UNESCO din 2021."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "106",
+     "text": "Dacia devine provincie romană."
+    },
+    {
+     "an": "c. 108–110",
+     "text": "Este întemeiată capitala, Ulpia Traiana Sarmizegetusa."
+    },
+    {
+     "an": "117–118",
+     "text": "Împăratul Hadrian renunță la Muntenia și la sudul Moldovei și reorganizează provincia."
+    },
+    {
+     "an": "131–167",
+     "text": "Anii scriși pe tăblițele cerate de la Alburnus Maior."
+    },
+    {
+     "an": "168",
+     "text": "Legiunea a V-a Macedonica se mută la Potaissa, în timpul războaielor cu marcomanii."
+    },
+    {
+     "an": "c. 271",
+     "text": "Împăratul Aurelian retrage armata și administrația la sud de Dunăre."
+    }
+   ]
+  },
+  {
+   "t": "fapte",
+   "titlu": "Pe scurt",
+   "randuri": [
+    {
+     "k": "Durata",
+     "v": "106–271 (165 de ani)"
+    },
+    {
+     "k": "Capitala",
+     "v": "Ulpia Traiana Sarmizegetusa"
+    },
+    {
+     "k": "Legiunile",
+     "v": "a XIII-a Gemina, la Apulum; a V-a Macedonica, la Potaissa (din 168)"
+    },
+    {
+     "k": "Bogăția",
+     "v": "aurul din Munții Apuseni"
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Ce a rămas"
+  },
+  {
+   "t": "text",
+   "md": "Cel mai trainic lucru lăsat de Roma a fost limba. Dacii au învățat latina de la soldați, negustori și coloniști, s-au căsătorit cu ei și au preluat felul lor de viață. Acest proces se numește **romanizare**. Din el s-au născut, peste câteva secole, poporul român și limba română.\n\nCuvinte de zi cu zi precum *om*, *casă*, *pâine*, *apă*, *a lucra* sau *a cânta* vin direct din latina vorbită în provincie."
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "Provincia Dacia a existat între 106 și 271 și cuprindea Transilvania, Banatul și Oltenia."
+    },
+    {
+     "text": "Romanii au adus coloniști din tot imperiul; limba comună a tuturor era latina."
+    },
+    {
+     "text": "Romanizarea înseamnă preluarea limbii latine și a felului de viață roman de către populația locală."
+    },
+    {
+     "text": "Din romanizarea dacilor s-au născut, mai târziu, poporul și limba română."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Care era capitala provinciei Dacia?",
+     "opt": [
+      "Sarmizegetusa Regia",
+      "Ulpia Traiana Sarmizegetusa",
+      "Apulum"
+     ],
+     "ok": 1,
+     "expl": "Ulpia Traiana Sarmizegetusa a fost un oraș nou, ridicat de romani. Sarmizegetusa Regia fusese capitala lui Decebal."
+    },
+    {
+     "text": "Ce se scotea din minele de la Alburnus Maior?",
+     "opt": [
+      "sare",
+      "aur",
+      "cărbune"
+     ],
+     "ok": 1,
+     "expl": "La Alburnus Maior, azi Roșia Montană, romanii exploatau aurul din Munții Apuseni."
+    },
+    {
+     "text": "Ce înseamnă romanizare?",
+     "opt": [
+      "mutarea dacilor la Roma",
+      "preluarea limbii latine și a felului de viață roman",
+      "construirea de drumuri pavate"
+     ],
+     "ok": 1,
+     "expl": "Prin romanizare, populația provinciei a ajuns să vorbească latina și să trăiască după obiceiurile romane."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-8"
+  }
+ ]
+}

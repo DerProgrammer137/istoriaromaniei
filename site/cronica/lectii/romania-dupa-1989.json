@@ -1,0 +1,180 @@
+{
+ "id": "romania-dupa-1989",
+ "titlu": "România după 1989",
+ "rezumat": "O democrație construită greu: mineriade, o nouă constituție, schimbarea pașnică a puterii, apoi NATO, Uniunea Europeană și spațiul Schengen.",
+ "an": 1990,
+ "cand": "1990 – azi",
+ "regiuni": [],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 2000
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/NATO%20March%2029%202004.jpg?width=1280",
+  "alt": "Ceremonia de aderare a noilor state membre la NATO, 29 martie 2004",
+  "sursa": "Ceremonia de aderare la NATO a României și a altor șase state, 29 martie 2004. Domeniu public, prin Wikimedia Commons.",
+  "forma": "peisaj"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "După Revoluție, România a trebuit să învețe din nou democrația, după mai bine de patru decenii de dictatură. Au reapărut partidele istorice, Partidul Național Țărănesc și Partidul Național Liberal, au apărut ziare și televiziuni independente, iar românii au putut călători liber în străinătate."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "democrație",
+     "def": "formă de conducere în care puterea vine de la popor, prin alegeri libere."
+    },
+    {
+     "termen": "mineriadă",
+     "def": "venirea violentă a minerilor din Valea Jiului la București, în anii '90, ca să intervină în viața politică."
+    },
+    {
+     "termen": "alternanță la putere",
+     "def": "schimbarea pașnică, prin vot, a partidelor de la guvernare."
+    },
+    {
+     "termen": "spațiul Schengen",
+     "def": "grupul de state europene între care oamenii circulă fără control la frontieră."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Anii '90"
+  },
+  {
+   "t": "text",
+   "md": "Pe 20 mai 1990 au avut loc primele alegeri libere, câștigate de Frontul Salvării Naționale, iar Ion Iliescu a fost ales președinte. Protestul pașnic din **Piața Universității**, care cerea ca foștii activiști comuniști să nu mai conducă țara, a fost spart în iunie 1990 de minerii aduși din Valea Jiului, care au bătut studenți, ziariști și trecători. A fost cea mai cunoscută dintre **mineriade**.\n\nPe 8 decembrie 1991, prin referendum, a fost adoptată o nouă **Constituție**, care a stabilit că România este o republică democratică, cu separația puterilor în stat. În 1996, opoziția a câștigat alegerile, iar Emil Constantinescu a devenit președinte: a fost prima **alternanță la putere** de după căderea comunismului."
+  },
+  {
+   "t": "citat",
+   "text": "România este stat național, suveran și independent, unitar și indivizibil.",
+   "autor": "Constituția României",
+   "sursa": "articolul 1, adoptată prin referendum la 8 decembrie 1991",
+   "intrebare": "Comparați acest articol cu primul articol al Constituției din 1923. Ce s-a păstrat și ce s-a adăugat?"
+  },
+  {
+   "t": "titlu",
+   "text": "NATO și Uniunea Europeană"
+  },
+  {
+   "t": "text",
+   "md": "Reformele economice au fost grele: multe fabrici mari au fost închise sau privatizate, iar mulți oameni și-au pierdut locurile de muncă. Milioane de români au plecat să lucreze în străinătate, mai ales în Italia, Spania, Germania și Marea Britanie.\n\nÎn același timp, România s-a apropiat de Occident. Pe **29 martie 2004** a devenit membră a **NATO**, iar pe **1 ianuarie 2007** a intrat în **Uniunea Europeană**, împreună cu Bulgaria. De la 31 martie 2024 au fost ridicate controalele la frontierele aeriene și maritime cu celelalte state Schengen, iar de la 1 ianuarie 2025 și cele terestre: România face parte în întregime din **spațiul Schengen**."
+  },
+  {
+   "t": "titlu",
+   "text": "Republica Moldova"
+  },
+  {
+   "t": "text",
+   "md": "Pe 27 august 1991, fosta republică sovietică dintre Prut și Nistru și-a proclamat independența, sub numele de **Republica Moldova**. România a fost primul stat care a recunoscut-o. Cele două state au aceeași limbă și o istorie comună, iar mulți cetățeni ai Republicii Moldova au și cetățenie română."
+  },
+  {
+   "t": "stiati",
+   "md": "Regele Mihai, alungat din țară în 1947, a putut reveni abia în 1992, de Paști, când sute de mii de oameni l-au întâmpinat în București. Și-a recăpătat cetățenia română în 1997 și a murit în 2017."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "20 mai 1990",
+     "text": "Primele alegeri libere."
+    },
+    {
+     "an": "13–15 iunie 1990",
+     "text": "Mineriada: protestul din Piața Universității este spart cu violență."
+    },
+    {
+     "an": "27 august 1991",
+     "text": "Republica Moldova își proclamă independența."
+    },
+    {
+     "an": "8 decembrie 1991",
+     "text": "Este adoptată prin referendum noua Constituție."
+    },
+    {
+     "an": "1996",
+     "text": "Prima alternanță la putere după 1989."
+    },
+    {
+     "an": "29 martie 2004",
+     "text": "România devine membră NATO."
+    },
+    {
+     "an": "1 ianuarie 2007",
+     "text": "România intră în Uniunea Europeană."
+    },
+    {
+     "an": "1 ianuarie 2025",
+     "text": "România intră în întregime în spațiul Schengen."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "După 1989, România a revenit la democrație, cu mai multe partide și alegeri libere."
+    },
+    {
+     "text": "Constituția din 1991 a stabilit că România este o republică democratică."
+    },
+    {
+     "text": "România este membră NATO din 2004 și a Uniunii Europene din 2007."
+    },
+    {
+     "text": "De la 1 ianuarie 2025, România face parte în întregime din spațiul Schengen."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Când au avut loc primele alegeri libere după 1989?",
+     "opt": [
+      "20 mai 1990",
+      "8 decembrie 1991",
+      "1 ianuarie 2007"
+     ],
+     "ok": 0,
+     "expl": "Primele alegeri libere după căderea comunismului au avut loc pe 20 mai 1990."
+    },
+    {
+     "text": "Ce s-a întâmplat pe 29 martie 2004?",
+     "opt": [
+      "România a intrat în Uniunea Europeană",
+      "România a devenit membră NATO",
+      "a fost adoptată Constituția"
+     ],
+     "ok": 1,
+     "expl": "Pe 29 martie 2004, România și alte șase state au devenit membre NATO."
+    },
+    {
+     "text": "Ce este spațiul Schengen?",
+     "opt": [
+      "o alianță militară",
+      "grupul de state fără control la frontierele comune",
+      "o monedă europeană"
+     ],
+     "ok": 1,
+     "expl": "În spațiul Schengen, oamenii trec granițele dintre state fără controale."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-43"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-44"
+  }
+ ]
+}

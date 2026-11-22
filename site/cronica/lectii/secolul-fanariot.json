@@ -1,0 +1,191 @@
+{
+ "id": "secolul-fanariot",
+ "titlu": "Secolul fanariot",
+ "rezumat": "Un secol în care domnii erau numiți direct de la Constantinopol: reforme, războaie ruso-turce și pierderea Bucovinei și a Basarabiei.",
+ "an": 1711,
+ "cand": "1711–1821",
+ "regiuni": [
+  "muntenia",
+  "moldova",
+  "bucovina",
+  "basarabia"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1780
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "După alianța lui Cantemir cu Rusia, Poarta nu a mai avut încredere în domnii pământeni. Din 1711 în Moldova și din 1716 în Țara Românească, sultanul a numit domni greci din cartierul **Fanar** al Constantinopolului, de unde le-a venit numele de **fanarioți**. Mulți dintre ei erau oameni învățați, care fuseseră dragomani, adică tălmaci, ai Porții.\n\nDomniile erau scurte, iar tronurile se cumpărau: unii domni au condus pe rând ambele țări, de mai multe ori. Ca să-și scoată banii dați la Constantinopol, mulți dintre ei au mărit dările."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "Fanar",
+     "def": "cartierul grecesc din Constantinopol în care se afla Patriarhia ortodoxă."
+    },
+    {
+     "termen": "dragoman",
+     "def": "tălmaci oficial al Porții, care se ocupa de legăturile cu țările străine."
+    },
+    {
+     "termen": "rumânie (în Moldova, vecinie)",
+     "def": "starea țăranilor legați de moșia stăpânului, care nu puteau pleca fără voia lui."
+    },
+    {
+     "termen": "anexare",
+     "def": "luarea unui teritoriu de către un stat, fără voia celui căruia îi aparținea."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Reforme"
+  },
+  {
+   "t": "text",
+   "md": "Unii fanarioți au fost reformatori. **Constantin Mavrocordat**, care a domnit de mai multe ori în ambele țări, a desființat **rumânia** în Țara Românească, în 1746, și **vecinia** în Moldova, în 1749. Țăranii au devenit oameni liberi, dar au rămas datori să muncească pe moșiile boierilor un număr de zile pe an, numit **clacă**. Mai târziu, **Alexandru Ipsilanti** a dat Țării Românești un cod de legi (1780) și a reorganizat școlile."
+  },
+  {
+   "t": "titlu",
+   "text": "Războaie și pierderi de teritorii"
+  },
+  {
+   "t": "text",
+   "md": "În secolul al XVIII-lea, țările române au fost câmp de luptă în războaiele dintre Imperiul Otoman, Rusia și Monarhia Habsburgică. Armatele străine treceau, ocupau țara ani la rând și cereau hrană, cai și bani.\n\nRăzboaiele s-au încheiat cu pierderi de teritorii. Între 1718 și 1739, **Oltenia** a fost stăpânită de Habsburgi. În 1775, Habsburgii au anexat nordul Moldovei, cu vechea capitală Suceava, pe care l-au numit **Bucovina**. Domnul Moldovei, **Grigore al III-lea Ghica**, a protestat și a fost ucis din ordinul Porții în 1777. În 1812, prin pacea de la București, Rusia a anexat jumătatea de răsărit a Moldovei, dintre Prut și Nistru, pe care a numit-o **Basarabia**."
+  },
+  {
+   "t": "harta",
+   "an": 1720,
+   "regiuni": [
+    "oltenia",
+    "bucovina",
+    "basarabia",
+    "moldova"
+   ],
+   "text": "Pierderile din secolul fanariot: Oltenia sub Habsburgi (c. 1720) și Moldova după anexarea Bucovinei (1775) și a Basarabiei (1812).",
+   "an2": 1815
+  },
+  {
+   "t": "titlu",
+   "text": "Trezirea culturii românești"
+  },
+  {
+   "t": "text",
+   "md": "Deși la curțile domnești se vorbea grecește, cultura română nu s-a stins. Boierii învățați scriau cronici și versuri în românește, iar școlile domnești de la București și Iași au format generațiile care aveau să conducă mișcarea națională din secolul următor."
+  },
+  {
+   "t": "citat",
+   "text": "Urmașilor mei Văcărești,\nLas vouă moștenire:\nCreșterea limbii românești\nȘ-a patriei cinstire.",
+   "autor": "Ienăchiță Văcărescu",
+   "sursa": "„Testamentul”, sfârșitul secolului al XVIII-lea",
+   "intrebare": "Ce le cere poetul urmașilor săi? De ce era important acest îndemn într-o vreme în care la curtea domnească se vorbea grecește?"
+  },
+  {
+   "t": "stiati",
+   "md": "Numele de *Bucovina* înseamnă „țara fagilor”: vine de la cuvântul slav pentru fag. Ienăchiță Văcărescu, autorul versurilor de mai sus, a scris și una dintre primele gramatici ale limbii române, tipărită la Viena în 1787."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "1711",
+     "text": "Primul domn fanariot în Moldova, Nicolae Mavrocordat."
+    },
+    {
+     "an": "1716",
+     "text": "Nicolae Mavrocordat devine domn și în Țara Românească."
+    },
+    {
+     "an": "1718–1739",
+     "text": "Oltenia este stăpânită de Habsburgi."
+    },
+    {
+     "an": "1746–1749",
+     "text": "Constantin Mavrocordat desființează rumânia și vecinia."
+    },
+    {
+     "an": "1774",
+     "text": "Pacea de la Kuciuk-Kainargi; Rusia capătă dreptul să intervină în favoarea Principatelor."
+    },
+    {
+     "an": "1775",
+     "text": "Habsburgii anexează Bucovina."
+    },
+    {
+     "an": "1812",
+     "text": "Pacea de la București: Rusia anexează Basarabia."
+    },
+    {
+     "an": "1821",
+     "text": "Sfârșitul domniilor fanariote."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "Între 1711/1716 și 1821, Moldova și Țara Românească au fost conduse de domni fanarioți, numiți de Poartă."
+    },
+    {
+     "text": "Constantin Mavrocordat a desființat rumânia (1746) și vecinia (1749)."
+    },
+    {
+     "text": "În 1775, Habsburgii au anexat Bucovina; în 1812, Rusia a anexat Basarabia."
+    },
+    {
+     "text": "Țările române au fost des câmp de luptă în războaiele dintre otomani, ruși și austrieci."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "De unde vine numele de fanarioți?",
+     "opt": [
+      "de la un oraș din Grecia",
+      "de la cartierul Fanar din Constantinopol",
+      "de la un domn pe nume Fanar"
+     ],
+     "ok": 1,
+     "expl": "Fanarul era cartierul grecesc din Constantinopol, unde se afla Patriarhia."
+    },
+    {
+     "text": "Ce teritoriu a anexat Rusia în 1812?",
+     "opt": [
+      "Bucovina",
+      "Basarabia",
+      "Oltenia"
+     ],
+     "ok": 1,
+     "expl": "Prin pacea de la București, Rusia a luat jumătatea de răsărit a Moldovei, dintre Prut și Nistru."
+    },
+    {
+     "text": "Ce a desființat Constantin Mavrocordat?",
+     "opt": [
+      "tributul către Poartă",
+      "rumânia și vecinia",
+      "școlile domnești"
+     ],
+     "ok": 1,
+     "expl": "În 1746 și 1749, Mavrocordat i-a eliberat pe țăranii legați de moșie, dar aceștia au rămas datori cu zile de clacă."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-24"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-47"
+  }
+ ]
+}

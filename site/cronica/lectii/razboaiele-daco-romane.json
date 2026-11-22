@@ -1,6 +1,6 @@
 {
  "id": "razboaiele-daco-romane",
- "titlu": "Războaiele daco-romane (101–106)",
+ "titlu": "Războaiele daco-romane",
  "rezumat": "Cum a ajuns regatul lui Decebal provincie romană: două războaie, un pod peste Dunăre și o columnă care le povestește în piatră.",
  "an": 101,
  "cand": "101–106",
@@ -10,7 +10,7 @@
   "oltenia"
  ],
  "autor": "",
- "actualizat": "2026-11-21",
+ "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
   "an": 100
@@ -27,12 +27,40 @@
    "md": "La începutul secolului al II-lea, Dacia era cel mai puternic regat de la nordul Dunării de Jos. Regele **Decebal** conducea din cetățile din Munții Orăștiei, cu centrul la **Sarmizegetusa Regia**, și ținuse piept Romei încă din vremea împăratului Domițian, care încheiase cu el pace în anul 89. Pacea îi aducea dacilor bani și meșteri romani, dar la Roma era privită ca o umilință.\n\nÎmpăratul **Traian** a hotărât să încheie socotelile. Între 101 și 106, două războaie au transformat cea mai mare parte a regatului dac în provincia romană **Dacia**."
   },
   {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "provincie",
+     "def": "teritoriu cucerit de romani și condus de un guvernator numit de împărat."
+    },
+    {
+     "termen": "garnizoană",
+     "def": "trupă de soldați așezată într-o cetate ca s-o păzească."
+    },
+    {
+     "termen": "Columna lui Traian",
+     "def": "coloană de marmură ridicată la Roma în 113, pe care sunt sculptate scene din războaiele cu dacii."
+    },
+    {
+     "termen": "tezaur",
+     "def": "comoară; ansamblu de obiecte prețioase, de aur sau de argint."
+    }
+   ]
+  },
+  {
    "t": "titlu",
    "text": "Primul război (101–102)"
   },
   {
    "t": "text",
    "md": "În primăvara anului 101, armata romană a trecut Dunărea pe poduri de vase și a înaintat prin Banat spre Munții Orăștiei. Prima mare bătălie s-a dat la **Tapae**, la intrarea în Transilvania, cu pierderi grele de ambele părți. În iarna 101–102, Decebal și aliații lui au atacat provincia Moesia, la sud de Dunăre, și au fost înfrânți în Dobrogea, acolo unde Traian avea să ridice monumentul de la Adamclisi.\n\nÎn 102, cu romanii aproape de capitala sa, Decebal a cerut pace. A rămas rege, dar a trebuit să predea armele și mașinile de război, să dărâme o parte din cetăți și să primească o garnizoană romană la Sarmizegetusa."
+  },
+  {
+   "t": "citat",
+   "text": "Decebal era priceput să plănuiască războiul și iscusit să-l poarte; știa când să atace și când să se retragă la timp, era meșter în a întinde curse și viteaz în luptă deschisă; știa să folosească bine o victorie și să iasă cu bine dintr-o înfrângere. De aceea a fost multă vreme un potrivnic de temut pentru romani.",
+   "autor": "Cassius Dio",
+   "sursa": "Istoria romană, cartea a LXVII-a (traducere liberă)",
+   "intrebare": "Cassius Dio era un istoric roman, din tabăra dușmanilor lui Decebal. De ce are lauda lui cu atât mai multă greutate?"
   },
   {
    "t": "harta",
@@ -106,6 +134,10 @@
    "sursa": "Detaliu din planșa LXXII, desen de Conrad Cichorius. Domeniu public, prin Wikimedia Commons."
   },
   {
+   "t": "stiati",
+   "md": "Podul de la Drobeta avea 20 de pile de piatră. Resturile lui se văd și azi la Drobeta-Turnu Severin, iar pe malul sârbesc al Dunării, la Porțile de Fier, s-a păstrat o placă de piatră numită *Tabula Traiana*, care amintește de drumul tăiat de romani în stâncă."
+  },
+  {
    "t": "fapte",
    "titlu": "Pe scurt",
    "randuri": [
@@ -136,8 +168,64 @@
    "md": "Columna lui Traian, înaltă de aproape 30 de metri, povestește cele două războaie într-o friză care se rotește de 23 de ori în jurul ei. Datorită ei știm cum arătau armele, hainele și cetățile dacilor. Din războaie s-a născut provincia Dacia, iar latina vorbită aici și la sud de Dunăre stă la originea limbii române."
   },
   {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "Între 101 și 106, împăratul Traian a purtat două războaie împotriva regelui dac Decebal."
+    },
+    {
+     "text": "În 106, Sarmizegetusa Regia a fost cucerită, iar Decebal și-a luat viața ca să nu fie prins."
+    },
+    {
+     "text": "Cea mai mare parte a regatului a devenit provincia romană Dacia."
+    },
+    {
+     "text": "Columna lui Traian, de la Roma, povestește războaiele în imagini sculptate."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Unde se afla capitala lui Decebal?",
+     "opt": [
+      "la Sarmizegetusa Regia, în Munții Orăștiei",
+      "la Drobeta, pe Dunăre",
+      "la Tomis, la Marea Neagră"
+     ],
+     "ok": 0,
+     "expl": "Sarmizegetusa Regia, cu sanctuarele ei, era centrul regatului dac."
+    },
+    {
+     "text": "Cine a construit podul de peste Dunăre de la Drobeta?",
+     "opt": [
+      "Decebal",
+      "Apolodor din Damasc",
+      "împăratul Domițian"
+     ],
+     "ok": 1,
+     "expl": "Arhitectul Apolodor din Damasc a construit podul pentru al doilea război."
+    },
+    {
+     "text": "Ce monument din Dobrogea amintește de victoria romanilor?",
+     "opt": [
+      "Columna lui Traian",
+      "monumentul de la Adamclisi",
+      "Tabula Traiana"
+     ],
+     "ok": 1,
+     "expl": "Monumentul Tropaeum Traiani, de la Adamclisi, a fost inaugurat în 109. Columna se află la Roma."
+    }
+   ]
+  },
+  {
    "t": "video",
    "video": "exemplu-5"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-6"
   },
   {
    "t": "video",

@@ -116,6 +116,7 @@ const POL = {
   slovacia2: ['Slovacia (stat-satelit al Germaniei)', '#5D8AA8'], slovacia3: ['Slovacia', '#5D8AA8'],
   iugoslavia: ['Regatul Iugoslaviei', '#9B6B3F'], iugoslavia2: ['Iugoslavia', '#9B6B3F'], serbia2: ['Serbia', '#9B6B3F'],
   kosovo: ['Kosovo', '#A0866A'], muntenegru: ['Muntenegru', '#7C6A8E'],
+  zeta: ['Zeta (Muntenegru), vasală Veneției', '#7C6A8E'],
   transn41: ['Transnistria, sub administrație românească', '#CB8B84'], germania: ['Ocupație germană', '#5A5F66'],
   italia: ['Ocupație italiană', '#6F8F5A'], ndh: ['Statul Independent al Croației', '#8C6D8F'],
   rmoldova: ['Republica Moldova', '#B9743F'], ucraina2: ['Ucraina', '#B89C48']
@@ -206,12 +207,26 @@ const SNAPS = [
     ungaria: [...ARDEAL, ...UNG], otoman: ['bulgaria'], serbia_d: ['serbia', 'margine-xk', 'margine-me'],
     polonia: ['galitia', 'polonia'], lituania: [...TN, ...UA_V]},
    nota: 'Țara Românească (întemeiată în jurul anului 1310) stăpânește sub Mircea cel Bătrân și Dobrogea, până în 1417. Moldova (independentă din 1359) ajunge la Marea Neagră, la Cetatea Albă. Transilvania, Banatul, Crișana și Maramureșul fac parte din Regatul Ungariei.'},
+  {an: 1456, cand: '1456', titlu: 'Iancu de Hunedoara și Vlad Țepeș', g: {
+    tararom: ['muntenia', 'oltenia'],
+    moldovast: ['moldova', 'bucovina', 'bucovina-nord', 'herta', ...BASARABIA],
+    otoman: ['dobrogea', 'cadrilater', 'bulgaria', 'margine-xk'],
+    ungaria: [...ARDEAL, ...UNG], serbia_d: ['serbia'], zeta: ['margine-me'],
+    polonia: ['galitia', 'polonia', 'podolia-n'], lituania: ['podolia-s', ...TN, 'yedisan', 'est-bug']},
+   nota: 'Iancu de Hunedoara, guvernator al Ungariei între 1446 și 1453, apără Belgradul de armata lui Mahomed al II-lea în iulie 1456; în același an, Vlad Țepeș devine domn al Țării Românești. Constantinopolul căzuse în 1453, iar Dobrogea era otomană din anii 1417–1420.'},
   {an: 1490, cand: 'c. 1490', titlu: 'Ștefan cel Mare, după pierderea Chiliei și a Cetății Albe', g: {
     tararom: ['muntenia', 'oltenia'],
     moldovast: ['moldova', 'bucovina', 'bucovina-nord', 'herta', ...BAS_C, ...HOTIN, 'bas-se', 'bas-sw'],
     otoman: ['bug-n', 'bug-s', 'dobrogea', 'cadrilater', 'bulgaria', 'serbia', 'margine-xk', 'margine-me'],
     ungaria: [...ARDEAL, ...UNG], polonia: ['galitia', 'polonia', 'podolia-n'], lituania: ['podolia-s', ...TN, 'yedisan', 'est-bug']},
    nota: 'În 1484, sultanul Baiazid al II-lea cucerește Chilia și Cetatea Albă, cu ținuturile din jur. Restul Bugeacului rămâne Moldovei până în 1538, când Soliman Magnificul ia Tighina. Țara Românească și Moldova plătesc tribut Porții, dar își păstrează domnii și instituțiile.'},
+  {an: 1560, cand: 'c. 1560', titlu: 'Principatul Transilvaniei', g: {
+    tararom: ['muntenia', 'oltenia'], moldovast: ['moldova', 'bucovina', 'bucovina-nord', 'herta', ...BAS_C, ...HOTIN],
+    transprinc: [...TR, 'maramures', 'maramures-ua', 'satmar', 'bihor-n', 'bihor-s'],
+    otoman: [...BANAT, 'arad-n', 'banat-sarb', 'backa', 'srem', 'ungaria', ...BUGEAC, 'dobrogea', 'cadrilater', 'bulgaria', 'serbia', 'margine-xk', 'margine-me'],
+    habsburg: ['slovacia', 'transcarpatia'], polonia: ['galitia', 'polonia', 'podolia-n'], lituania: ['podolia-s', 'tn-n'],
+    crimeea: ['tn-s', 'yedisan', 'est-bug']},
+   nota: 'După înfrângerea Ungariei la Mohács (1526) și căderea Budei (1541), Transilvania devine principat autonom sub suzeranitatea Porții. Banatul ajunge pașalâcul de Timișoara (1552), iar în 1538 Soliman Magnificul ia de la Moldova Tighina și sudul Basarabiei. Țara Românească și Moldova plătesc tribut, dar își păstrează domnii.'},
   {an: 1600, cand: '1600', titlu: 'Unirea lui Mihai Viteazul', g: {
     mihai: ['muntenia', 'oltenia', 'moldova', 'bucovina', 'bucovina-nord', 'herta', ...BAS_C, ...HOTIN, ...TR, ...PARTIUM, 'maramures-ua'],
     otoman: [...BANAT, 'banat-sarb', 'backa', 'srem', 'ungaria', ...BUGEAC, 'dobrogea', 'cadrilater', 'bulgaria', 'serbia', 'margine-xk', 'margine-me'],
@@ -225,6 +240,12 @@ const SNAPS = [
     habsburg: ['slovacia', 'transcarpatia'], polonia_l: ['galitia', 'polonia', 'podolia-n', 'tn-n'],
     cazaci: ['podolia-s', 'est-bug'], crimeea: ['tn-s', 'yedisan']},
    nota: 'Matei Basarab (Țara Românească), Vasile Lupu (Moldova) și Gheorghe Rákóczi al II-lea (Transilvania) conduc state cu instituții proprii, dar plătesc tribut Porții. Banatul și centrul Ungariei sunt provincii otomane. Din 1648, cazacii lui Bogdan Hmelnițki s-au ridicat împotriva Poloniei.'},
+  {an: 1700, cand: 'c. 1700', titlu: 'Transilvania trece la Habsburgi', g: {
+    tararom: ['muntenia', 'oltenia'], moldovast: ['moldova', 'bucovina', 'bucovina-nord', 'herta', ...BAS_C, ...HOTIN],
+    habsburg: [...TR, ...PARTIUM, 'maramures-ua', 'ungaria', 'slovacia', 'transcarpatia', 'backa', 'srem'],
+    otoman: [...BANAT, 'banat-sarb', ...BUGEAC, 'dobrogea', 'cadrilater', 'bulgaria', 'serbia', 'margine-xk', 'margine-me'],
+    polonia_l: ['galitia', 'polonia', 'podolia-n', 'podolia-s', 'tn-n'], crimeea: ['tn-s', 'yedisan', 'est-bug']},
+   nota: 'Prin pacea de la Karlowitz (1699), Habsburgii primesc Transilvania și aproape toată Ungaria; Banatul rămâne otoman până în 1716. Țara Românească, condusă de Constantin Brâncoveanu, și Moldova plătesc tribut Porții, dar își păstrează domnii și instituțiile.'},
   {an: 1720, cand: 'c. 1720', titlu: 'Oltenia sub habsburgi', g: {
     tararom: ['muntenia'], habsburg: ['oltenia', ...ARDEAL, ...UNG, 'serbia'],
     moldovast: ['moldova', 'bucovina', 'bucovina-nord', 'herta', ...BAS_C],
@@ -237,7 +258,7 @@ const SNAPS = [
     otoman: [...HOTIN, ...BUGEAC, 'tn-s', 'yedisan', 'dobrogea', 'cadrilater', 'bulgaria', 'serbia', 'margine-xk', 'margine-me'],
     polonia_l: ['podolia-n', 'podolia-s', 'tn-n'], rusia: ['est-bug']},
    nota: 'În 1775, Monarhia Habsburgică anexează nordul Moldovei, numit de atunci Bucovina, cu vechea capitală Suceava; Galiția era a ei din 1772. Hotinul și Bugeacul rămân raiale otomane, iar Rusia ajunsese la Bugul de Sud prin pacea de la Kuciuk-Kainargi (1774).'},
-  {an: 1815, cand: '1815', titlu: 'Basarabia anexată de Rusia', g: {
+  {an: 1815, cand: '1812–1856', titlu: 'După anexarea Basarabiei', g: {
     tararom: ['muntenia', 'oltenia'], moldovast: ['moldova', 'herta'], rusia: [...BASARABIA, ...TN, ...UA_V],
     habsburg: ['bucovina', 'bucovina-nord', ...ARDEAL, ...UNG, 'galitia', 'polonia'],
     otoman: ['dobrogea', 'cadrilater', 'bulgaria', 'serbia', 'margine-xk'], muntenegru: ['margine-me']},
@@ -413,9 +434,11 @@ function creeaza(gazda, geo, opt) {
   });
   pFocus.style.display = 'none';
 
-  /* mărire: butoane, tragere, ciupire, Ctrl + rotiță */
+  /* mărire: butoane, tragere, ciupire, Ctrl + rotiță (nu și pe hărțile fixe din paginile cărții) */
   const vb = {x: 0, y: 0, w: W};
   const drag = {moved: false, pts: new Map(), start: null};
+  if (opt.fix) svg.style.setProperty('--k', '1');
+  else {
   const zoomUI = document.createElement('div'); zoomUI.className = 'hmap-zoom';
   zoomUI.innerHTML = '<button type="button" data-z="in" aria-label="Mărește harta">+</button><button type="button" data-z="out" aria-label="Micșorează harta">−</button><button type="button" data-z="reset" aria-label="Arată toată harta" hidden>⟲</button>';
   box.appendChild(zoomUI);
@@ -464,6 +487,7 @@ function creeaza(gazda, geo, opt) {
   const up = e => { drag.pts.delete(e.pointerId); if (drag.pts.size < 2) drag.pinch = null; if (!drag.pts.size) setTimeout(() => { drag.moved = false; }, 0); };
   svg.addEventListener('pointerup', up); svg.addEventListener('pointercancel', up);
   applyVB();
+  }
 
   /* randare pentru o stare: {mod:'acum'|'perioada', snap, numar:{reg:n}, max, selectat, evidentiere:[reg]} */
   function randeaza(v) {

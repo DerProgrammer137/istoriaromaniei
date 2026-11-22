@@ -14,7 +14,7 @@
   "bucovina-nord"
  ],
  "autor": "",
- "actualizat": "2026-11-21",
+ "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
   "an": 1930
@@ -23,6 +23,27 @@
   {
    "t": "text",
    "md": "Primul Război Mondial a destrămat cele două imperii care stăpâneau teritorii locuite de români: **Rusia**, după revoluțiile din 1917, și **Austro-Ungaria**, învinsă în toamna lui 1918. În golul de putere care a urmat, adunări alese în fiecare provincie au votat, una după alta, unirea cu Regatul României."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "Sfatul Țării",
+     "def": "parlamentul Basarabiei, format în 1917, care a votat unirea cu România pe 27 martie 1918."
+    },
+    {
+     "termen": "Congresul General al Bucovinei",
+     "def": "adunarea reprezentanților Bucovinei, întrunită la Cernăuți pe 28 noiembrie 1918."
+    },
+    {
+     "termen": "delegat",
+     "def": "om ales să reprezinte o comunitate la o adunare."
+    },
+    {
+     "termen": "rezoluție",
+     "def": "hotărâre scrisă, votată de o adunare."
+    }
+   ]
   },
   {
    "t": "harta",
@@ -73,11 +94,16 @@
    "t": "citat",
    "text": "Adunarea Națională a tuturor românilor din Transilvania, Banat și Țara Ungurească, adunați prin reprezentanții lor îndreptățiți la Alba Iulia în ziua de 18 noiembrie/1 decembrie 1918, decretează unirea acelor români și a tuturor teritoriilor locuite de dânșii cu România.",
    "autor": "Rezoluția Adunării Naționale de la Alba Iulia",
-   "sursa": "articolul I, 1 decembrie 1918"
+   "sursa": "articolul I, 1 decembrie 1918",
+   "intrebare": "Ce ținuturi sunt numite în rezoluție și cine hotărăște unirea lor cu România?"
   },
   {
    "t": "text",
    "md": "La Alba Iulia au venit peste o sută de mii de oameni din toate colțurile Transilvaniei. Hotărârea a fost luată de cei **1.228 de delegați** aleși, într-o sală a cetății care poartă de atunci numele de Sala Unirii, și a fost citită mulțimii de episcopul Iuliu Hossu.\n\nPentru stat, unirea a însemnat mai mult decât o hartă nouă: peste 18 milioane de locuitori la recensământul din 1930, un parlament comun, reforma agrară din 1921 și o nouă Constituție, în 1923."
+  },
+  {
+   "t": "stiati",
+   "md": "Până în 1947, ziua națională a României a fost 10 Mai: în această zi sosise Carol I în țară (1866), fusese promulgată independența (1877) și avusese loc încoronarea (1881). Ziua de 1 Decembrie a devenit Ziua Națională abia în 1990."
   },
   {
    "t": "grafic",
@@ -121,6 +147,58 @@
   {
    "t": "text",
    "md": "Granițele din 1918 au rezistat până în 1940, când România a pierdut, în doar câteva luni, Basarabia, nordul Bucovinei, ținutul Herța, nordul Transilvaniei și Cadrilaterul. După război, nordul Transilvaniei a revenit României; Basarabia și nordul Bucovinei au rămas în URSS, iar azi sunt împărțite între Republica Moldova și Ucraina."
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "În 1918 s-au unit cu România Basarabia (27 martie), Bucovina (28 noiembrie) și Transilvania, Banatul, Crișana și Maramureșul (1 decembrie)."
+    },
+    {
+     "text": "Unirea a fost hotărâtă de adunări alese în fiecare provincie."
+    },
+    {
+     "text": "Tratatele de pace din 1919–1920 au recunoscut noile granițe."
+    },
+    {
+     "text": "Ziua de 1 Decembrie este Ziua Națională a României."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Care provincie s-a unit prima cu România, în 1918?",
+     "opt": [
+      "Transilvania",
+      "Basarabia",
+      "Bucovina"
+     ],
+     "ok": 1,
+     "expl": "Sfatul Țării de la Chișinău a votat unirea Basarabiei pe 27 martie 1918."
+    },
+    {
+     "text": "Unde s-a votat unirea Transilvaniei cu România?",
+     "opt": [
+      "la Cernăuți",
+      "la Alba Iulia",
+      "la Iași"
+     ],
+     "ok": 1,
+     "expl": "Marea Adunare Națională de la Alba Iulia a votat unirea pe 1 decembrie 1918."
+    },
+    {
+     "text": "De când este 1 Decembrie Ziua Națională a României?",
+     "opt": [
+      "din 1918",
+      "din 1947",
+      "din 1990"
+     ],
+     "ok": 2,
+     "expl": "Ziua de 1 Decembrie a fost aleasă ca Ziua Națională în 1990."
+    }
+   ]
   },
   {
    "t": "video",

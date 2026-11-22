@@ -1,0 +1,195 @@
+{
+ "id": "iancu-de-hunedoara",
+ "titlu": "Iancu de Hunedoara",
+ "rezumat": "Un nobil de origine română din Transilvania care a ajuns să conducă Ungaria și a oprit, la Belgrad, armata cuceritorului Constantinopolului.",
+ "an": 1441,
+ "cand": "1441–1456",
+ "regiuni": [
+  "transilvania",
+  "banat",
+  "crisana"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1456
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Tucrcoczy%20Janos%20Iancu%20de%20Hunedoara%20Brunnner%20Ausgabe.jpg?width=800",
+  "alt": "Iancu de Hunedoara, gravură în lemn dintr-o cronică tipărită în 1488",
+  "sursa": "Gravură din Cronica ungurilor a lui Johannes de Thurocz, ediția de la Brno, 1488. Domeniu public, prin Wikimedia Commons.",
+  "forma": "portret"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "**Iancu de Hunedoara** (c. 1407–1456) a fost unul dintre cei mai cunoscuți comandanți ai creștinătății din secolul al XV-lea. Cronicarii vremii scriu că tatăl său, **Voicu**, venise din Țara Românească. În 1409, regele Ungariei, Sigismund de Luxemburg, i-a dăruit lui Voicu și rudelor sale castelul și moșia **Hunedoarei**, după care familia și-a luat numele."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "nobil",
+     "def": "membru al unei familii cu privilegii, care stăpânea pământuri și datora regelui slujbă militară."
+    },
+    {
+     "termen": "guvernator",
+     "def": "aici, conducătorul ales să țină locul regelui cât timp acesta era copil."
+    },
+    {
+     "termen": "asediu",
+     "def": "încercuirea unei cetăți de către o armată, ca s-o cucerească."
+    },
+    {
+     "termen": "flotilă",
+     "def": "grup de vase de război; aici, pe Dunăre."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "De la Hunedoara la conducerea Ungariei"
+  },
+  {
+   "t": "text",
+   "md": "Iancu a învățat arta războiului slujind la curțile mai multor regi și principi, inclusiv în Italia. În 1441 a fost numit **voievod al Transilvaniei**, într-o vreme în care otomanii atacau tot mai des Transilvania și Țara Românească.\n\nÎn 1442 a învins două armate otomane, la Sântimbru, lângă Alba Iulia, și pe Ialomița. În iarna 1443–1444 a condus „campania cea lungă”, care a ajuns adânc în Balcani, până la Sofia. În toamna lui 1444, cruciada de la **Varna** s-a încheiat însă cu o înfrângere grea, în care a murit tânărul rege al Ungariei și Poloniei, Vladislav. În 1446, nobilii l-au ales pe Iancu **guvernator al Ungariei**, în numele regelui copil Ladislau al V-lea."
+  },
+  {
+   "t": "titlu",
+   "text": "Belgrad, 1456"
+  },
+  {
+   "t": "text",
+   "md": "În 1453, sultanul **Mahomed al II-lea** a cucerit Constantinopolul, capitala Imperiului Bizantin. Trei ani mai târziu a pornit spre Europa Centrală și a asediat **Belgradul**, cetatea care păzea drumul pe Dunăre spre Ungaria.\n\nIancu a strâns o flotilă pe Dunăre, a rupt încercuirea cetății și a intrat în ea cu ajutoare, alături de o oaste de cruciați adunați de călugărul Ioan de Capistrano. Pe 22 iulie 1456, după ce asaltul otoman fusese respins, apărătorii au ieșit din cetate și au cucerit tabăra sultanului, care a fost rănit și s-a retras.\n\nVictoria a oprit înaintarea otomană spre Europa Centrală pentru 65 de ani: Belgradul a căzut abia în 1521. Iancu nu s-a putut bucura de ea. A murit de ciumă câteva săptămâni mai târziu, pe 11 august 1456."
+  },
+  {
+   "t": "stiati",
+   "md": "În iunie 1456, papa Calixt al III-lea a cerut ca în bisericile catolice clopotele să bată la amiază, pentru rugăciuni în sprijinul apărătorilor Belgradului. Vestea victoriei a făcut ca obiceiul să rămână legat de amintirea ei; în multe biserici, clopotele bat și azi la prânz."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "1409",
+     "text": "Voicu, tatăl lui Iancu, primește domeniul Hunedoarei."
+    },
+    {
+     "an": "1441",
+     "text": "Iancu devine voievod al Transilvaniei."
+    },
+    {
+     "an": "1442",
+     "text": "Victoriile de la Sântimbru și de pe Ialomița."
+    },
+    {
+     "an": "1443–1444",
+     "text": "„Campania cea lungă” în Balcani."
+    },
+    {
+     "an": "1444",
+     "text": "Înfrângerea de la Varna (10 noiembrie)."
+    },
+    {
+     "an": "1446",
+     "text": "Este ales guvernator al Ungariei."
+    },
+    {
+     "an": "1453",
+     "text": "Mahomed al II-lea cucerește Constantinopolul."
+    },
+    {
+     "an": "1456",
+     "text": "Victoria de la Belgrad (22 iulie); Iancu moare de ciumă (11 august)."
+    },
+    {
+     "an": "1458",
+     "text": "Fiul său, Matei Corvin, este ales rege al Ungariei."
+    }
+   ]
+  },
+  {
+   "t": "fapte",
+   "titlu": "Pe scurt",
+   "randuri": [
+    {
+     "k": "Titluri",
+     "v": "voievod al Transilvaniei (1441–1446), guvernator al Ungariei (1446–1453)"
+    },
+    {
+     "k": "Reședința",
+     "v": "castelul de la Hunedoara"
+    },
+    {
+     "k": "Cea mai mare victorie",
+     "v": "Belgrad, 22 iulie 1456"
+    },
+    {
+     "k": "Fiul său",
+     "v": "Matei Corvin, rege al Ungariei (1458–1490)"
+    }
+   ]
+  },
+  {
+   "t": "text",
+   "md": "Castelul de la Hunedoara, refăcut și mărit de Iancu, a rămas cunoscut sub numele de **Castelul Corvinilor**, după porecla fiului său, **Matei Corvin**. Acesta a fost ales rege al Ungariei în 1458 și a domnit până în 1490, ca unul dintre cei mai cunoscuți regi ai ei."
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "Iancu de Hunedoara era dintr-o familie de origine română, așezată în Transilvania."
+    },
+    {
+     "text": "A fost voievod al Transilvaniei (din 1441) și guvernator al Ungariei (din 1446)."
+    },
+    {
+     "text": "În 1456 a apărat Belgradul de armata lui Mahomed al II-lea și a oprit înaintarea otomană pentru mai multe decenii."
+    },
+    {
+     "text": "Fiul său, Matei Corvin, a ajuns rege al Ungariei."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Ce domeniu a primit familia lui Iancu în 1409?",
+     "opt": [
+      "cetatea Bran",
+      "castelul și moșia Hunedoarei",
+      "cetatea Sucevei"
+     ],
+     "ok": 1,
+     "expl": "Regele Sigismund de Luxemburg i-a dăruit lui Voicu, tatăl lui Iancu, domeniul Hunedoarei."
+    },
+    {
+     "text": "Ce cetate a apărat Iancu în 1456?",
+     "opt": [
+      "Constantinopolul",
+      "Belgradul",
+      "Varna"
+     ],
+     "ok": 1,
+     "expl": "Belgradul păzea drumul pe Dunăre spre Ungaria; a rezistat asediului lui Mahomed al II-lea."
+    },
+    {
+     "text": "Cine a fost Matei Corvin?",
+     "opt": [
+      "fratele lui Iancu",
+      "fiul lui Iancu, rege al Ungariei",
+      "un sultan otoman"
+     ],
+     "ok": 1,
+     "expl": "Matei Corvin, fiul lui Iancu, a fost rege al Ungariei între 1458 și 1490."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-16"
+  }
+ ]
+}

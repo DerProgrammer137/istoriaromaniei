@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data: blob:; connect-src 'self' https://api.github.com; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Cronica · Biblioteca Istoriei Românești</title>
-<meta name="description" content="Lecții scrise despre istoria românilor, cu hărți istorice și grafice.">
+<title>Cronica · Istoria românilor</title>
+<meta name="description" content="Istoria românilor de la geto-daci până azi, ca o carte: lecții scrise, cu harta fiecărei epoci.">
 <meta property="og:title" content="Cronica · Biblioteca Istoriei Românești">
-<meta property="og:description" content="Lecții scrise despre istoria românilor, cu hărți istorice și grafice.">
+<meta property="og:description" content="Istoria românilor de la geto-daci până azi, ca o carte: lecții scrise, cu harta fiecărei epoci.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,31 +17,15 @@
 <link rel="stylesheet" href="assets/cronica.css">
 <script src="assets/tema.js"></script>
 </head>
-<body>
+<body class="cr">
 
-<div class="brau wrap" aria-hidden="true"><div class="mo mo-teeth"></div><div class="brau-line"></div><div class="mo mo-romb"></div><div class="brau-line"></div><div class="mo mo-teethup"></div></div>
-
-<header class="cr-header">
-  <div class="wrap">
-    <div class="topline"><a class="wordmark" href="./"><span class="rozeta" aria-hidden="true"></span>Biblioteca Istoriei Românești</a>
-      <div class="top-right"><nav class="site-nav" aria-label="Secțiunile site-ului"><a href="./" aria-current="page">Cronica</a><a href="biblioteca.html">Biblioteca video</a></nav>
-      <button class="theme-btn" id="theme-btn" type="button">Mod întunecat</button></div></div>
-  </div>
-</header>
-
-<main class="wrap cr-main" id="app" tabindex="-1">
-  <p class="cr-loading">Se încarcă cronica…</p>
+<h1 class="sr-only">Cronica. Istoria românilor de la geto-daci până azi</h1>
+<main class="masa" id="app" tabindex="-1">
+  <p class="cr-loading">Se deschide cartea…</p>
 </main>
 
-<footer>
-  <div class="brau small wrap" aria-hidden="true"><div class="mo mo-teeth"></div><div class="brau-line"></div><div class="mo mo-romb"></div><div class="brau-line"></div><div class="mo mo-teethup"></div></div>
-  <div class="wrap">
-    <p>Lecțiile sunt scrise de echipa canalului. Hărțile folosesc contururi reale (Natural Earth, domeniu public) și granițe istorice reconstituite; pentru Antichitate și migrații, granițele sunt aproximative.</p>
-    <p><a href="#configurare" class="quiet-link">Configurarea editării</a></p>
-  </div>
-</footer>
-
 <div class="cr-toast" id="toast" role="status" aria-live="polite" hidden></div>
+<div class="lupa" id="lupa" hidden></div>
 <div class="overlay" id="modal" hidden><div class="dlg cr-dlg" role="dialog" aria-modal="true" aria-labelledby="modal-h" id="modal-box"></div></div>
 
 <script src="assets/harta.js"></script>

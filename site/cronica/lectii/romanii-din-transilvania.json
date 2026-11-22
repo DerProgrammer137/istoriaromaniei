@@ -1,0 +1,196 @@
+{
+ "id": "romanii-din-transilvania",
+ "titlu": "Românii din Transilvania în secolul al XVIII-lea",
+ "rezumat": "Lupta românilor transilvăneni pentru drepturi: unirea cu Biserica Romei, Inochentie Micu, Școala Ardeleană, răscoala lui Horea și Supplex Libellus Valachorum.",
+ "an": 1784,
+ "cand": "1699–1791",
+ "regiuni": [
+  "transilvania",
+  "crisana",
+  "maramures",
+  "banat"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1780
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Chc%20horea.jpg?width=800",
+  "alt": "Portretul lui Horea, conducătorul răscoalei din 1784",
+  "sursa": "Horea, conducătorul răscoalei din 1784. Domeniu public, prin Wikimedia Commons.",
+  "forma": "portret"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "La sfârșitul secolului al XVII-lea, Habsburgii i-au alungat pe otomani din Ungaria și au luat în stăpânire Transilvania, recunoscută ca a lor prin pacea de la Karlowitz (1699). Banatul a urmat în 1718.\n\nNoua stăpânire nu a schimbat însă situația românilor. Deși erau o mare parte a populației, ei nu erau socotiți o „națiune” cu drepturi politice, iar cei mai mulți erau **iobagi**, legați de moșiile nobililor."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "iobag",
+     "def": "țăran legat de moșia unui nobil, căruia îi datora muncă și dări."
+    },
+    {
+     "termen": "greco-catolic (unit)",
+     "def": "credincios al Bisericii care păstrează slujba ortodoxă, dar recunoaște autoritatea papei."
+    },
+    {
+     "termen": "națiune privilegiată",
+     "def": "în Transilvania, grup cu drepturi politice: nobilii maghiari, sașii și secuii."
+    },
+    {
+     "termen": "petiție",
+     "def": "cerere scrisă adresată unei autorități."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Biserica Unită și Inochentie Micu"
+  },
+  {
+   "t": "text",
+   "md": "Ca să-și întărească stăpânirea, Habsburgii, care erau catolici, le-au promis românilor drepturile clerului catolic dacă vor recunoaște autoritatea papei. Între 1698 și 1701, o parte din clerul ortodox a acceptat **unirea cu Biserica Romei**, păstrând slujba și obiceiurile răsăritene. Așa s-a născut **Biserica Greco-Catolică**.\n\nEpiscopul **Inochentie Micu-Klein** a cerut ani la rând, în memorii trimise la Viena, ca românii să fie recunoscuți ca a patra națiune a Transilvaniei. A fost silit să plece în exil la Roma, unde a murit, dar urmașii lui au deschis la **Blaj**, în 1754, școlile care au devenit cele mai importante școli românești din Transilvania."
+  },
+  {
+   "t": "titlu",
+   "text": "Școala Ardeleană"
+  },
+  {
+   "t": "text",
+   "md": "Elevii de la Blaj, trimiși apoi la studii la Roma și la Viena, au format la sfârșitul secolului mișcarea numită **Școala Ardeleană**. Cei mai cunoscuți au fost **Samuil Micu**, **Gheorghe Șincai** și **Petru Maior**. Ei au scris istorii și gramatici care arătau originea latină a limbii române și continuitatea românilor în Dacia și au cerut folosirea alfabetului latin în locul celui chirilic.\n\nÎn 1780, Samuil Micu și Gheorghe Șincai au publicat la Viena prima gramatică tipărită a limbii române, *Elementa linguae daco-romanae sive valachicae*."
+  },
+  {
+   "t": "titlu",
+   "text": "Răscoala lui Horea"
+  },
+  {
+   "t": "text",
+   "md": "Iobagii români din Munții Apuseni trăiau în sărăcie și erau obligați la tot mai multe zile de muncă pe moșii. În toamna lui 1784, conduși de **Horea**, **Cloșca** și **Crișan**, s-au ridicat împotriva nobililor: au atacat conace și au cerut desființarea iobăgiei și împărțirea pământului. Răscoala a fost înăbușită de armata imperială până la sfârșitul anului.\n\nHorea și Cloșca au fost executați prin tragere pe roată la Alba Iulia, pe 28 februarie 1785, iar Crișan s-a sinucis în închisoare. Răscoala a avut totuși urmări: în același an, împăratul **Iosif al II-lea** a desființat legarea iobagilor de pământ."
+  },
+  {
+   "t": "imagine",
+   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Loeschenkohl04.jpg",
+   "alt": "Gravură: execuția lui Horea și Cloșca, în fața unei mulțimi și a soldaților",
+   "legenda": "Execuția lui Horea și Cloșca la Alba Iulia, gravură vieneză de Hieronymus Löschenkohl, 1785.",
+   "sursa": "Hieronymus Löschenkohl, Wien Museum. Domeniu public, prin Wikimedia Commons."
+  },
+  {
+   "t": "stiati",
+   "md": "Vestea răscoalei a ajuns în gazetele din toată Europa. În 1785, ziaristul francez Jacques-Pierre Brissot, viitor om politic al Revoluției Franceze, i-a scris împăratului Iosif al II-lea o scrisoare publică în care lua apărarea țăranilor români răsculați."
+  },
+  {
+   "t": "titlu",
+   "text": "Supplex Libellus Valachorum"
+  },
+  {
+   "t": "text",
+   "md": "În 1791, episcopii și fruntașii românilor au trimis împăratului Leopold al II-lea o petiție, **Supplex Libellus Valachorum**, în care cereau ca românii să fie recunoscuți ca națiune egală cu celelalte și să aibă în Dietă un număr de reprezentanți pe măsura numărului lor. Dieta Transilvaniei a respins-o, dar cererile ei au fost reluate la 1848."
+  },
+  {
+   "t": "citat",
+   "text": "Națiunea română este de departe cea mai veche dintre toate națiunile Transilvaniei de azi, căci e sigur și dovedit de mărturiile istoricilor că ea se trage din coloniile romane aduse aici de împăratul Traian.",
+   "autor": "Supplex Libellus Valachorum",
+   "sursa": "petiția românilor din Transilvania către împăratul Leopold al II-lea, 1791 (traducere liberă)",
+   "intrebare": "Ce argument folosesc autorii petiției ca să ceară drepturi pentru români? De ce credeți că au ales tocmai acest argument?"
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "1688–1699",
+     "text": "Habsburgii iau Transilvania; pacea de la Karlowitz (1699)."
+    },
+    {
+     "an": "1698–1701",
+     "text": "O parte din clerul ortodox acceptă unirea cu Biserica Romei."
+    },
+    {
+     "an": "1718",
+     "text": "Banatul trece la Habsburgi."
+    },
+    {
+     "an": "1754",
+     "text": "Se deschid școlile de la Blaj."
+    },
+    {
+     "an": "1780",
+     "text": "Apare Elementa linguae daco-romanae sive valachicae."
+    },
+    {
+     "an": "1784",
+     "text": "Răscoala lui Horea, Cloșca și Crișan."
+    },
+    {
+     "an": "1785",
+     "text": "Horea și Cloșca sunt executați; Iosif al II-lea desființează legarea iobagilor de pământ."
+    },
+    {
+     "an": "1791",
+     "text": "Supplex Libellus Valachorum."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "Din 1699, Transilvania a fost stăpânită de Monarhia Habsburgică."
+    },
+    {
+     "text": "Românii, deși numeroși, nu erau recunoscuți ca națiune cu drepturi politice."
+    },
+    {
+     "text": "Școala Ardeleană a arătat originea latină a românilor și a limbii române."
+    },
+    {
+     "text": "Răscoala lui Horea (1784) și Supplex Libellus Valachorum (1791) au cerut drepturi pentru români."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Unde s-au deschis, în 1754, cele mai importante școli românești din Transilvania?",
+     "opt": [
+      "la Blaj",
+      "la Sibiu",
+      "la Cluj"
+     ],
+     "ok": 0,
+     "expl": "Școlile de la Blaj i-au format pe cei mai mulți dintre învățații Școlii Ardelene."
+    },
+    {
+     "text": "Cine au fost conducătorii răscoalei din 1784?",
+     "opt": [
+      "Horea, Cloșca și Crișan",
+      "Samuil Micu, Gheorghe Șincai și Petru Maior",
+      "Avram Iancu și Nicolae Bălcescu"
+     ],
+     "ok": 0,
+     "expl": "Horea, Cloșca și Crișan au condus răscoala iobagilor din Munții Apuseni."
+    },
+    {
+     "text": "Ce cerea Supplex Libellus Valachorum?",
+     "opt": [
+      "unirea cu Moldova",
+      "recunoașterea românilor ca națiune egală cu celelalte",
+      "alungarea Habsburgilor"
+     ],
+     "ok": 1,
+     "expl": "Petiția din 1791 cerea drepturi politice egale pentru români."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-25"
+  }
+ ]
+}

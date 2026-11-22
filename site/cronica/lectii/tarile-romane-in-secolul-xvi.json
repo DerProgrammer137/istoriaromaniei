@@ -1,0 +1,224 @@
+{
+ "id": "tarile-romane-in-secolul-xvi",
+ "titlu": "Țările române în secolul al XVI-lea",
+ "rezumat": "Un secol între Ștefan cel Mare și Mihai Viteazul: Ungaria se prăbușește la Mohács, Transilvania devine principat, iar Moldova și Țara Românească își păstrează domnii, plătind tribut Porții.",
+ "an": 1512,
+ "cand": "1504–1593",
+ "regiuni": [
+  "muntenia",
+  "moldova",
+  "transilvania",
+  "banat"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1560
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Voronet%20Intrare.JPG?width=1280",
+  "alt": "Intrarea în mănăstirea Voroneț",
+  "sursa": "Mănăstirea Voroneț, ctitoria lui Ștefan cel Mare, pictată pe dinafară în 1547. Fotografie de pe Wikimedia Commons, licență liberă.",
+  "forma": "peisaj"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "După moartea lui Ștefan cel Mare, în 1504, raportul de forțe din sud-estul Europei s-a schimbat repede. Sub sultanul **Soliman Magnificul** (1520–1566), Imperiul Otoman a ajuns la vârful puterii sale. În 1521 a cucerit Belgradul, iar în 1526, la **Mohács**, a zdrobit armata Regatului Ungariei, al cărui rege a murit în bătălie."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "suzeranitate",
+     "def": "dependența unui stat față de altul mai puternic, căruia îi plătește tribut, dar își păstrează conducătorii și legile."
+    },
+    {
+     "termen": "principat",
+     "def": "stat condus de un principe; Transilvania a fost principat autonom din 1541 până spre sfârșitul secolului al XVII-lea."
+    },
+    {
+     "termen": "pașalâc",
+     "def": "provincie a Imperiului Otoman, condusă direct de un pașă."
+    },
+    {
+     "termen": "autonomie",
+     "def": "dreptul unei țări de a se conduce singură, după legile ei, deși depinde de un stat mai puternic."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Transilvania devine principat"
+  },
+  {
+   "t": "text",
+   "md": "După Mohács, Ungaria a fost sfâșiată de războiul dintre doi regi rivali, Ioan Zápolya și Ferdinand de Habsburg. În 1541, Soliman a ocupat Buda și a transformat centrul Ungariei în provincie otomană. Transilvania, împreună cu ținuturile vecine dinspre apus, numite *Partium*, a devenit un **principat autonom** sub suzeranitatea Porții. Banatul a fost cucerit în 1552 și transformat în **pașalâcul de Timișoara**.\n\nPrincipatul își alegea principele în Dietă, adunarea celor trei „națiuni” privilegiate: nobilii maghiari, sașii și secuii. Românii, deși erau o mare parte a populației, nu aveau drepturi politice, iar credința lor ortodoxă era doar „tolerată”."
+  },
+  {
+   "t": "harta",
+   "an": 1490,
+   "regiuni": [
+    "transilvania",
+    "banat",
+    "crisana",
+    "moldova",
+    "basarabia"
+   ],
+   "text": "Înainte și după Mohács: țările române în jurul anului 1490 și în jurul anului 1560, după ce Transilvania devenise principat, iar Banatul, pașalâc.",
+   "an2": 1560
+  },
+  {
+   "t": "titlu",
+   "text": "Moldova și Țara Românească"
+  },
+  {
+   "t": "text",
+   "md": "La sud și la est de Carpați, domnii au căutat să păstreze cât mai mult din autonomia țărilor lor. În Țara Românească, **Neagoe Basarab** (1512–1521) a fost un domn al păcii și al culturii: a ridicat biserica mănăstirii **Curtea de Argeș**, sfințită în 1517, și i-a lăsat fiului său o carte de sfaturi, *Învățăturile lui Neagoe Basarab către fiul său Theodosie*.\n\nÎn Moldova, **Petru Rareș** (1527–1538 și 1541–1546), fiul lui Ștefan cel Mare, a încercat să profite de luptele din Ungaria și a stăpânit o vreme cetăți în Transilvania. În 1538, Soliman Magnificul a venit el însuși cu oastea în Moldova. Rareș a fugit, iar sultanul a luat **Tighina** și sudul Basarabiei, pe care le-a transformat în raia. Rareș a revenit pe tron în 1541, dar ca domn supus Porții.\n\nSpre sfârșitul secolului, **Ioan Vodă cel Viteaz** (1572–1574) a refuzat dublarea tributului și a luptat împotriva otomanilor. După câteva victorii, a fost trădat, învins și ucis în 1574. Tributul și darurile cerute de Poartă au crescut mereu, iar domnii au ajuns să-și cumpere tronul la Constantinopol."
+  },
+  {
+   "t": "titlu",
+   "text": "Biserici pictate și primele texte în română"
+  },
+  {
+   "t": "text",
+   "md": "Secolul al XVI-lea a lăsat și monumente care stau și azi în picioare. În Moldova, pe vremea lui Petru Rareș, pereții exteriori ai bisericilor de la **Humor**, **Moldovița** și **Voroneț** au fost acoperiți cu picturi, ca o carte deschisă pentru credincioșii care nu știau să citească.\n\nTot atunci au apărut primele texte scrise în limba română: o scrisoare din 1521 și cărțile tipărite la Brașov de diaconul **Coresi**, după 1550."
+  },
+  {
+   "t": "imagine",
+   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Voronet%20last%20judgment.jpg?width=960",
+   "alt": "Pictura Judecății de Apoi, pe zidul exterior al bisericii Voroneț",
+   "legenda": "Judecata de Apoi, pictată pe zidul de apus al bisericii Voroneț.",
+   "sursa": "Fotografie de pe Wikimedia Commons, licență CC BY-SA 3.0."
+  },
+  {
+   "t": "stiati",
+   "md": "Cel mai vechi text păstrat scris în limba română este scrisoarea lui **Neacșu din Câmpulung** către judele Brașovului, Hans Benkner, din 1521. Neacșu îl anunța că turcii se pregătesc să treacă Dunărea. Scrisoarea folosește alfabetul chirilic."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "1512–1521",
+     "text": "Domnia lui Neagoe Basarab în Țara Românească."
+    },
+    {
+     "an": "1517",
+     "text": "Este sfințită biserica mănăstirii Curtea de Argeș."
+    },
+    {
+     "an": "1521",
+     "text": "Scrisoarea lui Neacșu din Câmpulung."
+    },
+    {
+     "an": "1526",
+     "text": "Otomanii zdrobesc armata Ungariei la Mohács."
+    },
+    {
+     "an": "1538",
+     "text": "Soliman Magnificul ia de la Moldova Tighina și sudul Basarabiei."
+    },
+    {
+     "an": "1541",
+     "text": "Transilvania devine principat autonom sub suzeranitate otomană."
+    },
+    {
+     "an": "1547",
+     "text": "Este pictată pe dinafară biserica de la Voroneț."
+    },
+    {
+     "an": "1552",
+     "text": "Banatul devine pașalâcul de Timișoara."
+    },
+    {
+     "an": "1574",
+     "text": "Ioan Vodă cel Viteaz este învins și ucis."
+    }
+   ]
+  },
+  {
+   "t": "fapte",
+   "titlu": "Pe scurt",
+   "randuri": [
+    {
+     "k": "Transilvania",
+     "v": "principat autonom din 1541, sub suzeranitate otomană"
+    },
+    {
+     "k": "Banatul",
+     "v": "pașalâc otoman din 1552"
+    },
+    {
+     "k": "Moldova și Țara Românească",
+     "v": "țări autonome, care plăteau tribut Porții"
+    },
+    {
+     "k": "Bisericile pictate din nordul Moldovei",
+     "v": "în patrimoniul mondial UNESCO din 1993"
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "În 1526, la Mohács, Imperiul Otoman a zdrobit Regatul Ungariei."
+    },
+    {
+     "text": "Din 1541, Transilvania a fost principat autonom sub suzeranitatea Porții, iar din 1552 Banatul a fost pașalâc otoman."
+    },
+    {
+     "text": "Moldova și Țara Românească și-au păstrat domnii și legile, dar plăteau un tribut tot mai mare."
+    },
+    {
+     "text": "Bisericile pictate ale Moldovei și primele texte în limba română datează din acest secol."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Ce bătălie a dus la prăbușirea Regatului Ungariei?",
+     "opt": [
+      "Mohács (1526)",
+      "Varna (1444)",
+      "Belgrad (1456)"
+     ],
+     "ok": 0,
+     "expl": "La Mohács, în 1526, armata Ungariei a fost zdrobită de Soliman Magnificul, iar regele a murit în luptă."
+    },
+    {
+     "text": "Ce a devenit Transilvania în 1541?",
+     "opt": [
+      "provincie otomană",
+      "principat autonom sub suzeranitatea Porții",
+      "parte a Moldovei"
+     ],
+     "ok": 1,
+     "expl": "După căderea Budei, Transilvania a devenit principat autonom, care plătea tribut Porții."
+    },
+    {
+     "text": "Care este cel mai vechi text păstrat scris în limba română?",
+     "opt": [
+      "Învățăturile lui Neagoe Basarab",
+      "Scrisoarea lui Neacșu (1521)",
+      "Biblia de la București"
+     ],
+     "ok": 1,
+     "expl": "Scrisoarea lui Neacșu din Câmpulung, din 1521. Învățăturile lui Neagoe au fost scrise în slavonă."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-19"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-20"
+  }
+ ]
+}

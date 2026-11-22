@@ -1,0 +1,179 @@
+{
+ "id": "tudor-vladimirescu",
+ "titlu": "Tudor Vladimirescu și mișcarea de la 1821",
+ "rezumat": "Un conducător de panduri din Oltenia ridică poporul împotriva abuzurilor și pune capăt, fără să apuce s-o vadă, epocii domnilor fanarioți.",
+ "an": 1821,
+ "cand": "1821",
+ "regiuni": [
+  "oltenia",
+  "muntenia"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1815
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Tudor%20Vladimirescu.jpg?width=800",
+  "alt": "Portretul lui Tudor Vladimirescu",
+  "sursa": "Tudor Vladimirescu. Domeniu public, prin Wikimedia Commons.",
+  "forma": "portret"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "**Tudor Vladimirescu** (c. 1780–1821) era un mic boier din satul Vladimiri, din Gorj. Luptase ca ofițer de **panduri** în armata rusă, în războiul ruso-turc din 1806–1812, și fusese decorat pentru vitejie. Cunoștea bine nemulțumirile țăranilor, apăsați de dări și de abuzurile dregătorilor."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "panduri",
+     "def": "oșteni voluntari din Oltenia, care păzeau granițele și luptau ca trupe ușoare."
+    },
+    {
+     "termen": "Eteria",
+     "def": "organizație secretă grecească, întemeiată în 1814, care pregătea eliberarea Greciei de sub otomani."
+    },
+    {
+     "termen": "proclamație",
+     "def": "chemare scrisă adresată poporului."
+    },
+    {
+     "termen": "norod",
+     "def": "cuvânt vechi pentru popor."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Ridicarea de la Padeș"
+  },
+  {
+   "t": "text",
+   "md": "La începutul lui 1821, Tudor s-a înțeles cu conducătorii **Eteriei**, care voiau să înceapă din Principate răscoala pentru eliberarea Greciei. Pe 23 ianuarie 1821, la **Padeș**, în Gorj, a citit o **proclamație** către locuitorii țării, chemându-i să se ridice împotriva celor care îi asupreau: dregătorii lacomi și boierii nedrepți."
+  },
+  {
+   "t": "citat",
+   "text": "Fraților locuitori ai Țării Românești, veri de ce neam veți fi! Nicio pravilă nu oprește pe om a întâmpina răul cu rău!",
+   "autor": "Tudor Vladimirescu",
+   "sursa": "Proclamația de la Padeș, 23 ianuarie 1821",
+   "intrebare": "Cui se adresează proclamația? Ce înseamnă că oamenii au dreptul „a întâmpina răul cu rău”?"
+  },
+  {
+   "t": "titlu",
+   "text": "Domnul Tudor"
+  },
+  {
+   "t": "text",
+   "md": "Mii de țărani și panduri s-au strâns în jurul lui, într-o oaste numită **Adunarea norodului**. Ca să se apere, Tudor a ocupat câteva mănăstiri din Oltenia, între care Tismana, ale căror ziduri groase puteau ține piept unui asediu. În martie 1821 a intrat în București, unde a condus o vreme țara, iar oamenii îi spuneau „Domnul Tudor”. Tudor a cerut însă și sprijinul Porții, explicând că nu se ridicase împotriva sultanului, ci împotriva abuzurilor.\n\nÎntre timp, Rusia condamnase Eteria, iar armata otomană intrase în țară. Conducătorii Eteriei l-au bănuit pe Tudor de trădare, l-au arestat la Golești și l-au ucis la Târgoviște, la sfârșitul lui mai 1821. Eteriștii au fost apoi înfrânți de otomani la Drăgășani."
+  },
+  {
+   "t": "titlu",
+   "text": "Urmările"
+  },
+  {
+   "t": "text",
+   "md": "Mișcarea lui Tudor a fost înfrântă, dar și-a atins o parte din scopuri. Poarta a înțeles că nu mai poate conduce Principatele prin fanarioți și, în 1822, a numit din nou domni pământeni: **Ioan Sandu Sturdza** în Moldova și **Grigore al IV-lea Ghica** în Țara Românească.\n\nPrin pacea de la Adrianopol (1829), Principatele au primit libertatea comerțului, iar sub ocupația rusă au primit primele lor legi asemănătoare unor constituții, **Regulamentele Organice** (1831–1832). Anul 1821 este socotit începutul epocii moderne în istoria românilor."
+  },
+  {
+   "t": "stiati",
+   "md": "Ca să fie primit cu încredere de oameni, Tudor și-a numit oastea „Adunarea norodului”: numele arăta că nu lupta pentru un domn sau pentru boieri, ci pentru tot poporul."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "1806–1812",
+     "text": "Tudor luptă ca ofițer de panduri în războiul ruso-turc."
+    },
+    {
+     "an": "1814",
+     "text": "Se înființează Eteria, la Odesa."
+    },
+    {
+     "an": "23 ianuarie 1821",
+     "text": "Proclamația de la Padeș."
+    },
+    {
+     "an": "martie 1821",
+     "text": "Tudor intră în București."
+    },
+    {
+     "an": "mai 1821",
+     "text": "Este arestat și ucis de eteriști la Târgoviște."
+    },
+    {
+     "an": "1822",
+     "text": "Revin domnii pământeni: Ioan Sandu Sturdza și Grigore al IV-lea Ghica."
+    },
+    {
+     "an": "1829",
+     "text": "Pacea de la Adrianopol: libertatea comerțului pentru Principate."
+    },
+    {
+     "an": "1831–1832",
+     "text": "Intră în vigoare Regulamentele Organice."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "În 1821, Tudor Vladimirescu a ridicat poporul din Țara Românească împotriva abuzurilor, prin Proclamația de la Padeș."
+    },
+    {
+     "text": "Oastea lui, Adunarea norodului, a intrat în București în martie 1821."
+    },
+    {
+     "text": "Tudor a fost ucis de eteriști în mai 1821."
+    },
+    {
+     "text": "După 1821, domniile fanariote s-au încheiat, iar Principatele au avut din nou domni pământeni."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Unde a citit Tudor Vladimirescu proclamația din 1821?",
+     "opt": [
+      "la Padeș",
+      "la Blaj",
+      "la Islaz"
+     ],
+     "ok": 0,
+     "expl": "Proclamația a fost citită la Padeș, în Gorj, pe 23 ianuarie 1821."
+    },
+    {
+     "text": "Cine l-a ucis pe Tudor Vladimirescu?",
+     "opt": [
+      "otomanii",
+      "conducătorii Eteriei",
+      "boierii moldoveni"
+     ],
+     "ok": 1,
+     "expl": "Eteriștii l-au bănuit de trădare și l-au ucis la Târgoviște."
+    },
+    {
+     "text": "Ce s-a schimbat în 1822?",
+     "opt": [
+      "Principatele s-au unit",
+      "au revenit domnii pământeni",
+      "a fost proclamată independența"
+     ],
+     "ok": 1,
+     "expl": "Poarta a renunțat la domnii fanarioți și a numit din nou domni români."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-26"
+  }
+ ]
+}

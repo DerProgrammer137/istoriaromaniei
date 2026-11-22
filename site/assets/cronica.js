@@ -20,7 +20,6 @@ const nf = new Intl.NumberFormat('ro-RO', {maximumFractionDigits: 2});
 const azi = () => new Date().toISOString().slice(0, 10);
 const regNume = id => (H.REGIUNI.find(r => r.id === id) || {}).n || id;
 const epoca = y => (y == null || y === '' || isNaN(y)) ? null : H.epocaAnului(Number(y));
-const ICON_SEARCH = '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M11 11l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
 
 /* numere scrise și românește: „137.903” (mii cu punct), „1,5” (zecimale cu virgulă) */
 function numar(v) {
@@ -276,170 +275,167 @@ async function asiguraDeblocare() {
   }));
 }
 
-/* ================= randarea lecțiilor ================= */
-const TIP = {text: 'Text', titlu: 'Subtitlu', harta: 'Hartă istorică', grafic: 'Grafic', cronologie: 'Cronologie', citat: 'Citat', fapte: 'Fișă pe scurt', imagine: 'Imagine', video: 'Videoclip'};
+/* ================= blocurile lecțiilor ================= */
+const TIP = {text: 'Text', titlu: 'Subtitlu', harta: 'Hartă istorică', grafic: 'Grafic', cronologie: 'Cronologie', citat: 'Sursă istorică', fapte: 'Pe scurt',
+  dictionar: 'Dicționar', stiati: 'Știați că?', imagine: 'Imagine', video: 'Videoclip', retin: 'Rețin', intrebari: 'Verifică-te'};
+const LIT = 'abcdefgh';
+const ICON_LUPA = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15 15l5 5M10.5 7.5v6M7.5 10.5h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
+const plural = (n, unu, multe) => n === 1 ? `o ${unu}` : `${n}${n % 100 >= 20 || (n % 100 === 0 && n) ? ' de' : ''} ${multe}`;
+const anBaza = l => (l.harta && l.harta.an != null && l.harta.an !== '' && !isNaN(Number(l.harta.an))) ? Number(l.harta.an) : (l.an != null && l.an !== '' && !isNaN(Number(l.an)) ? Number(l.an) : 2000);
+const momente = b => { const idx = [b.an, b.an2].filter(v => v !== '' && v != null && !isNaN(Number(v))).map(v => H.snapIndex(Number(v))); return idx.length ? [...new Set(idx)] : [H.AZI]; };
+const randuriGrafic = b => (b.date || []).map(r => ({e: String(r.e ?? '').trim(), v: numar(r.v)})).filter(r => r.e && !isNaN(r.v));
+const inaltimeGrafic = (b, cw) => b.tip === 'linie' ? Math.round(Math.min(340, Math.max(220, Math.max(260, Math.round(cw)) * 0.46))) : 12 + randuriGrafic(b).length * 36;
 
+function legendaHtml(snaps) {
+  const vazut = new Map();
+  snaps.forEach(s => H.legenda(s).forEach(x => { if (!vazut.has(x.pol)) vazut.set(x.pol, x); }));
+  return `<ul class="hm-leg">${[...vazut.values()].map(x => `<li><i style="background:${H.culoare(x.pol)}"></i>${esc(x.nume)}</li>`).join('')}</ul>`;
+}
+/* o hartă din carte: momentul (sau cele două momente comparate), legenda și explicația; totul are înălțime fixă */
+function htmlFigHarta(snaps, regiuni, text, plansa) {
+  const s0 = H.SNAPS[snaps[0]], zona = snaps.some(s => H.SNAPS[s].zona);
+  const titluri = snaps.map((s, k) => `<span class="hm-mom${k ? '' : ' on'}" data-mom="${k}"><span class="snap-when">${esc(H.SNAPS[s].cand)}</span> ${esc(H.SNAPS[s].titlu)}</span>`).join('');
+  return `<figure class="b b-harta${plansa ? ' pl-fig' : ''}" data-snaps="${snaps.join(',')}" data-reg="${esc((regiuni || []).join(','))}">
+    <div class="hm-cap">${snaps.length > 1 ? `<div class="seg hm-seg" role="group" aria-label="Alege momentul afișat">${snaps.map((s, k) =>
+      `<button type="button" data-snap="${k}" aria-pressed="${k === 0}">${esc(H.SNAPS[s].cand)}</button>`).join('')}</div>` : ''}<p class="hm-t">${titluri}</p></div>
+    <div class="hm"><button type="button" class="hm-lupa" aria-label="Mărește harta">${ICON_LUPA}</button></div>
+    <figcaption>${text ? inline(text) : esc(s0.nota)}${zona ? ' <span class="hm-aprox">Granițe aproximative.</span>' : ''}</figcaption>
+    ${legendaHtml(snaps)}
+  </figure>`;
+}
+function htmlPlansa(l) {
+  const s = H.snapIndex(anBaza(l)), snap = H.SNAPS[s];
+  return `<div class="plansa" data-snaps="${s}" data-reg="${esc((l.regiuni || []).join(','))}">
+    <h3 class="pl-t"><span class="snap-when">${esc(snap.cand)}</span> ${esc(snap.titlu)}</h3>
+    <div class="hm"><button type="button" class="hm-lupa" aria-label="Mărește harta">${ICON_LUPA}</button></div>
+    <p class="pl-nota">${esc(snap.nota)}${snap.zona ? ' Granițele sunt aproximative.' : ''}</p>
+    ${legendaHtml([s])}
+  </div>`;
+}
+function htmlImagine(src, alt, forma, capt, cls) {
+  return `<figure class="${cls} f-${forma === 'portret' ? 'portret' : 'peisaj'}"><div class="img-f"><img src="${esc(src)}" alt="${esc(alt || '')}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></div>${capt ? `<figcaption>${capt}</figcaption>` : ''}</figure>`;
+}
+function htmlVideo(b, ctx) {
+  const id = ytId(b.url);
+  if (id) return `<div class="b b-video"><div class="bv-yt"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="${esc(b.titlu || 'Videoclip YouTube')}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>${b.titlu ? `<p class="bv-cap">${esc(b.titlu)}</p>` : ''}</div>`;
+  if (!b.video) return '';
+  const v = (ctx.videos || []).find(x => String(x.id) === String(b.video));
+  if (!v) return '<p class="b bv-missing">Videoclipul ales nu mai este în bibliotecă.</p>';
+  const e = epoca(v.year);
+  return `<a class="b bv-card" href="biblioteca.html#v-${encodeURIComponent(v.id)}"><span class="bv-th" style="--p:var(${e ? e.p : '--e10'})"><span class="bv-play" aria-hidden="true"></span><span class="bv-year">${esc(fmtAn(v.year))}</span></span>
+    <span class="bv-body"><span class="bv-lab">Videoclip din bibliotecă</span><span class="bv-title">${esc(v.title)}</span><span class="bv-meta">${esc(v.duration || '')}</span></span></a>`;
+}
 function htmlBloc(b, i, ctx) {
   switch (b.t) {
-    case 'text': return b.md && b.md.trim() ? `<div class="b b-text">${md(b.md)}</div>` : '';
-    case 'titlu': return b.text && b.text.trim() ? `<h2 class="b b-titlu">${esc(b.text)}</h2>` : '';
-    case 'citat': return b.text && b.text.trim() ? `<figure class="b b-citat"><blockquote>${md(b.text)}</blockquote>${(b.autor || b.sursa) ? `<figcaption>${b.autor ? `<span class="cit-autor">${esc(b.autor)}</span>` : ''}${b.sursa ? `<cite>${inline(b.sursa)}</cite>` : ''}</figcaption>` : ''}</figure>` : '';
+    case 'text': return b.md && b.md.trim() ? `<div class="b b-text${ctx.primul === i ? ' b-intai' : ''}">${md(b.md)}</div>` : '';
+    case 'titlu': return b.text && b.text.trim() ? `<h3 class="b b-titlu">${esc(b.text)}</h3>` : '';
+    case 'citat': return b.text && b.text.trim() ? `<figure class="b b-sursa"><blockquote>${md(b.text)}</blockquote>${(b.autor || b.sursa) ? `<figcaption>${b.autor ? `<span class="s-autor">${esc(b.autor)}</span>` : ''}${b.sursa ? `<cite>${inline(b.sursa)}</cite>` : ''}</figcaption>` : ''}${b.intrebare ? `<p class="s-intreb"><b>Întrebare.</b> ${inline(b.intrebare)}</p>` : ''}</figure>` : '';
     case 'fapte': {
       const rows = (b.randuri || []).filter(r => String(r.k ?? '').trim() || String(r.v ?? '').trim());
-      return rows.length ? `<aside class="b b-fapte">${b.titlu ? `<h3>${esc(b.titlu)}</h3>` : ''}<dl>${rows.map(r => `<dt>${esc(r.k)}</dt><dd>${inline(r.v)}</dd>`).join('')}</dl></aside>` : '';
+      return rows.length ? `<aside class="b b-fapte"><h4>${esc(b.titlu || 'Pe scurt')}</h4><dl>${rows.map(r => `<dt>${esc(r.k)}</dt><dd>${inline(r.v)}</dd>`).join('')}</dl></aside>` : '';
+    }
+    case 'dictionar': {
+      const rows = (b.termeni || []).filter(r => String(r.termen ?? '').trim());
+      return rows.length ? `<aside class="b b-dict"><h4>Dicționar</h4><dl>${rows.map(r => `<div><dt>${esc(r.termen)}</dt><dd>${inline(r.def)}</dd></div>`).join('')}</dl></aside>` : '';
+    }
+    case 'stiati': return b.md && b.md.trim() ? `<aside class="b b-stiati"><h4>Știați că?</h4>${md(b.md)}</aside>` : '';
+    case 'retin': {
+      const rows = (b.puncte || []).map(r => String(r.text ?? '').trim()).filter(Boolean);
+      return rows.length ? `<aside class="b b-retin"><h4>Rețin</h4><ul>${rows.map(r => `<li>${inline(r)}</li>`).join('')}</ul></aside>` : '';
+    }
+    case 'intrebari': {
+      const qs = (b.q || []).filter(q => String(q.text ?? '').trim() && (q.opt || []).filter(o => String(o ?? '').trim()).length >= 2);
+      return qs.length ? `<section class="b b-test"><h4>Verifică-te</h4><ol>${qs.map(q => {
+        const opt = (q.opt || []).map(o => String(o ?? '').trim()).filter(Boolean), ok = Math.min(Math.max(0, +q.ok || 0), opt.length - 1);
+        return `<li class="t-q" data-ok="${ok}"><p class="t-text">${inline(q.text)}</p><div class="t-opt">${opt.map((o, oi) =>
+          `<button type="button" class="t-o" data-o="${oi}"><span class="t-lit">${LIT[oi]})</span><span>${inline(o)}</span></button>`).join('')}</div>
+          <p class="t-expl"><b>Răspunsul corect: ${LIT[ok]})</b> ${inline(q.expl || '')}</p></li>`; }).join('')}</ol></section>` : '';
     }
     case 'cronologie': {
       const ev = (b.ev || []).filter(r => String(r.an ?? '').trim() || String(r.text ?? '').trim());
-      return ev.length ? `<figure class="b b-cron">${b.titlu ? `<figcaption class="b-h">${esc(b.titlu)}</figcaption>` : ''}<ol>${ev.map(r => `<li><span class="cr-an">${esc(r.an)}</span><span class="cr-ev">${inline(r.text)}</span></li>`).join('')}</ol></figure>` : '';
+      return ev.length ? `<figure class="b b-cron"><figcaption class="b-h">${esc(b.titlu || 'Cronologie')}</figcaption><ol>${ev.map(r => `<li><span class="cr-an">${esc(r.an)}</span><span class="cr-ev">${inline(r.text)}</span></li>`).join('')}</ol></figure>` : '';
     }
     case 'imagine': {
       const src = ctx.img(b.src); if (!src) return '';
-      const capt = [b.legenda ? inline(b.legenda) : '', b.sursa ? `<span class="img-src">Sursa: ${inline(b.sursa)}</span>` : ''].filter(Boolean).join(' ');
-      return `<figure class="b b-img"><img src="${esc(src)}" alt="${esc(b.alt || '')}" loading="lazy" decoding="async" referrerpolicy="no-referrer">${capt ? `<figcaption>${capt}</figcaption>` : ''}</figure>`;
+      const capt = [b.legenda ? inline(b.legenda) : '', b.sursa ? `<span class="img-src">${inline(b.sursa)}</span>` : ''].filter(Boolean).join(' ');
+      return htmlImagine(src, b.alt, b.forma, capt, 'b b-img');
     }
-    case 'harta': return `<figure class="b b-harta" data-bi="${i}"></figure>`;
-    case 'grafic': return `<figure class="b b-grafic" data-bi="${i}"></figure>`;
-    case 'video': return (b.video || ytId(b.url)) ? `<div class="b b-video" data-bi="${i}"></div>` : '';
+    case 'harta': return htmlFigHarta(momente(b), b.regiuni, b.text, false);
+    case 'grafic': {
+      const rows = randuriGrafic(b); if (!rows.length) return '';
+      const fmt = v => cuUnitate(v, String(b.unitate || '').trim());
+      return `<figure class="b b-grafic" data-bi="${i}">${b.titlu ? `<figcaption class="bg-title">${esc(b.titlu)}</figcaption>` : ''}<div class="bg-plot" style="height:${inaltimeGrafic(b, ctx.cw)}px"></div><div class="bg-tip" hidden></div>
+        ${b.sursa ? `<p class="bg-src">Sursa: ${inline(b.sursa)}</p>` : ''}
+        <table class="sr-only"><caption>${esc(b.titlu || 'Datele graficului')}</caption><thead><tr><th scope="col">${b.tip === 'linie' ? 'Când' : 'Ce'}</th><th scope="col">Valoare</th></tr></thead><tbody>${rows.map(r => `<tr><td>${esc(r.e)}</td><td>${esc(fmt(r.v))}</td></tr>`).join('')}</tbody></table></figure>`;
+    }
+    case 'video': return htmlVideo(b, ctx);
     default: return '';
   }
 }
-function randeazaLectie(cont, l, ctx) {
-  ctx = ctx || {img: srcImagine};
-  cont.innerHTML = (l.blocuri || []).map((b, i) => htmlBloc(b, i, ctx)).join('') || '<p class="empty">Lecția nu are încă niciun conținut.</p>';
-  const primul = cont.querySelector('.b-text'); if (primul && !primul.previousElementSibling?.matches('.b-text')) primul.classList.add('b-intai');
-  cont.querySelectorAll('[data-bi]').forEach(el => {
-    const b = l.blocuri[+el.dataset.bi];
-    if (b.t === 'harta' && ctx.inline) monteazaHarta(el, b);
-    else if (b.t === 'grafic') monteazaGrafic(el, b);
-    else if (b.t === 'video') monteazaVideo(el, b);
-  });
-  imaginiFragile(cont);
+function htmlCorp(l, ctx, dupaPrimul) {
+  const bl = l.blocuri || [];
+  const c = Object.assign({}, ctx, {primul: bl.length && bl[0].t === 'text' ? 0 : -1});
+  const parti = bl.map((b, i) => htmlBloc(b, i, c));
+  if (dupaPrimul) parti.splice(c.primul === 0 ? 1 : 0, 0, dupaPrimul);   // pe telefon, harta epocii vine după primul text
+  return parti.join('') || '<p class="empty">Lecția nu are încă niciun conținut.</p>';
 }
-/* o imagine care nu se mai încarcă (link mort) dispare, nu lasă o ramă goală */
+/* imaginile care nu se încarcă rămân ca o ramă goală, ca să nu se miște paginile */
 function imaginiFragile(root) {
   root.querySelectorAll('img').forEach(img => {
-    const fail = () => { const f = img.closest('figure'); (f || img).classList.add('img-broken'); };
+    const fail = () => { const f = img.closest('.img-f') || img.closest('figure'); (f || img).classList.add('img-broken'); };
     if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) fail(); else img.addEventListener('error', fail, {once: true});
   });
 }
-/* ---------- pagina unei lecții: textul în stânga, harta perioadei alături ---------- */
-const LAT = window.matchMedia ? window.matchMedia('(min-width: 1080px)') : {matches: true};
-function htmlCoperta(c, ctx) {
-  const src = c && ctx.img(c.src); if (!src) return '';
-  const lata = c.forma === 'peisaj';
-  return `<figure class="${lata ? 'lesson-cover-wide' : 'lesson-cover ' + (c.forma === 'portret' ? 'portret' : 'auto')}"><img src="${esc(src)}" alt="${esc(c.alt || '')}" decoding="async" referrerpolicy="no-referrer">${c.sursa ? `<figcaption>${inline(c.sursa)}</figcaption>` : ''}</figure>`;
-}
-function paginaLectie(l, ctx, o) {
-  o = o || {};
-  const e = epoca(l.an), regs = (l.regiuni || []).map(regNume), lata = l.coperta && l.coperta.forma === 'peisaj';
-  return `<article class="lesson" style="--p:var(${e ? e.p : '--e10'})">
-    ${o.crumbs ? '<nav class="crumbs"><a href="#">Înapoi la cuprins</a></nav>' : ''}
-    <div class="lesson-grid">
-      <header class="lesson-head">
-        <div class="frontispiciu" aria-hidden="true"><span class="mo-teeth"></span></div>
-        <div class="lesson-head-in">
-          <div class="lesson-titles">
-            <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
-            <p class="lesson-when">${esc([e ? e.name : '', l.cand || fmtAn(l.an)].filter(Boolean).join(', '))}</p>
-            <h1>${esc(l.titlu || 'Fără titlu')}</h1>
-            ${l.rezumat ? `<p class="lede">${esc(l.rezumat)}</p>` : ''}
-          </div>
-          ${lata ? '' : htmlCoperta(l.coperta, ctx)}
-        </div>
-        ${lata ? htmlCoperta(l.coperta, ctx) : ''}
-        <p class="lesson-meta">${regs.length ? `<span>${esc(regs.join(', '))}</span>` : ''}${l.actualizat ? `<span>Actualizată la ${esc(fmtData(l.actualizat))}</span>` : ''}${l.autor ? `<span>Scrisă de ${esc(l.autor)}</span>` : ''}${l.exemplu ? '<span class="sample">Lecție de exemplu</span>' : ''}</p>
-        ${o.tools || ''}
-      </header>
-      <aside class="lesson-map" aria-label="Harta lecției"></aside>
-      <div class="lesson-body"></div>
-      ${o.nav || ''}
-    </div>
-  </article>`;
-}
-function monteazaPagina(root, l, ctx) {
-  const body = root.querySelector('.lesson-body');
-  randeazaLectie(body, l, ctx);
-  imaginiFragile(root.querySelector('.lesson-head'));
-  const cov = root.querySelector('.lesson-cover.auto img');
-  if (cov) {
-    const fix = () => { if (cov.naturalWidth > cov.naturalHeight * 1.15) { const f = cov.closest('figure'); f.className = 'lesson-cover-wide'; root.querySelector('.lesson-head-in').after(f); } };
-    if (cov.complete && cov.naturalWidth) fix(); else cov.addEventListener('load', fix, {once: true});
-  }
-  panouHarta(root.querySelector('.lesson-map'), l, body);
-}
-async function panouHarta(aside, l, body, ctl) {
-  let g;
-  try { g = await geo(); } catch (_) { aside.innerHTML = '<p class="empty">Harta nu s-a putut încărca.</p>'; return; }
-  const anBaza = l.harta && l.harta.an != null && !isNaN(Number(l.harta.an)) ? Number(l.harta.an) : (l.an != null && l.an !== '' && !isNaN(Number(l.an)) ? Number(l.an) : 2000);
-  const baza = {snap: H.snapIndex(anBaza), reg: l.regiuni || []};
-  const momente = [baza];
-  const cues = [...body.querySelectorAll('.b-harta[data-bi]')];
-  cues.forEach(el => {
-    const b = l.blocuri[+el.dataset.bi];
-    el._m = [b.an, b.an2].filter(v => v !== '' && v != null && !isNaN(Number(v))).map(v => ({snap: H.snapIndex(Number(v)), reg: b.regiuni || []}));
-    if (!el._m.length) el._m = [baza];
-    el._m.forEach(m => { if (!momente.some(x => x.snap === m.snap)) momente.push(m); });
+async function monteazaHarti(root) {
+  let g; try { g = await geo(); } catch (_) { return; }
+  root.querySelectorAll('[data-snaps]').forEach(fig => {
+    if (fig._h || !fig.isConnected) return;
+    const hm = fig.querySelector('.hm'); if (!hm) return;
+    const snaps = fig.dataset.snaps.split(',').map(Number), reg = fig.dataset.reg ? fig.dataset.reg.split(',') : [];
+    const m = H.creeaza(hm, g, {fix: true, eticheta: 'Harta: ' + H.SNAPS[snaps[0]].titlu});
+    fig._h = {m, snaps, reg, k: 0};
+    m.randeaza({mod: 'perioada', snap: snaps[0], evidentiere: reg});
   });
-  momente.sort((a, b) => a.snap - b.snap);
-  aside.innerHTML = `<div class="lm-in"><p class="lm-snap"></p>
-    ${momente.length > 1 ? `<div class="seg lm-seg" role="group" aria-label="Momentele din lecție">${momente.map((m, k) => `<button type="button" data-mom="${k}">${esc(H.SNAPS[m.snap].cand)}</button>`).join('')}</div>` : ''}
-    <div class="lm-map"></div><p class="lm-note"></p>
-    <details class="lm-leg-d"${LAT.matches && !ctl ? ' open' : ''}><summary>Cine stăpânea teritoriile</summary><ul class="pol-legend lm-leg"></ul></details></div>`;
-  const m = H.creeaza(aside.querySelector('.lm-map'), g, {eticheta: 'Harta lecției: ' + (l.titlu || '')});
-  let activ = null;
-  const arata = mm => {
-    if (activ && activ.snap === mm.snap && activ.reg === mm.reg) return;
-    activ = mm;
-    const s = H.SNAPS[mm.snap], k = momente.findIndex(x => x.snap === mm.snap);
-    m.randeaza({mod: 'perioada', snap: mm.snap, evidentiere: mm.reg});
-    aside.querySelector('.lm-snap').innerHTML = `<span class="snap-when">${esc(s.cand)}</span> ${esc(s.titlu)}${s.zona ? '<span class="approx">granițe aproximative</span>' : ''}`;
-    aside.querySelector('.lm-note').textContent = s.nota;
-    aside.querySelector('.lm-leg').innerHTML = H.legenda(mm.snap).map(x => `<li><i style="background:${H.culoare(x.pol)}"></i><span>${esc(x.nume)}</span><small>${esc(x.membri.join(', '))}</small></li>`).join('');
-    aside.querySelectorAll('[data-mom]').forEach(bt => bt.setAttribute('aria-pressed', String(+bt.dataset.mom === k)));
-    cues.forEach(c => c.classList.toggle('activ', c._m.includes(mm)));
-  };
-  aside.addEventListener('click', e => { const bt = e.target.closest('[data-mom]'); if (bt) arata(momente[+bt.dataset.mom]); });
-  arata(baza);
-  cues.forEach(el => {
-    const b = l.blocuri[+el.dataset.bi], s0 = H.SNAPS[el._m[0].snap];
-    el.innerHTML = `<div class="cue-in"><span class="cue-ico" aria-hidden="true"></span><div>
-      <p class="cue-t"><span class="snap-when">${esc(s0.cand)}</span> ${esc(s0.titlu)}</p>${b.text ? `<p class="cue-x">${inline(b.text)}</p>` : ''}
-      <div class="cue-btns">${el._m.map((mm, k) => `<button type="button" class="linkbtn" data-cue="${k}">${el._m.length > 1 ? 'Arată pe hartă: ' + esc(H.SNAPS[mm.snap].cand) : 'Arată pe hartă'}</button>`).join('')}</div></div></div>
-      <div class="cue-map"></div>`;
-    el.addEventListener('click', e => { const bt = e.target.closest('[data-cue]'); if (bt) arata(el._m[+bt.dataset.cue]); });
-    if (!LAT.matches) monteazaHarta(el.querySelector('.cue-map'), b);
-  });
-  if (ctl && ctl.dubla) {
-    ctl.laPagina = k => { let mm = baza; cues.forEach(c => { if (ctl.paginaLui(c) <= k) mm = c._m[0]; }); arata(mm); };
-    ctl.laPagina(ctl.k);
-    return;
-  }
-  if (ctl) return;
-  if (LAT.matches && cues.length && 'IntersectionObserver' in window) {
-    const sentinel = document.createElement('div'); sentinel.className = 'cue-sentinel'; body.prepend(sentinel); sentinel._m = [baza];
-    const io = new IntersectionObserver(ents => ents.forEach(en => { if (en.isIntersecting) arata(en.target._m[0]); }), {rootMargin: '-38% 0px -52% 0px'});
-    [sentinel, ...cues].forEach(c => io.observe(c));
-  }
 }
-async function monteazaHarta(el, b) {
-  let g;
-  try { g = await geo(); } catch (_) { el.innerHTML = '<p class="empty">Harta nu s-a putut încărca.</p>'; return; }
-  const idx = [b.an, b.an2].filter(v => v !== '' && v != null && !isNaN(Number(v))).map(v => H.snapIndex(Number(v)));
-  if (!idx.length) idx.push(H.AZI);
-  el.innerHTML = `<div class="bh-top">${idx.length > 1 ? `<div class="seg" role="group" aria-label="Alege momentul afișat">${idx.map((s, k) =>
-    `<button type="button" data-snap="${k}" aria-pressed="${k === 0}">${esc(H.SNAPS[s].cand)}</button>`).join('')}</div>` : ''}<p class="snap"></p></div>
-    <div class="bh-map"></div><p class="period-note bh-note"></p><details class="bh-leg-d"><summary>Cine stăpânea teritoriile</summary><ul class="pol-legend bh-leg"></ul></details>${b.text ? `<figcaption>${inline(b.text)}</figcaption>` : ''}`;
-  const m = H.creeaza(el.querySelector('.bh-map'), g, {eticheta: 'Hartă istorică' + (b.text ? ': ' + b.text : '')});
-  const show = k => {
-    const s = idx[k], snap = H.SNAPS[s];
-    m.randeaza({mod: 'perioada', snap: s, evidentiere: b.regiuni || []});
-    el.querySelector('.snap').innerHTML = `${esc(snap.cand)} · ${esc(snap.titlu)}${snap.zona ? '<span class="approx">granițe aproximative</span>' : ''}`;
-    el.querySelector('.bh-note').textContent = snap.nota;
-    el.querySelector('.bh-leg').innerHTML = H.legenda(s).map(x => `<li><i style="background:${H.culoare(x.pol)}"></i><span>${esc(x.nume)}</span><small>${esc(x.membri.join(', '))}</small></li>`).join('');
-    el.querySelectorAll('[data-snap]').forEach(bt => bt.setAttribute('aria-pressed', String(+bt.dataset.snap === k)));
+function arataMoment(fig, k) {
+  const h = fig._h; if (!h || !h.snaps[k] && h.snaps[k] !== 0) return;
+  h.k = k; h.m.randeaza({mod: 'perioada', snap: h.snaps[k], evidentiere: h.reg});
+  fig.querySelectorAll('[data-snap]').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.snap === k)));
+  fig.querySelectorAll('.hm-mom').forEach(s => s.classList.toggle('on', +s.dataset.mom === k));
+}
+/* harta mărită, peste carte: se poate apropia, trage și compara */
+async function deschideLupa(fig) {
+  const g = await geo().catch(() => null); if (!g) return;
+  const snaps = fig.dataset.snaps.split(',').map(Number), reg = fig.dataset.reg ? fig.dataset.reg.split(',') : [], k0 = fig._h ? fig._h.k : 0;
+  const ov = document.getElementById('lupa'), prev = document.activeElement;
+  ov.innerHTML = `<div class="lupa-in" role="dialog" aria-modal="true" aria-labelledby="lupa-t">
+    <div class="lupa-sus"><h2 class="lupa-t" id="lupa-t"></h2>${snaps.length > 1 ? `<div class="seg" role="group" aria-label="Alege momentul afișat">${snaps.map((s, k) => `<button type="button" data-lsnap="${k}">${esc(H.SNAPS[s].cand)}</button>`).join('')}</div>` : ''}
+      <button type="button" class="lupa-x" aria-label="Închide harta">✕</button></div>
+    <div class="lupa-h"></div><p class="lupa-nota"></p><div class="lupa-leg"></div></div>`;
+  ov.hidden = false; document.body.style.overflow = 'hidden';
+  const m = H.creeaza(ov.querySelector('.lupa-h'), g, {eticheta: 'Harta mărită'});
+  const arata = k => {
+    const s = snaps[k], snap = H.SNAPS[s];
+    m.randeaza({mod: 'perioada', snap: s, evidentiere: reg});
+    ov.querySelector('.lupa-t').innerHTML = `<span class="snap-when">${esc(snap.cand)}</span> ${esc(snap.titlu)}`;
+    ov.querySelector('.lupa-nota').textContent = snap.nota + (snap.zona ? ' Granițele sunt aproximative.' : '');
+    ov.querySelector('.lupa-leg').innerHTML = legendaHtml([s]);
+    ov.querySelectorAll('[data-lsnap]').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.lsnap === k)));
   };
-  el.addEventListener('click', e => { const bt = e.target.closest('[data-snap]'); if (bt) show(+bt.dataset.snap); });
-  show(0);
+  const inchide = () => { ov.hidden = true; ov.innerHTML = ''; document.body.style.overflow = ''; document.removeEventListener('keydown', tasta, true); if (prev && prev.focus) prev.focus(); };
+  const tasta = e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); inchide(); } };
+  ov.onclick = e => { if (e.target === ov || e.target.closest('.lupa-x')) inchide(); const b = e.target.closest('[data-lsnap]'); if (b) arata(+b.dataset.lsnap); };
+  document.addEventListener('keydown', tasta, true);
+  arata(k0);
+  ov.querySelector('.lupa-x').focus();
+}
+const lupaDeschisa = () => !document.getElementById('lupa').hidden;
+function raspunde(btn) {
+  const li = btn.closest('.t-q'); if (!li || li.classList.contains('gata')) return;
+  const ok = +li.dataset.ok, o = +btn.dataset.o;
+  li.classList.add('gata', o === ok ? 'bine' : 'gresit');
+  li.querySelectorAll('.t-o').forEach(b => { b.setAttribute('aria-disabled', 'true'); if (+b.dataset.o === ok) b.classList.add('corect'); });
+  btn.classList.add('ales');
 }
 
 /* ---------- grafice: o singură serie, în roșul site-ului; bare subțiri, valori la capăt, tabel pentru cititoare de ecran ---------- */
@@ -458,20 +454,14 @@ let measureCtx = null;
 function latimeText(t, font) { measureCtx = measureCtx || document.createElement('canvas').getContext('2d'); measureCtx.font = font; return measureCtx.measureText(t).width; }
 function niceMax(v) { if (v <= 0) return 1; const p = Math.pow(10, Math.floor(Math.log10(v))), f = v / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p; }
 function monteazaGrafic(el, b) {
-  const rows = (b.date || []).map(r => ({e: String(r.e ?? '').trim(), v: numar(r.v)})).filter(r => r.e && !isNaN(r.v));
-  const unit = String(b.unitate || '').trim();
-  const fmt = v => cuUnitate(v, unit);
-  if (!rows.length) { el.remove(); return; }
-  el.innerHTML = `${b.titlu ? `<figcaption class="bg-title">${esc(b.titlu)}</figcaption>` : ''}<div class="bg-plot"></div><div class="bg-tip" hidden></div>
-    ${b.sursa ? `<p class="bg-src">Sursa: ${inline(b.sursa)}</p>` : ''}
-    <details class="bg-table"><summary>Vezi datele în tabel</summary><table><thead><tr><th scope="col">${b.tip === 'linie' ? 'Când' : 'Ce'}</th><th scope="col">Valoare</th></tr></thead>
-    <tbody>${rows.map(r => `<tr><td>${esc(r.e)}</td><td>${esc(fmt(r.v))}</td></tr>`).join('')}</tbody></table></details>`;
+  const rows = randuriGrafic(b); if (!rows.length) return;
+  const fmt = v => cuUnitate(v, String(b.unitate || '').trim());
   const plot = el.querySelector('.bg-plot'), tip = el.querySelector('.bg-tip');
   const font = getComputedStyle(plot).fontFamily || 'sans-serif';
-  const draw = () => { const W = Math.max(260, Math.round(plot.clientWidth || 600)); (b.tip === 'linie' ? graficLinie : graficBare)(plot, tip, rows, W, fmt, font, b.titlu || 'Grafic'); };
-  draw();
-  if (window.ResizeObserver) { let last = plot.clientWidth; new ResizeObserver(() => { const w = plot.clientWidth; if (w && Math.abs(w - last) > 4) { last = w; draw(); } }).observe(plot); }
+  const W = Math.max(260, Math.round(plot.clientWidth || 600));
+  (b.tip === 'linie' ? graficLinie : graficBare)(plot, tip, rows, W, fmt, font, b.titlu || 'Grafic');
 }
+
 const SVGNS = 'http://www.w3.org/2000/svg';
 const sv = (tag, at, parent) => { const e = document.createElementNS(SVGNS, tag); for (const k in at) e.setAttribute(k, at[k]); if (parent) parent.appendChild(e); return e; };
 function arataTip(tip, plot, x, y, valoare, eticheta) {
@@ -559,151 +549,460 @@ function graficLinie(plot, tip, rows, W, fmt, font, titlu) {
   svg.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); pick(Math.max(0, Math.min(pts.length - 1, (cur < 0 ? 0 : cur) + (e.key === 'ArrowRight' ? 1 : -1)))); } });
 }
 
-async function monteazaVideo(el, b) {
-  const id = ytId(b.url);
-  if (id) {
-    el.innerHTML = `<div class="bv-yt"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="${esc(b.titlu || 'Videoclip YouTube')}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>${b.titlu ? `<p class="bv-cap">${esc(b.titlu)}</p>` : ''}`;
-    return;
-  }
-  const v = (await videos()).find(x => String(x.id) === String(b.video));
-  if (!v) { el.innerHTML = '<p class="bv-missing">Videoclipul ales nu mai este în bibliotecă.</p>'; return; }
-  const e = epoca(v.year);
-  el.innerHTML = `<a class="bv-card" href="biblioteca.html#v-${encodeURIComponent(v.id)}"><span class="bv-th" style="--p:var(${e ? e.p : '--e10'})"><span class="bv-play" aria-hidden="true"></span><span class="bv-year">${esc(fmtAn(v.year))}</span></span>
-    <span class="bv-body"><span class="label">Videoclip din bibliotecă</span><span class="bv-title">${esc(v.title)}</span><span class="bv-meta">${esc(v.duration || '')}</span></span></a>`;
-}
 
-/* ================= cartea ================= */
-/* Paginile se fac cu coloane CSS: textul curge într-o singură coloană lată cât pagina, iar „pagina k”
-   e coloana k, adusă în fereastră cu translateX. Pe ecrane late, pagina din stânga e planșa cu harta. */
+/* ================= cartea =================
+   Cartea e un șir de secțiuni: foaia de titlu, cuprinsul, deschiderea fiecărei părți, lecțiile, încheierea.
+   Textul unei secțiuni curge în coloane CSS cât o pagină; „pagina k” e coloana k, adusă în fereastră cu translateX.
+   Pe ecrane late se văd două pagini: fereastra cuprinde ambele pagini, iar o secțiune poate avea o pagină fixă
+   în stânga (planșa cu harta lecției, pagina de titlu a părții). Fiecare secțiune începe pe o pagină din stânga.
+   Toate secțiunile se măsoară dinainte, ca să se știe numerele de pagină din cuprins. */
 const FARA_MISCARE = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : {matches: false};
-let carteActiva = null;
+const ICON_ST = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ICON_DR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+let CARTE_ACTIVA = null;
 
-/* ================= ecran complet =================
-   Clasa „ecran-complet” pe <html> ascunde antetul și subsolul și mărește cartea.
-   Unde browserul permite, pagina trece și în modul ecran complet al sistemului
-   (pe iPhone, Safari nu permite asta, așa că rămâne doar modul de citire). */
+/* ================= ecran complet ================= */
 const radacina = document.documentElement;
 const FS_API = !!(document.fullscreenEnabled || document.webkitFullscreenEnabled);
 const inFs = () => !!(document.fullscreenElement || document.webkitFullscreenElement);
-const peEcranComplet = () => radacina.classList.contains('ecran-complet');
 const ICON_FS = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const ICON_FS_IESI = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-let fsReal = false;
 const continutFs = on => (on ? ICON_FS_IESI : ICON_FS) + `<span>${on ? 'Ieși din ecran complet' : 'Ecran complet'}</span>`;
-const btnEcran = () => { const on = peEcranComplet(); return `<button class="btn btn-fs" type="button" data-fs aria-pressed="${on}" title="${on ? 'Ieși din ecran complet' : 'Citește pe tot ecranul'} (tasta F)">${continutFs(on)}</button>`; };
+const btnEcran = () => FS_API ? `<button class="bara-t btn-fs" type="button" data-fs aria-pressed="${inFs()}" title="${inFs() ? 'Ieși din ecran complet' : 'Citește pe tot ecranul'} (tasta F)">${continutFs(inFs())}</button>` : '';
 function picteazaEcran() {
-  const on = peEcranComplet();
-  document.querySelectorAll('[data-fs]').forEach(b => {
-    b.innerHTML = continutFs(on); b.setAttribute('aria-pressed', String(on));
-    b.title = (on ? 'Ieși din ecran complet' : 'Citește pe tot ecranul') + ' (tasta F)';
-  });
+  const on = inFs();
+  radacina.classList.toggle('ecran-complet', on);
+  document.querySelectorAll('[data-fs]').forEach(b => { b.innerHTML = continutFs(on); b.setAttribute('aria-pressed', String(on)); b.title = (on ? 'Ieși din ecran complet' : 'Citește pe tot ecranul') + ' (tasta F)'; });
 }
-function intraEcran() {
-  radacina.classList.add('ecran-complet'); picteazaEcran();
-  if (!FS_API || inFs()) return;
+function comutaEcran() {
+  if (!FS_API) return;
   try {
-    const r = radacina.requestFullscreen ? radacina.requestFullscreen({navigationUI: 'hide'}) : radacina.webkitRequestFullscreen();
-    if (r && r.catch) r.catch(() => {});
+    if (inFs()) { const r = (document.exitFullscreen || document.webkitExitFullscreen).call(document); if (r && r.catch) r.catch(() => {}); }
+    else { const r = radacina.requestFullscreen ? radacina.requestFullscreen({navigationUI: 'hide'}) : radacina.webkitRequestFullscreen(); if (r && r.catch) r.catch(() => {}); }
   } catch (_) {}
 }
-function iesiEcran() {
-  radacina.classList.remove('ecran-complet'); picteazaEcran();
-  if (!inFs()) return;
-  try { const r = (document.exitFullscreen || document.webkitExitFullscreen).call(document); if (r && r.catch) r.catch(() => {}); } catch (_) {}
-}
-const comutaEcran = () => (peEcranComplet() ? iesiEcran() : intraEcran());
-['fullscreenchange', 'webkitfullscreenchange'].forEach(ev => document.addEventListener(ev, () => {
-  if (inFs()) { fsReal = true; return; }
-  // Esc în modul sistem iese din ecran complet fără să treacă prin pagină: ieșim și din modul de citire
-  if (fsReal) { fsReal = false; if (peEcranComplet()) { radacina.classList.remove('ecran-complet'); picteazaEcran(); } }
-}));
+const iesiEcran = () => { if (inFs()) comutaEcran(); };
+['fullscreenchange', 'webkitfullscreenchange'].forEach(ev => document.addEventListener(ev, picteazaEcran));
 document.addEventListener('click', e => { if (e.target.closest && e.target.closest('[data-fs]')) comutaEcran(); });
-document.addEventListener('keydown', e => {
-  if (e.ctrlKey || e.metaKey || e.altKey || (e.target.closest && e.target.closest('input,textarea,select,[contenteditable]'))) return;
-  if (!document.getElementById('modal').hidden) return;
-  if ((e.key === 'f' || e.key === 'F') && app.querySelector('.carte, .coperta')) { e.preventDefault(); comutaEcran(); }
-  else if (e.key === 'Escape' && peEcranComplet()) iesiEcran();
-});
-document.addEventListener('keydown', e => {
-  const c = carteActiva; if (!c || !document.body.contains(c.el)) return;
-  if (e.target.closest('input,textarea,select,[contenteditable]') || !document.getElementById('modal').hidden) return;
-  if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); c.mergi(1); }
-  if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); c.mergi(-1); }
-});
-function carte(o) {
-  const dubla = LAT.matches;
-  app.classList.add('larg');
-  app.innerHTML = `<div class="masa"><div class="carte ${dubla ? 'dubla' : 'simpla'}" role="region" aria-roledescription="carte" aria-label="${esc(o.eticheta)}">
+
+/* ================= tema ================= */
+const temaCurenta = () => radacina.getAttribute('data-theme') || (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+function comutaTema() {
+  const t = temaCurenta() === 'dark' ? 'light' : 'dark';
+  radacina.setAttribute('data-theme', t);
+  try { localStorage.setItem('tema', t); } catch (_) {}
+  document.querySelectorAll('[data-act="tema"]').forEach(b => { b.textContent = t === 'dark' ? 'Mod luminos' : 'Mod întunecat'; });
+}
+
+/* ---------- dimensiunile paginilor, după ecran ---------- */
+function dimensiuni(simpla) {
+  const vw = document.documentElement.clientWidth || window.innerWidth, vh = window.innerHeight, bara = 58;
+  if (!simpla && vw >= 960 && vh >= 520) {
+    const ph = Math.round(Math.max(520, Math.min(vh - bara - 30, 1000)));
+    const pw = Math.floor(Math.min((Math.min(vw, 1600) - 44) / 2, ph * 0.74));
+    if (pw >= 400) {
+      const padO = Math.round(Math.max(40, pw * 0.09)), padI = Math.round(Math.max(30, pw * 0.064)), padT = 56, padB = 60;
+      const cw = pw - padO - padI, ch = ph - padT - padB;
+      return {dubla: true, pw, ph, padO, padI, padT, padB, cw, ch, G: 2 * padI, fs: Math.max(16, Math.min(20, cw / 29))};
+    }
+  }
+  const pw = Math.min(vw - 12, 660), ph = Math.round(Math.max(480, vh - bara - 14));
+  const pad = Math.round(Math.max(20, pw * 0.07)), padT = 44, padB = 48;
+  const cw = pw - 2 * pad, ch = ph - padT - padB;
+  return {dubla: false, pw, ph, padO: pad, padI: pad, padT, padB, cw, ch, G: 2 * pad, fs: Math.max(16, Math.min(19, cw / 27))};
+}
+
+function creeazaCarte(host, opt) {
+  const c = {p: 0, total: 0, S: [], m: -1, anim: false, D: null, pagini: {}, opt};
+  let el, corp, plan, fer, flux, mflux, foaie, bara;
+
+  function construieste() {
+    const D = c.D = dimensiuni(opt.simpla);
+    host.innerHTML = `<div class="carte ${D.dubla ? 'dubla' : 'simpla'}" role="region" aria-roledescription="carte" aria-label="${esc(opt.eticheta || 'Cronica')}">
       <div class="carte-corp">
-        ${dubla ? '<div class="pag pag-st"><div class="pag-st-in"></div></div>' : ''}
-        <div class="pag pag-dr"><div class="pag-vp"><div class="flux">${o.flux}</div></div><span class="pag-nr"></span></div>
+        <div class="plan">
+          ${D.dubla ? '<div class="pag pag-st"><p class="rh" aria-hidden="true"></p><div class="fixa"></div><span class="gol" aria-hidden="true"></span><span class="folio" aria-hidden="true"></span></div>' : ''}
+          <div class="pag pag-dr"><p class="rh" aria-hidden="true"></p><span class="gol" aria-hidden="true"></span><span class="folio" aria-hidden="true"></span></div>
+          <div class="fer"><div class="flux"></div></div>
+        </div>
         <div class="foaie" aria-hidden="true" hidden><div class="fata"></div><div class="dos"></div></div>
-        ${o.semn ? '<a class="semn" href="#cuprins" title="Înapoi la cuprins" aria-label="Înapoi la cuprins"></a>' : ''}
-      </div></div>
-    <div class="carte-nav"><button class="step" type="button" data-pg="-1" aria-label="Pagina anterioară">‹</button>
-      <span class="carte-loc" aria-live="polite"></span><button class="step" type="button" data-pg="1" aria-label="Pagina următoare">›</button>
-      ${btnEcran()}${o.unelte ? `<span class="carte-unelte">${o.unelte}</span>` : ''}</div></div>`;
-  const el = app.querySelector('.carte'), vp = el.querySelector('.pag-vp'), flux = el.querySelector('.flux');
-  const ctl = {el, flux, st: el.querySelector('.pag-st-in'), dubla, k: 0, n: 1, W: 1, G: 60, anim: false};
-  ctl.paginaLui = node => Math.max(0, Math.floor((node.getBoundingClientRect().left - flux.getBoundingClientRect().left + 2) / (ctl.W + ctl.G)));
-  ctl.pune = () => {
-    flux.style.transform = `translateX(${-ctl.k * (ctl.W + ctl.G)}px)`; vp.scrollLeft = 0;
-    el.querySelector('.pag-dr .pag-nr').textContent = ctl.k + 1;
-    app.querySelector('.carte-loc').textContent = `Pagina ${ctl.k + 1} din ${ctl.n}`;
-    app.querySelector('[data-pg="-1"]').disabled = ctl.k === 0 && !o.inainte;
-    app.querySelector('[data-pg="1"]').disabled = ctl.k >= ctl.n - 1 && !o.dupa;
-    if (ctl.laPagina) ctl.laPagina(ctl.k);
+        <div class="masura" aria-hidden="true"><div class="flux"></div></div>
+      </div>
+    </div>
+    <nav class="bara" aria-label="Răsfoirea cărții">
+      <button type="button" class="bara-b" data-nav="-1" aria-label="Pagina anterioară">${ICON_ST}</button>
+      ${opt.mini ? '' : '<a class="bara-t" href="#cuprins">Cuprins</a>'}
+      <span class="bara-loc" aria-live="polite"></span>
+      ${opt.mini ? '' : `${btnEcran()}<details class="bara-m"><summary class="bara-t">Mai mult</summary><div class="bara-meniu">
+        <a href="biblioteca.html">Biblioteca video</a>
+        <button type="button" data-act="edit" hidden>Editează lecția</button>
+        <a href="#nou">Scrie o lecție nouă</a>
+        <button type="button" data-act="tema">${temaCurenta() === 'dark' ? 'Mod luminos' : 'Mod întunecat'}</button>
+        ${TOKEN ? '<button type="button" data-act="lock">Blochează editarea</button>' : ''}</div></details>`}
+      <button type="button" class="bara-b" data-nav="1" aria-label="Pagina următoare">${ICON_DR}</button>
+    </nav>`;
+    el = host.querySelector('.carte'); corp = el.querySelector('.carte-corp'); plan = el.querySelector('.plan'); fer = el.querySelector('.fer');
+    flux = fer.querySelector('.flux'); mflux = el.querySelector('.masura .flux'); foaie = el.querySelector('.foaie'); bara = host.querySelector('.bara');
+    ['pw', 'ph', 'cw', 'ch', 'G', 'padT', 'padB', 'padO', 'padI'].forEach(k => el.style.setProperty('--' + k, D[k] + 'px'));
+    el.style.setProperty('--fs', D.fs.toFixed(2) + 'px');
+    c.el = el;
+    c.S = opt.sectiuni(D.dubla ? 'dubla' : 'simpla', D);
+    masoara();
+    c.m = -1;
+    leaga();
+  }
+  const numara = f => Math.max(1, Math.round((f.scrollWidth + c.D.G) / (c.D.cw + c.D.G)));
+  /* Plutirea casetelor, ca în cărțile tipărite: o hartă, o imagine sau o casetă care nu mai încape pe pagină
+     ar lăsa în urmă un gol mare. Atunci e mutată după textul care o urmează, iar textul umple golul. */
+  const PLUTESC = '.b-harta, .b-img, .b-sursa, .b-cron, .b-grafic, .b-fapte, .b-stiati, .b-dict';
+  function golInainte(f, el) {
+    const D = c.D, r0 = f.getBoundingClientRect(), pas = D.cw + D.G;
+    const re = el.getClientRects()[0], prev = el.previousElementSibling;
+    if (!re || !prev || re.top - r0.top > 2) return 0;
+    const pr = [...prev.getClientRects()].pop(); if (!pr) return 0;
+    if (Math.round((pr.left - r0.left) / pas) !== Math.round((re.left - r0.left) / pas) - 1) return 0;
+    return D.ch - (pr.bottom - r0.top);
+  }
+  const FINAL = '.b-retin, .b-test, .bv-card, .b-video, .bv-missing';
+  function plutire(f) {
+    const box = f.querySelector('.corp'); if (!box) return;
+    const prag = c.D.ch * 0.2, mutari = new Map(), sel = ':scope > ' + PLUTESC.split(', ').join(', :scope > ');
+    for (let k = 0; k < 60; k++) {
+      let mutat = false;
+      for (const el of box.querySelectorAll(sel)) {
+        const gol = golInainte(f, el);
+        if (gol < prag || (mutari.get(el) || 0) >= 2) continue;
+        const n0 = numara(f), urm = el.nextElementSibling;
+        let best = null, x = urm;
+        // încearcă să pună caseta după unul, două sau trei blocuri următoare (niciodată după încheierea lecției)
+        for (let pasi = 0; x && pasi < 3 && !x.matches(FINAL); pasi++) {
+          let dupa = x;
+          if (dupa.matches('.b-titlu') && dupa.nextElementSibling && !dupa.nextElementSibling.matches(FINAL)) dupa = dupa.nextElementSibling;
+          box.insertBefore(el, dupa.nextSibling);
+          const n1 = numara(f), g1 = golInainte(f, urm);
+          if (n1 <= n0 && g1 < gol - 24 && (!best || n1 < best.n || (n1 === best.n && g1 < best.g))) best = {dupa, n: n1, g: g1};
+          box.insertBefore(el, urm);
+          x = dupa.nextElementSibling;
+        }
+        if (!best) continue;
+        box.insertBefore(el, best.dupa.nextSibling);
+        mutari.set(el, (mutari.get(el) || 0) + 1); mutat = true; break;
+      }
+      if (!mutat) break;
+    }
+  }
+  function masoara() {
+    const D = c.D;
+    c.S.forEach(s => {
+      const html = s.flux(() => '000');
+      s.html = null;
+      if (html) {
+        mflux.innerHTML = html;
+        if (s.tip === 'lectie') { plutire(mflux); s.html = mflux.innerHTML; }
+        s.n = numara(mflux);
+      } else s.n = 0;
+      s.pag = (D.dubla && s.fixa ? 1 : 0) + s.n;
+      if (D.dubla && s.pag % 2) s.pag++;
+      if (!s.pag) s.pag = D.dubla ? 2 : 1;
+    });
+    mflux.innerHTML = '';
+    let q = 0; c.pagini = {};
+    c.S.forEach(s => { s.start = q; c.pagini[s.hash] = q; q += s.pag; });
+    c.total = q;
+  }
+  const folio = q => c.D.dubla ? q : q + 1;
+  c.folio = folio;
+  const pag = h => c.pagini[h] == null ? '' : String(folio(c.pagini[h]));
+  const sectiunea = q => Math.max(0, c.S.findIndex(s => q >= s.start && q < s.start + s.pag));
+  function monteaza(i, retry) {
+    const s = c.S[i], D = c.D;
+    const st = el.querySelector('.pag-st .fixa');
+    if (st) st.innerHTML = D.dubla && s.fixa ? s.fixa() : '';
+    flux.innerHTML = s.html || s.flux(pag);
+    c.m = i;
+    if (s.dupa) s.dupa(plan);
+    imaginiFragile(plan);
+    if (numara(flux) !== s.n && !retry) {     // fonturile sau imaginile au schimbat așezarea: se măsoară din nou
+      const h = s.hash, frac = (c.p - s.start) / s.pag;
+      masoara(); const ni = c.S.findIndex(x => x.hash === h);
+      c.p = c.S[ni].start + Math.min(c.S[ni].pag - 1, Math.round(frac * c.S[ni].pag)); if (D.dubla) c.p -= c.p % 2;
+      monteaza(ni, true);
+    }
+  }
+  function textRh(p, txt) { const r = p.querySelector('.rh'); if (r.textContent !== txt) r.textContent = txt; }
+  function textFolio(p, txt) { p.querySelector('.folio').textContent = txt; }
+  function pune() {
+    const D = c.D, q = c.p, i = sectiunea(q);
+    if (i !== c.m) monteaza(i);
+    const s = c.S[i], j = c.p - s.start;
+    const pst = el.querySelector('.pag-st'), pdr = el.querySelector('.pag-dr');
+    if (D.dubla) {
+      const fixaSt = !!s.fixa && j === 0, cSt = fixaSt ? -1 : j - (s.fixa ? 1 : 0), cDr = cSt + 1;
+      flux.style.transform = `translateX(${-cSt * (D.cw + D.G)}px)`;
+      pst.classList.toggle('arata-fixa', fixaSt);
+      const golSt = !fixaSt && cSt >= s.n, golDr = cDr >= s.n;
+      pst.classList.toggle('goala', golSt); pdr.classList.toggle('goala', golDr);
+      const desc = j === 0;
+      textRh(pst, !desc && !golSt && s.rh ? s.rh.st : ''); textRh(pdr, !desc && !golDr && s.rh ? s.rh.dr : '');
+      textFolio(pst, s.faraFolio || golSt ? '' : folio(c.p)); textFolio(pdr, s.faraFolio || golDr ? '' : folio(c.p + 1));
+    } else {
+      flux.style.transform = `translateX(${-j * (D.cw + D.G)}px)`;
+      const gol = j >= s.n;
+      pdr.classList.toggle('goala', gol);
+      textRh(pdr, j > 0 && !gol && s.rh ? s.rh.dr : '');
+      textFolio(pdr, s.faraFolio || gol ? '' : folio(c.p));
+    }
+    fer.scrollLeft = 0; fer.scrollTop = 0;
+    const fr = c.total > 1 ? c.p / (c.total - 1) : 0;
+    el.style.setProperty('--gros-st', (2 + 11 * fr).toFixed(1) + 'px'); el.style.setProperty('--gros-dr', (2 + 11 * (1 - fr)).toFixed(1) + 'px');
+    const loc = bara.querySelector('.bara-loc');
+    if (s.faraFolio) loc.textContent = s.tip === 'front' ? 'Foaia de titlu' : (s.eticheta || '');
+    else loc.textContent = D.dubla ? `paginile ${folio(c.p)}–${folio(Math.min(c.p + 1, c.total - 1))} din ${folio(c.total - 1)}` : (D.pw < 480 ? `${folio(c.p)} / ${folio(c.total - 1)}` : `pagina ${folio(c.p)} din ${folio(c.total - 1)}`);
+    bara.querySelector('[data-nav="-1"]').disabled = c.p === 0 && !opt.laInceput;
+    bara.querySelector('[data-nav="1"]').disabled = c.p + (D.dubla ? 2 : 1) >= c.total && !opt.laSfarsit;
+    const ed = bara.querySelector('[data-act="edit"]'); if (ed) ed.hidden = s.tip !== 'lectie';
+    if (opt.laSchimbare) opt.laSchimbare(s, c.p);
+  }
+  function curataClona(k) {
+    k.querySelectorAll('[id]').forEach(x => x.removeAttribute('id'));
+    k.querySelectorAll('iframe').forEach(f => { const d = document.createElement('div'); d.className = 'iframe-loc'; f.replaceWith(d); });
+    k.querySelectorAll('a,button,[tabindex]').forEach(x => x.setAttribute('tabindex', '-1'));
+    k.setAttribute('aria-hidden', 'true');
+    return k;
+  }
+  function felie(k, partea) {
+    const w = document.createElement('div'); w.className = 'felie';
+    k.style.left = (c.D.dubla && partea === 'dr') ? -c.D.pw + 'px' : '0px';
+    w.appendChild(k); return w;
+  }
+  function intoarce(q) {
+    const D = c.D, dir = q > c.p ? 1 : -1;
+    const vechi = curataClona(plan.cloneNode(true));
+    c.p = q; pune();
+    const nou = curataClona(plan.cloneNode(true));
+    const fata = foaie.firstElementChild, dos = foaie.lastElementChild;
+    const sub = document.createElement('div'); sub.className = 'sub ' + (dir > 0 ? 'sub-st' : 'sub-dr');
+    if (D.dubla) {
+      foaie.className = 'foaie ' + (dir > 0 ? 'spre-st' : 'spre-dr');
+      fata.replaceChildren(felie(vechi.cloneNode(true), dir > 0 ? 'dr' : 'st'));
+      dos.replaceChildren(felie(nou, dir > 0 ? 'st' : 'dr'));
+      sub.appendChild(felie(vechi, dir > 0 ? 'st' : 'dr'));
+      corp.appendChild(sub);
+    } else {
+      foaie.className = 'foaie singura ' + (dir > 0 ? 'inainte' : 'inapoi');
+      fata.replaceChildren(felie(vechi, 'dr')); dos.replaceChildren();
+    }
+    foaie.hidden = false; c.anim = true;
+    const kf = D.dubla ? [{transform: 'rotateY(0deg)'}, {transform: `rotateY(${dir > 0 ? -180 : 180}deg)`}]
+      : (dir > 0 ? [{transform: 'rotateY(0deg)', opacity: 1}, {transform: 'rotateY(-100deg)', opacity: .5}] : [{transform: 'translateX(0)', opacity: 1}, {transform: 'translateX(48px)', opacity: 0}]);
+    const a = foaie.animate(kf, {duration: D.dubla ? 760 : 480, easing: 'cubic-bezier(.45,.05,.25,1)'});
+    const gata = () => { foaie.hidden = true; fata.replaceChildren(); dos.replaceChildren(); sub.remove(); c.anim = false; };
+    a.onfinish = gata; a.oncancel = gata;
+  }
+  function mergi(q, anim) {
+    if (!c.total) return;
+    q = Math.max(0, Math.min(c.total - 1, q)); if (c.D.dubla) q -= q % 2;
+    if (c.anim) { c.p = q; pune(); return; }
+    if (!anim || q === c.p || c.m < 0 || FARA_MISCARE.matches || !foaie.animate) { c.p = q; pune(); return; }
+    intoarce(q);
+  }
+  const pas = () => c.D.dubla ? 2 : 1;
+  function urm() { if (c.p + pas() >= c.total) { if (opt.laSfarsit) opt.laSfarsit(); return; } mergi(c.p + pas(), true); }
+  function prec() { if (c.p === 0) { if (opt.laInceput) opt.laInceput(); return; } mergi(c.p - pas(), true); }
+  function paginaElementului(node) {
+    const s = c.S[c.m]; if (!s) return null;
+    const col = Math.max(0, Math.floor((node.getBoundingClientRect().left - flux.getBoundingClientRect().left + 2) / (c.D.cw + c.D.G)));
+    return s.start + (c.D.dubla && s.fixa ? 1 : 0) + col;
+  }
+  function leaga() {
+    bara.addEventListener('click', e => {
+      const b = e.target.closest('[data-nav]'); if (b) { +b.dataset.nav > 0 ? urm() : prec(); return; }
+      const a = e.target.closest('[data-act]'); if (!a) return;
+      const m = bara.querySelector('.bara-m'); if (m) m.open = false;
+      if (a.dataset.act === 'tema') comutaTema();
+      if (a.dataset.act === 'edit') { const s = c.S[c.m]; if (s && s.id) location.hash = 'edit-' + s.id; }
+      if (a.dataset.act === 'lock') { setToken(null); S.cuprins = null; DATE = null; toast('Editarea a fost blocată în acest tab.'); route(); }
+    });
+    el.addEventListener('click', e => {
+      const t = e.target;
+      const snap = t.closest('[data-snap]'); if (snap) { arataMoment(snap.closest('[data-snaps]'), +snap.dataset.snap); return; }
+      const lupa = t.closest('.hm-lupa, .hm'); if (lupa && !c.anim) { const fig = lupa.closest('[data-snaps]'); if (fig) deschideLupa(fig); return; }
+      const o = t.closest('.t-o'); if (o) { raspunde(o); return; }
+      if (t.closest('a,button,input,select,textarea,summary,label,.bg-plot,iframe')) return;
+      if (window.getSelection && String(window.getSelection()).length) return;
+      const r = corp.getBoundingClientRect(), x = (e.clientX - r.left) / r.width;
+      if (c.D.dubla ? x > .84 : x > .7) urm(); else if (c.D.dubla ? x < .16 : x < .3) prec();
+    });
+    corp.addEventListener('mousemove', e => {
+      const r = corp.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, dr = c.D.dubla ? x > .84 : x > .7, st = c.D.dubla ? x < .16 : x < .3;
+      corp.classList.toggle('zona-dr', dr && !e.target.closest('a,button,.hm,.bg-plot')); corp.classList.toggle('zona-st', st && c.p > 0 && !e.target.closest('a,button,.hm,.bg-plot'));
+    });
+    corp.addEventListener('mouseleave', () => corp.classList.remove('zona-dr', 'zona-st'));
+    let x0 = null, y0 = 0;
+    corp.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') { x0 = e.clientX; y0 = e.clientY; } });
+    corp.addEventListener('pointerup', e => { if (x0 == null) return; const dx = e.clientX - x0, dy = e.clientY - y0; x0 = null; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) { dx < 0 ? urm() : prec(); } });
+    corp.addEventListener('pointercancel', () => { x0 = null; });
+    flux.addEventListener('focusin', e => {
+      fer.scrollLeft = 0;
+      const q = paginaElementului(e.target); if (q == null) return;
+      const vizibil = c.D.dubla ? (q === c.p || q === c.p + 1) : q === c.p;
+      if (!vizibil) mergi(q, false);
+    });
+    flux.addEventListener('load', () => { /* imaginile au rame fixe: nimic de refăcut */ }, true);
+  }
+  c.mergi = mergi; c.urm = urm; c.prec = prec;
+  c.paginaHash = h => c.pagini[h];
+  c.sectiuneCurenta = () => c.S[c.m];
+  c.reconstruieste = () => {
+    const s = c.S[c.m], h = s ? s.hash : null, frac = s ? (c.p - s.start) / s.pag : 0;
+    construieste();
+    const ni = h ? c.S.findIndex(x => x.hash === h) : 0, ns = c.S[Math.max(0, ni)];
+    let q = ns.start + Math.min(ns.pag - 1, Math.round(frac * ns.pag)); if (c.D.dubla) q -= q % 2;
+    c.p = q; pune();
   };
-  ctl.masoara = () => {
-    const W = vp.clientWidth, Hh = vp.clientHeight; if (!W || !Hh) return;
-    ctl.W = W;
-    Object.assign(flux.style, {width: W + 'px', height: Hh + 'px', columnWidth: W + 'px', columnGap: ctl.G + 'px'});
-    flux.style.transform = 'none';
-    ctl.n = Math.max(1, Math.round((flux.scrollWidth + ctl.G) / (W + ctl.G)));
-    ctl.k = Math.min(ctl.k, ctl.n - 1);
-    ctl.pune();
-  };
-  ctl.mergi = dir => {
-    if (ctl.anim) return;
-    const nou = ctl.k + dir;
-    if (nou < 0) { if (o.inainte) o.inainte(); return; }
-    if (nou >= ctl.n) { if (o.dupa) o.dupa(); return; }
-    if (FARA_MISCARE.matches || !el.animate) { ctl.k = nou; ctl.pune(); return; }
-    const foaie = el.querySelector('.foaie'), fata = foaie.firstElementChild, dos = foaie.lastElementChild;
-    const dr = el.querySelector('.pag-dr'), stg = el.querySelector('.pag-st');
-    const clona = n => { const c = n.cloneNode(true); c.querySelectorAll('[id]').forEach(x => x.removeAttribute('id')); c.setAttribute('aria-hidden', 'true'); return c; };
-    foaie.className = 'foaie ' + (dubla ? (dir > 0 ? 'spre-st' : 'spre-dr') : 'singura');
-    fata.replaceChildren(clona(dir > 0 || !dubla ? dr : stg));
-    ctl.k = nou; ctl.pune();
-    dos.replaceChildren(dubla ? clona(dir > 0 ? stg : dr) : '');
-    foaie.hidden = false; ctl.anim = true;
-    const kf = dubla ? [{transform: 'rotateY(0deg)'}, {transform: `rotateY(${dir > 0 ? -180 : 180}deg)`}]
-      : (dir > 0 ? [{transform: 'rotateY(0deg)', opacity: 1}, {transform: 'rotateY(-100deg)', opacity: .6}] : [{transform: 'translateX(0)', opacity: 1}, {transform: 'translateX(40px)', opacity: 0}]);
-    const anim = foaie.animate(kf, {duration: dubla ? 820 : 520, easing: 'cubic-bezier(.45,.05,.25,1)'});
-    const gata = () => { foaie.hidden = true; fata.replaceChildren(); dos.replaceChildren(); ctl.anim = false; };
-    anim.onfinish = gata; anim.oncancel = gata;
-  };
-  app.querySelector('.carte-nav').addEventListener('click', e => { const b = e.target.closest('[data-pg]'); if (b) ctl.mergi(+b.dataset.pg); });
-  let x0 = null, y0 = 0;
-  el.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' && !e.target.closest('.hmap')) { x0 = e.clientX; y0 = e.clientY; } });
-  el.addEventListener('pointerup', e => { if (x0 == null) return; const dx = e.clientX - x0, dy = e.clientY - y0; x0 = null; if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) ctl.mergi(dx < 0 ? 1 : -1); });
-  el.addEventListener('pointercancel', () => { x0 = null; });
-  flux.addEventListener('focusin', e => { vp.scrollLeft = 0; const k = ctl.paginaLui(e.target); if (k !== ctl.k && k < ctl.n) { ctl.k = k; ctl.pune(); } });
-  let t = null; const din_nou = () => { clearTimeout(t); t = setTimeout(ctl.masoara, 80); };
-  if (window.ResizeObserver) new ResizeObserver(din_nou).observe(vp);
-  if (window.MutationObserver) new MutationObserver(din_nou).observe(flux, {childList: true, subtree: true});
-  flux.addEventListener('load', din_nou, true); flux.addEventListener('toggle', din_nou, true);
-  carteActiva = ctl;
-  return ctl;
+  construieste();
+  return c;
+}
+let redim = null, latimeVeche = window.innerWidth, inaltimeVeche = window.innerHeight;
+window.addEventListener('resize', () => {
+  clearTimeout(redim);
+  redim = setTimeout(() => {
+    if (Math.abs(window.innerWidth - latimeVeche) < 2 && Math.abs(window.innerHeight - inaltimeVeche) < 60) return;   // bara de adrese de pe telefon
+    latimeVeche = window.innerWidth; inaltimeVeche = window.innerHeight;
+    const c = CARTE_ACTIVA; if (c && c.el && document.body.contains(c.el)) c.reconstruieste();
+  }, 180);
+});
+document.addEventListener('keydown', e => {
+  const c = CARTE_ACTIVA; if (!c || !c.el || !document.body.contains(c.el)) return;
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  if (e.target.closest && e.target.closest('input,textarea,select,[contenteditable]')) return;
+  if (!document.getElementById('modal').hidden || lupaDeschisa()) return;
+  if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); c.urm(); }
+  else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); c.prec(); }
+  else if (e.key === 'Home' && !c.opt.mini) { e.preventDefault(); c.mergi(0, true); }
+  else if (e.key === 'End') { e.preventDefault(); c.mergi(c.total - 1, true); }
+  else if ((e.key === 'f' || e.key === 'F') && !c.opt.mini) { e.preventDefault(); comutaEcran(); }
+});
+document.addEventListener('click', e => { document.querySelectorAll('.bara-m[open]').forEach(d => { if (!d.contains(e.target)) d.open = false; }); });
+
+/* ================= conținutul cărții ================= */
+const PARTI = [
+  {ord: 'întâi', nr: 'I', titlu: 'Geto-dacii', ani: 'până în anul 106', pana: 106,
+    intro: 'Înainte de romani, ținuturile dintre Carpați, Dunăre și Marea Neagră erau locuite de geți și daci, ramura de nord a tracilor. Aici s-au ridicat regatele lui Burebista și Decebal, iar aici a avut loc primul mare conflict cu Roma.'},
+  {ord: 'a doua', nr: 'II', titlu: 'Romanizarea și nașterea poporului român', ani: '106–1300', pana: 1300,
+    intro: 'După 106, o parte din Dacia a fost provincie romană timp de peste un secol și jumătate. Din amestecul dacilor cu coloniștii și din latina vorbită aici s-a născut, în secolele următoare, poporul român, care a trecut prin valurile migrațiilor.'},
+  {ord: 'a treia', nr: 'III', titlu: 'Țările române în Evul Mediu', ani: '1300–1601', pana: 1601,
+    intro: 'În secolul al XIV-lea apar Țara Românească și Moldova, alături de voievodatul Transilvaniei, aflat în regatul Ungariei. Domnii lor s-au apărat două secole de Imperiul Otoman, până la unirea făcută, pentru câteva luni, de Mihai Viteazul.'},
+  {ord: 'a patra', nr: 'IV', titlu: 'Între imperii', ani: '1601–1821', pana: 1821,
+    intro: 'Între secolele al XVII-lea și al XIX-lea, țările române trăiesc între imperiile otoman, habsburgic și rus. Sunt vremurile lui Brâncoveanu și Cantemir, ale domniilor fanariote și ale luptei românilor din Transilvania pentru drepturi.'},
+  {ord: 'a cincea', nr: 'V', titlu: 'Spre România modernă', ani: '1821–1914', pana: 1914,
+    intro: 'De la mișcarea lui Tudor Vladimirescu la Războiul de Independență, românii își construiesc statul modern: revoluția de la 1848, Unirea Principatelor din 1859, independența din 1877–1878 și regatul lui Carol I.'},
+  {ord: 'a șasea', nr: 'VI', titlu: 'România Mare', ani: '1914–1940', pana: 1940,
+    intro: 'Primul Război Mondial aduce, după doi ani de lupte grele, unirea provinciilor locuite de români. România Mare primește o nouă constituție, vot universal pentru bărbați și o reformă agrară, într-o perioadă de dezvoltare umbrită de crize politice.'},
+  {ord: 'a șaptea', nr: 'VII', titlu: 'Război și dictatură', ani: '1940–1989', pana: 1989,
+    intro: 'În 1940 România pierde aproape o treime din teritoriu, intră în război alături de Germania, iar în 1944 trece de partea Aliaților. Din 1947, regimul comunist impus de Uniunea Sovietică conduce țara până în decembrie 1989.'},
+  {ord: 'a opta', nr: 'VIII', titlu: 'România democratică', ani: 'din 1989 până azi', pana: Infinity,
+    intro: 'Revoluția din decembrie 1989 deschide drumul spre democrație. România își dă o nouă constituție, intră în NATO în 2004 și în Uniunea Europeană în 2007.'}
+];
+let DATE = null, DATE_P = null;
+async function fonturiGata() {
+  if (!document.fonts) return;
+  const f = ['17px Alegreya', 'italic 17px Alegreya', 'bold 17px Alegreya', '17px Marcellus', '16px "Alegreya Sans"', 'bold 16px "Alegreya Sans"', 'italic 16px "Alegreya Sans"'];
+  await Promise.race([Promise.all(f.map(x => document.fonts.load(x).catch(() => null))).then(() => document.fonts.ready), new Promise(r => setTimeout(r, 3500))]);
+}
+function pregatesteDate() {
+  if (DATE) return Promise.resolve(DATE);
+  if (DATE_P) return DATE_P;
+  DATE_P = (async () => {
+    const [cup, vids] = await Promise.all([incarcaCuprins(), videos(), geo().catch(() => null), fonturiGata()]);
+    const lista = sortate(cup.lectii);
+    const incarcate = await Promise.all(lista.map(x => incarcaLectie(x.id).catch(() => null)));
+    const lectii = incarcate.map((l, k) => l ? Object.assign(l, {id: lista[k].id}) : null).filter(Boolean);
+    const parti = PARTI.map((p, k) => Object.assign({}, p, {k: k + 1, lectii: []}));
+    lectii.forEach(l => { const an = Number(l.an); (parti.find(p => l.an != null && l.an !== '' && !isNaN(an) && an < p.pana) || parti[parti.length - 1]).lectii.push(l); });
+    let nr = 0; parti.forEach(p => p.lectii.forEach(l => { l._nr = ++nr; l._parte = p; }));
+    DATE = {lectii, parti: parti.filter(p => p.lectii.length), videos: vids};
+    DATE_P = null;
+    return DATE;
+  })();
+  DATE_P.catch(() => { DATE_P = null; });
+  return DATE_P;
+}
+const htmlGarda = () => '<div class="garda" aria-hidden="true"></div>';
+function htmlTitlu(d) {
+  return `<div class="pag-titlu"><p class="ptl-sus">Biblioteca Istoriei Românești</p>
+    <div class="ptl-mij"><h2 class="ptl-titlu">Cronica</h2><p class="ptl-sub">Istoria românilor<br>de la geto-daci până azi</p><span class="ptl-orn" aria-hidden="true"></span></div>
+    <p class="ptl-jos">${esc(cap(plural(d.lectii.length, 'lecție', 'lecții')))}, cu harta fiecărei epoci</p></div>`;
+}
+function htmlCuprins(d, pag) {
+  const rand = (href, nr, t, p, cls) => `<li class="${cls}"><a href="${href}">${nr ? `<span class="c-n">${nr}</span>` : ''}<span class="c-t">${t}</span><span class="c-dots" aria-hidden="true"></span><span class="c-p">${p}</span></a>`;
+  return `<h2 class="cup-h">Cuprins</h2><ol class="cup">${d.parti.map(p => rand(`#parte-${p.k}`, '', `<span class="c-pn">Partea ${esc(p.ord)}</span> ${esc(p.titlu)}`, pag('parte-' + p.k), 'cup-p') +
+    `<ol class="cup-l">${p.lectii.map(l => rand(`#l-${l.id}`, l._nr + '.', esc(l.titlu), pag('l-' + l.id), 'cup-x') + '</li>').join('')}</ol></li>`).join('')}
+    ${rand('#despre', '', 'Despre această carte', pag('despre'), 'cup-p')}</li></ol>`;
+}
+function htmlParteTitlu(p, inFlux) {
+  return `<div class="parte-t${inFlux ? ' in-flux' : ''}"><span class="pt-orn" aria-hidden="true"></span><p class="pt-ord">Partea ${esc(p.ord)}</p>
+    <p class="pt-roman" aria-hidden="true">${esc(p.nr)}</p><h2 class="pt-titlu">${esc(p.titlu)}</h2><p class="pt-ani">${esc(p.ani)}</p><span class="pt-banda" aria-hidden="true"></span></div>`;
+}
+function htmlParteIntro(p, pag) {
+  return `<div class="parte-intro"><p class="pi-text">${esc(p.intro)}</p><h3 class="pi-h">${p.lectii.length === 1 ? 'Lecția acestei părți' : 'Lecțiile acestei părți'}</h3>
+    <ol class="pi-lista">${p.lectii.map(l => `<li><a href="#l-${l.id}"><span class="c-n">${l._nr}.</span><span class="c-t">${esc(l.titlu)}</span><span class="c-dots" aria-hidden="true"></span><span class="c-p">${pag('l-' + l.id)}</span></a>
+      ${l.rezumat ? `<p class="pi-rez">${esc(l.rezumat)}</p>` : ''}</li>`).join('')}</ol></div>`;
+}
+function htmlCapitol(l, nr, mod, ctx) {
+  const e = epoca(l.an), regs = (l.regiuni || []).map(regNume);
+  const src = l.coperta && ctx.img(l.coperta.src), portret = !!src && l.coperta.forma !== 'peisaj';
+  const fig = src ? htmlImagine(src, l.coperta.alt, portret ? 'portret' : 'peisaj', l.coperta.sursa ? inline(l.coperta.sursa) : '', 'cap-img') : '';
+  return `<article class="cap" style="--p:var(${e ? e.p : '--e10'})">
+    <header class="cap-cap">
+      <div class="frontispiciu" aria-hidden="true"><span class="mo-teeth"></span></div>
+      ${nr ? `<p class="cap-nr">Lecția ${esc(nr)}</p>` : ''}
+      <h2 class="cap-titlu">${esc(l.titlu || 'Fără titlu')}</h2>
+      <p class="cap-cand">${esc([l.cand || fmtAn(l.an), regs.join(', ')].filter(Boolean).reduce((a, x) => a ? a + (/[.!?]$/.test(a) ? ' ' : '. ') + x : x, ''))}</p>
+      ${portret ? fig : ''}
+      ${l.rezumat ? `<p class="cap-lede">${esc(l.rezumat)}</p>` : ''}
+      ${portret ? '' : fig}
+    </header>
+    <div class="corp">${htmlCorp(l, ctx, mod === 'simpla' ? htmlFigHarta([H.snapIndex(anBaza(l))], l.regiuni, '', true) : '')}</div>
+    <footer class="cap-fin"><span class="cap-orn" aria-hidden="true"></span>${l.exemplu ? '<p>Lecție de exemplu, scrisă ca punct de plecare pentru echipa canalului.</p>' : ''}${l.autor ? `<p>Scrisă de ${esc(l.autor)}</p>` : ''}</footer>
+  </article>`;
+}
+function monteazaLectie(plan, l) {
+  monteazaHarti(plan);
+  plan.querySelectorAll('.flux .b-grafic[data-bi]').forEach(el => monteazaGrafic(el, l.blocuri[+el.dataset.bi]));
+}
+function htmlDespre(d) {
+  const ex = d.lectii.some(l => l.exemplu);
+  return `<article class="despre"><h2 class="cup-h">Despre această carte</h2>
+    <p>Cartea spune istoria românilor în ${esc(plural(d.lectii.length, 'lecție', 'lecții'))}, așezate în ordinea timpului. Fiecare lecție are alături harta epocii ei, iar la sfârșit, câteva idei de reținut și întrebări de verificare. Hărțile se pot mări cu un clic.</p>
+    <p>Hărțile folosesc contururi reale (Natural Earth, domeniu public) și granițe istorice reconstituite. Pentru Antichitate și pentru epoca migrațiilor, granițele sunt aproximative și sunt marcate ca atare.</p>
+    <p>Imaginile vin de pe Wikimedia Commons, din domeniul public sau sub licențe libere; sub fiecare imagine scrie de unde provine.</p>
+    <p>Videoclipurile canalului se găsesc în <a href="biblioteca.html">Biblioteca video</a>, așezate pe epoci, regiuni și teme.</p>
+    <h3 class="b-titlu">Pentru cei care scriu lecții</h3>
+    <p>Lecțiile se scriu și se corectează direct aici, cu parola de editare: <a href="#nou">Scrie o lecție nouă</a>. Lecția deschisă se corectează din „Mai mult”, sub carte. Editarea se activează o singură dată, din <a href="#configurare">Configurarea editării</a>.</p>
+    ${ex ? '<p>Lecțiile marcate „de exemplu” au fost scrise ca punct de plecare și așteaptă verificarea echipei canalului.</p>' : ''}
+    <div class="despre-fin"><span class="cap-orn" aria-hidden="true"></span><p>Sfârșit</p></div></article>`;
+}
+function sectiuniCarte(mod, D) {
+  const d = DATE, ctx = {img: srcImagine, videos: d.videos, cw: D.cw};
+  const S = [{hash: 'inceput', tip: 'front', faraFolio: true, fixa: htmlGarda, flux: () => htmlTitlu(d)},
+    {hash: 'cuprins', tip: 'cuprins', rh: {st: 'Cuprins', dr: 'Cuprins'}, flux: pag => htmlCuprins(d, pag)}];
+  d.parti.forEach(p => {
+    S.push({hash: 'parte-' + p.k, tip: 'parte', fixa: () => htmlParteTitlu(p), flux: pag => (mod === 'simpla' ? htmlParteTitlu(p, true) : '') + htmlParteIntro(p, pag)});
+    p.lectii.forEach(l => S.push({hash: 'l-' + l.id, tip: 'lectie', id: l.id, rh: {st: p.titlu, dr: l.titlu}, fixa: () => htmlPlansa(l),
+      flux: () => htmlCapitol(l, l._nr, mod, ctx), dupa: plan => monteazaLectie(plan, l)}));
+  });
+  S.push({hash: 'despre', tip: 'despre', rh: {st: 'Despre această carte', dr: 'Despre această carte'}, flux: () => htmlDespre(d)});
+  return S;
 }
 
 /* ================= coperta ================= */
 function viewCoperta() {
-  app.classList.add('larg');
-  document.title = 'Cronica · Biblioteca Istoriei Românești';
-  carteActiva = null;
-  app.innerHTML = `<div class="masa masa-coperta">
-    <button class="coperta" type="button" aria-label="Deschide cronica">
+  app.className = 'masa';
+  document.title = 'Cronica · Istoria românilor';
+  CARTE_ACTIVA = null;
+  app.innerHTML = `<div class="masa-coperta">
+    <button class="coperta" type="button" aria-label="Deschide cartea">
       <span class="cop-cotor" aria-hidden="true"></span>
       <span class="cop-chenar">
         <span class="cop-colt c1" aria-hidden="true"></span><span class="cop-colt c2" aria-hidden="true"></span><span class="cop-colt c3" aria-hidden="true"></span><span class="cop-colt c4" aria-hidden="true"></span>
@@ -711,111 +1010,47 @@ function viewCoperta() {
         <span class="cop-sus">Biblioteca Istoriei Românești</span>
         <span class="cop-titlu">Cronica</span>
         <span class="cop-med" aria-hidden="true"><span></span></span>
-        <span class="cop-sub">Istoria românilor, lecție cu lecție, cu harta fiecărei epoci</span>
+        <span class="cop-sub">Istoria românilor de la geto-daci până azi</span>
         <span class="cop-banda" aria-hidden="true"></span>
       </span>
       <span class="cop-inc i1" aria-hidden="true"></span><span class="cop-inc i2" aria-hidden="true"></span>
     </button>
-    <div class="cop-jos"><p class="cop-indemn">Apasă pe copertă ca să deschizi cartea</p>${btnEcran()}</div></div>`;
+    <p class="cop-indemn">Apasă pe copertă ca să deschizi cartea</p></div>`;
+  pregatesteDate().catch(() => {});
   const b = app.querySelector('.coperta');
   b.addEventListener('click', () => {
-    if (FARA_MISCARE.matches || !b.animate) { location.hash = 'cuprins'; return; }
+    if (FARA_MISCARE.matches || !b.animate) { location.hash = 'inceput'; return; }
     b.disabled = true;
-    const a = b.animate([{transform: 'perspective(2200px) rotateY(0deg)'}, {transform: 'perspective(2200px) rotateY(-115deg)', opacity: .15}], {duration: 900, easing: 'cubic-bezier(.5,0,.3,1)', fill: 'forwards'});
-    a.onfinish = () => { location.hash = 'cuprins'; };
+    const a = b.animate([{transform: 'perspective(2200px) rotateY(0deg)'}, {transform: 'perspective(2200px) rotateY(-115deg)', opacity: .15}], {duration: 850, easing: 'cubic-bezier(.5,0,.3,1)', fill: 'forwards'});
+    a.onfinish = () => { location.hash = 'inceput'; };
   });
 }
 
-/* ================= cuprinsul ================= */
-let filtru = {q: '', epoca: null};
-async function viewCuprins() {
-  document.title = 'Cuprins · Cronica';
-  let cup;
-  try { cup = await incarcaCuprins(); } catch (_) { app.innerHTML = '<div class="empty">Nu am putut încărca lecțiile. Reîncarcă pagina peste câteva momente.</div>'; return; }
-  const all = sortate(cup.lectii);
-  all.forEach(l => { l._e = epoca(l.an); l._hay = norm([l.titlu, l.rezumat, l.cand, fmtAn(l.an), (l.regiuni || []).map(regNume).join(' '), l._e ? l._e.name : ''].join(' ')); });
-  const eras = H.EPOCI.filter(e => all.some(l => l._e === e));
-  const titlu = `<div class="pag-titlu">
-      <div class="frontispiciu" aria-hidden="true"><span class="mo-teeth"></span></div>
-      <p class="pt-sus">Biblioteca Istoriei Românești</p>
-      <h1 class="cr-title">Cronica</h1>
-      <div class="tricolor" aria-hidden="true"><i></i><i></i><i></i></div>
-      <p class="lede">Istoria românilor, lecție cu lecție: ce s-a întâmplat, cine a condus și cum arăta harta în fiecare epocă.</p>
-      <p class="pt-nr">${all.length === 1 ? 'O lecție' : `${all.length}${all.length % 100 >= 20 ? ' de' : ''} lecții`} până acum</p>
-      <div class="pt-act"><button class="btn primary" type="button" data-act="nou">Scrie o lecție nouă</button>${TOKEN ? '<button class="linkbtn" type="button" data-act="lock">Blochează editarea</button>' : ''}</div>
-      <label class="search" for="cr-q">${ICON_SEARCH}<input id="cr-q" type="search" placeholder="Caută: Ștefan, 1918, Dobrogea…" autocomplete="off"></label>
-      <div class="cr-eras" role="group" aria-label="Filtrează după epocă">${eras.map(e => `<button type="button" class="era-chip" data-era="${e.id}" style="--p:var(${e.p})" aria-pressed="false">${esc(e.name)}</button>`).join('')}</div>
-    </div>`;
-  const lista = () => {
-    const words = norm(filtru.q).split(/\s+/).filter(Boolean);
-    const shown = all.filter(l => (!filtru.epoca || (l._e && l._e.id === filtru.epoca)) && words.every(w => l._hay.includes(w)));
-    if (!all.length) return '<p class="empty">Cronica nu are încă nicio lecție. Apasă „Scrie o lecție nouă” ca s-o începi.</p>';
-    if (!shown.length) return '<p class="empty">Nicio lecție nu se potrivește căutării. <button class="reset" type="button" data-reset>Arată toate lecțiile</button></p>';
-    return `<h2 class="cup-h">Cuprins</h2>` + [...H.EPOCI, null].map(e => ({e, items: shown.filter(l => l._e === e)})).filter(g => g.items.length).map(g =>
-      `<section class="cr-era" style="--p:var(${g.e ? g.e.p : '--e10'})"><h3 class="cr-era-h">${esc(g.e ? g.e.name : 'Fără dată')}${g.e ? `<small>${esc(fmtAn(g.e.start))}–${g.e.end > 2026 ? 'azi' : esc(fmtAn(g.e.end))}</small>` : ''}</h3>
-      <ol class="cr-rows">${g.items.map(l => { const img = l.coperta && srcImagine(l.coperta.src); return `<li><a class="cr-row" href="#l-${l.id}">
-        <span class="cr-row-year">${esc(l.cand || fmtAn(l.an))}</span>
-        <span class="cr-row-text"><span class="cr-row-title">${esc(l.titlu)}</span>${l.rezumat ? `<span class="cr-row-sum">${esc(l.rezumat)}</span>` : ''}
-        <span class="cr-row-meta">${esc((l.regiuni || []).map(regNume).join(', ') || 'Toată țara')}${l.exemplu ? ' <span class="mini-sample">(lecție de exemplu)</span>' : ''}</span></span>
-        <span class="cr-row-img">${img ? `<img src="${esc(img)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">` : ''}</span></a></li>`; }).join('')}</ol></section>`).join('');
-  };
-  const ctl = carte({eticheta: 'Cronica: cuprins', flux: (LAT.matches ? '' : titlu) + `<div class="cup-lista">${lista()}</div>`, inainte: () => { location.hash = ''; }});
-  if (ctl.st) ctl.st.innerHTML = titlu;
-  const legare = root => {
-    const q = root.querySelector('#cr-q'); if (!q) return;
-    q.value = filtru.q;
-    q.addEventListener('input', () => { filtru.q = q.value; refa(); });
-    root.querySelectorAll('[data-era]').forEach(b => { b.setAttribute('aria-pressed', String(b.dataset.era === filtru.epoca)); b.addEventListener('click', () => { filtru.epoca = filtru.epoca === b.dataset.era ? null : b.dataset.era; root.querySelectorAll('[data-era]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.era === filtru.epoca))); refa(); }); });
-    root.querySelector('[data-act="nou"]').addEventListener('click', () => { location.hash = 'nou'; });
-    const lk = root.querySelector('[data-act="lock"]'); if (lk) lk.addEventListener('click', () => { setToken(null); S.cuprins = null; toast('Editarea a fost blocată în acest tab.'); viewCuprins(); });
-  };
-  const refa = () => { const box = app.querySelector('.cup-lista'); box.innerHTML = lista(); imaginiFragile(box); ctl.k = LAT.matches ? 0 : ctl.paginaLui(box); ctl.masoara(); };
-  legare(ctl.st || ctl.flux);
-  app.querySelector('.cup-lista').addEventListener('click', e => { if (e.target.closest('[data-reset]')) { filtru = {q: '', epoca: null}; const q = app.querySelector('#cr-q'); if (q) q.value = ''; app.querySelectorAll('[data-era]').forEach(x => x.setAttribute('aria-pressed', 'false')); refa(); } });
-  imaginiFragile(app);
-  ctl.masoara();
-}
-
-/* ================= o lecție, ca un capitol ================= */
-async function viewLectie(id, laSfarsit) {
-  app.innerHTML = '<p class="cr-loading">Se deschide capitolul…</p>';
-  let l, cup;
-  try { [l, cup] = await Promise.all([incarcaLectie(id), incarcaCuprins().catch(() => null)]); } catch (_) { l = null; }
-  if (!l) { app.innerHTML = '<div class="empty">Lecția nu a fost găsită. Poate a fost ștearsă sau încă nu a apărut pe site.<br><a class="reset" href="#cuprins">Înapoi la cuprins</a></div>'; return; }
-  document.title = `${l.titlu} · Cronica`;
-  const e = epoca(l.an), regs = (l.regiuni || []).map(regNume), ctx = {img: srcImagine};
-  const list = cup ? sortate(cup.lectii) : [], k = list.findIndex(x => x.id === id), prev = k > 0 ? list[k - 1] : null, next = k >= 0 ? list[k + 1] : null;
-  const lata = l.coperta && l.coperta.forma === 'peisaj';
-  const flux = `<article class="capitol" style="--p:var(${e ? e.p : '--e10'})">
-    <header class="cap-cap">
-      <div class="frontispiciu" aria-hidden="true"><span class="mo-teeth"></span></div>
-      <p class="lesson-when">${esc([e ? e.name : '', l.cand || fmtAn(l.an)].filter(Boolean).join(', '))}</p>
-      ${lata ? '' : htmlCoperta(l.coperta, ctx)}
-      <h1 class="cap-titlu">${esc(l.titlu)}</h1>
-      ${l.rezumat ? `<p class="lede">${esc(l.rezumat)}</p>` : ''}
-      ${lata ? htmlCoperta(l.coperta, ctx) : ''}
-      <p class="lesson-meta">${regs.length ? `<span>${esc(regs.join(', '))}</span>` : ''}${l.autor ? `<span>Scrisă de ${esc(l.autor)}</span>` : ''}${l.exemplu ? '<span class="sample">Lecție de exemplu</span>' : ''}</p>
-    </header>
-    ${LAT.matches ? '' : '<aside class="plansa-in" aria-label="Harta lecției"></aside>'}
-    <div class="lesson-body"></div>
-    <footer class="cap-sfarsit"><span class="cap-orn" aria-hidden="true"></span>
-      ${next ? `<a class="cap-urm" href="#l-${next.id}"><small>Capitolul următor</small>${esc(next.titlu)}</a>` : '<p class="cap-fin">Aici se termină, deocamdată, cronica.</p>'}
-      ${l.actualizat ? `<p class="cap-data">Actualizată la ${esc(fmtData(l.actualizat))}</p>` : ''}</footer>
-  </article>`;
-  const ctl = carte({eticheta: 'Cronica: ' + l.titlu, flux, semn: true,
-    inainte: () => { location.hash = prev ? 'l-' + prev.id : 'cuprins'; },
-    dupa: () => { location.hash = next ? 'l-' + next.id : 'cuprins'; },
-    unelte: `<a class="btn" href="#cuprins">Cuprins</a><button class="btn" type="button" data-act="edit">Editează lecția</button>${e ? `<a class="btn" href="biblioteca.html?epoca=${encodeURIComponent(e.id)}">Videoclipuri din această epocă</a>` : ''}`});
-  const body = ctl.flux.querySelector('.lesson-body');
-  randeazaLectie(body, l, ctx);
-  imaginiFragile(ctl.flux.querySelector('.cap-cap'));
-  const cov = ctl.flux.querySelector('.lesson-cover.auto img');
-  if (cov) { const fix = () => { if (cov.naturalWidth > cov.naturalHeight * 1.15) cov.closest('figure').className = 'lesson-cover-wide'; }; if (cov.complete && cov.naturalWidth) fix(); else cov.addEventListener('load', fix, {once: true}); }
-  app.querySelector('[data-act="edit"]').addEventListener('click', () => { location.hash = 'edit-' + id; });
-  ctl.masoara();
-  await panouHarta(ctl.st || ctl.flux.querySelector('.plansa-in'), l, body, ctl);
-  ctl.masoara();
-  if (laSfarsit) { ctl.k = ctl.n - 1; ctl.pune(); }
+/* ================= cartea deschisă ================= */
+let CARTE = null;
+async function viewCarte(h) {
+  if (!DATE) {
+    app.className = 'masa'; CARTE_ACTIVA = null;
+    app.innerHTML = '<p class="cr-loading">Se deschide cartea…</p>';
+    try { await pregatesteDate(); } catch (_) { app.innerHTML = '<div class="empty">Nu am putut deschide cartea. Reîncarcă pagina peste câteva momente.</div>'; return; }
+  }
+  let anim = true;
+  if (!CARTE || !document.body.contains(CARTE.el)) {
+    app.className = 'masa';
+    CARTE = creeazaCarte(app, {eticheta: 'Cronica. Istoria românilor', sectiuni: sectiuniCarte, laInceput: () => { location.hash = ''; },
+      laSchimbare: (s, q) => {
+        const t = s.tip === 'lectie' ? (DATE.lectii.find(l => l.id === s.id) || {}).titlu : s.tip === 'cuprins' ? 'Cuprins' : s.tip === 'parte' ? (DATE.parti.find(p => 'parte-' + p.k === s.hash) || {}).titlu : s.tip === 'despre' ? 'Despre această carte' : '';
+        document.title = (t ? t + ' · ' : '') + 'Cronica';
+        if (location.hash.slice(1) !== s.hash) history.replaceState(null, '', '#' + s.hash);
+      }});
+    CARTE_ACTIVA = CARTE; anim = false;
+  }
+  let q = CARTE.paginaHash(h);
+  if (q == null) {
+    if (h.startsWith('l-')) toast('Lecția nu a fost găsită. Poate a fost ștearsă sau încă nu a apărut pe site.', 'err');
+    q = CARTE.paginaHash('cuprins') || 0;
+  }
+  CARTE.mergi(q, anim);
 }
 
 /* ================= editorul ================= */
@@ -846,11 +1081,17 @@ const BLOC_NOU = {
   citat: () => ({t: 'citat', text: '', autor: '', sursa: ''}),
   fapte: () => ({t: 'fapte', titlu: '', randuri: [{k: '', v: ''}, {k: '', v: ''}, {k: '', v: ''}]}),
   imagine: () => ({t: 'imagine', src: '', alt: '', legenda: '', sursa: ''}),
-  video: () => ({t: 'video', video: '', url: '', titlu: ''})
+  video: () => ({t: 'video', video: '', url: '', titlu: ''}),
+  dictionar: () => ({t: 'dictionar', termeni: [{termen: '', def: ''}, {termen: '', def: ''}]}),
+  stiati: () => ({t: 'stiati', md: ''}),
+  retin: () => ({t: 'retin', puncte: [{text: ''}, {text: ''}, {text: ''}]}),
+  intrebari: () => ({t: 'intrebari', q: [{text: '', opt: ['', '', ''], ok: 0, expl: ''}]})
 };
 const ROW_DEF = {grafic: ['date', [['e', 'Etichetă (ex. Ștefan cel Mare)'], ['v', 'Valoare (număr)']], 'Adaugă un rând'],
   cronologie: ['ev', [['an', 'An / dată'], ['text', 'Ce s-a întâmplat']], 'Adaugă un eveniment'],
-  fapte: ['randuri', [['k', 'Ce (ex. Capitala)'], ['v', 'Valoare (ex. Suceava)']], 'Adaugă un rând']};
+  fapte: ['randuri', [['k', 'Ce (ex. Capitala)'], ['v', 'Valoare (ex. Suceava)']], 'Adaugă un rând'],
+  dictionar: ['termeni', [['termen', 'Termenul (ex. voievod)'], ['def', 'Explicația, pe scurt']], 'Adaugă un termen'],
+  retin: ['puncte', [['text', 'O idee de reținut, într-o propoziție']], 'Adaugă o idee']};
 
 function optiuniSnap(sel, gol) {
   let h = gol ? `<option value="">${esc(gol)}</option>` : '';
@@ -884,7 +1125,17 @@ function corpBloc(b) {
       <p class="hint">Pentru „Linie”, scrie anii ca etichete (ex. 1859, 1912, 1930) și valorile în dreapta. Numerele pot avea punct la mii: 137.903.</p>
       ${campuriRanduri(b)}${f('sursa', 'Sursa datelor (opțional)', ' maxlength="200"')}`;
     case 'cronologie': return `${f('titlu', 'Titlu (opțional)', ' maxlength="140"')}${campuriRanduri(b)}`;
-    case 'citat': return `${ta('text', 'Citatul', 4, ' maxlength="2000"')}<div class="fld-row">${f('autor', 'Cine a spus / a scris', ' maxlength="120"')}${f('sursa', 'Sursa (document, carte, an)', ' maxlength="200"')}</div>`;
+    case 'citat': return `${ta('text', 'Fragmentul din sursă', 4, ' maxlength="2000"')}<div class="fld-row">${f('autor', 'Cine a spus / a scris', ' maxlength="120"')}${f('sursa', 'Sursa (document, carte, an)', ' maxlength="200"')}</div>${f('intrebare', 'O întrebare pentru cititor (opțional)', ' maxlength="300"')}`;
+    case 'dictionar': return campuriRanduri(b);
+    case 'retin': return campuriRanduri(b);
+    case 'stiati': return `<textarea data-k="md" rows="3" aria-label="Textul casetei" placeholder="O întâmplare sau un amănunt surprinzător, în câteva rânduri." maxlength="1500"></textarea>`;
+    case 'intrebari': return `<div class="ed-q">${(b.q || []).map((q, qi) => `<fieldset class="ed-qq"><legend>Întrebarea ${qi + 1}</legend>
+      <label class="fld"><span>Întrebarea</span><input data-qi="${qi}" data-qk="text" maxlength="300"></label>
+      ${(q.opt || []).map((o, oi) => `<div class="ed-opt"><label class="ed-ok"><input type="radio" name="ok-${edUid}-${qi}" data-qi="${qi}" data-qok value="${oi}"> corect</label><input data-qi="${qi}" data-qo="${oi}" placeholder="Varianta ${LIT[oi]})" aria-label="Varianta ${LIT[oi]}" maxlength="200"></div>`).join('')}
+      ${(q.opt || []).length < 4 ? `<button type="button" class="linkbtn" data-addopt="${qi}">+ Încă o variantă</button>` : ''}
+      <label class="fld"><span>De ce e corect răspunsul (apare după răspuns)</span><input data-qi="${qi}" data-qk="expl" maxlength="400"></label>
+      <button type="button" class="linkbtn" data-rmq="${qi}">Scoate întrebarea</button></fieldset>`).join('')}
+      <button type="button" class="linkbtn" data-addq>+ Adaugă o întrebare</button></div>`;
     case 'fapte': return `${f('titlu', 'Titlul fișei (ex. Pe scurt)', ' maxlength="100"')}${campuriRanduri(b)}`;
     case 'imagine': {
       const prev = E.pending.has(b.src) ? E.pending.get(b.src).url : srcImagine(b.src);
@@ -892,7 +1143,8 @@ function corpBloc(b) {
         <div class="ed-img-act"><label class="btn"><input type="file" accept="image/*" data-upload hidden> Încarcă o imagine</label>
         <p class="hint">Imaginea se micșorează automat (cel mult 1600 de pixeli) și se salvează odată cu lecția. Folosește doar imagini pe care ai voie să le publici.</p></div></div>
         ${E.pending.has(b.src) || /^imagini\//.test(b.src || '') ? '' : f('src', 'sau adresa unei imagini de pe internet (https://…)', ' inputmode="url" spellcheck="false"')}
-        ${f('alt', 'Descrierea imaginii (pentru cei care nu o pot vedea)', ' maxlength="300"')}<div class="fld-row">${f('legenda', 'Legenda (opțional)', ' maxlength="300"')}${f('sursa', 'Sursa / autorul imaginii', ' maxlength="200"')}</div>`;
+        ${f('alt', 'Descrierea imaginii (pentru cei care nu o pot vedea)', ' maxlength="300"')}<div class="fld-row">${f('legenda', 'Legenda (opțional)', ' maxlength="300"')}${f('sursa', 'Sursa / autorul imaginii', ' maxlength="200"')}</div>
+        <label class="fld"><span>Forma ramei</span><select data-k="forma"><option value="peisaj">Lată (peisaje, bătălii)</option><option value="portret">Înaltă (portrete)</option></select></label>`;
     }
     case 'video': return `<label class="fld"><span>Alege din bibliotecă</span><select data-k="video"><option value="">— niciunul —</option></select></label>
       ${f('url', 'sau lipește un link YouTube', ' inputmode="url" spellcheck="false" placeholder="https://www.youtube.com/watch?v=…"')}${f('titlu', 'Titlu pentru videoclipul de pe YouTube (opțional)', ' maxlength="140"')}`;
@@ -915,7 +1167,13 @@ function completeazaBloc(card, b) {
     });
   }
   if (b.t === 'harta') miniHarta(card, b);
+  if (b.t === 'intrebari') {
+    card.querySelectorAll('[data-qk]').forEach(el => { el.value = (b.q[+el.dataset.qi] || {})[el.dataset.qk] ?? ''; });
+    card.querySelectorAll('[data-qo]').forEach(el => { el.value = ((b.q[+el.dataset.qi] || {}).opt || [])[+el.dataset.qo] ?? ''; });
+    card.querySelectorAll('[data-qok]').forEach(el => { el.checked = +((b.q[+el.dataset.qi] || {}).ok || 0) === +el.value; });
+  }
 }
+let edUid = 0;
 async function miniHarta(card, b) {
   const host = card.querySelector('.ed-mini-map'); if (!host) return;
   const g = await geo().catch(() => null); if (!g) return;
@@ -923,6 +1181,7 @@ async function miniHarta(card, b) {
   host._m.randeaza({mod: 'perioada', snap: H.snapIndex(Number(b.an)), evidentiere: b.regiuni || []});
 }
 function cardBloc(b, i, n) {
+  edUid++;
   const card = document.createElement('section');
   card.className = 'ed-block'; card.dataset.i = i; card.dataset.t = b.t;
   card.innerHTML = `<div class="ed-block-head"><span class="ed-type">${esc(TIP[b.t] || b.t)}</span><span class="sp"></span>
@@ -982,6 +1241,13 @@ function valideaza(d) {
     }
     if (b.t === 'video' && !b.video && !ytId(b.url)) err.push(`${n}: alege un videoclip din bibliotecă sau lipește un link YouTube valid.`);
     if (b.t === 'harta' && isNaN(Number(b.an))) err.push(`${n}: alege momentul afișat.`);
+    if (b.t === 'intrebari') (b.q || []).forEach((q, qi) => {
+      const pline = (q.opt || []).filter(o => String(o ?? '').trim()), gol = !String(q.text ?? '').trim() && !pline.length;
+      if (gol) return;
+      if (!String(q.text ?? '').trim()) err.push(`${n}, întrebarea ${qi + 1}: scrie întrebarea.`);
+      if (pline.length < 2) err.push(`${n}, întrebarea ${qi + 1}: scrie cel puțin două variante de răspuns.`);
+      if (!String((q.opt || [])[+q.ok || 0] ?? '').trim()) err.push(`${n}, întrebarea ${qi + 1}: bifează varianta corectă (una completată).`);
+    });
   });
   return err;
 }
@@ -1003,9 +1269,24 @@ function curata(d, id) {
       case 'grafic': o = {t: 'grafic', tip: b.tip === 'linie' ? 'linie' : 'bare', titlu: t(b.titlu, 140), unitate: t(b.unitate, 20),
         date: (b.date || []).filter(r => t(r.e, 80) && !isNaN(numar(r.v))).slice(0, 60).map(r => ({e: t(r.e, 80), v: numar(r.v)})), sursa: t(b.sursa, 200)}; break;
       case 'cronologie': o = {t: 'cronologie', titlu: t(b.titlu, 140), ev: (b.ev || []).filter(r => t(r.an, 40) || t(r.text, 500)).slice(0, 80).map(r => ({an: t(r.an, 40), text: t(r.text, 500)}))}; if (!o.ev.length) o = null; break;
-      case 'citat': if (t(b.text, 2000)) o = {t: 'citat', text: t(b.text, 2000), autor: t(b.autor, 120), sursa: t(b.sursa, 200)}; break;
+      case 'citat': if (t(b.text, 2000)) { o = {t: 'citat', text: t(b.text, 2000), autor: t(b.autor, 120), sursa: t(b.sursa, 200)}; if (t(b.intrebare, 300)) o.intrebare = t(b.intrebare, 300); } break;
+      case 'dictionar': o = {t: 'dictionar', termeni: (b.termeni || []).filter(r => t(r.termen, 80)).slice(0, 20).map(r => ({termen: t(r.termen, 80), def: t(r.def, 400)}))}; if (!o.termeni.length) o = null; break;
+      case 'stiati': if (t(b.md, 1500)) o = {t: 'stiati', md: t(b.md, 1500)}; break;
+      case 'retin': o = {t: 'retin', puncte: (b.puncte || []).filter(r => t(r.text, 300)).slice(0, 12).map(r => ({text: t(r.text, 300)}))}; if (!o.puncte.length) o = null; break;
+      case 'intrebari': {
+        const qs = [];
+        (b.q || []).forEach(q => {
+          const opt = (q.opt || []).map(x => t(x, 200)), ok = +q.ok || 0;
+          if (!t(q.text, 300) || !opt[ok]) return;
+          const pline = opt.map((x, k) => ({x, k})).filter(z => z.x);
+          if (pline.length < 2) return;
+          qs.push({text: t(q.text, 300), opt: pline.map(z => z.x), ok: pline.findIndex(z => z.k === ok), expl: t(q.expl, 400)});
+        });
+        if (qs.length) o = {t: 'intrebari', q: qs.slice(0, 12)};
+        break;
+      }
       case 'fapte': o = {t: 'fapte', titlu: t(b.titlu, 100), randuri: (b.randuri || []).filter(r => t(r.k, 80) || t(r.v, 300)).slice(0, 40).map(r => ({k: t(r.k, 80), v: t(r.v, 300)}))}; if (!o.randuri.length) o = null; break;
-      case 'imagine': o = {t: 'imagine', src: t(b.src, 500), alt: t(b.alt, 300), legenda: t(b.legenda, 300), sursa: t(b.sursa, 200)}; break;
+      case 'imagine': o = {t: 'imagine', src: t(b.src, 500), alt: t(b.alt, 300), legenda: t(b.legenda, 300), sursa: t(b.sursa, 200)}; if (b.forma === 'portret') o.forma = 'portret'; break;
       case 'video': o = ytId(b.url) ? {t: 'video', url: t(b.url, 300), titlu: t(b.titlu, 140)} : {t: 'video', video: t(b.video, 80)}; break;
     }
     if (o) out.blocuri.push(o);
@@ -1047,7 +1328,7 @@ async function viewEditor(id) {
           <label class="fld"><span>Perioada afișată (opțional)</span><input data-m="cand" maxlength="40" placeholder="ex. 1457–1504"></label></div>
         <fieldset class="fld"><legend>Regiunile despre care e lecția</legend><div class="ed-checks">${H.REGIUNI.map(r => `<label><input type="checkbox" data-m="regiuni" value="${r.id}"> ${esc(r.n)}</label>`).join('')}</div></fieldset>
         <div class="fld-row"><label class="fld"><span>Harta de lângă lecție</span><select data-m="hartaAn">${optiuniSnap(E.draft.harta.an, '— după anul lecției —')}</select></label>
-          <p class="hint" style="align-self:end">Regiunile bifate sunt evidențiate pe hartă. Hărțile adăugate în text apar tot acolo, când cititorul ajunge la ele.</p></div>
+          <p class="hint" style="align-self:end">Harta stă pe pagina din stânga, în fața începutului lecției. Regiunile bifate sunt evidențiate.</p></div>
         <fieldset class="fld"><legend>Imaginea de copertă (opțional): portretul domnitorului sau o pictură a evenimentului</legend>
           <div id="ed-cover"></div>
           <div class="fld-row"><label class="fld"><span>Descrierea imaginii</span><input data-m="copertaAlt" maxlength="300" placeholder="ex. Ștefan cel Mare, miniatură din 1473"></label>
@@ -1131,6 +1412,13 @@ async function laModificare(e) {
     return;
   }
   if (el.dataset.rk) { const key = el.closest('[data-rows]').dataset.rows; x.b[key][+el.dataset.ri][el.dataset.rk] = el.value; marcheazaModificat(); return; }
+  if (el.dataset.qi != null) {
+    const q = x.b.q[+el.dataset.qi]; if (!q) return;
+    if (el.dataset.qk) q[el.dataset.qk] = el.value;
+    else if (el.dataset.qo != null) q.opt[+el.dataset.qo] = el.value;
+    else if (el.dataset.qok != null && el.checked) q.ok = +el.value;
+    marcheazaModificat(); return;
+  }
   if (el.dataset.k) {
     const k = el.dataset.k;
     if (el.dataset.multi != null) { const s = new Set(x.b[k] || []); el.checked ? s.add(el.value) : s.delete(el.value); x.b[k] = H.REGIUNI.map(r => r.id).filter(r => s.has(r)); }
@@ -1163,6 +1451,9 @@ async function laClic(e) {
   }
   if (t.dataset.addrow != null) { const x = blocDin(t), key = ROW_DEF[x.b.t][0]; x.b[key].push(Object.fromEntries(ROW_DEF[x.b.t][1].map(([k]) => [k, '']))); reranduiesteBloc(x.i);
     const inputs = document.querySelectorAll(`.ed-block[data-i="${x.i}"] .ed-row:last-of-type input`); if (inputs[0]) inputs[0].focus(); marcheazaModificat(); return; }
+  if (t.dataset.addq != null) { const x = blocDin(t); x.b.q.push({text: '', opt: ['', '', ''], ok: 0, expl: ''}); reranduiesteBloc(x.i); marcheazaModificat(); return; }
+  if (t.dataset.rmq != null) { const x = blocDin(t); x.b.q.splice(+t.dataset.rmq, 1); reranduiesteBloc(x.i); marcheazaModificat(); return; }
+  if (t.dataset.addopt != null) { const x = blocDin(t), q = x.b.q[+t.dataset.addopt]; if (q.opt.length < 4) q.opt.push(''); reranduiesteBloc(x.i); marcheazaModificat(); return; }
   if (t.dataset.rmrow != null) { const x = blocDin(t), key = ROW_DEF[x.b.t][0]; x.b[key].splice(+t.dataset.rmrow, 1); reranduiesteBloc(x.i); marcheazaModificat(); return; }
   const act = t.dataset.act;
   if (act === 'preview') return comutaPrevizualizare(t);
@@ -1170,15 +1461,19 @@ async function laClic(e) {
   if (act === 'delete') return stergeLectia();
   if (act === 'lock') { if (E.dirty && !await confirma('Blochezi editarea?', 'Modificările nesalvate rămân în ciorna de pe acest dispozitiv.', 'Blochează')) return; setToken(null); E.dirty = false; S.cuprins = null; location.hash = E.id ? 'l-' + E.id : 'cuprins'; toast('Editarea a fost blocată în acest tab.'); }
 }
-function comutaPrevizualizare(btn) {
+let PREVIZ = null;
+async function comutaPrevizualizare(btn) {
   const pv = document.getElementById('ed-preview'), form = document.getElementById('ed-form'), on = pv.hidden;
   btn.setAttribute('aria-pressed', String(on)); btn.textContent = on ? 'Înapoi la editare' : 'Previzualizare';
   form.hidden = on; pv.hidden = !on;
-  if (!on) { pv.innerHTML = ''; return; }
+  if (!on) { pv.innerHTML = ''; PREVIZ = null; CARTE_ACTIVA = null; return; }
   const l = curata(E.draft, E.id || 'previzualizare');
-  const ctx = {img: s => E.pending.has(s) ? E.pending.get(s).url : srcImagine(s)};
-  pv.innerHTML = paginaLectie(l, ctx, {});
-  monteazaPagina(pv.querySelector('.lesson'), l, ctx);
+  const [vids] = await Promise.all([videos(), geo().catch(() => null), fonturiGata()]);
+  const img = s => E.pending.has(s) ? E.pending.get(s).url : srcImagine(s);
+  PREVIZ = creeazaCarte(pv, {mini: true, eticheta: 'Previzualizarea lecției', sectiuni: (mod, D) => [{hash: 'previz', tip: 'lectie', rh: {st: 'Previzualizare', dr: l.titlu},
+    fixa: () => htmlPlansa(l), flux: () => htmlCapitol(l, '', mod, {img, videos: vids, cw: D.cw}), dupa: plan => monteazaLectie(plan, l)}]});
+  CARTE_ACTIVA = PREVIZ;
+  PREVIZ.mergi(0);
   window.scrollTo({top: 0});
 }
 function arataErori(list) {
@@ -1235,7 +1530,7 @@ async function salveaza(forteaza) {
   }
   salvare = false;
   stergeCiorna(E.id); E.pending.forEach(p => URL.revokeObjectURL(p.url));
-  S.lectii.set(lectie.id, lectie); S.sha.delete(lectie.id); E.dirty = false;
+  S.lectii.set(lectie.id, lectie); S.sha.delete(lectie.id); E.dirty = false; DATE = null; CARTE = null;
   location.hash = 'l-' + lectie.id;
   toast('Lecția a fost salvată. Pe site apare pentru toată lumea în 1–2 minute.', 'ok');
 }
@@ -1255,7 +1550,7 @@ async function stergeLectia() {
       return fisiere;
     }, `Cronica: lecție ștearsă: ${E.draft.titlu.trim().slice(0, 80)}`);
   } catch (err) { arataErori([mesajEroare(err)]); return; }
-  stergeCiorna(id); S.lectii.delete(id); E.dirty = false;
+  stergeCiorna(id); S.lectii.delete(id); E.dirty = false; DATE = null; CARTE = null;
   location.hash = 'cuprins';
   toast('Lecția a fost ștearsă. Dispare de pe site în 1–2 minute.', 'ok');
 }
@@ -1343,15 +1638,13 @@ function viewConfigurare() {
 function route() {
   let h = '';
   try { h = decodeURIComponent(location.hash.slice(1)); } catch (_) {}
-  window.scrollTo(0, 0);
-  carteActiva = null; app.classList.remove('larg');
-  if (peEcranComplet() && (h.startsWith('edit-') || h === 'nou' || h === 'configurare')) iesiEcran();
-  if (h.startsWith('l-')) return viewLectie(h.slice(2));
-  if (h.startsWith('edit-')) return viewEditor(h.slice(5));
-  if (h === 'nou') return viewEditor(null);
-  if (h === 'configurare') return viewConfigurare();
-  if (h === 'cuprins') return viewCuprins();
-  return viewCoperta();
+  if (h.startsWith('edit-') || h === 'nou' || h === 'configurare') {
+    iesiEcran(); CARTE_ACTIVA = null; window.scrollTo(0, 0); app.className = 'lucru';
+    if (h === 'configurare') return viewConfigurare();
+    return viewEditor(h === 'nou' ? null : h.slice(5));
+  }
+  if (!h) return viewCoperta();
+  return viewCarte(h);
 }
 window.addEventListener('hashchange', route);
 route();

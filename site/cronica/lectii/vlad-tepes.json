@@ -1,0 +1,190 @@
+{
+ "id": "vlad-tepes",
+ "titlu": "Vlad Țepeș",
+ "rezumat": "Domnul aspru al Țării Românești, care a atacat noaptea tabăra lui Mahomed al II-lea și al cărui nume a ajuns, peste secole, în legenda lui Dracula.",
+ "an": 1456,
+ "cand": "1448, 1456–1462, 1476",
+ "regiuni": [
+  "muntenia",
+  "oltenia"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1456
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Vlad%20Tepes%20002.jpg?width=1280",
+  "alt": "Portretul lui Vlad Țepeș, cu o căciulă împodobită cu perle",
+  "sursa": "Vlad Țepeș, portret din secolul al XVI-lea, castelul Ambras (Innsbruck), după un original din vremea lui. Domeniu public, prin Wikimedia Commons.",
+  "forma": "portret"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "**Vlad al III-lea**, fiul lui Vlad Dracul, a domnit de trei ori în Țara Românească: câteva săptămâni în 1448, între 1456 și 1462 și câteva luni în 1476. Tatăl său intrase în **Ordinul Dragonului**, întemeiat de regele Sigismund de Luxemburg ca să lupte împotriva otomanilor; de aici i-a venit numele de *Dracul*, iar fiului, pe cel de *Drăculea*. Românii l-au numit mai târziu **Țepeș**, după pedeapsa cu țeapa pe care o folosea des."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "ostatic",
+     "def": "persoană ținută la o curte străină, ca garanție că o înțelegere va fi respectată."
+    },
+    {
+     "termen": "boier",
+     "def": "mare proprietar de pământ; boierii formau sfatul domnului."
+    },
+    {
+     "termen": "pretendent",
+     "def": "persoană care cere tronul, spunând că are dreptul la el."
+    },
+    {
+     "termen": "pământ pârjolit",
+     "def": "distrugerea hranei și a adăposturilor din calea dușmanului, ca să-l slăbească."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Domnia dintre 1456 și 1462"
+  },
+  {
+   "t": "text",
+   "md": "Vlad și-a petrecut o parte din copilărie ca ostatic la curtea sultanului, împreună cu fratele său mai mic, Radu. Ajuns domn în 1456, a vrut să întărească autoritatea domniei. I-a pedepsit pe boierii pe care îi socotea vinovați de uciderea tatălui și a fratelui său mai mare, Mircea, a pedepsit fără milă hoția și a refăcut cetatea **Poienari**, pe Argeș.\n\nSeveritatea lui a rămas în amintirea oamenilor. Povestirile despre el, tipărite în germană încă din timpul vieții lui și scrise apoi și în rusă, îl arată ca pe un conducător crud, dar și ca pe unul sub care nimeni nu îndrăznea să fure."
+  },
+  {
+   "t": "titlu",
+   "text": "Războiul cu sultanul"
+  },
+  {
+   "t": "text",
+   "md": "În iarna 1461–1462, Vlad a refuzat să mai plătească tributul și a atacat cetățile otomane de pe Dunăre. Într-o scrisoare către regele Ungariei, Matei Corvin, fiul lui Iancu de Hunedoara, îi raporta rezultatul campaniei."
+  },
+  {
+   "t": "citat",
+   "text": "Am ucis 23.884 de turci și bulgari, fără cei care au ars în casele lor sau ale căror capete nu au fost tăiate de oștenii noștri.",
+   "autor": "Vlad Țepeș",
+   "sursa": "scrisoarea către regele Matei Corvin, 11 februarie 1462 (traducere liberă)",
+   "intrebare": "De ce i-ar fi trimis Vlad regelui Ungariei un număr atât de exact? Ce voia să obțină de la el?"
+  },
+  {
+   "t": "text",
+   "md": "Răspunsul a venit în vara lui 1462: sultanul **Mahomed al II-lea** a intrat în țară cu o armată de câteva ori mai mare decât oastea lui Vlad. Domnul a pustiit drumurile, a otrăvit fântânile și, pe 17 iunie, a atacat noaptea chiar tabăra sultanului, lângă Târgoviște. Atacul nu l-a ucis pe sultan, dar a semănat panică.\n\nCând otomanii au ajuns la Târgoviște, au găsit în fața orașului o „pădure” de țepe cu prizonieri. Sultanul s-a retras, lăsându-l pe tron pe fratele lui Vlad, Radu cel Frumos."
+  },
+  {
+   "t": "imagine",
+   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/AtaculdeNoapte.jpg?width=960",
+   "alt": "Pictură: oștenii lui Vlad atacă noaptea, cu torțe, tabăra otomană",
+   "legenda": "Atacul de noapte de la Târgoviște, pictură de Theodor Aman.",
+   "sursa": "Theodor Aman (1831–1891). Domeniu public, prin Wikimedia Commons."
+  },
+  {
+   "t": "titlu",
+   "text": "Sfârșitul"
+  },
+  {
+   "t": "text",
+   "md": "Părăsit de o parte dintre boieri, Vlad a trecut munții în Transilvania, unde Matei Corvin l-a arestat și l-a ținut prizonier mai bine de un deceniu. Eliberat, a revenit pe tron în noiembrie 1476, cu sprijinul regelui Ungariei și al vărului său, Ștefan cel Mare, dar a fost ucis în luptă câteva săptămâni mai târziu."
+  },
+  {
+   "t": "stiati",
+   "md": "În 1897, scriitorul irlandez Bram Stoker a publicat romanul *Dracula*, al cărui vampir poartă numele domnului român. Personajul are foarte puțin în comun cu Vlad cel adevărat, dar l-a făcut cunoscut în toată lumea."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "1431",
+     "text": "Tatăl său, Vlad, intră în Ordinul Dragonului."
+    },
+    {
+     "an": "1442",
+     "text": "Vlad și fratele său Radu sunt trimiși ostatici la curtea sultanului."
+    },
+    {
+     "an": "1448",
+     "text": "Prima domnie, de câteva săptămâni."
+    },
+    {
+     "an": "1456",
+     "text": "Urcă din nou pe tron, unde rămâne șase ani."
+    },
+    {
+     "an": "1462",
+     "text": "Campania de iarnă la Dunăre; atacul de noapte (17 iunie); fuga în Transilvania."
+    },
+    {
+     "an": "1462–c. 1475",
+     "text": "Este ținut prizonier de regele Matei Corvin."
+    },
+    {
+     "an": "1476",
+     "text": "A treia domnie; este ucis la sfârșitul anului."
+    },
+    {
+     "an": "1897",
+     "text": "Apare romanul Dracula, al lui Bram Stoker."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "Vlad Țepeș a domnit de trei ori; cea mai lungă domnie a fost între 1456 și 1462."
+    },
+    {
+     "text": "A întărit autoritatea domniei și a pedepsit aspru boierii neascultători și hoții."
+    },
+    {
+     "text": "În 1462 a înfruntat armata lui Mahomed al II-lea și a atacat-o noaptea, lângă Târgoviște."
+    },
+    {
+     "text": "Vampirul Dracula, din romanul lui Bram Stoker, are foarte puțin în comun cu domnul real."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "De unde vine numele de Drăculea?",
+     "opt": [
+      "de la un castel din Transilvania",
+      "de la Ordinul Dragonului, în care intrase tatăl său",
+      "de la o poreclă dată de otomani"
+     ],
+     "ok": 1,
+     "expl": "Tatăl lui Vlad făcea parte din Ordinul Dragonului și a fost numit Dracul; fiul a devenit Drăculea."
+    },
+    {
+     "text": "Pe cine a atacat Vlad Țepeș noaptea, în iunie 1462?",
+     "opt": [
+      "tabăra sultanului Mahomed al II-lea",
+      "armata regelui Ungariei",
+      "cetatea Chilia"
+     ],
+     "ok": 0,
+     "expl": "Atacul de noapte a lovit chiar tabăra sultanului, lângă Târgoviște."
+    },
+    {
+     "text": "Cine a scris romanul Dracula?",
+     "opt": [
+      "Bram Stoker",
+      "Mihai Eminescu",
+      "Jules Verne"
+     ],
+     "ok": 0,
+     "expl": "Scriitorul irlandez Bram Stoker a publicat romanul în 1897."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-17"
+  }
+ ]
+}

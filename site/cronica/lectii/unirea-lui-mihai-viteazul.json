@@ -11,7 +11,7 @@
   "moldova"
  ],
  "autor": "",
- "actualizat": "2026-11-21",
+ "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
   "an": 1600
@@ -26,6 +26,27 @@
   {
    "t": "text",
    "md": "**Mihai** a devenit domn al Țării Românești în 1593, într-o vreme în care toate cele trei țări românești erau vasale Imperiului Otoman. În 1594 s-a alăturat alianței creștine din jurul împăratului Rudolf al II-lea și s-a ridicat împotriva otomanilor.\n\nÎn august 1595, la **Călugăreni**, pe un teren mlăștinos străbătut de un singur pod, oastea lui Mihai a oprit marea armată a lui Sinan Pașa. Cu ajutorul principelui Transilvaniei, Sigismund Báthory, otomanii au fost alungați din țară în toamna aceluiași an."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "Liga Sfântă",
+     "def": "alianța statelor creștine împotriva otomanilor, formată în anii 1590 în jurul împăratului Rudolf al II-lea."
+    },
+    {
+     "termen": "principe",
+     "def": "conducătorul Transilvaniei în secolele XVI–XVII."
+    },
+    {
+     "termen": "suzeranitate",
+     "def": "dependența unui stat față de altul mai puternic, căruia îi plătește tribut, dar își păstrează conducătorii și legile."
+    },
+    {
+     "termen": "uniune personală",
+     "def": "unirea mai multor țări sub același conducător, fiecare păstrându-și legile și instituțiile."
+    }
+   ]
   },
   {
    "t": "imagine",
@@ -46,7 +67,8 @@
    "t": "citat",
    "text": "Io Mihai Voievod, din mila lui Dumnezeu, Domn al Țării Românești și al Ardealului și a toată Țara Moldovei",
    "autor": "titlul lui Mihai Viteazul",
-   "sursa": "document emis la Alba Iulia, 6 iulie 1600"
+   "sursa": "document emis la Alba Iulia, 6 iulie 1600",
+   "intrebare": "Ce țări enumeră titlul lui Mihai? De ce era important pentru el să le pomenească pe toate trei?"
   },
   {
    "t": "harta",
@@ -72,8 +94,12 @@
    "md": "Unirea a durat doar câteva luni. Nobilimea din Transilvania s-a răsculat, sprijinită de generalul imperial **Giorgio Basta**, și l-a învins pe Mihai la **Mirăslău**, pe 18 septembrie 1600. În aceeași toamnă, polonezii l-au readus pe tron pe Ieremia Movilă în Moldova și au intrat și în Țara Românească.\n\nMihai a cerut sprijinul împăratului Rudolf al II-lea și, pe 3 august 1601, împreună cu Basta, l-a învins pe Sigismund Báthory la **Gorăslău**. Câteva zile mai târziu, pe **9 august 1601**, a fost ucis din ordinul lui Basta, la Câmpia Turzii. Capul lui a fost îngropat la mănăstirea Dealu, lângă Târgoviște."
   },
   {
+   "t": "stiati",
+   "md": "Pecetea lui Mihai Viteazul din 1600 aduna la un loc stemele celor trei țări pe care le conducea: vulturul Țării Românești, capul de bour al Moldovei și simbolurile Transilvaniei."
+  },
+  {
    "t": "cronologie",
-   "titlu": "Pe scurt",
+   "titlu": "Cronologie",
    "ev": [
     {
      "an": "1593",
@@ -126,6 +152,58 @@
   {
    "t": "text",
    "md": "Unirea din 1600 nu a fost un stat unitar: fiecare țară și-a păstrat instituțiile. Peste două secole, revoluționarii de la 1848 și oamenii Unirii din 1859 și din 1918 au făcut din Mihai simbolul unității românilor."
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "Mihai Viteazul a domnit în Țara Românească între 1593 și 1601."
+    },
+    {
+     "text": "La Călugăreni (1595) a oprit armata otomană condusă de Sinan Pașa."
+    },
+    {
+     "text": "În 1599–1600 a ajuns să conducă și Transilvania, și Moldova: a fost prima unire politică a celor trei țări."
+    },
+    {
+     "text": "A fost ucis în 1601 la Câmpia Turzii, din ordinul generalului Basta."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "În ce bătălie a oprit Mihai, în 1595, armata lui Sinan Pașa?",
+     "opt": [
+      "Călugăreni",
+      "Șelimbăr",
+      "Mirăslău"
+     ],
+     "ok": 0,
+     "expl": "La Călugăreni, în august 1595, oastea lui Mihai a oprit armata otomană."
+    },
+    {
+     "text": "Când a intrat Mihai Viteazul în Alba Iulia?",
+     "opt": [
+      "1 noiembrie 1599",
+      "1 decembrie 1918",
+      "9 august 1601"
+     ],
+     "ok": 0,
+     "expl": "După victoria de la Șelimbăr, Mihai a intrat în Alba Iulia pe 1 noiembrie 1599."
+    },
+    {
+     "text": "Din ordinul cui a fost ucis Mihai Viteazul?",
+     "opt": [
+      "al sultanului",
+      "al generalului Giorgio Basta",
+      "al lui Ieremia Movilă"
+     ],
+     "ok": 1,
+     "expl": "Mihai a fost ucis la Câmpia Turzii, pe 9 august 1601, din ordinul generalului imperial Basta."
+    }
+   ]
   },
   {
    "t": "video",

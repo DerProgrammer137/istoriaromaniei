@@ -1,0 +1,188 @@
+{
+ "id": "primele-formatiuni-politice",
+ "titlu": "Primele formațiuni politice românești",
+ "rezumat": "Obștile sătești, cnezatele și voievodatele: cum s-au organizat românii înainte de întemeierea țărilor și ce spun despre ele cronicile și documentele vremii.",
+ "an": 900,
+ "cand": "secolele IX–XIII",
+ "regiuni": [
+  "crisana",
+  "banat",
+  "transilvania",
+  "oltenia"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 900
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "După ce s-au format ca popor, românii au trăit multă vreme în **obști sătești**: comunități de familii care stăpâneau împreună pădurile, pășunile și apele și își alegeau conducătorii. Mai multe obști formau o *țară*, cuvânt care a rămas în numele unor ținuturi: Țara Hațegului, Țara Făgărașului, Țara Maramureșului, Țara Oașului.\n\nȚările erau conduse de **cnezi** sau **juzi**, iar mai multe cnezate puteau fi unite sub un **voievod**, care conducea oastea în vreme de război. Din aceste formațiuni mici s-au născut, peste câteva secole, statele românești medievale."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "obște sătească",
+     "def": "comunitate de familii dintr-un sat, care stăpânea în comun pământul, pădurile și pășunile."
+    },
+    {
+     "termen": "cneaz (jude)",
+     "def": "conducătorul unei obști sau al unei țări mici; avea și rol de judecător."
+    },
+    {
+     "termen": "voievod",
+     "def": "conducătorul unui voievodat, care comanda oastea; mai târziu, titlul domnilor țărilor române."
+    },
+    {
+     "termen": "cronică",
+     "def": "scriere care povestește întâmplările în ordinea în care s-au petrecut."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Gelu, Glad și Menumorut"
+  },
+  {
+   "t": "text",
+   "md": "Cea mai veche știre despre voievodatele românești din Transilvania și Banat vine dintr-o cronică scrisă pe la 1200 de un notar anonim al regelui Ungariei, numită **Gesta Hungarorum** (Faptele ungurilor). Ea povestește că, la sfârșitul secolului al IX-lea, ungurii veniți în Câmpia Panonică au găsit în calea lor trei voievodate:\n\n- al lui **Menumorut**, în Crișana, cu cetatea Biharea;\n- al lui **Glad**, în Banat, cu cetatea Cuvin;\n- al lui **Gelu**, „un oarecare român”, în centrul Transilvaniei, cu cetatea lângă Someș.\n\nToate au fost cucerite, unul după altul, de unguri. Cucerirea Transilvaniei a durat însă câteva secole: abia în secolul al XII-lea ea a devenit voievodat al Regatului Ungariei. Ca să-și întărească stăpânirea, regii Ungariei i-au adus aici pe **sași**, coloniști germani, și i-au așezat pe **secui** la marginea de răsărit a provinciei.\n\nÎn Dobrogea, aflată sub stăpânire bizantină, izvoarele din secolul al XI-lea pomenesc și ele conducători locali, ca Tatos, Sestlav și Satza."
+  },
+  {
+   "t": "harta",
+   "an": 900,
+   "regiuni": [
+    "crisana",
+    "banat",
+    "transilvania",
+    "oltenia",
+    "muntenia"
+   ],
+   "text": "Voievodatele pomenite de Gesta Hungarorum (c. 900) și formațiunile românești de la sud de Carpați după marea invazie tătară (c. 1250).",
+   "an2": 1250
+  },
+  {
+   "t": "titlu",
+   "text": "Voievodatele de la sud de Carpați"
+  },
+  {
+   "t": "text",
+   "md": "Și la sud de Carpați existau asemenea formațiuni. În 1247, regele Ungariei, **Béla al IV-lea**, le-a dăruit cavalerilor ioaniți o parte din aceste ținuturi printr-un act numit **Diploma Ioaniților**. Documentul pomenește cnezatele lui **Ioan** și **Farcaș**, în Oltenia, voievodatul lui **Litovoi**, în nordul Olteniei, și voievodatul lui **Seneslau**, la răsărit de Olt. Toate plăteau dări regelui Ungariei."
+  },
+  {
+   "t": "citat",
+   "text": "…cu excepția țării cnezatului voievodului Litovoi, pe care o lăsăm românilor așa cum au stăpânit-o până acum…",
+   "autor": "Diploma Ioaniților",
+   "sursa": "act dat de regele Béla al IV-lea al Ungariei, 2 iunie 1247 (traducere liberă)",
+   "intrebare": "Ce arată documentul despre cine stăpânea, de fapt, țara lui Litovoi?"
+  },
+  {
+   "t": "text",
+   "md": "Pe la 1277–1279, Litovoi a refuzat să mai plătească tributul și s-a ridicat împotriva regelui. A murit în luptă, iar fratele său, **Bărbat**, a fost luat prizonier și a trebuit să plătească o răscumpărare mare. Peste câteva decenii, formațiunile de la sud de Carpați aveau să se unească într-un singur stat: Țara Românească."
+  },
+  {
+   "t": "stiati",
+   "md": "Cuvântul *voievod* vine din slavă și înseamnă „cel care conduce oastea”. Domnii Țării Românești și ai Moldovei l-au purtat secole la rând: Ștefan cel Mare semna *Io Ștefan voievod*."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "c. 895–900",
+     "text": "Ungurii se așază în Câmpia Panonică și atacă voievodatele lui Menumorut, Glad și Gelu."
+    },
+    {
+     "an": "971",
+     "text": "Imperiul Bizantin recucerește Dobrogea."
+    },
+    {
+     "an": "c. 1150",
+     "text": "Regii Ungariei îi aduc pe sași în Transilvania."
+    },
+    {
+     "an": "1176",
+     "text": "Este pomenit primul voievod al Transilvaniei."
+    },
+    {
+     "an": "1211–1225",
+     "text": "Cavalerii teutoni sunt așezați în Țara Bârsei."
+    },
+    {
+     "an": "1241–1242",
+     "text": "Marea invazie mongolă."
+    },
+    {
+     "an": "1247",
+     "text": "Diploma Ioaniților."
+    },
+    {
+     "an": "1277–1279",
+     "text": "Litovoi se ridică împotriva regelui Ungariei."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "Românii s-au organizat mai întâi în obști sătești, unite în țări conduse de cnezi și voievozi."
+    },
+    {
+     "text": "Gesta Hungarorum pomenește voievodatele lui Menumorut, Glad și Gelu, cucerite de unguri."
+    },
+    {
+     "text": "Diploma Ioaniților (1247) arată că la sud de Carpați existau cnezate și voievodate românești."
+    },
+    {
+     "text": "Litovoi s-a ridicat împotriva regelui Ungariei, pe la 1277–1279."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Ce era o obște sătească?",
+     "opt": [
+      "o cetate de graniță",
+      "o comunitate care stăpânea pământul în comun",
+      "o armată de mercenari"
+     ],
+     "ok": 1,
+     "expl": "Familiile din obște stăpâneau împreună pădurile, pășunile și apele și își alegeau conducătorii."
+    },
+    {
+     "text": "Ce voievod conducea în Banat, după Gesta Hungarorum?",
+     "opt": [
+      "Gelu",
+      "Glad",
+      "Menumorut"
+     ],
+     "ok": 1,
+     "expl": "Glad stăpânea Banatul; Menumorut, Crișana; Gelu, centrul Transilvaniei."
+    },
+    {
+     "text": "Ce document din 1247 îi pomenește pe Litovoi și Seneslau?",
+     "opt": [
+      "Diploma Ioaniților",
+      "Gesta Hungarorum",
+      "Tabula Peutingeriana"
+     ],
+     "ok": 0,
+     "expl": "Diploma Ioaniților, dată de regele Béla al IV-lea, descrie formațiunile românești de la sud de Carpați."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-11"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-12"
+  }
+ ]
+}

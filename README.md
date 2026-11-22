@@ -3,7 +3,7 @@
 Site static despre istoria României, în două părți:
 
 - **Biblioteca video**: videoclipurile canalului de YouTube, pe o cronologie interactivă, pe hartă și pe teme. Se actualizează singură în fiecare zi, prin GitHub Actions.
-- **Cronica** (prima pagină a site-ului): o carte veche, cu copertă de piele și pagini care se întorc. Fiecare lecție are harta perioadei pe pagina din stânga, plus grafice, cronologii, citate și imagini. Lecțiile se scriu și se corectează direct pe site, de oricine are parola de editare.
+- **Cronica** (prima pagină a site-ului): o carte, *Istoria românilor de la geto-daci până azi*, cu copertă de piele, foaie de titlu, cuprins cu numere de pagină, 8 părți și 28 de lecții, cu pagini care se întorc. Fiecare lecție are harta epocii pe pagina din stânga și rubricile unui manual: dicționar, surse istorice cu întrebări, „Știați că?”, cronologie, „Rețin” și un test „Verifică-te”. Lecțiile se scriu și se corectează direct pe site, de oricine are parola de editare.
 
 Totul se publică pe GitHub Pages.
 
@@ -16,7 +16,7 @@ site/                     ← tot ce se publică pe GitHub Pages
   index.html              ← cronica (prima pagină): coperta, cuprinsul, lecțiile, editorul, configurarea editării
   biblioteca.html         ← biblioteca video (cronologie, hartă, căutare, fișa videoclipului)
   cronica.html            ← adresa veche a cronicii; trimite la prima pagină
-  assets/harta.js         ← harta istorică: 22 de momente, de la c. 500 î.Hr. până azi
+  assets/harta.js         ← harta istorică: 25 de momente, de la c. 500 î.Hr. până azi
   assets/harta-geo.json   ← contururile hărții (Natural Earth 10m + granițe istorice reconstituite)
   assets/cronica.js       ← cititorul și editorul lecțiilor
   cronica/cuprins.json    ← lista lecțiilor (scrisă de editor)
@@ -117,7 +117,11 @@ Scriptul nu are dependențe; are nevoie doar de Node 20 sau mai nou.
 
 ## Cronica: lecții editabile pe site
 
-Cronica se deschide direct pe prima pagină a site-ului, ca o carte: coperta, apoi cuprinsul, apoi lecțiile, pagină cu pagină. Paginile se întorc cu săgețile de sub carte, cu tastele ← → sau trăgând cu degetul pe telefon. Butonul „Ecran complet” (sau tasta F) ascunde restul site-ului și mărește cartea; pe calculator și pe Android trece și browserul pe tot ecranul. Butonul „Scrie o lecție nouă” și „Editează lecția” cer parola de editare. O lecție e făcută din blocuri: text, subtitlu, hartă istorică (un moment sau două, comparate), grafic (bare sau linie), cronologie, citat, fișă pe scurt, imagine și videoclip (din bibliotecă sau de pe YouTube). Pe ecranele late harta perioadei stă pe pagina din stânga și se schimbă singură când pagina din dreapta ajunge la o hartă din text; pe telefon, harta apare în text.
+Cronica se deschide direct pe prima pagină a site-ului și e doar o carte: nu are meniuri de site în jur. Coperta se deschide la foaia de titlu; urmează cuprinsul (cu numerele de pagină), apoi cele 8 părți, fiecare cu pagina ei de titlu și o scurtă introducere, apoi lecțiile, numerotate de la 1 la 28, și pagina „Despre această carte”. Paginile au număr și titlu curent, ca într-o carte tipărită.
+
+Paginile se întorc cu săgețile de sub carte, cu clic pe marginea paginii, cu tastele ← → (Home/End pentru început și sfârșit) sau trăgând cu degetul pe telefon. „Cuprins”, „Ecran complet” (tasta F) și meniul „Mai mult” (Biblioteca video, Editează lecția, Scrie o lecție nouă, modul întunecat) stau în bara îngustă de sub carte. Pe ecranele late se văd două pagini, iar fiecare lecție începe cu harta epocii pe pagina din stânga; pe telefon se vede o pagină, iar harta vine după primul paragraf. Orice hartă se mărește cu un clic.
+
+O lecție e făcută din blocuri, ca un manual: text, subtitlu, **Dicționar**, **Sursă istorică** (citat, cu o întrebare opțională), **Știați că?**, **Cronologie**, **Pe scurt**, hartă istorică (un moment sau două, comparate), grafic (bare sau linie), imagine, **Rețin**, **Verifică-te** (întrebări cu variante; cititorul vede pe loc răspunsul corect și explicația) și videoclip (din bibliotecă sau de pe YouTube). Când o hartă, o imagine sau o casetă nu mai încape pe pagină, cartea o mută după paragraful următor, ca în cărțile tipărite, ca să nu rămână jumătăți de pagină goale. Lecțiile sunt așezate automat pe părți, după anul lor.
 
 ### Cum funcționează salvarea
 
@@ -137,4 +141,4 @@ Contururile vin din Natural Earth 10m (domeniu public): unitățile administrati
 
 ### Imaginile din lecțiile de exemplu
 
-Portretele și reliefurile sunt preluate de pe Wikimedia Commons (domeniu public; miniatura lui Ștefan cel Mare e sub licență CC BY-SA 3.0, menționată sub imagine). Lecțiile de exemplu sunt marcate pe site și pot fi editate sau șterse.
+Portretele, picturile, fotografiile și reliefurile sunt preluate de pe Wikimedia Commons; licența fiecăreia (domeniu public sau licență liberă, de exemplu CC BY-SA) e scrisă sub imagine. Cele 28 de lecții sunt scrise ca punct de plecare pentru echipa canalului: sunt marcate pe site ca lecții de exemplu și pot fi corectate, completate sau șterse. Generatorul lor nu face parte din site; lecțiile se corectează direct din editor.

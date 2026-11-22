@@ -1,0 +1,192 @@
+{
+ "id": "instaurarea-comunismului",
+ "titlu": "Instaurarea comunismului",
+ "rezumat": "Cu sprijinul armatei sovietice, comuniștii preiau puterea: alegeri falsificate, abdicarea regelui, naționalizare, colectivizare, închisori politice și rezistența din munți.",
+ "an": 1945,
+ "cand": "1945–1965",
+ "regiuni": [],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1970
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/King%20Michael%20I%20in%20Air%20Force%20Marshal%20uniform%2C%20post-war.jpg?width=900",
+  "alt": "Regele Mihai I, în uniformă militară",
+  "sursa": "Regele Mihai I, fotografie din anii de după război. Domeniu public, prin Wikimedia Commons.",
+  "forma": "portret"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "La sfârșitul războiului, România se afla sub ocupația armatei sovietice, iar marile puteri hotărâseră că ea va intra în sfera de influență a Uniunii Sovietice. **Partidul Comunist Român**, care avea în 1944 foarte puțini membri, a preluat puterea în câțiva ani, cu sprijinul Moscovei."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "naționalizare",
+     "def": "trecerea fabricilor, a băncilor și a altor întreprinderi private în proprietatea statului."
+    },
+    {
+     "termen": "colectivizare",
+     "def": "luarea pământului țăranilor și unirea lui în gospodării agricole colective, controlate de stat."
+    },
+    {
+     "termen": "Securitate",
+     "def": "poliția politică a regimului comunist, care îi urmărea și îi aresta pe adversari."
+    },
+    {
+     "termen": "deținut politic",
+     "def": "om închis pentru opiniile sau faptele lui politice, nu pentru o crimă."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Preluarea puterii"
+  },
+  {
+   "t": "text",
+   "md": "Pe 6 martie 1945, sub presiunea Moscovei, regele Mihai a fost silit să numească un guvern condus de **Petru Groza**, dominat de comuniști. La alegerile din 19 noiembrie 1946, mulți istorici cred că a câștigat opoziția, condusă de **Partidul Național Țărănesc**, dar rezultatele au fost falsificate, iar guvernul și-a atribuit o victorie zdrobitoare.\n\nÎn 1947, liderii opoziției au fost arestați, iar **Iuliu Maniu**, conducătorul țărăniștilor, a fost condamnat la închisoare pe viață; a murit în închisoarea de la **Sighet**, în 1953. Pe **30 decembrie 1947**, regele Mihai a fost obligat să abdice și să plece din țară, iar România a fost proclamată **republică populară**."
+  },
+  {
+   "t": "titlu",
+   "text": "Dictatura"
+  },
+  {
+   "t": "text",
+   "md": "Noul regim a copiat modelul sovietic. În 1948, fabricile, băncile și minele au fost **naționalizate**, iar poliția politică, **Securitatea**, a fost înființată după modelul sovietic. Între 1949 și 1962, țăranii au fost siliți să-și dea pământul și animalele gospodăriilor colective; cei care se împotriveau erau bătuți, arestați sau deportați. Biserica Greco-Catolică a fost interzisă, iar episcopii ei au fost întemnițați.\n\nSute de mii de oameni au trecut prin închisori și lagăre de muncă, precum cele de la **Canalul Dunăre–Marea Neagră**, **Aiud**, **Gherla**, **Pitești** sau **Sighet**. Politicieni, preoți, ofițeri, profesori, studenți și țărani înstăriți au fost închiși ani la rând, mulți fără proces."
+  },
+  {
+   "t": "titlu",
+   "text": "Rezistența"
+  },
+  {
+   "t": "text",
+   "md": "Nu toți au acceptat. În munții Făgărașului, ai Banatului, ai Bucovinei și în Apuseni, grupuri de partizani au luptat ani la rând împotriva trupelor de Securitate, ajutați în ascuns de săteni. Ultimele grupuri au fost prinse abia la începutul anilor '60.\n\nSub **Gheorghe Gheorghiu-Dej**, conducătorul comuniștilor până în 1965, armata sovietică a plecat din România (1958), iar în 1964 cei mai mulți deținuți politici au fost eliberați. Regimul a început să ia unele distanțe față de Moscova, dar a rămas o dictatură."
+  },
+  {
+   "t": "citat",
+   "text": "…regimul comunist din România a fost ilegitim și criminal.",
+   "autor": "Traian Băsescu, președintele României",
+   "sursa": "discursul din Parlament, 18 decembrie 2006, la prezentarea raportului comisiei care a analizat dictatura comunistă",
+   "intrebare": "De ce credeți că a fost nevoie de o condamnare oficială a regimului, la 17 ani după căderea lui?"
+  },
+  {
+   "t": "stiati",
+   "md": "Fosta închisoare de la Sighet, unde au murit mulți dintre fruntașii politici ai României interbelice, este azi **Memorialul Victimelor Comunismului și al Rezistenței**."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "6 martie 1945",
+     "text": "Guvernul Petru Groza, impus de Moscova."
+    },
+    {
+     "an": "19 noiembrie 1946",
+     "text": "Alegeri falsificate."
+    },
+    {
+     "an": "1947",
+     "text": "Procesul liderilor țărăniști; Iuliu Maniu este condamnat."
+    },
+    {
+     "an": "30 decembrie 1947",
+     "text": "Regele Mihai este silit să abdice; se proclamă Republica Populară Română."
+    },
+    {
+     "an": "1948",
+     "text": "Naționalizarea; se înființează Securitatea."
+    },
+    {
+     "an": "1949–1962",
+     "text": "Colectivizarea agriculturii."
+    },
+    {
+     "an": "1949–1953",
+     "text": "Lucrările la Canalul Dunăre–Marea Neagră, cu deținuți politici."
+    },
+    {
+     "an": "1958",
+     "text": "Trupele sovietice părăsesc România."
+    },
+    {
+     "an": "1964",
+     "text": "Sunt eliberați cei mai mulți deținuți politici."
+    },
+    {
+     "an": "1965",
+     "text": "Moare Gheorghe Gheorghiu-Dej."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "După 1945, comuniștii au preluat puterea cu sprijinul armatei sovietice, prin alegeri falsificate și arestarea opoziției."
+    },
+    {
+     "text": "Pe 30 decembrie 1947, regele Mihai a fost silit să abdice, iar România a devenit republică populară."
+    },
+    {
+     "text": "Regimul a naționalizat industria, a colectivizat agricultura și a închis sute de mii de oameni."
+    },
+    {
+     "text": "Partizanii din munți au rezistat regimului până la începutul anilor '60."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Când a fost silit regele Mihai să abdice?",
+     "opt": [
+      "23 august 1944",
+      "30 decembrie 1947",
+      "22 decembrie 1989"
+     ],
+     "ok": 1,
+     "expl": "Pe 30 decembrie 1947, regele a abdicat sub presiunea comuniștilor, iar România a fost proclamată republică populară."
+    },
+    {
+     "text": "Ce a fost colectivizarea?",
+     "opt": [
+      "trecerea fabricilor în proprietatea statului",
+      "luarea pământului țăranilor în gospodării colective",
+      "construirea de blocuri"
+     ],
+     "ok": 1,
+     "expl": "Între 1949 și 1962, țăranii au fost obligați să-și dea pământul gospodăriilor colective."
+    },
+    {
+     "text": "Ce se află azi în fosta închisoare de la Sighet?",
+     "opt": [
+      "un muzeu de artă",
+      "Memorialul Victimelor Comunismului și al Rezistenței",
+      "o școală"
+     ],
+     "ok": 1,
+     "expl": "Închisoarea de la Sighet a devenit memorial al victimelor comunismului."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-38"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-39"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-40"
+  }
+ ]
+}

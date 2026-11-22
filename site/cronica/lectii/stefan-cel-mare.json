@@ -1,6 +1,6 @@
 {
  "id": "stefan-cel-mare",
- "titlu": "Ștefan cel Mare (1457–1504)",
+ "titlu": "Ștefan cel Mare",
  "rezumat": "Patruzeci și șapte de ani de domnie: bătălii cu otomanii, ungurii și polonezii, cetăți întărite și mănăstiri care stau și azi în picioare.",
  "an": 1457,
  "cand": "1457–1504",
@@ -11,7 +11,7 @@
   "bucovina-nord"
  ],
  "autor": "",
- "actualizat": "2026-11-21",
+ "actualizat": "2026-11-22",
  "exemplu": true,
  "harta": {
   "an": 1490
@@ -28,6 +28,27 @@
    "md": "**Ștefan al III-lea**, numit de urmași **cel Mare**, a domnit în Moldova între 1457 și 1504, mai mult decât oricare alt domn al țării. A urcat pe tron cu ajutorul vărului său, Vlad Țepeș, și a moștenit o țară slăbită de luptele pentru putere de după moartea lui Alexandru cel Bun.\n\nÎn primii ani a refăcut armata și cetățile, a recucerit **Chilia** (1465) și s-a apărat de regele Ungariei, Matei Corvin, pe care l-a înfrânt la **Baia**, în decembrie 1467."
   },
   {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "cetate de scaun",
+     "def": "cetatea în care își avea reședința domnul; în vremea lui Ștefan, Suceava."
+    },
+    {
+     "termen": "pârcălab",
+     "def": "comandantul unei cetăți și al ținutului din jurul ei."
+    },
+    {
+     "termen": "ctitorie",
+     "def": "biserică sau mănăstire construită pe cheltuiala cuiva, numit ctitor."
+    },
+    {
+     "termen": "canonizare",
+     "def": "trecerea unei persoane în rândul sfinților de către Biserică."
+    }
+   ]
+  },
+  {
    "t": "titlu",
    "text": "Vaslui, 1475"
   },
@@ -39,7 +60,8 @@
    "t": "citat",
    "text": "…am luat sabia în mână și, cu ajutorul Domnului Dumnezeului nostru atotputernic, am mers împotriva dușmanilor creștinătății…",
    "autor": "Ștefan cel Mare",
-   "sursa": "scrisoarea către principii creștini, 25 ianuarie 1475"
+   "sursa": "scrisoarea către principii creștini, 25 ianuarie 1475",
+   "intrebare": "Ce le cere Ștefan principilor creștini și de ce crede că și ei sunt în primejdie?"
   },
   {
    "t": "harta",
@@ -60,6 +82,13 @@
   {
    "t": "text",
    "md": "În vara lui 1476, sultanul a venit el însuși în Moldova. La **Războieni** (Valea Albă), pe 26 iulie, Ștefan a fost învins, dar cetățile Sucevei și Neamțului au rezistat, iar armata otomană, lovită de foamete și boli, s-a retras.\n\nÎn 1484, Baiazid al II-lea a cucerit **Chilia** și **Cetatea Albă**, cele două porturi prin care Moldova făcea comerț pe mare. Ștefan nu le-a mai putut recupera. În 1497 i-a învins în **Codrii Cosminului** pe polonezii regelui Ioan Albert, care pătrunseseră în țară."
+  },
+  {
+   "t": "citat",
+   "text": "Fost-au acest Ștefan vodă om nu mare de stat, mânios și de grabă vărsătoriu de sânge nevinovat; de multe ori la ospețe omorâia fără județ. Amintrilea era om întreg la fire, neleneș, și lucrul său îl știa a-l acoperi, și unde nu gândeai, acolo îl aflai.",
+   "autor": "Grigore Ureche",
+   "sursa": "Letopisețul Țării Moldovei, secolul al XVII-lea",
+   "intrebare": "Ce defecte și ce calități îi găsește cronicarul lui Ștefan? Ce înseamnă că „unde nu gândeai, acolo îl aflai”?"
   },
   {
    "t": "grafic",
@@ -93,6 +122,10 @@
     }
    ],
    "sursa": "ani rotunjiți; la domniile întrerupte s-au adunat toate perioadele"
+  },
+  {
+   "t": "stiati",
+   "md": "Ștefan a ridicat zeci de biserici și mănăstiri. Mănăstirea **Putna**, ctitoria lui cea mai iubită, a fost construită între 1466 și 1469; acolo se află și mormântul său."
   },
   {
    "t": "fapte",
@@ -155,6 +188,58 @@
     {
      "an": "1504",
      "text": "Moare la 2 iulie și este înmormântat la Putna."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "Ștefan cel Mare a domnit în Moldova 47 de ani (1457–1504), cea mai lungă domnie din istoria țării."
+    },
+    {
+     "text": "La Vaslui (1475) a obținut una dintre cele mai mari victorii creștine împotriva otomanilor."
+    },
+    {
+     "text": "În 1484, otomanii au cucerit Chilia și Cetatea Albă, porturile Moldovei la mare."
+    },
+    {
+     "text": "A ridicat cetăți și zeci de biserici și mănăstiri, între care Putna."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Unde a obținut Ștefan victoria din 10 ianuarie 1475?",
+     "opt": [
+      "la Războieni",
+      "la Podul Înalt, lângă Vaslui",
+      "la Baia"
+     ],
+     "ok": 1,
+     "expl": "Bătălia de la Vaslui s-a dat la Podul Înalt, pe 10 ianuarie 1475."
+    },
+    {
+     "text": "Ce cetăți a pierdut Moldova în 1484?",
+     "opt": [
+      "Suceava și Neamț",
+      "Chilia și Cetatea Albă",
+      "Hotin și Tighina"
+     ],
+     "ok": 1,
+     "expl": "Otomanii au cucerit în 1484 Chilia și Cetatea Albă, porturile de la Dunăre și de la Marea Neagră."
+    },
+    {
+     "text": "Unde este înmormântat Ștefan cel Mare?",
+     "opt": [
+      "la Putna",
+      "la Cozia",
+      "la Curtea de Argeș"
+     ],
+     "ok": 0,
+     "expl": "Ștefan este înmormântat la mănăstirea Putna, ctitoria sa."
     }
    ]
   },

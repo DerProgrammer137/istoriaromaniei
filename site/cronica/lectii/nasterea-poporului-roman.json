@@ -1,0 +1,199 @@
+{
+ "id": "nasterea-poporului-roman",
+ "titlu": "Retragerea romană și nașterea poporului român",
+ "rezumat": "Ce s-a întâmplat după plecarea legiunilor: populația daco-romană a rămas, a trecut prin valurile migrațiilor și a devenit, în câteva secole, poporul român.",
+ "an": 271,
+ "cand": "271 – secolul al IX-lea",
+ "regiuni": [
+  "transilvania",
+  "oltenia",
+  "muntenia",
+  "moldova"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 440
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "În jurul anului 271, împăratul **Aurelian** a hotărât să părăsească Dacia. Imperiul era atacat din toate părțile, iar provincia de la nordul Dunării, înconjurată de neamuri dușmane, era tot mai greu de apărat. Armata și administrația s-au retras la sud de fluviu, unde Aurelian a creat o provincie nouă, cu același nume de Dacia.\n\nNu a plecat însă toată lumea. Țăranii, păstorii și meșteșugarii, legați de pământurile și satele lor, au rămas în cea mai mare parte. Urmele lor, monede romane, unelte, vase și obiecte creștine, se găsesc în multe așezări din secolele care au urmat."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "migrație",
+     "def": "mutarea unui popor întreg dintr-o regiune în alta, în căutare de pământ, de pradă sau de pășuni."
+    },
+    {
+     "termen": "etnogeneză",
+     "def": "procesul de formare a unui popor."
+    },
+    {
+     "termen": "asimilare",
+     "def": "contopirea unei populații cu alta, a cărei limbă și ale cărei obiceiuri le preia."
+    },
+    {
+     "termen": "vlahi",
+     "def": "numele dat de străini, în Evul Mediu, românilor și altor populații romanice din sud-estul Europei."
+    }
+   ]
+  },
+  {
+   "t": "citat",
+   "text": "Provincia Dacia, pe care Traian o făcuse dincolo de Dunăre, a părăsit-o, pentru că tot Illyricul și Moesia fuseseră pustiite și nu mai spera s-o poată păstra. Pe romanii scoși din orașele și ogoarele Daciei i-a așezat în mijlocul Moesiei.",
+   "autor": "Eutropius",
+   "sursa": "Breviarul istoriei romane, cartea a IX-a (traducere liberă)",
+   "intrebare": "Eutropius vorbește despre romanii scoși din orașele și ogoarele Daciei. Ce arată descoperirile arheologice despre cei care au rămas?"
+  },
+  {
+   "t": "titlu",
+   "text": "Valurile migrațiilor"
+  },
+  {
+   "t": "text",
+   "md": "Timp de aproape o mie de ani, pe aici au trecut, unul după altul, popoare venite din răsărit și din nord: **goții** (secolele III–IV), **hunii** (secolul al V-lea), **gepizii**, **avarii** (secolele VI–VIII), **slavii** (din secolul al VI-lea), apoi **bulgarii**, **ungurii**, **pecenegii** și **cumanii**. Cei mai mulți au venit ca stăpânitori războinici: cereau tribut și hrană, dar nu s-au amestecat cu localnicii și, cu vremea, au plecat mai departe.\n\nPopulația daco-romană s-a retras uneori în zone mai ferite, de deal și de pădure, dar și-a continuat viața: a lucrat pământul, a crescut vite și a păstrat legăturile cu Imperiul Roman de Răsărit, de la sud de Dunăre. Împăratul **Constantin cel Mare** a construit chiar, în 328, un pod de piatră peste Dunăre, între Oescus și Sucidava (azi Celei, lângă Corabia)."
+  },
+  {
+   "t": "harta",
+   "an": 150,
+   "regiuni": [
+    "transilvania",
+    "banat",
+    "oltenia",
+    "muntenia",
+    "moldova"
+   ],
+   "text": "Provincia romană Dacia (c. 150) și ținuturile de la nord de Dunăre sub dominația hunilor (c. 440).",
+   "an2": 440
+  },
+  {
+   "t": "titlu",
+   "text": "Slavii"
+  },
+  {
+   "t": "text",
+   "md": "Dintre toți migratorii, **slavii** au avut cea mai mare influență. Spre deosebire de ceilalți, ei s-au așezat printre localnici, au trăit alături de ei și, în câteva secole, au fost asimilați. Au lăsat limbii române multe cuvinte, ca *a iubi*, *prieten*, *nevastă*, *a citi* sau *da*, și numele multor râuri și sate.\n\nTot prin slavi au venit, mai târziu, slavona, limba Bisericii și a cancelariilor domnești, și alfabetul chirilic, în care românii au scris până în secolul al XIX-lea."
+  },
+  {
+   "t": "stiati",
+   "md": "Tezaurul de la Pietroasele, numit și „Cloșca cu puii de aur”, a fost găsit în 1837 de doi țărani, într-o carieră de piatră din județul Buzău. Piesele de aur au aparținut, probabil, unei căpetenii gotice din secolul al IV-lea. Din cele 22 de piese descoperite s-au păstrat 12. În 1916 tezaurul a fost trimis la Moscova, împreună cu tezaurul Băncii Naționale, și s-a întors în țară abia în 1956."
+  },
+  {
+   "t": "imagine",
+   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Tesaurul%20de%20la%20Petrosa.jpg?width=960",
+   "alt": "Piesele tezaurului de la Pietroasele, reprezentate în culori",
+   "legenda": "Tezaurul de la Pietroasele, reprezentat de pictorul Henric Trenk în secolul al XIX-lea.",
+   "sursa": "Henric Trenk (1818–1893). Domeniu public, prin Wikimedia Commons."
+  },
+  {
+   "t": "titlu",
+   "text": "Un popor nou"
+  },
+  {
+   "t": "text",
+   "md": "În aceleași secole s-a răspândit **creștinismul**, adus de coloniști, de soldați și de misionari de la sud de Dunăre. Cuvintele de bază ale credinței românilor vin din latină: *Dumnezeu* (din *Domine Deus*), *biserică* (din *basilica*), *cruce*, *înger*, *păcat*, *a boteza*. Asta arată că strămoșii românilor au devenit creștini în limba latină, înainte de venirea slavilor.\n\nDin romanizarea dacilor, din creștinare și din asimilarea slavilor s-a format, până în secolele VIII–IX, un popor nou: **poporul român**. Limba lui, **româna**, face parte din familia limbilor romanice, alături de italiană, franceză, spaniolă și portugheză. Străinii i-au numit pe români *vlahi* sau *valahi*; ei înșiși își spuneau *rumâni*, de la latinescul *romanus*.\n\nLa sfârșitul secolului al XIX-lea, istoricul austriac Robert Roesler a susținut că românii s-ar fi format la sud de Dunăre și ar fi venit în Transilvania abia în Evul Mediu. Istoricii români i-au răspuns cu dovezile arheologice și lingvistice ale continuității, iar discuția nu s-a încheiat nici azi."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "c. 271",
+     "text": "Aurelian retrage armata și administrația romană la sud de Dunăre."
+    },
+    {
+     "an": "328",
+     "text": "Constantin cel Mare construiește un pod peste Dunăre, între Oescus și Sucidava."
+    },
+    {
+     "an": "376",
+     "text": "Hunii îi împing pe goți spre Dunăre; o parte dintre goți trec în Imperiul Roman."
+    },
+    {
+     "an": "453",
+     "text": "Moare Attila, iar stăpânirea hunilor se destramă."
+    },
+    {
+     "an": "567",
+     "text": "Avarii îi înving pe gepizi și stăpânesc Câmpia Panonică și Transilvania."
+    },
+    {
+     "an": "602",
+     "text": "Granița de pe Dunăre cedează; slavii se așază în masă în Peninsula Balcanică."
+    },
+    {
+     "an": "681",
+     "text": "La sud de Dunăre se întemeiază Țaratul Bulgar."
+    },
+    {
+     "an": "c. 896",
+     "text": "Ungurii se așază în Câmpia Panonică."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "În jurul anului 271, împăratul Aurelian a retras armata și administrația din Dacia; cea mai mare parte a populației a rămas."
+    },
+    {
+     "text": "Timp de aproape o mie de ani, pe teritoriul României au trecut numeroase popoare migratoare."
+    },
+    {
+     "text": "Slavii au fost asimilați de populația romanizată și au lăsat multe cuvinte în limba română."
+    },
+    {
+     "text": "Poporul român s-a format până în secolele VIII–IX; românii au devenit creștini în limba latină."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Ce împărat a retras armata romană din Dacia?",
+     "opt": [
+      "Traian",
+      "Hadrian",
+      "Aurelian"
+     ],
+     "ok": 2,
+     "expl": "Aurelian a părăsit provincia în jurul anului 271 și a mutat administrația la sud de Dunăre."
+    },
+    {
+     "text": "Care dintre aceste cuvinte vine din latină?",
+     "opt": [
+      "a iubi",
+      "biserică",
+      "prieten"
+     ],
+     "ok": 1,
+     "expl": "Biserică vine din latinescul basilica. A iubi și prieten sunt împrumuturi din slavă."
+    },
+    {
+     "text": "Cum își spuneau românii în Evul Mediu?",
+     "opt": [
+      "vlahi",
+      "rumâni",
+      "daci"
+     ],
+     "ok": 1,
+     "expl": "Străinii le spuneau vlahi; ei își spuneau rumâni, de la latinescul romanus."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-9"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-10"
+  }
+ ]
+}

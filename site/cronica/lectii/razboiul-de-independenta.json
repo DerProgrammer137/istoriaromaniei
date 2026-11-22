@@ -1,0 +1,223 @@
+{
+ "id": "razboiul-de-independenta",
+ "titlu": "Războiul de Independență",
+ "rezumat": "Un prinț străin, o constituție nouă și un război: în 1877, România își proclamă independența și o câștigă pe câmpul de luptă, la Plevna.",
+ "an": 1877,
+ "cand": "1866–1878",
+ "regiuni": [
+  "muntenia",
+  "oltenia",
+  "moldova",
+  "dobrogea"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1880
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Zahvat%20grivickogo%20reduta.jpg?width=1280",
+  "alt": "Pictură: soldați care atacă reduta Grivița, prin fumul tunurilor",
+  "sursa": "Cucerirea redutei Grivița, pictură din secolul al XIX-lea. Domeniu public, prin Wikimedia Commons.",
+  "forma": "peisaj"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "Pe 10 mai 1866, prințul **Carol de Hohenzollern-Sigmaringen** a intrat în București și a depus jurământul ca domn al României. Câteva săptămâni mai târziu a fost adoptată o **Constituție** modernă, după modelul celei belgiene, care garanta libertățile cetățenilor și separația puterilor în stat. România rămânea însă, oficial, sub suzeranitatea Imperiului Otoman."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "constituție",
+     "def": "legea fundamentală a unui stat, care arată cum este condus și ce drepturi au cetățenii."
+    },
+    {
+     "termen": "independență",
+     "def": "starea unui stat care nu depinde de altul și se conduce singur."
+    },
+    {
+     "termen": "redută",
+     "def": "fortificație de pământ, cu șanțuri și valuri, construită pentru apărare."
+    },
+    {
+     "termen": "congres de pace",
+     "def": "întâlnirea marilor puteri care stabilește condițiile păcii după un război."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Proclamarea independenței"
+  },
+  {
+   "t": "text",
+   "md": "În aprilie 1877, Rusia a declarat război Imperiului Otoman. România a semnat cu Rusia o convenție prin care permitea trecerea armatei ruse pe teritoriul ei, iar otomanii au bombardat orașele românești de pe Dunăre. Pe **9 mai 1877**, ministrul de externe **Mihail Kogălniceanu** a anunțat în Parlament ruperea legăturilor cu Poarta."
+  },
+  {
+   "t": "citat",
+   "text": "Suntem independenți; suntem națiune de sine stătătoare.",
+   "autor": "Mihail Kogălniceanu",
+   "sursa": "discursul din Adunarea Deputaților, 9 mai 1877",
+   "intrebare": "Ce schimbare anunța Kogălniceanu? De ce era nevoie de un război pentru ca ea să fie recunoscută?"
+  },
+  {
+   "t": "titlu",
+   "text": "Plevna"
+  },
+  {
+   "t": "text",
+   "md": "La început, rușii nu au vrut ajutorul armatei române. După ce au fost respinși de două ori de turcii lui **Osman Pașa** la **Plevna**, în Bulgaria, marele duce Nicolae i-a cerut ajutor prințului Carol, care a trecut Dunărea cu armata și a primit comanda trupelor ruso-române de la Plevna.\n\nPe 30 august 1877, soldații români au cucerit **reduta Grivița**, cu pierderi grele. Asediul a durat până pe 28 noiembrie, când Osman Pașa a încercat să iasă din încercuire, a fost rănit și s-a predat. În iarna 1877–1878, armata română a luptat la Rahova, Smârdan și Vidin."
+  },
+  {
+   "t": "imagine",
+   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Carol%20I%20King%20of%20Romania.jpg?width=960",
+   "alt": "Portretul lui Carol I, în uniformă, cu barbă",
+   "legenda": "Carol I, domn (1866–1881) și apoi rege al României (1881–1914).",
+   "sursa": "Domeniu public, prin Wikimedia Commons.",
+   "forma": "portret"
+  },
+  {
+   "t": "titlu",
+   "text": "Pacea"
+  },
+  {
+   "t": "text",
+   "md": "Pacea încheiată de Rusia cu Imperiul Otoman la San Stefano și apoi **Congresul de la Berlin** (1878) au recunoscut independența României. România a primit **Dobrogea**, cu Delta Dunării și Insula Șerpilor, dar a fost obligată să cedeze Rusiei sudul Basarabiei. Marile puteri au cerut și schimbarea Constituției, ca și locuitorii care nu erau creștini, mai ales evreii, să poată deveni cetățeni români."
+  },
+  {
+   "t": "harta",
+   "an": 1859,
+   "regiuni": [
+    "dobrogea",
+    "basarabia",
+    "moldova",
+    "muntenia"
+   ],
+   "text": "România înainte de război și după Congresul de la Berlin, când a primit Dobrogea și a pierdut sudul Basarabiei.",
+   "an2": 1880
+  },
+  {
+   "t": "stiati",
+   "md": "Coroana de oțel cu care Carol I a fost încoronat rege, în 1881, a fost făcută din metalul unui tun turcesc capturat la Plevna."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "10 mai 1866",
+     "text": "Carol de Hohenzollern-Sigmaringen devine domn al României."
+    },
+    {
+     "an": "1 iulie 1866",
+     "text": "Este adoptată Constituția."
+    },
+    {
+     "an": "aprilie 1877",
+     "text": "Convenția cu Rusia; începe războiul ruso-turc."
+    },
+    {
+     "an": "9 mai 1877",
+     "text": "Mihail Kogălniceanu proclamă independența."
+    },
+    {
+     "an": "30 august 1877",
+     "text": "Armata română cucerește reduta Grivița."
+    },
+    {
+     "an": "28 noiembrie 1877",
+     "text": "Osman Pașa se predă; cade Plevna."
+    },
+    {
+     "an": "ianuarie 1878",
+     "text": "Luptele de la Smârdan și Vidin."
+    },
+    {
+     "an": "1878",
+     "text": "Congresul de la Berlin recunoaște independența; Dobrogea revine României."
+    }
+   ]
+  },
+  {
+   "t": "fapte",
+   "titlu": "Pe scurt",
+   "randuri": [
+    {
+     "k": "Domnul",
+     "v": "Carol I (1866–1914)"
+    },
+    {
+     "k": "Proclamarea independenței",
+     "v": "9 mai 1877"
+    },
+    {
+     "k": "Bătălii",
+     "v": "Plevna, Grivița, Rahova, Smârdan, Vidin"
+    },
+    {
+     "k": "Pacea",
+     "v": "Congresul de la Berlin, 1878"
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "În 1866, Carol de Hohenzollern-Sigmaringen a devenit domn, iar România a primit o constituție modernă."
+    },
+    {
+     "text": "Pe 9 mai 1877, Mihail Kogălniceanu a proclamat independența României."
+    },
+    {
+     "text": "Armata română a luptat la Plevna, Grivița, Rahova, Smârdan și Vidin."
+    },
+    {
+     "text": "Congresul de la Berlin (1878) a recunoscut independența; România a primit Dobrogea și a pierdut sudul Basarabiei."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Cine a proclamat independența României în Parlament?",
+     "opt": [
+      "Alexandru Ioan Cuza",
+      "Mihail Kogălniceanu",
+      "Ion C. Brătianu"
+     ],
+     "ok": 1,
+     "expl": "Ministrul de externe Mihail Kogălniceanu a anunțat independența pe 9 mai 1877."
+    },
+    {
+     "text": "Ce redută au cucerit soldații români pe 30 august 1877?",
+     "opt": [
+      "Smârdan",
+      "Grivița",
+      "Vidin"
+     ],
+     "ok": 1,
+     "expl": "Reduta Grivița, de lângă Plevna, a fost cucerită cu pierderi grele."
+    },
+    {
+     "text": "Ce teritoriu a primit România în 1878?",
+     "opt": [
+      "Cadrilaterul",
+      "Dobrogea",
+      "Bucovina"
+     ],
+     "ok": 1,
+     "expl": "România a primit Dobrogea, cu Delta Dunării, dar a cedat Rusiei sudul Basarabiei. Cadrilaterul a fost alipit abia în 1913."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-29"
+  }
+ ]
+}

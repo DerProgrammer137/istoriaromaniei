@@ -1,0 +1,185 @@
+{
+ "id": "revolutia-de-la-1848",
+ "titlu": "Revoluția de la 1848",
+ "rezumat": "În același an, românii din Moldova, Țara Românească și Transilvania cer drepturi, libertăți și unire: un program care va fi împlinit abia peste decenii.",
+ "an": 1848,
+ "cand": "1848–1849",
+ "regiuni": [
+  "moldova",
+  "muntenia",
+  "transilvania",
+  "banat"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1815
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Nicolae%20B%C4%83lcescu%2C%201851.jpg",
+  "alt": "Portretul lui Nicolae Bălcescu",
+  "sursa": "Nicolae Bălcescu, portret din 1851. Domeniu public, prin Wikimedia Commons.",
+  "forma": "portret"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "În primăvara lui 1848, revoluții au izbucnit în aproape toată Europa: la Paris, Viena, Berlin, Milano, Pesta. Tinerii români care studiaseră la Paris, numiți mai târziu **pașoptiști**, au adus acasă ideile de libertate, egalitate și unitate națională. Revoluția a cuprins, una după alta, toate cele trei țări locuite de români."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "pașoptist",
+     "def": "participant la revoluția de la 1848."
+    },
+    {
+     "termen": "guvern provizoriu",
+     "def": "guvern format pentru scurtă vreme, până la alegerea unuia stabil."
+    },
+    {
+     "termen": "clacă",
+     "def": "munca fără plată pe care țăranii o datorau stăpânului moșiei."
+    },
+    {
+     "termen": "împroprietărire",
+     "def": "darea de pământ în proprietate țăranilor."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Moldova"
+  },
+  {
+   "t": "text",
+   "md": "Prima mișcare a început la **Iași**, pe 27 martie 1848, când boieri și tineri liberali i-au cerut domnului **Mihail Sturdza** reforme. Domnul a arestat o parte dintre ei, iar ceilalți au plecat în exil. Din Transilvania și din Bucovina, ei au scris programe mai îndrăznețe, în care cereau desființarea clăcii și **unirea Moldovei cu Țara Românească**."
+  },
+  {
+   "t": "titlu",
+   "text": "Țara Românească"
+  },
+  {
+   "t": "text",
+   "md": "În Țara Românească, revoluția a început pe 9 iunie 1848 la **Islaz**, unde a fost citită o proclamație cu 22 de puncte: egalitatea în drepturi, libertatea presei, desființarea clăcii și împroprietărirea țăranilor, eliberarea romilor robi. Domnul Gheorghe Bibescu a abdicat, iar puterea a fost preluată de un **guvern provizoriu**, din care făceau parte Ion Heliade Rădulescu, Nicolae Bălcescu și C. A. Rosetti.\n\nRevoluția a durat trei luni. În septembrie, armata otomană a intrat în București, după o luptă grea în **Dealul Spirii**, unde pompierii conduși de căpitanul Pavel Zăgănescu i-au înfruntat pe turci. Câteva zile mai târziu a intrat în țară și armata rusă, iar conducătorii revoluției au luat drumul exilului."
+  },
+  {
+   "t": "titlu",
+   "text": "Transilvania"
+  },
+  {
+   "t": "text",
+   "md": "În Transilvania, pe 3/15 mai 1848, aproape 40.000 de români s-au adunat la **Blaj**, pe un câmp numit de atunci **Câmpia Libertății**. Ei au cerut recunoașterea românilor ca națiune, desființarea iobăgiei și o reprezentare dreaptă în Dietă și s-au împotrivit unirii Transilvaniei cu Ungaria.\n\nDieta de la Cluj a votat totuși unirea. Revoluționarii maghiari conduși de **Lajos Kossuth** luptau pentru independența Ungariei, dar nu recunoșteau drepturile românilor, iar între cele două tabere a izbucnit un război civil sângeros. Românii din Munții Apuseni, conduși de **Avram Iancu**, au rezistat tuturor atacurilor. În vara lui 1849, Nicolae Bălcescu a încercat să-i împace pe Iancu și pe Kossuth, dar revoluția maghiară a fost înfrântă curând de armatele austriacă și rusă."
+  },
+  {
+   "t": "imagine",
+   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Avram%20Iancu%2C%20cca.%201865.jpg",
+   "alt": "Fotografie a lui Avram Iancu",
+   "legenda": "Avram Iancu, conducătorul românilor din Munții Apuseni, fotografiat în jurul anului 1865.",
+   "sursa": "Domeniu public, prin Wikimedia Commons.",
+   "forma": "portret"
+  },
+  {
+   "t": "citat",
+   "text": "Deșteaptă-te, române, din somnul cel de moarte,\nÎn care te-adânciră barbarii de tirani!\nAcum ori niciodată croiește-ți altă soarte,\nLa care să se-nchine și cruzii tăi dușmani!",
+   "autor": "Andrei Mureșanu",
+   "sursa": "„Un răsunet”, poezie publicată în 1848",
+   "intrebare": "Ce îndemn conține prima strofă? De ce credeți că aceste versuri au devenit, după 1989, imnul României?"
+  },
+  {
+   "t": "stiati",
+   "md": "Imnul României, *Deșteaptă-te, române*, s-a cântat, după tradiție, pentru prima dată în vara lui 1848, la Râmnicu Vâlcea, pe o melodie culeasă de Anton Pann. În decembrie 1989 a fost cântat de mulțimile de pe străzi, iar din 1990 este imnul național."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "27 martie 1848",
+     "text": "Începe mișcarea revoluționară de la Iași."
+    },
+    {
+     "an": "3/15 mai 1848",
+     "text": "Adunarea de pe Câmpia Libertății, de la Blaj."
+    },
+    {
+     "an": "9 iunie 1848",
+     "text": "Proclamația de la Islaz; începe revoluția în Țara Românească."
+    },
+    {
+     "an": "13 septembrie 1848",
+     "text": "Lupta din Dealul Spirii; trupele otomane intră în București."
+    },
+    {
+     "an": "1848–1849",
+     "text": "Războiul civil din Transilvania; rezistența lui Avram Iancu în Munții Apuseni."
+    },
+    {
+     "an": "iulie 1849",
+     "text": "Proiectul de pacificare semnat de Nicolae Bălcescu și Lajos Kossuth."
+    },
+    {
+     "an": "august 1849",
+     "text": "Revoluția maghiară este înfrântă de armatele austriacă și rusă."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "În 1848, revoluția a cuprins Moldova, Țara Românească și Transilvania."
+    },
+    {
+     "text": "Pașoptiștii au cerut libertăți, egalitate în drepturi, desființarea clăcii și unirea Principatelor."
+    },
+    {
+     "text": "În Țara Românească, guvernul provizoriu a condus trei luni, până la intervenția otomană și rusă."
+    },
+    {
+     "text": "În Transilvania, românii conduși de Avram Iancu au luptat pentru recunoașterea drepturilor lor."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Unde a fost citită proclamația revoluției din Țara Românească?",
+     "opt": [
+      "la Islaz",
+      "la Padeș",
+      "la Iași"
+     ],
+     "ok": 0,
+     "expl": "Proclamația de la Islaz, din 9 iunie 1848, avea 22 de puncte."
+    },
+    {
+     "text": "Cum se numește câmpul de lângă Blaj unde s-au adunat românii în mai 1848?",
+     "opt": [
+      "Câmpia Turzii",
+      "Câmpia Libertății",
+      "Câmpul Pâinii"
+     ],
+     "ok": 1,
+     "expl": "Câmpul de lângă Blaj a fost numit Câmpia Libertății după adunarea din 3/15 mai 1848."
+    },
+    {
+     "text": "Cine a scris versurile imnului „Deșteaptă-te, române”?",
+     "opt": [
+      "Mihai Eminescu",
+      "Andrei Mureșanu",
+      "Vasile Alecsandri"
+     ],
+     "ok": 1,
+     "expl": "Andrei Mureșanu a publicat poezia în 1848; din 1990 ea este imnul României."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-27"
+  }
+ ]
+}

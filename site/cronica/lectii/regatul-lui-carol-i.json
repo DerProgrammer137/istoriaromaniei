@@ -1,0 +1,192 @@
+{
+ "id": "regatul-lui-carol-i",
+ "titlu": "Regatul României în vremea lui Carol I",
+ "rezumat": "Căi ferate, porturi, petrol, școli și o capitală care se modernizează; dar și țăranii fără pământ, care se ridică în 1907.",
+ "an": 1881,
+ "cand": "1881–1914",
+ "regiuni": [
+  "muntenia",
+  "moldova",
+  "oltenia",
+  "dobrogea"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1880
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Crowning%20of%20Carol%20I%2C%2010%20May%201881.jpg?width=1280",
+  "alt": "Încoronarea regelui Carol I, într-o imagine de epocă",
+  "sursa": "Încoronarea lui Carol I, 10 mai 1881. Domeniu public, prin Wikimedia Commons.",
+  "forma": "peisaj"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "Pe 14 martie 1881, România a fost proclamată **regat**, iar pe 10 mai Carol I și regina Elisabeta au fost încoronați la București. Domnia lui Carol a durat 48 de ani, cea mai lungă din istoria României, și a fost o vreme de pace și de modernizare."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "monarhie constituțională",
+     "def": "stat condus de un rege, ale cărui puteri sunt limitate de constituție și de parlament."
+    },
+    {
+     "termen": "arendaș",
+     "def": "cel care lua cu chirie moșia unui proprietar și o lucra cu țăranii."
+    },
+    {
+     "termen": "industrializare",
+     "def": "dezvoltarea fabricilor și a industriei."
+    },
+    {
+     "termen": "neutralitate",
+     "def": "starea unui stat care nu participă la un război."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "O țară care se modernizează"
+  },
+  {
+   "t": "text",
+   "md": "În aceste decenii, România s-a schimbat mai repede decât oricând. Prima cale ferată, între București și Giurgiu, fusese deschisă în 1869; până la Primul Război Mondial, liniile ajunseseră în toată țara. În 1895 s-a terminat podul de la **Cernavodă**, construit de inginerul **Anghel Saligny**, unul dintre cele mai lungi poduri din Europa la acea vreme, care lega Bucureștiul de portul Constanța.\n\nPetrolul din Prahova a devenit una dintre marile bogății ale țării, iar Bucureștiul a primit bulevarde, iluminat public și clădiri impunătoare, ca Ateneul Român (1888) sau Palatul Poștelor. La Sinaia, regele a construit **Castelul Peleș**. Viața politică se desfășura între două mari partide, **Partidul Național Liberal** și **Partidul Conservator**, care se schimbau la guvernare."
+  },
+  {
+   "t": "stiati",
+   "md": "În 1857, România a fost prima țară din lume care a înregistrat oficial o producție de petrol, iar Bucureștiul a devenit primul oraș din lume luminat public cu lămpi cu petrol lampant."
+  },
+  {
+   "t": "titlu",
+   "text": "Țăranii și răscoala din 1907"
+  },
+  {
+   "t": "text",
+   "md": "Modernizarea nu a ajuns însă la toți. Cei mai mulți români erau țărani, iar mulți aveau prea puțin pământ și erau nevoiți să lucreze pe moșiile marilor proprietari și ale arendașilor, în condiții grele. În februarie 1907, la **Flămânzi**, în județul Botoșani, a izbucnit o răscoală care s-a întins în câteva săptămâni în toată țara.\n\nGuvernul a trimis armata, iar răscoala a fost înăbușită cu tunuri. Mii de țărani au fost uciși; numărul exact nu se cunoaște nici azi. După răscoală au fost date câteva legi în favoarea țăranilor, dar marea reformă agrară avea să vină abia după Primul Război Mondial."
+  },
+  {
+   "t": "titlu",
+   "text": "Ultimii ani"
+  },
+  {
+   "t": "text",
+   "md": "În 1913, România a intrat în **al Doilea Război Balcanic**, împotriva Bulgariei, și, prin pacea de la București, a primit sudul Dobrogei, numit **Cadrilater**. La izbucnirea Primului Război Mondial, Carol, înrudit cu familia imperială germană, ar fi vrut ca România să lupte alături de Germania, dar Consiliul de Coroană a hotărât **neutralitatea**. Regele a murit câteva săptămâni mai târziu, pe 10 octombrie 1914."
+  },
+  {
+   "t": "harta",
+   "an": 1880,
+   "regiuni": [
+    "dobrogea",
+    "cadrilater"
+   ],
+   "text": "România după Congresul de la Berlin și după pacea de la București din 1913, când i s-a alipit Cadrilaterul.",
+   "an2": 1914
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "1869",
+     "text": "Se deschide calea ferată București–Giurgiu."
+    },
+    {
+     "an": "14 martie 1881",
+     "text": "România este proclamată regat."
+    },
+    {
+     "an": "10 mai 1881",
+     "text": "Carol I și Elisabeta sunt încoronați."
+    },
+    {
+     "an": "1883",
+     "text": "Este inaugurat Castelul Peleș, la Sinaia."
+    },
+    {
+     "an": "1888",
+     "text": "Este inaugurat Ateneul Român."
+    },
+    {
+     "an": "1895",
+     "text": "Se deschide podul de la Cernavodă."
+    },
+    {
+     "an": "1907",
+     "text": "Marea răscoală a țăranilor."
+    },
+    {
+     "an": "1913",
+     "text": "Pacea de la București: România primește Cadrilaterul."
+    },
+    {
+     "an": "1914",
+     "text": "Moare regele Carol I (10 octombrie)."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "În 1881, România a devenit regat; Carol I a domnit 48 de ani, între 1866 și 1914."
+    },
+    {
+     "text": "Țara s-a modernizat: căi ferate, podul de la Cernavodă, industria petrolului, orașe noi."
+    },
+    {
+     "text": "În 1907, țăranii fără pământ s-au răsculat, iar răscoala a fost înăbușită de armată."
+    },
+    {
+     "text": "În 1913, România a primit Cadrilaterul; în 1914 a ales neutralitatea."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Cine a construit podul de la Cernavodă?",
+     "opt": [
+      "Anghel Saligny",
+      "Henri Coandă",
+      "Aurel Vlaicu"
+     ],
+     "ok": 0,
+     "expl": "Inginerul Anghel Saligny a construit podul, terminat în 1895."
+    },
+    {
+     "text": "Unde a început răscoala din 1907?",
+     "opt": [
+      "la Flămânzi, în Botoșani",
+      "la Ploiești",
+      "la Craiova"
+     ],
+     "ok": 0,
+     "expl": "Răscoala a izbucnit în februarie 1907 la Flămânzi și s-a întins în toată țara."
+    },
+    {
+     "text": "Ce a hotărât Consiliul de Coroană în 1914?",
+     "opt": [
+      "intrarea în război alături de Germania",
+      "neutralitatea",
+      "alianța cu Rusia"
+     ],
+     "ok": 1,
+     "expl": "Deși regele Carol I dorea alianța cu Germania, Consiliul de Coroană a ales neutralitatea."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-30"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-31"
+  }
+ ]
+}

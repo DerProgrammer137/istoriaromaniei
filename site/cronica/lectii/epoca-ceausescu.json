@@ -1,0 +1,188 @@
+{
+ "id": "epoca-ceausescu",
+ "titlu": "Epoca Ceaușescu",
+ "rezumat": "De la deschiderea de la sfârșitul anilor '60 și refuzul invadării Cehoslovaciei la cultul personalității, foamea, frigul și frica din anii '80.",
+ "an": 1965,
+ "cand": "1965–1989",
+ "regiuni": [],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1970
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Reception%20for%20President%20Ceausescu%20of%20Romania%20hosted%20by%20the%20Romanian%20Embassy%20-%20NARA%20-%20194561.jpg?width=1280",
+  "alt": "Nicolae Ceaușescu la o recepție oficială în Statele Unite",
+  "sursa": "Nicolae Ceaușescu în vizită în Statele Unite. Fotografie din Arhivele Naționale ale SUA, domeniu public, prin Wikimedia Commons.",
+  "forma": "peisaj"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "În martie 1965, după moartea lui Gheorghiu-Dej, conducerea Partidului Comunist a fost preluată de **Nicolae Ceaușescu**. În același an, țara a primit o nouă constituție și numele de **Republica Socialistă România**.\n\nÎn primii ani, noul conducător a lăsat impresia unei deschideri: cenzura s-a mai relaxat, au fost traduse cărți și filme occidentale, iar în magazine au apărut mai multe produse."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "cult al personalității",
+     "def": "propaganda care îl înfățișează pe conducător ca pe un om fără greșeală, demn de admirație."
+    },
+    {
+     "termen": "cenzură",
+     "def": "controlul statului asupra a ceea ce se publică, se difuzează sau se spune în public."
+    },
+    {
+     "termen": "raționalizare",
+     "def": "limitarea, prin cartele, a cantității de alimente pe care o putea cumpăra fiecare om."
+    },
+    {
+     "termen": "datorie externă",
+     "def": "banii împrumutați de un stat din străinătate."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "August 1968"
+  },
+  {
+   "t": "text",
+   "md": "Pe 21 august 1968, armatele Uniunii Sovietice și ale altor patru state comuniste au invadat **Cehoslovacia**, unde conducerea comunistă încercase reforme. România a refuzat să participe. În aceeași zi, într-un miting uriaș în Piața Palatului din București, Ceaușescu a condamnat invazia."
+  },
+  {
+   "t": "citat",
+   "text": "Pătrunderea trupelor celor cinci țări socialiste în Cehoslovacia constituie o mare greșeală și o primejdie gravă pentru pacea în Europa, pentru soarta socialismului în lume.",
+   "autor": "Nicolae Ceaușescu",
+   "sursa": "discursul din Piața Palatului, București, 21 august 1968",
+   "intrebare": "De ce credeți că acest discurs l-a făcut popular pe Ceaușescu, în țară și în Occident? Ce a urmat după câțiva ani?"
+  },
+  {
+   "t": "text",
+   "md": "Gestul i-a adus popularitate în țară și simpatia Occidentului. Președintele american **Richard Nixon** a vizitat România în 1969, iar țara a primit credite și tehnologie occidentală."
+  },
+  {
+   "t": "titlu",
+   "text": "Cultul personalității"
+  },
+  {
+   "t": "text",
+   "md": "După o vizită în China și Coreea de Nord, în 1971, Ceaușescu a anunțat, prin așa-numitele **Teze din iulie**, întoarcerea la controlul strict al culturii. A devenit președinte al Republicii în 1974 și a adunat toată puterea în mâinile lui și ale soției sale, **Elena Ceaușescu**. Ziarele, radioul și televiziunea îi înfățișau ca pe cei mai mari conducători din istoria țării: **cultul personalității** a ajuns la proporții uriașe.\n\nSecuritatea îi urmărea pe toți cei bănuiți că nu iubesc regimul, cu ajutorul unei rețele uriașe de informatori. Avortul era interzis din 1966, iar cei care criticau regimul erau închiși, internați în spitale de psihiatrie sau alungați din țară."
+  },
+  {
+   "t": "stiati",
+   "md": "Cutremurul din 4 martie 1977, de 7,2 grade pe scara Richter, a ucis peste 1.500 de oameni, cei mai mulți în București."
+  },
+  {
+   "t": "titlu",
+   "text": "Anii '80"
+  },
+  {
+   "t": "text",
+   "md": "Ca să plătească datoria externă, de peste 10 miliarde de dolari, Ceaușescu a hotărât să exporte aproape tot ce producea țara. În anii '80, alimentele de bază erau raționalizate, iar oamenii stăteau ore întregi la cozi. Locuințele erau încălzite puțin, curentul se oprea seara, iar televiziunea transmitea doar două ore pe zi. Datoria a fost plătită în primăvara lui 1989, cu prețul unor sacrificii uriașe.\n\nÎn același timp, în centrul Bucureștiului au fost dărâmate cartiere istorice și biserici pentru a face loc **Casei Poporului**, o clădire uriașă, începută în 1984. Nemulțumirea a izbucnit în noiembrie 1987 la **Brașov**, unde muncitorii au ieșit în stradă strigând „Jos Ceaușescu!”. Revolta a fost înăbușită, dar regimul mai avea doar doi ani."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "1965",
+     "text": "Nicolae Ceaușescu preia conducerea partidului; țara devine Republica Socialistă România."
+    },
+    {
+     "an": "1966",
+     "text": "Este interzis avortul."
+    },
+    {
+     "an": "21 august 1968",
+     "text": "Ceaușescu condamnă invadarea Cehoslovaciei."
+    },
+    {
+     "an": "1969",
+     "text": "Vizita președintelui american Richard Nixon."
+    },
+    {
+     "an": "1971",
+     "text": "Tezele din iulie: întoarcerea la controlul strict al culturii."
+    },
+    {
+     "an": "1974",
+     "text": "Ceaușescu devine președinte al Republicii."
+    },
+    {
+     "an": "4 martie 1977",
+     "text": "Cutremurul din București."
+    },
+    {
+     "an": "1984",
+     "text": "Încep lucrările la Casa Poporului."
+    },
+    {
+     "an": "15 noiembrie 1987",
+     "text": "Revolta muncitorilor de la Brașov."
+    },
+    {
+     "an": "aprilie 1989",
+     "text": "Este anunțată plata integrală a datoriei externe."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "Nicolae Ceaușescu a condus România între 1965 și 1989."
+    },
+    {
+     "text": "În 1968 a condamnat invadarea Cehoslovaciei, ceea ce i-a adus popularitate în țară și în Occident."
+    },
+    {
+     "text": "Din anii '70, regimul a devenit tot mai autoritar, cu un cult al personalității fără precedent."
+    },
+    {
+     "text": "În anii '80, pentru plata datoriei externe, românii au trăit în frig și cu alimente raționalizate."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Ce a condamnat Ceaușescu în discursul din 21 august 1968?",
+     "opt": [
+      "războiul din Vietnam",
+      "invadarea Cehoslovaciei",
+      "construirea Zidului Berlinului"
+     ],
+     "ok": 1,
+     "expl": "România a refuzat să participe la invadarea Cehoslovaciei de către armatele Tratatului de la Varșovia."
+    },
+    {
+     "text": "Ce clădire uriașă a fost începută în 1984 în centrul Bucureștiului?",
+     "opt": [
+      "Ateneul Român",
+      "Casa Poporului",
+      "Arcul de Triumf"
+     ],
+     "ok": 1,
+     "expl": "Pentru Casa Poporului, azi Palatul Parlamentului, au fost dărâmate cartiere istorice întregi."
+    },
+    {
+     "text": "Unde au ieșit muncitorii în stradă împotriva regimului în 1987?",
+     "opt": [
+      "la Timișoara",
+      "la Brașov",
+      "la Iași"
+     ],
+     "ok": 1,
+     "expl": "Revolta de la Brașov, din 15 noiembrie 1987, a fost înăbușită de Securitate."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-41"
+  }
+ ]
+}

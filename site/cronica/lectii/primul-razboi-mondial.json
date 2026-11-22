@@ -1,0 +1,192 @@
+{
+ "id": "primul-razboi-mondial",
+ "titlu": "România în Primul Război Mondial",
+ "rezumat": "Doi ani de neutralitate, intrarea în război pentru Transilvania, înfrângerile din 1916 și rezistența de la Mărăști, Mărășești și Oituz.",
+ "an": 1916,
+ "cand": "1914–1918",
+ "regiuni": [
+  "transilvania",
+  "muntenia",
+  "moldova",
+  "dobrogea"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1914
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/King%20Ferdinand%20of%20Romania.jpg",
+  "alt": "Portretul regelui Ferdinand I, în uniformă",
+  "sursa": "Regele Ferdinand I. Domeniu public, prin Wikimedia Commons.",
+  "forma": "portret"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "După moartea lui Carol I, pe tron a urcat nepotul său, **Ferdinand I** (1914–1927). Timp de doi ani, România a rămas neutră și a negociat cu ambele tabere. Scopul principal era unirea cu **Transilvania** și **Bucovina**, aflate în Austro-Ungaria, unde trăiau milioane de români.\n\nÎn august 1916, România a semnat un tratat de alianță cu **Antanta** (Franța, Marea Britanie, Rusia și Italia), care îi promitea aceste teritorii."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "Antanta",
+     "def": "alianța Franței, a Marii Britanii și a Rusiei, căreia i s-au alăturat Italia, România și alte state."
+    },
+    {
+     "termen": "Puterile Centrale",
+     "def": "alianța Germaniei, a Austro-Ungariei, a Imperiului Otoman și a Bulgariei."
+    },
+    {
+     "termen": "front",
+     "def": "linia pe care se înfruntă armatele."
+    },
+    {
+     "termen": "armistițiu",
+     "def": "oprirea luptelor printr-o înțelegere între statele aflate în război."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "1916: anul înfrângerilor"
+  },
+  {
+   "t": "text",
+   "md": "Pe 14 august 1916 (27 august, după calendarul de azi), România a declarat război Austro-Ungariei, iar armata a trecut Carpații în Transilvania. Regele i-a chemat pe soldați la luptă printr-o proclamație."
+  },
+  {
+   "t": "citat",
+   "text": "Ostași, v-am chemat ca să purtați steagurile voastre peste hotarele unde frații noștri vă așteaptă cu nerăbdare și cu inima plină de nădejde.",
+   "autor": "Regele Ferdinand I",
+   "sursa": "proclamația către armată, august 1916",
+   "intrebare": "Pe cine numește regele „frații noștri”? Ce scop al războiului arată proclamația?"
+  },
+  {
+   "t": "text",
+   "md": "Înaintarea nu a durat mult. Germania și Bulgaria au atacat dinspre sud, unde românii au fost învinși la **Turtucaia**, în septembrie, iar armatele germane și austro-ungare au recucerit Transilvania și au trecut munții. Pe 6 decembrie 1916, **Bucureștiul** a fost ocupat. Regele, guvernul și parlamentul s-au mutat la **Iași**, iar armata s-a retras în Moldova, pe linia Siretului."
+  },
+  {
+   "t": "titlu",
+   "text": "1917: Mărăști, Mărășești, Oituz"
+  },
+  {
+   "t": "text",
+   "md": "Iarna 1916–1917 a fost cumplită: refugiați, foamete și o epidemie de tifos care a ucis zeci de mii de oameni. Armata a fost refăcută cu ajutorul unei misiuni militare franceze conduse de generalul **Henri Berthelot**, iar regele le-a promis soldaților țărani pământ și drept de vot.\n\nÎn vara lui 1917, frontul din Moldova a rezistat. La **Mărăști**, armata generalului **Alexandru Averescu** a atacat și a înaintat. La **Mărășești**, în august, armata condusă de generalul **Eremia Grigorescu** a oprit marea ofensivă germană a feldmareșalului August von Mackensen; deviza apărătorilor a rămas „Pe aici nu se trece!”. Au urmat luptele de la **Oituz**."
+  },
+  {
+   "t": "imagine",
+   "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Img%20G-ral%20Eremia%20Grigorescu%2006.jpg?width=960",
+   "alt": "Fotografie a generalului Eremia Grigorescu, în uniformă",
+   "legenda": "Generalul Eremia Grigorescu, comandantul armatei de la Mărășești.",
+   "sursa": "Domeniu public, prin Wikimedia Commons."
+  },
+  {
+   "t": "stiati",
+   "md": "**Ecaterina Teodoroiu**, o tânără din Gorj, s-a înrolat voluntară și a ajuns sublocotenent. A căzut în luptă la Mărășești, în 1917, și este înmormântată la Târgu Jiu."
+  },
+  {
+   "t": "titlu",
+   "text": "Pacea și sfârșitul războiului"
+  },
+  {
+   "t": "text",
+   "md": "După revoluția din Rusia, armata rusă s-a destrămat, iar România, rămasă singură, a fost silită să ceară armistițiu. Prin pacea de la **București**, din mai 1918, a pierdut Dobrogea și trecătorile Carpaților, dar regele nu a semnat-o niciodată.\n\nÎn martie 1918, Basarabia votase deja unirea cu România. În noiembrie 1918, când Puterile Centrale se prăbușeau, România a reintrat în război. Peste câteva săptămâni, Bucovina și Transilvania aveau să voteze și ele unirea."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "august 1914",
+     "text": "Consiliul de Coroană hotărăște neutralitatea."
+    },
+    {
+     "an": "14/27 august 1916",
+     "text": "România declară război Austro-Ungariei."
+    },
+    {
+     "an": "septembrie 1916",
+     "text": "Înfrângerea de la Turtucaia."
+    },
+    {
+     "an": "6 decembrie 1916",
+     "text": "Bucureștiul este ocupat; conducerea țării se mută la Iași."
+    },
+    {
+     "an": "iulie 1917",
+     "text": "Ofensiva de la Mărăști."
+    },
+    {
+     "an": "august 1917",
+     "text": "Bătăliile de la Mărășești și Oituz."
+    },
+    {
+     "an": "mai 1918",
+     "text": "Pacea de la București, pe care regele nu o semnează."
+    },
+    {
+     "an": "10 noiembrie 1918",
+     "text": "România reintră în război."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "România a rămas neutră între 1914 și 1916 și a intrat în război alături de Antanta pentru unirea cu Transilvania și Bucovina."
+    },
+    {
+     "text": "În 1916, armata a fost învinsă, iar Bucureștiul a fost ocupat; conducerea țării s-a mutat la Iași."
+    },
+    {
+     "text": "În vara lui 1917, la Mărăști, Mărășești și Oituz, armata română a oprit ofensiva germană."
+    },
+    {
+     "text": "Sfârșitul războiului a deschis drumul Marii Uniri."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Cu ce alianță a intrat România în război în 1916?",
+     "opt": [
+      "Puterile Centrale",
+      "Antanta",
+      "Mica Înțelegere"
+     ],
+     "ok": 1,
+     "expl": "România s-a alăturat Antantei, care îi promitea Transilvania și Bucovina."
+    },
+    {
+     "text": "Unde s-au mutat regele și guvernul după ocuparea Bucureștiului?",
+     "opt": [
+      "la Iași",
+      "la Craiova",
+      "la Cluj"
+     ],
+     "ok": 0,
+     "expl": "Din decembrie 1916, Iașiul a fost capitala României aflate în război."
+    },
+    {
+     "text": "Ce general a condus armata română la Mărășești?",
+     "opt": [
+      "Alexandru Averescu",
+      "Eremia Grigorescu",
+      "Henri Berthelot"
+     ],
+     "ok": 1,
+     "expl": "Eremia Grigorescu a comandat armata la Mărășești; Averescu a condus ofensiva de la Mărăști."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-32"
+  }
+ ]
+}

@@ -1,0 +1,175 @@
+{
+ "id": "revolutia-din-1989",
+ "titlu": "Revoluția din decembrie 1989",
+ "rezumat": "În zece zile, de la Timișoara la București, regimul comunist se prăbușește. Prețul libertății: peste o mie o sută de morți.",
+ "an": 1989,
+ "cand": "16–25 decembrie 1989",
+ "regiuni": [
+  "banat",
+  "muntenia"
+ ],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1970
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Romanian%20Revolution%201989%20Demonstrators.jpg?width=1280",
+  "alt": "Demonstranți pe stradă, în decembrie 1989",
+  "sursa": "Demonstranți în decembrie 1989. Fotografie din cartea „1989 Libertate Roumanie” (Denoël, Paris), licență CC BY-SA 3.0, prin Wikimedia Commons.",
+  "forma": "peisaj"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "În 1989, regimurile comuniste din Europa de Est cădeau unul după altul: în Polonia, Ungaria, Germania de Est, Cehoslovacia și Bulgaria. Ceaușescu a refuzat orice schimbare și, în noiembrie, a fost reales la Congresul al XIV-lea al partidului. România părea țara în care nimic nu se mai putea mișca."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "revoluție",
+     "def": "schimbare rapidă și profundă a conducerii și a felului în care e organizată o societate."
+    },
+    {
+     "termen": "represiune",
+     "def": "folosirea forței de către stat împotriva celor care protestează."
+    },
+    {
+     "termen": "Frontul Salvării Naționale",
+     "def": "organizația care a preluat puterea pe 22 decembrie 1989, condusă de Ion Iliescu."
+    },
+    {
+     "termen": "pluripartidism",
+     "def": "existența mai multor partide politice, care concurează în alegeri libere."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Timișoara"
+  },
+  {
+   "t": "text",
+   "md": "Totul a început la **Timișoara**, pe 16 decembrie 1989. Credincioși reformați și apoi alți locuitori ai orașului s-au strâns în jurul casei pastorului **László Tőkés**, pe care autoritățile voiau să-l mute din oraș. Protestul s-a transformat repede într-o revoltă împotriva regimului.\n\nPe 17 decembrie, armata și Securitatea au tras în mulțime. Muncitorii din fabrici au intrat în grevă, iar pe 20 decembrie Timișoara a devenit primul oraș liber de comunism."
+  },
+  {
+   "t": "citat",
+   "text": "Jos Ceaușescu! Libertate! Fără violență! Nu plecăm acasă, morții nu ne lasă!",
+   "autor": "lozinci strigate de manifestanți",
+   "sursa": "Timișoara și București, decembrie 1989",
+   "intrebare": "Ce cereau manifestanții prin aceste lozinci? Ce arată lozinca „Fără violență!” despre felul în care voiau să lupte?"
+  },
+  {
+   "t": "titlu",
+   "text": "București"
+  },
+  {
+   "t": "text",
+   "md": "Pe 21 decembrie, Ceaușescu a convocat un miting în fața clădirii Comitetului Central, ca să arate că poporul îl susține. Mulțimea a început să-l huiduie, iar mitingul s-a transformat în protest. În noaptea următoare, manifestanții din Piața Universității au fost uciși, răniți și arestați.\n\nPe 22 decembrie, sute de mii de oameni au ieșit în stradă, iar armata a trecut de partea lor. Ceaușescu și soția sa au fugit cu elicopterul de pe clădirea Comitetului Central. Puterea a fost preluată de **Frontul Salvării Naționale**, condus de **Ion Iliescu**. În zilele următoare au continuat luptele cu așa-numiții „teroriști”, despre care nu se știe nici azi tot adevărul. Pe 25 decembrie, după un proces sumar, Nicolae și Elena Ceaușescu au fost executați la Târgoviște."
+  },
+  {
+   "t": "titlu",
+   "text": "Prețul libertății"
+  },
+  {
+   "t": "text",
+   "md": "În revoluție au murit peste 1.100 de oameni și au fost răniți peste 3.300; cei mai mulți au căzut după 22 decembrie. Cine a tras și de ce se discută încă, de istorici și în instanță.\n\nPrimele decrete ale noii puteri au desființat partidul unic și pedeapsa cu moartea și au promis alegeri libere."
+  },
+  {
+   "t": "stiati",
+   "md": "Timișoara a primit titlul de *oraș-martir* al Revoluției. Steagul tricolor cu stema comunistă decupată din mijloc, purtat atunci de manifestanți, a devenit simbolul Revoluției române."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "16 decembrie",
+     "text": "Protestul din jurul casei pastorului László Tőkés, la Timișoara."
+    },
+    {
+     "an": "17 decembrie",
+     "text": "Armata și Securitatea trag în manifestanți la Timișoara."
+    },
+    {
+     "an": "20 decembrie",
+     "text": "Timișoara devine oraș liber."
+    },
+    {
+     "an": "21 decembrie",
+     "text": "Mitingul lui Ceaușescu se transformă în protest; represiune în Piața Universității."
+    },
+    {
+     "an": "22 decembrie",
+     "text": "Ceaușescu fuge; puterea este preluată de Frontul Salvării Naționale."
+    },
+    {
+     "an": "22–27 decembrie",
+     "text": "Lupte cu „teroriștii” în București și în alte orașe."
+    },
+    {
+     "an": "25 decembrie",
+     "text": "Nicolae și Elena Ceaușescu sunt executați la Târgoviște."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "Revoluția a început la Timișoara, pe 16 decembrie 1989, și s-a extins în toată țara."
+    },
+    {
+     "text": "Pe 22 decembrie, Nicolae Ceaușescu a fugit, iar puterea a fost preluată de Frontul Salvării Naționale."
+    },
+    {
+     "text": "În revoluție au murit peste 1.100 de oameni."
+    },
+    {
+     "text": "Căderea regimului a deschis drumul spre pluripartidism și alegeri libere."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "În ce oraș a început Revoluția din 1989?",
+     "opt": [
+      "București",
+      "Timișoara",
+      "Brașov"
+     ],
+     "ok": 1,
+     "expl": "Protestele au început la Timișoara, pe 16 decembrie 1989."
+    },
+    {
+     "text": "Ce s-a întâmplat pe 22 decembrie 1989?",
+     "opt": [
+      "Ceaușescu a fugit cu elicopterul",
+      "s-au ținut alegeri libere",
+      "România a intrat în NATO"
+     ],
+     "ok": 0,
+     "expl": "Ceaușescu a fugit de pe clădirea Comitetului Central, iar puterea a fost preluată de FSN."
+    },
+    {
+     "text": "Ce a devenit simbolul Revoluției române?",
+     "opt": [
+      "steagul cu stema decupată",
+      "Coloana fără sfârșit",
+      "Arcul de Triumf"
+     ],
+     "ok": 0,
+     "expl": "Manifestanții au decupat stema comunistă din mijlocul steagului tricolor."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-42"
+  }
+ ]
+}

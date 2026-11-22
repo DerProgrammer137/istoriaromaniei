@@ -1,0 +1,225 @@
+{
+ "id": "romania-interbelica",
+ "titlu": "România interbelică",
+ "rezumat": "România Mare își construiește instituțiile: vot universal, reformă agrară, Constituția din 1923 și o cultură înfloritoare, dar și criza economică și extremismul care duc la dictatură.",
+ "an": 1923,
+ "cand": "1918–1940",
+ "regiuni": [],
+ "autor": "",
+ "actualizat": "2026-11-22",
+ "exemplu": true,
+ "harta": {
+  "an": 1930
+ },
+ "coperta": {
+  "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Bucarest%20pavois%C3%A9e%20en%20l%27honneur%20du%20couronnement%201922%2C%20Meurisse.jpg?width=1280",
+  "alt": "Bulevard din București împodobit cu steaguri, în 1922",
+  "sursa": "Bucureștiul împodobit pentru încoronarea regelui Ferdinand și a reginei Maria, 1922. Fotografie a agenției Meurisse. Domeniu public, prin Wikimedia Commons.",
+  "forma": "peisaj"
+ },
+ "blocuri": [
+  {
+   "t": "text",
+   "md": "După Marea Unire, România își dublase suprafața și populația. Noul stat trebuia să unească provincii care trăiseră secole în imperii diferite, cu legi, monede și obiceiuri diferite.\n\nÎn primii ani au fost făcute trei mari reforme: **votul universal** pentru bărbați (1918), **reforma agrară** (1921), prin care țăranii au primit pământ de la marii proprietari, și o nouă **Constituție** (1923)."
+  },
+  {
+   "t": "dictionar",
+   "termeni": [
+    {
+     "termen": "vot universal",
+     "def": "dreptul de vot pentru toți cetățenii de la o anumită vârstă; în 1918, doar pentru bărbați."
+    },
+    {
+     "termen": "reformă agrară",
+     "def": "împărțirea pământului marilor proprietari între țărani."
+    },
+    {
+     "termen": "minoritate națională",
+     "def": "grup de cetățeni ai unui stat care au altă limbă și altă origine decât majoritatea."
+    },
+    {
+     "termen": "dictatură",
+     "def": "conducere în care toată puterea e în mâna unui om sau a unui grup, fără libertăți."
+    }
+   ]
+  },
+  {
+   "t": "titlu",
+   "text": "Constituția din 1923"
+  },
+  {
+   "t": "citat",
+   "text": "Regatul României este un stat național unitar și indivizibil.",
+   "autor": "Constituția României",
+   "sursa": "articolul 1, 29 martie 1923",
+   "intrebare": "Ce înseamnă că statul este „unitar și indivizibil”? De ce era important acest articol pentru România de după 1918?"
+  },
+  {
+   "t": "text",
+   "md": "Constituția din 1923 a păstrat monarhia constituțională și a garantat drepturile cetățenilor, fără deosebire de origine etnică, de limbă sau de religie. România Mare avea minorități numeroase, maghiari, germani, evrei, ucraineni, ruși, bulgari, romi, turci și alții, care reprezentau peste un sfert din populație. Aproape trei sferturi dintre locuitori trăiau din agricultură."
+  },
+  {
+   "t": "grafic",
+   "tip": "bare",
+   "titlu": "Populația României după neam, la recensământul din 1930",
+   "unitate": "%",
+   "date": [
+    {
+     "e": "Români",
+     "v": 71.9
+    },
+    {
+     "e": "Maghiari",
+     "v": 7.9
+    },
+    {
+     "e": "Germani",
+     "v": 4.1
+    },
+    {
+     "e": "Evrei",
+     "v": 4.0
+    },
+    {
+     "e": "Ucraineni și ruteni",
+     "v": 3.2
+    },
+    {
+     "e": "Ruși",
+     "v": 2.3
+    },
+    {
+     "e": "Bulgari",
+     "v": 2.0
+    },
+    {
+     "e": "Romi",
+     "v": 1.5
+    },
+    {
+     "e": "Alții",
+     "v": 3.1
+    }
+   ],
+   "sursa": "Recensământul general al populației, 29 decembrie 1930"
+  },
+  {
+   "t": "titlu",
+   "text": "O cultură înfloritoare"
+  },
+  {
+   "t": "text",
+   "md": "Perioada interbelică a fost una dintre cele mai bogate din cultura românească. **George Enescu** a compus opera *Oedip* (1936), sculptorul **Constantin Brâncuși** a ridicat la Târgu Jiu ansamblul închinat eroilor din Primul Război Mondial, cu *Coloana fără sfârșit*, iar scriitori ca **Liviu Rebreanu**, **Mihail Sadoveanu**, **Lucian Blaga** și **Tudor Arghezi** și-au scris operele cele mai cunoscute.\n\nDiplomatul **Nicolae Titulescu** a fost ales de două ori președinte al Adunării Societății Națiunilor (1930 și 1931). Bucureștiul, cu bulevardele și clădirile lui noi, a primit numele de „micul Paris”."
+  },
+  {
+   "t": "stiati",
+   "md": "Votul universal din 1918 era doar pentru bărbați. Unele femei au putut vota la alegerile locale din 1929, dar dreptul de vot egal pentru toate femeile a venit abia în 1946."
+  },
+  {
+   "t": "titlu",
+   "text": "Criza și drumul spre dictatură"
+  },
+  {
+   "t": "text",
+   "md": "Marea criză economică din 1929–1933 a lovit greu țara, mai ales pe țărani. În aceeași vreme a crescut **Mișcarea Legionară** (Garda de Fier), o mișcare de extremă dreaptă, antisemită, care a folosit asasinatul politic: în 1933 a fost ucis prim-ministrul **I. G. Duca**.\n\nRegele **Carol al II-lea**, revenit în țară în 1930, a profitat de crizele politice și, în februarie 1938, a instaurat o **dictatură regală**: a dat o nouă constituție, a desființat partidele și a condus prin decrete."
+  },
+  {
+   "t": "cronologie",
+   "titlu": "Cronologie",
+   "ev": [
+    {
+     "an": "1918",
+     "text": "Decretul pentru votul universal al bărbaților."
+    },
+    {
+     "an": "1921",
+     "text": "Reforma agrară."
+    },
+    {
+     "an": "1922",
+     "text": "Ferdinand și Maria sunt încoronați la Alba Iulia."
+    },
+    {
+     "an": "1923",
+     "text": "Noua Constituție (29 martie)."
+    },
+    {
+     "an": "1927",
+     "text": "Moare regele Ferdinand; pe tron urcă Mihai, copil."
+    },
+    {
+     "an": "1929–1933",
+     "text": "Marea criză economică."
+    },
+    {
+     "an": "1930",
+     "text": "Carol al II-lea revine în țară și devine rege."
+    },
+    {
+     "an": "1938",
+     "text": "Carol al II-lea instaurează dictatura regală."
+    }
+   ]
+  },
+  {
+   "t": "retin",
+   "puncte": [
+    {
+     "text": "După 1918, România Mare a introdus votul universal pentru bărbați, reforma agrară și Constituția din 1923."
+    },
+    {
+     "text": "Cultura interbelică a dat nume ca George Enescu, Constantin Brâncuși, Lucian Blaga și Liviu Rebreanu."
+    },
+    {
+     "text": "Criza economică și extremismul legionar au slăbit democrația."
+    },
+    {
+     "text": "În 1938, regele Carol al II-lea a instaurat dictatura regală."
+    }
+   ]
+  },
+  {
+   "t": "intrebari",
+   "q": [
+    {
+     "text": "Ce reformă a dat pământ țăranilor în 1921?",
+     "opt": [
+      "reforma agrară",
+      "votul universal",
+      "secularizarea"
+     ],
+     "ok": 0,
+     "expl": "Prin reforma agrară din 1921, pământul marilor proprietari a fost împărțit țăranilor."
+    },
+    {
+     "text": "Cine a fost ales de două ori președinte al Adunării Societății Națiunilor?",
+     "opt": [
+      "Nicolae Titulescu",
+      "Ion I. C. Brătianu",
+      "Iuliu Maniu"
+     ],
+     "ok": 0,
+     "expl": "Nicolae Titulescu a condus Adunarea Societății Națiunilor în 1930 și 1931."
+    },
+    {
+     "text": "Ce a făcut Carol al II-lea în 1938?",
+     "opt": [
+      "a abdicat",
+      "a instaurat dictatura regală",
+      "a dat drept de vot femeilor"
+     ],
+     "ok": 1,
+     "expl": "În februarie 1938, Carol al II-lea a dat o nouă constituție, a desființat partidele și a condus prin decrete."
+    }
+   ]
+  },
+  {
+   "t": "video",
+   "video": "exemplu-34"
+  },
+  {
+   "t": "video",
+   "video": "exemplu-35"
+  }
+ ]
+}
