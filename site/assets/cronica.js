@@ -617,7 +617,7 @@ function dimensiuni(simpla) {
       return {dubla: true, pw, ph, padO, padI, padT, padB, cw, ch, G: 2 * padI, fs: Math.max(16, Math.min(20, cw / 29))};
     }
   }
-  const pw = Math.min(vw - 12, 660), ph = Math.round(Math.max(480, vh - bara - 14));
+  const pw = Math.min(vw - 12, 660), ph = Math.round(Math.max(400, vh - bara - 14));   // cartea încape pe ecran și pe telefoanele mici, fără derulare
   const pad = Math.round(Math.max(20, pw * 0.07)), padT = 44, padB = 48;
   const cw = pw - 2 * pad, ch = ph - padT - padB;
   return {dubla: false, pw, ph, padO: pad, padI: pad, padT, padB, cw, ch, G: 2 * pad, fs: Math.max(16, Math.min(19, cw / 27))};

@@ -5,7 +5,8 @@ body.cr{--masa:#D8CFBE;--masa-ink:#3F352B;background:var(--masa);margin:0;min-he
 :root[data-theme="dark"] body.cr{--masa:#0E1727;--masa-ink:#B9B2A2}
 body.cr:has(> main.lucru){background:var(--linen)}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.masa{min-height:100vh;min-height:100svh;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 6px 8px;outline:none}
+/* overflow:clip: foaia care se întoarce iese, în perspectivă, peste marginea ecranului; fără el, la fiecare pagină apare o bară de derulare */
+.masa{min-height:100vh;min-height:100svh;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 6px 8px;outline:none;overflow:hidden;overflow:clip}
 .lucru{max-width:980px;margin:0 auto;padding:18px max(16px,env(safe-area-inset-left,0px)) 64px;outline:none}
 .cr-loading{color:var(--masa-ink);font-family:var(--f-serif);font-style:italic}
 .masa .empty{color:var(--masa-ink)}
