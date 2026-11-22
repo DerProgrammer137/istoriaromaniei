@@ -231,3 +231,9 @@ img{max-width:100%}
   .theme-btn{padding:7px}
   .theme-btn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 }
+
+/* fără bare de derulare, nicăieri: paginile lungi se derulează tot cu rotița sau cu degetul, dar bara nu se mai vede */
+html,*{scrollbar-width:none;-ms-overflow-style:none}
+html::-webkit-scrollbar,*::-webkit-scrollbar{display:none;width:0;height:0}
+/* cartea încape pe ecran, deci acolo nu e nimic de derulat */
+html:has(#app.masa),html:has(#app.masa) body{overflow:hidden}
