@@ -44,7 +44,7 @@ body.cr:has(> main.lucru){background:var(--linen)}
 .carte.simpla .fer{width:var(--cw)}
 .flux{width:var(--cw);height:var(--ch);column-width:var(--cw);column-gap:var(--G);column-fill:auto;pointer-events:auto;will-change:transform;
   font-family:var(--f-serif);line-height:1.6;orphans:2;widows:2;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
-.carte.simpla .flux{text-align:left;hyphens:manual;-webkit-hyphens:manual}
+.carte.simpla .flux{hyphens:auto;-webkit-hyphens:auto}
 .masura{position:absolute;left:-400000px;top:0;visibility:hidden;pointer-events:none}
 .fixa{position:absolute;top:var(--padT);left:var(--padO);width:var(--cw);height:var(--ch);display:none;z-index:1}
 .pag-st.arata-fixa .fixa{display:block}
@@ -463,3 +463,7 @@ fieldset.fld>.hint{margin-top:8px}
 .ed-ok{display:inline-flex;gap:5px;align-items:center;font-size:.88rem;color:var(--ink-2);cursor:pointer}
 .ed-preview{position:relative;left:50%;transform:translateX(-50%);width:max-content;max-width:100vw;display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 0 8px;--masa-ink:var(--ink-2)}
 .ed-preview[hidden]{display:none}
+
+/* tot textul cărții e aliniat stânga–dreapta, cu despărțire în silabe (titlurile și cuprinsul rămân cum sunt) */
+.carte .flux p,.carte .flux li,.carte .flux dd,.carte .flux figcaption,.carte .pl-nota,.lupa-nota{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.carte .flux .cup li,.carte .flux .pi-lista li,.carte .flux .hm-leg li,.carte .flux .pag-titlu p,.carte .flux .parte-t p,.carte .flux .cap-fin p{text-align:inherit}
